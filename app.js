@@ -319,6 +319,65 @@ const DEMIAN_SPICE_GROUPS = [
   }
 ];
 
+// Market Providers Registry & URL generators
+const MARKET_PROVIDERS = {
+  ozon: {
+    id: 'ozon',
+    name: 'Ozon',
+    icon: '🔵',
+    badgeClass: 'badge-ozon',
+    webUrl: (q) => `https://www.ozon.ru/search/?text=${encodeURIComponent(q)}`,
+    deepLink: (q) => `ozon://search/?text=${encodeURIComponent(q)}`
+  },
+  wb: {
+    id: 'wb',
+    name: 'WB',
+    icon: '🟣',
+    badgeClass: 'badge-wb',
+    webUrl: (q) => `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(q)}`,
+    deepLink: (q) => `wildberries://search?query=${encodeURIComponent(q)}`
+  },
+  yandex: {
+    id: 'yandex',
+    name: 'Яндекс',
+    icon: '🟡',
+    badgeClass: 'badge-yandex',
+    webUrl: (q) => `https://market.yandex.ru/search?text=${encodeURIComponent(q)}`,
+    deepLink: (q) => `yandexmarket://search?text=${encodeURIComponent(q)}`
+  },
+  kuper: {
+    id: 'kuper',
+    name: 'Купер',
+    icon: '🟢',
+    badgeClass: 'badge-kuper',
+    webUrl: (q) => `https://kuper.ru/search?keywords=${encodeURIComponent(q)}`,
+    deepLink: (q) => `sbermarket://search?q=${encodeURIComponent(q)}`
+  },
+  vkusvill: {
+    id: 'vkusvill',
+    name: 'ВкусВилл',
+    icon: '🍃',
+    badgeClass: 'badge-vkusvill',
+    webUrl: (q) => `https://vkusvill.ru/search/?q=${encodeURIComponent(q)}`,
+    deepLink: (q) => `vkusvill://search?text=${encodeURIComponent(q)}`
+  },
+  metro: {
+    id: 'metro',
+    name: 'Metro',
+    icon: '🔴',
+    badgeClass: 'badge-metro',
+    webUrl: (q) => `https://online.metro-cc.ru/search?q=${encodeURIComponent(q)}`,
+    deepLink: (q) => `https://online.metro-cc.ru/search?q=${encodeURIComponent(q)}`
+  }
+};
+
+const DEFAULT_MARKET_PREFS = {
+  preferredProvider: 'ozon',
+  format: 'plain',
+  expandRubs: true,
+  useDeepLinks: false
+};
+
 // Flat array of all spices for fast lookup & migration
 const DEMIAN_RECOMMENDED_SPICES = DEMIAN_SPICE_GROUPS.flatMap(g => g.items);
 
@@ -331,7 +390,9 @@ const state = {
   shoppingFilter: 'all',
   activeTimers: [],
   favorites: [],
-  audioCtx: null
+  audioCtx: null,
+  marketPrefs: { ...DEFAULT_MARKET_PREFS },
+  batchRunner: { active: false, items: [], currentIndex: 0 }
 };
 
 // LocalStorage Keys
@@ -342,7 +403,8 @@ const STORAGE_KEYS = {
   THEME: 'sous_vide_theme_v2',
   FAVORITES: 'sous_vide_favorites_v2',
   TG_TOKEN: 'sous_vide_tg_token_v1',
-  TG_CHAT_ID: 'sous_vide_tg_chat_id_v1'
+  TG_CHAT_ID: 'sous_vide_tg_chat_id_v1',
+  MARKET_PREFS: 'sous_vide_market_prefs_v1'
 };
 
 // Initialize Application
@@ -437,6 +499,18 @@ function loadStoredData() {
       state.favorites = [];
     }
   }
+
+  const storedMarket = localStorage.getItem(STORAGE_KEYS.MARKET_PREFS);
+  if (storedMarket) {
+    try {
+      state.marketPrefs = { ...DEFAULT_MARKET_PREFS, ...JSON.parse(storedMarket) };
+    } catch (e) {
+      state.marketPrefs = { ...DEFAULT_MARKET_PREFS };
+    }
+  } else {
+    state.marketPrefs = { ...DEFAULT_MARKET_PREFS };
+  }
+  currentSearchExportFormat = state.marketPrefs.format || 'plain';
 }
 
 function saveFavorites() {
@@ -453,6 +527,10 @@ function saveShopping() {
 
 function saveTimers() {
   localStorage.setItem(STORAGE_KEYS.TIMERS, JSON.stringify(state.activeTimers));
+}
+
+function saveMarketPrefs() {
+  localStorage.setItem(STORAGE_KEYS.MARKET_PREFS, JSON.stringify(state.marketPrefs));
 }
 
 // Navigation between views
@@ -1180,9 +1258,33 @@ function getSearchQueryList(expandRubs = true) {
 
 let currentSearchExportFormat = 'plain';
 
+function renderMarketProviderSelector() {
+  const container = document.getElementById('market-provider-selector');
+  if (!container) return;
+  const current = state.marketPrefs.preferredProvider || 'ozon';
+  container.innerHTML = Object.entries(MARKET_PROVIDERS).map(([key, prov]) => `
+    <button class="market-provider-btn ${key === current ? 'active' : ''}" onclick="setPreferredMarketProvider('${key}')">
+      <span>${prov.icon}</span>
+      <span>${prov.name}</span>
+    </button>
+  `).join('');
+}
+
+function setPreferredMarketProvider(key) {
+  if (!MARKET_PROVIDERS[key]) return;
+  state.marketPrefs.preferredProvider = key;
+  saveMarketPrefs();
+  renderMarketProviderSelector();
+  updateSearchExportPreview();
+  renderShoppingList();
+  showToast(`Основной магазин: ${MARKET_PROVIDERS[key].icon} ${MARKET_PROVIDERS[key].name}`);
+}
+
 function setSearchExportFormat(fmt) {
   currentSearchExportFormat = fmt;
-  const btnIds = ['plain', 'ozon', 'wb', 'yandex'];
+  state.marketPrefs.format = fmt;
+  saveMarketPrefs();
+  const btnIds = ['plain', 'multi', 'ozon', 'wb', 'yandex'];
   btnIds.forEach(id => {
     const btn = document.getElementById(`btn-search-fmt-${id}`);
     if (btn) btn.classList.toggle('active', id === fmt);
@@ -1190,9 +1292,36 @@ function setSearchExportFormat(fmt) {
   updateSearchExportPreview();
 }
 
+function handleExpandRubsToggle() {
+  const toggle = document.getElementById('toggle-expand-rubs');
+  if (toggle) {
+    state.marketPrefs.expandRubs = toggle.checked;
+    saveMarketPrefs();
+    updateSearchExportPreview();
+  }
+}
+
+function handleDeepLinksToggle() {
+  const toggle = document.getElementById('toggle-deep-links');
+  if (toggle) {
+    state.marketPrefs.useDeepLinks = toggle.checked;
+    saveMarketPrefs();
+    updateSearchExportPreview();
+    showToast(toggle.checked ? '⚡ Deep-Link включены (открывают приложения)' : '🌐 Стандартные веб-ссылки');
+  }
+}
+
+function getItemMarketUrl(providerKey, name, preferDeepLink = false) {
+  const prov = MARKET_PROVIDERS[providerKey] || MARKET_PROVIDERS.ozon;
+  if (preferDeepLink && prov.deepLink) {
+    return prov.deepLink(name);
+  }
+  return prov.webUrl(name);
+}
+
 function updateSearchExportPreview() {
   const toggle = document.getElementById('toggle-expand-rubs');
-  const expandRubs = toggle ? toggle.checked : true;
+  const expandRubs = toggle ? toggle.checked : (state.marketPrefs.expandRubs !== false);
   const items = getSearchQueryList(expandRubs);
   const preview = document.getElementById('search-export-preview');
   const linksContainer = document.getElementById('search-export-items-links');
@@ -1206,19 +1335,27 @@ function updateSearchExportPreview() {
   let text = '';
   if (currentSearchExportFormat === 'plain') {
     text = items.join('\n');
+  } else if (currentSearchExportFormat === 'multi') {
+    text = "🛒 МУЛЬТИ-ПОИСК СПЕЦИЙ И ИНГРЕДИЕНТОВ:\n\n" + items.map(name => {
+      const ozon = MARKET_PROVIDERS.ozon.webUrl(name);
+      const wb = MARKET_PROVIDERS.wb.webUrl(name);
+      const ya = MARKET_PROVIDERS.yandex.webUrl(name);
+      const kuper = MARKET_PROVIDERS.kuper.webUrl(name);
+      return `🌿 ${name}:\n  • Ozon: ${ozon}\n  • WB: ${wb}\n  • Яндекс: ${ya}\n  • Купер: ${kuper}`;
+    }).join('\n\n');
   } else if (currentSearchExportFormat === 'ozon') {
     text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (OZON):\n\n" + items.map(name => {
-      const url = `https://www.ozon.ru/search/?text=${encodeURIComponent(name)}`;
+      const url = MARKET_PROVIDERS.ozon.webUrl(name);
       return `• ${name}\n  ${url}`;
     }).join('\n\n');
   } else if (currentSearchExportFormat === 'wb') {
     text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (WILDBERRIES):\n\n" + items.map(name => {
-      const url = `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(name)}`;
+      const url = MARKET_PROVIDERS.wb.webUrl(name);
       return `• ${name}\n  ${url}`;
     }).join('\n\n');
   } else if (currentSearchExportFormat === 'yandex') {
     text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (ЯНДЕКС.МАРКЕТ):\n\n" + items.map(name => {
-      const url = `https://market.yandex.ru/search?text=${encodeURIComponent(name)}`;
+      const url = MARKET_PROVIDERS.yandex.webUrl(name);
       return `• ${name}\n  ${url}`;
     }).join('\n\n');
   }
@@ -1227,16 +1364,21 @@ function updateSearchExportPreview() {
 
   if (linksContainer) {
     linksContainer.innerHTML = items.map(name => {
-      const ozonUrl = `https://www.ozon.ru/search/?text=${encodeURIComponent(name)}`;
-      const wbUrl = `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(name)}`;
-      const yandexUrl = `https://market.yandex.ru/search?text=${encodeURIComponent(name)}`;
+      const useDeep = !!state.marketPrefs.useDeepLinks;
+      const ozonUrl = getItemMarketUrl('ozon', name, useDeep);
+      const wbUrl = getItemMarketUrl('wb', name, useDeep);
+      const yandexUrl = getItemMarketUrl('yandex', name, useDeep);
+      const kuperUrl = getItemMarketUrl('kuper', name, useDeep);
+      const vvUrl = getItemMarketUrl('vkusvill', name, useDeep);
       return `
         <div class="item-search-row">
           <span class="item-search-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
           <div class="item-search-btns">
-            <a href="${ozonUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-ozon" title="Искать на Ozon">Ozon</a>
-            <a href="${wbUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-wb" title="Искать на Wildberries">WB</a>
-            <a href="${yandexUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-yandex" title="Искать на Яндекс.Маркете">Яндекс</a>
+            <a href="${ozonUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-ozon" title="Ozon">Ozon</a>
+            <a href="${wbUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-wb" title="WB">WB</a>
+            <a href="${yandexUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-yandex" title="Яндекс">Яндекс</a>
+            <a href="${kuperUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-kuper" title="Купер / СберМаркет">Купер</a>
+            <a href="${vvUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-vkusvill" title="ВкусВилл">ВкусВилл</a>
           </div>
         </div>
       `;
@@ -1248,6 +1390,12 @@ function openSearchExportModal() {
   const modal = document.getElementById('search-export-modal');
   if (modal) {
     modal.classList.add('active');
+    renderMarketProviderSelector();
+    const toggleRubs = document.getElementById('toggle-expand-rubs');
+    if (toggleRubs) toggleRubs.checked = state.marketPrefs.expandRubs !== false;
+    const toggleDeep = document.getElementById('toggle-deep-links');
+    if (toggleDeep) toggleDeep.checked = !!state.marketPrefs.useDeepLinks;
+    setSearchExportFormat(state.marketPrefs.format || 'plain');
     updateSearchExportPreview();
   }
 }
@@ -1289,9 +1437,85 @@ function shareSearchExport() {
 
 function searchSingleItemOnline(cleanName) {
   if (!cleanName) return;
-  const ozonUrl = `https://www.ozon.ru/search/?text=${encodeURIComponent(cleanName)}`;
-  window.open(ozonUrl, '_blank');
-  showToast(`🔍 Ищем «${cleanName}» на Ozon`);
+  const provKey = state.marketPrefs.preferredProvider || 'ozon';
+  const prov = MARKET_PROVIDERS[provKey] || MARKET_PROVIDERS.ozon;
+  const url = getItemMarketUrl(provKey, cleanName, state.marketPrefs.useDeepLinks);
+  window.open(url, '_blank');
+  showToast(`🔍 Ищем «${cleanName}» на ${prov.name}`);
+}
+
+// Interactive Batch Search Runner
+function startBatchMarketRunner() {
+  const toggle = document.getElementById('toggle-expand-rubs');
+  const expandRubs = toggle ? toggle.checked : (state.marketPrefs.expandRubs !== false);
+  const items = getSearchQueryList(expandRubs);
+
+  if (items.length === 0) {
+    showToast('Список покупок пуст для авто-поиска');
+    return;
+  }
+
+  state.batchRunner = {
+    active: true,
+    items: items,
+    currentIndex: 0
+  };
+
+  closeSearchExportModal();
+  updateBatchBarUI();
+  triggerNextBatchItem();
+}
+
+function updateBatchBarUI() {
+  const bar = document.getElementById('floating-batch-bar');
+  const counter = document.getElementById('batch-runner-counter');
+  const nameEl = document.getElementById('batch-runner-name');
+
+  if (!bar || !state.batchRunner.active) {
+    if (bar) bar.style.display = 'none';
+    return;
+  }
+
+  const { items, currentIndex } = state.batchRunner;
+  if (currentIndex >= items.length) {
+    stopBatchMarketRunner();
+    showToast('🎉 Все позиции из списка проверены!');
+    return;
+  }
+
+  bar.style.display = 'block';
+  if (counter) counter.textContent = `${currentIndex + 1} / ${items.length}`;
+  if (nameEl) {
+    const provKey = state.marketPrefs.preferredProvider || 'ozon';
+    const provName = (MARKET_PROVIDERS[provKey] && MARKET_PROVIDERS[provKey].name) || 'Ozon';
+    nameEl.textContent = `${items[currentIndex]} (${provName})`;
+  }
+}
+
+function triggerNextBatchItem() {
+  if (!state.batchRunner.active) return;
+  const { items, currentIndex } = state.batchRunner;
+  if (currentIndex >= items.length) {
+    stopBatchMarketRunner();
+    showToast('🎉 Все позиции просмотрены!');
+    return;
+  }
+
+  const currentItem = items[currentIndex];
+  const provKey = state.marketPrefs.preferredProvider || 'ozon';
+  const url = getItemMarketUrl(provKey, currentItem, state.marketPrefs.useDeepLinks);
+
+  window.open(url, '_blank');
+  showToast(`[${currentIndex + 1}/${items.length}] Открыт поиск: ${currentItem}`);
+
+  state.batchRunner.currentIndex++;
+  updateBatchBarUI();
+}
+
+function stopBatchMarketRunner() {
+  state.batchRunner = { active: false, items: [], currentIndex: 0 };
+  const bar = document.getElementById('floating-batch-bar');
+  if (bar) bar.style.display = 'none';
 }
 
 function renderShoppingList() {
@@ -1325,6 +1549,9 @@ function renderShoppingList() {
     return;
   }
 
+  const provKey = state.marketPrefs.preferredProvider || 'ozon';
+  const prov = MARKET_PROVIDERS[provKey] || MARKET_PROVIDERS.ozon;
+
   const renderItemRow = (item) => {
     const cleanName = cleanSearchTerm(item.name);
     return `
@@ -1344,7 +1571,7 @@ function renderShoppingList() {
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 4px;">
-        <button class="btn-inline-search" onclick="searchSingleItemOnline('${escapeHtml(cleanName)}')" title="Найти «${escapeHtml(cleanName)}» на Ozon">
+        <button class="btn-inline-search" onclick="searchSingleItemOnline('${escapeHtml(cleanName)}')" title="Найти «${escapeHtml(cleanName)}» на ${prov.name}">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
         <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">

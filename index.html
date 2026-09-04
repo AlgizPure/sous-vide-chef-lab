@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.5">
+  <link rel="stylesheet" href="style.css?v=2.6">
 </head>
 <body>
 
@@ -414,48 +414,68 @@
     </div>
   </div>
 
-  <!-- Search Export Modal (Clean format for Marketplaces & Clipboard Tools) -->
+  <!-- Search Export Modal (Clean format for Marketplaces & Supermarkets) -->
   <div class="modal-backdrop" id="search-export-modal" onclick="closeSearchExportModal()">
     <div class="modal-sheet" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 class="modal-title">🔍 Выгрузка специй для поиска</h3>
+        <h3 class="modal-title">🔍 Маркетплейсы и Экспорт поиска</h3>
         <button class="btn-icon" onclick="closeSearchExportModal()">&times;</button>
       </div>
       <div>
         <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4;">
-          Очищенные поисковые запросы без эмодзи и чекбоксов для вставки в поиск Ozon, Wildberries, Яндекс или утилиту обмена.
+          Выберите основной магазин по умолчанию для кнопки 🔍, настройте формат выгрузки или запустите авто-поиск всех позиций.
         </p>
 
+        <!-- Preferred Store Selector -->
+        <label class="form-label">Основной магазин (по умолчанию для 🔍)</label>
+        <div class="market-provider-grid" id="market-provider-selector">
+          <!-- Injected by app.js -->
+        </div>
+
         <!-- Format Selector Tabs -->
+        <label class="form-label" style="margin-top: 12px;">Формат экспорта в буфер</label>
         <div class="shop-filter-bar" style="margin-bottom: 10px;">
           <button class="shop-chip active" id="btn-search-fmt-plain" onclick="setSearchExportFormat('plain')">
             📝 Чистый список
           </button>
+          <button class="shop-chip" id="btn-search-fmt-multi" onclick="setSearchExportFormat('multi')">
+            🛒 Мульти-ссылки
+          </button>
           <button class="shop-chip" id="btn-search-fmt-ozon" onclick="setSearchExportFormat('ozon')">
-            🔵 Ссылки Ozon
+            🔵 Ozon
           </button>
           <button class="shop-chip" id="btn-search-fmt-wb" onclick="setSearchExportFormat('wb')">
-            🟣 Ссылки WB
+            🟣 WB
           </button>
           <button class="shop-chip" id="btn-search-fmt-yandex" onclick="setSearchExportFormat('yandex')">
-            🟡 Ссылки Яндекс
+            🟡 Яндекс
           </button>
         </div>
 
-        <!-- Options Row -->
-        <div class="toggle-row" style="padding: 8px 12px; margin-bottom: 10px;">
+        <!-- Options Rows -->
+        <div class="toggle-row" style="padding: 8px 12px; margin-bottom: 6px;">
           <span style="font-size: 0.82rem; color: var(--text-primary); font-weight: 600;">
             Разложить шеф-смеси на моно-специи
           </span>
           <label class="toggle-switch">
-            <input type="checkbox" id="toggle-expand-rubs" checked onchange="updateSearchExportPreview()">
+            <input type="checkbox" id="toggle-expand-rubs" checked onchange="handleExpandRubsToggle()">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row" style="padding: 8px 12px; margin-bottom: 10px;">
+          <span style="font-size: 0.82rem; color: var(--text-primary); font-weight: 600;">
+            Использовать Deep-Link (открывать приложение)
+          </span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-deep-links" onchange="handleDeepLinksToggle()">
             <span class="slider"></span>
           </label>
         </div>
 
         <!-- Preview Textarea -->
-        <label class="form-label">Поисковые запросы к копированию</label>
-        <textarea id="search-export-preview" class="input-field" style="height: 130px; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.4; resize: vertical;" readonly></textarea>
+        <label class="form-label">Предпросмотр текста</label>
+        <textarea id="search-export-preview" class="input-field" style="height: 120px; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.4; resize: vertical;" readonly></textarea>
 
         <!-- Action Buttons -->
         <div style="display: flex; gap: 8px; margin-top: 10px;">
@@ -467,12 +487,19 @@
           </button>
         </div>
 
+        <!-- Batch Search Action -->
+        <div style="margin-top: 12px;">
+          <button class="btn-batch-market" id="btn-batch-search-runner" onclick="startBatchMarketRunner()">
+            🚀 Пошаговый поиск всех товаров в магазине
+          </button>
+        </div>
+
         <!-- Interactive Direct Search Buttons per item -->
         <div style="margin-top: 14px;">
           <div class="shop-section-title" style="margin-bottom: 8px;">
-            <span>Быстрый поиск по позициям:</span>
+            <span>Быстрый поиск по отдельным позициям:</span>
           </div>
-          <div id="search-export-items-links" style="max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+          <div id="search-export-items-links" style="max-height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
             <!-- Injected by app.js -->
           </div>
         </div>
@@ -480,6 +507,22 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.5"></script>
+  <!-- Floating Batch Runner Toast / Bar -->
+  <div class="floating-batch-bar" id="floating-batch-bar" style="display: none;">
+    <div class="batch-bar-content">
+      <div class="batch-bar-info">
+        <span class="batch-bar-counter" id="batch-runner-counter">1 / 5</span>
+        <span class="batch-bar-name" id="batch-runner-name">Тимьян свежий</span>
+      </div>
+      <div class="batch-bar-actions">
+        <button class="btn btn-primary btn-sm" onclick="triggerNextBatchItem()">
+          🔍 Искать дальше &rarr;
+        </button>
+        <button class="btn-icon" onclick="stopBatchMarketRunner()" title="Закрыть">&times;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2.6"></script>
 </body>
 </html>
