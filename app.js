@@ -1100,6 +1100,200 @@ function clearTelegramSettings() {
   showToast('Настройки Telegram сброшены');
 }
 
+// =========================================
+// Search Export Engine (Ozon / WB / Marketplaces)
+// =========================================
+
+function cleanSearchTerm(name) {
+  if (!name) return '';
+  return name
+    .replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '') // strip emojis
+    .replace(/-\s*\d+[\s]*(г|кг|мл|л|шт|зубчик[а-я]*|веточ[а-я]*|полоск[а-я]*)/gi, '') // strip units/grams
+    .replace(/\b\d+[\s]*(г|кг|мл|л|шт)\b/gi, '')
+    .replace(/\((пачка\s*metro|для\s*конфи|для\s*слайсов|для\s*соуса\s*мирпуа|для\s*мирпуа|для\s*птицы\s*и\s*рыбы|без\s*зеленого\s*ростка|гост|филе|веточки)\)/gi, '')
+    .replace(/[()]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const CHEF_RUB_SEARCH_DECOMPOSITION = {
+  'шеф-руб для стейк': [
+    'Перец черный Tellicherry дробленый',
+    'Копченая паприка Pimenton',
+    'Тростниковый сахар Демерара',
+    'Чеснок сушеный гранулированный'
+  ],
+  'пряная птица': [
+    'Тимьян сушеный или свежий',
+    'Паприка сладкая красная',
+    'Чеснок сушеный гранулированный',
+    'Куркума молотая',
+    'Имбирь сушеный или корень'
+  ],
+  'азиатский умами': [
+    'Корень имбиря свежий',
+    'Перец белый молотый',
+    'Перец сычуаньский',
+    'Чеснок сушеный',
+    'Соевый соус темный премиум'
+  ],
+  'прованск': [
+    'Тимьян сушеный',
+    'Розмарин сушеный',
+    'Эстрагон сушеный тархун',
+    'Майоран сушеный'
+  ]
+};
+
+function getSearchQueryList(expandRubs = true) {
+  const list = state.shoppingList.filter(i => !i.checked);
+  if (list.length === 0) return [];
+
+  const searchItems = [];
+
+  list.forEach(item => {
+    const rawLower = item.name.toLowerCase();
+    let decomposed = false;
+
+    if (expandRubs) {
+      for (const [key, components] of Object.entries(CHEF_RUB_SEARCH_DECOMPOSITION)) {
+        if (rawLower.includes(key)) {
+          components.forEach(c => {
+            if (!searchItems.includes(c)) searchItems.push(c);
+          });
+          decomposed = true;
+          break;
+        }
+      }
+    }
+
+    if (!decomposed) {
+      const clean = cleanSearchTerm(item.name);
+      if (clean && !searchItems.includes(clean)) {
+        searchItems.push(clean);
+      }
+    }
+  });
+
+  return searchItems;
+}
+
+let currentSearchExportFormat = 'plain';
+
+function setSearchExportFormat(fmt) {
+  currentSearchExportFormat = fmt;
+  const btnIds = ['plain', 'ozon', 'wb', 'yandex'];
+  btnIds.forEach(id => {
+    const btn = document.getElementById(`btn-search-fmt-${id}`);
+    if (btn) btn.classList.toggle('active', id === fmt);
+  });
+  updateSearchExportPreview();
+}
+
+function updateSearchExportPreview() {
+  const toggle = document.getElementById('toggle-expand-rubs');
+  const expandRubs = toggle ? toggle.checked : true;
+  const items = getSearchQueryList(expandRubs);
+  const preview = document.getElementById('search-export-preview');
+  const linksContainer = document.getElementById('search-export-items-links');
+
+  if (items.length === 0) {
+    if (preview) preview.value = 'Список покупок пуст. Добавьте специи или продукты.';
+    if (linksContainer) linksContainer.innerHTML = '<div style="color: var(--text-muted); font-size: 0.8rem; text-align: center; padding: 10px;">Нет позиций для поиска.</div>';
+    return;
+  }
+
+  let text = '';
+  if (currentSearchExportFormat === 'plain') {
+    text = items.join('\n');
+  } else if (currentSearchExportFormat === 'ozon') {
+    text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (OZON):\n\n" + items.map(name => {
+      const url = `https://www.ozon.ru/search/?text=${encodeURIComponent(name)}`;
+      return `• ${name}\n  ${url}`;
+    }).join('\n\n');
+  } else if (currentSearchExportFormat === 'wb') {
+    text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (WILDBERRIES):\n\n" + items.map(name => {
+      const url = `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(name)}`;
+      return `• ${name}\n  ${url}`;
+    }).join('\n\n');
+  } else if (currentSearchExportFormat === 'yandex') {
+    text = "🔍 СПЕЦИИ И ТОВАРЫ ДЛЯ ПОИСКА (ЯНДЕКС.МАРКЕТ):\n\n" + items.map(name => {
+      const url = `https://market.yandex.ru/search?text=${encodeURIComponent(name)}`;
+      return `• ${name}\n  ${url}`;
+    }).join('\n\n');
+  }
+
+  if (preview) preview.value = text;
+
+  if (linksContainer) {
+    linksContainer.innerHTML = items.map(name => {
+      const ozonUrl = `https://www.ozon.ru/search/?text=${encodeURIComponent(name)}`;
+      const wbUrl = `https://www.wildberries.ru/catalog/0/search.aspx?search=${encodeURIComponent(name)}`;
+      const yandexUrl = `https://market.yandex.ru/search?text=${encodeURIComponent(name)}`;
+      return `
+        <div class="item-search-row">
+          <span class="item-search-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
+          <div class="item-search-btns">
+            <a href="${ozonUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-ozon" title="Искать на Ozon">Ozon</a>
+            <a href="${wbUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-wb" title="Искать на Wildberries">WB</a>
+            <a href="${yandexUrl}" target="_blank" rel="noopener noreferrer" class="badge-market badge-yandex" title="Искать на Яндекс.Маркете">Яндекс</a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+function openSearchExportModal() {
+  const modal = document.getElementById('search-export-modal');
+  if (modal) {
+    modal.classList.add('active');
+    updateSearchExportPreview();
+  }
+}
+
+function closeSearchExportModal() {
+  const modal = document.getElementById('search-export-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function copySearchExportText() {
+  const preview = document.getElementById('search-export-preview');
+  if (!preview || !preview.value || preview.value.includes('Список покупок пуст')) {
+    showToast('Нет данных для копирования');
+    return;
+  }
+  navigator.clipboard.writeText(preview.value).then(() => {
+    showToast('📋 Поисковый список скопирован в буфер!');
+  }).catch(() => {
+    showToast('Не удалось скопировать в буфер');
+  });
+}
+
+function shareSearchExport() {
+  const preview = document.getElementById('search-export-preview');
+  if (!preview || !preview.value || preview.value.includes('Список покупок пуст')) {
+    showToast('Нет данных для отправки');
+    return;
+  }
+  if (navigator.share) {
+    navigator.share({
+      title: 'Специи для поиска в интернете',
+      text: preview.value
+    }).catch(() => {});
+  } else {
+    const tgUrl = `https://t.me/share/url?url=&text=${encodeURIComponent(preview.value)}`;
+    window.open(tgUrl, '_blank');
+  }
+}
+
+function searchSingleItemOnline(cleanName) {
+  if (!cleanName) return;
+  const ozonUrl = `https://www.ozon.ru/search/?text=${encodeURIComponent(cleanName)}`;
+  window.open(ozonUrl, '_blank');
+  showToast(`🔍 Ищем «${cleanName}» на Ozon`);
+}
+
 function renderShoppingList() {
   const container = document.getElementById('shopping-items-list');
   const countBadge = document.getElementById('shopping-count-badge');
@@ -1131,7 +1325,9 @@ function renderShoppingList() {
     return;
   }
 
-  const renderItemRow = (item) => `
+  const renderItemRow = (item) => {
+    const cleanName = cleanSearchTerm(item.name);
+    return `
     <div class="shop-item-row ${item.checked ? 'checked' : ''}" id="item-${item.id}">
       <div class="shop-item-left" onclick="toggleShoppingItem('${item.id}')">
         <div class="custom-checkbox">
@@ -1147,11 +1343,17 @@ function renderShoppingList() {
           </div>
         </div>
       </div>
-      <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-      </button>
+      <div style="display: flex; align-items: center; gap: 4px;">
+        <button class="btn-inline-search" onclick="searchSingleItemOnline('${escapeHtml(cleanName)}')" title="Найти «${escapeHtml(cleanName)}» на Ozon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </button>
+      </div>
     </div>
   `;
+  };
 
   let html = '';
   const filter = state.shoppingFilter || 'all';

@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.4">
+  <link rel="stylesheet" href="style.css?v=2.5">
 </head>
 <body>
 
@@ -205,12 +205,16 @@
       </div>
 
       <div class="shop-actions-row">
-        <button class="btn btn-tg" onclick="shareShoppingToTelegram()" title="Отправить список покупок в Telegram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-          <span>В Telegram</span>
+        <button class="btn btn-search-export" onclick="openSearchExportModal()" title="Выгрузить чистый список специй для поиска в интернете и маркетплейсах">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Поиск / Ozon / WB</span>
         </button>
-        <button class="btn btn-secondary" onclick="copyShoppingToClipboard()" title="Скопировать в буфер обмена">
-          📋 В буфер
+        <button class="btn btn-tg" onclick="shareShoppingToTelegram()" title="Отправить список покупок в Telegram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>Telegram</span>
+        </button>
+        <button class="btn btn-secondary btn-icon-only" onclick="copyShoppingToClipboard()" title="Скопировать стандартный список в буфер">
+          📋
         </button>
         <button class="btn btn-secondary btn-icon-only" onclick="openTelegramModal()" title="Настройки Telegram бота">
           ⚙️
@@ -410,6 +414,72 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.4"></script>
+  <!-- Search Export Modal (Clean format for Marketplaces & Clipboard Tools) -->
+  <div class="modal-backdrop" id="search-export-modal" onclick="closeSearchExportModal()">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title">🔍 Выгрузка специй для поиска</h3>
+        <button class="btn-icon" onclick="closeSearchExportModal()">&times;</button>
+      </div>
+      <div>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4;">
+          Очищенные поисковые запросы без эмодзи и чекбоксов для вставки в поиск Ozon, Wildberries, Яндекс или утилиту обмена.
+        </p>
+
+        <!-- Format Selector Tabs -->
+        <div class="shop-filter-bar" style="margin-bottom: 10px;">
+          <button class="shop-chip active" id="btn-search-fmt-plain" onclick="setSearchExportFormat('plain')">
+            📝 Чистый список
+          </button>
+          <button class="shop-chip" id="btn-search-fmt-ozon" onclick="setSearchExportFormat('ozon')">
+            🔵 Ссылки Ozon
+          </button>
+          <button class="shop-chip" id="btn-search-fmt-wb" onclick="setSearchExportFormat('wb')">
+            🟣 Ссылки WB
+          </button>
+          <button class="shop-chip" id="btn-search-fmt-yandex" onclick="setSearchExportFormat('yandex')">
+            🟡 Ссылки Яндекс
+          </button>
+        </div>
+
+        <!-- Options Row -->
+        <div class="toggle-row" style="padding: 8px 12px; margin-bottom: 10px;">
+          <span style="font-size: 0.82rem; color: var(--text-primary); font-weight: 600;">
+            Разложить шеф-смеси на моно-специи
+          </span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-expand-rubs" checked onchange="updateSearchExportPreview()">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Preview Textarea -->
+        <label class="form-label">Поисковые запросы к копированию</label>
+        <textarea id="search-export-preview" class="input-field" style="height: 130px; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.4; resize: vertical;" readonly></textarea>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 8px; margin-top: 10px;">
+          <button class="btn btn-primary" style="flex: 1.2; padding: 11px;" onclick="copySearchExportText()">
+            📋 Скопировать в буфер
+          </button>
+          <button class="btn btn-secondary" style="flex: 0.8; padding: 11px;" onclick="shareSearchExport()">
+            ✈️ Поделиться
+          </button>
+        </div>
+
+        <!-- Interactive Direct Search Buttons per item -->
+        <div style="margin-top: 14px;">
+          <div class="shop-section-title" style="margin-bottom: 8px;">
+            <span>Быстрый поиск по позициям:</span>
+          </div>
+          <div id="search-export-items-links" style="max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2.5"></script>
 </body>
 </html>
