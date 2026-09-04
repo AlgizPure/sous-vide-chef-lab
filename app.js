@@ -253,28 +253,74 @@ const DEFAULT_RECIPES = [
   }
 ];
 
-// Recommended Demian Spices for Quick Shopping Addition
-const DEMIAN_RECOMMENDED_SPICES = [
-  'Тимьян свежий (веточки)',
-  'Розмарин свежий',
-  'Сухой чеснок (пачка Metro)',
-  'Свежий чеснок (без зеленого ростка)',
-  'Красная паприка',
-  'Копченая паприка',
-  'Куркума',
-  'Свежий имбирь (для слайсов)',
-  'Соус Ворчестер (Worcestershire)',
-  'Бальзамический соус / крем',
-  'Соевый соус премиум',
-  'Аджика абхазская',
-  'Соус Терияки',
-  'Соус BBQ классический',
-  'Томатная паста густая',
-  'Сухое красное вино (для Мирпуа)',
-  'Стебли сельдерея',
-  'Сливочное масло 82.5%',
-  'Масло растительное рафинированное'
+// Recommended Demian Spices & Chef Blends categorized for quick addition
+const DEMIAN_SPICE_GROUPS = [
+  {
+    category: 'rubs',
+    title: '⭐️ Фирменные шеф-смеси (Chef Rubs)',
+    isChef: true,
+    items: [
+      '⭐️ Шеф-Руб для стейков (Tellicherry + паприка + тростниковый сахар + чеснок)',
+      '⭐️ Пряная птица (Тимьян + паприка + чеснок + куркума + имбирь)',
+      '⭐️ Азиатский умами-микс (Имбирь + белый перец + сычуаньский перец + чеснок)',
+      '⭐️ Прованский сбор (Тимьян + розмарин + эстрагон + майоран)'
+    ]
+  },
+  {
+    category: 'herbs',
+    title: '🌿 Травы и сухие пряности',
+    isChef: false,
+    items: [
+      'Тимьян свежий (веточки)',
+      'Розмарин свежий',
+      'Эстрагон свежий (тархун)',
+      'Сухой чеснок гранулированный (пачка Metro)',
+      'Свежий чеснок (без зеленого ростка)',
+      'Свежий имбирь (для слайсов)',
+      'Красная паприка сладкая',
+      'Копченая паприка (Pimenton)',
+      'Куркума молотая',
+      'Черный перец Tellicherry (дробленый)',
+      'Розовый перец горошком',
+      'Кориандр дробленый',
+      'Мускатный орех',
+      'Зира (кумин)'
+    ]
+  },
+  {
+    category: 'sauces',
+    title: '🍯 Соусы и жидкие маринады',
+    isChef: false,
+    items: [
+      'Соус Ворчестер (Worcestershire Lea & Perrins)',
+      'Бальзамический крем / соус',
+      'Соевый соус темный премиум',
+      'Аджика абхазская классическая',
+      'Соус Терияки густой',
+      'Соус BBQ классический копченый',
+      'Дижонская зернистая горчица',
+      'Томатная паста густая Mutti',
+      'Сухое красное вино (для соуса Мирпуа)',
+      'Сухое белое вино (для птицы и рыбы)'
+    ]
+  },
+  {
+    category: 'fats',
+    title: '🧈 Масла, жиры и ароматика',
+    isChef: false,
+    items: [
+      'Сливочное масло 82.5% (ГОСТ)',
+      'Утиный жир (для конфи)',
+      'Оливковое масло Extra Virgin',
+      'Масло растительное рафинированное',
+      'Стебли сельдерея (для Мирпуа)',
+      'Цедра свежего апельсина'
+    ]
+  }
 ];
+
+// Flat array of all spices for fast lookup & migration
+const DEMIAN_RECOMMENDED_SPICES = DEMIAN_SPICE_GROUPS.flatMap(g => g.items);
 
 // App State
 const state = {
@@ -294,7 +340,9 @@ const STORAGE_KEYS = {
   SHOPPING: 'sous_vide_shopping_v2',
   TIMERS: 'sous_vide_timers_v2',
   THEME: 'sous_vide_theme_v2',
-  FAVORITES: 'sous_vide_favorites_v2'
+  FAVORITES: 'sous_vide_favorites_v2',
+  TG_TOKEN: 'sous_vide_tg_token_v1',
+  TG_CHAT_ID: 'sous_vide_tg_chat_id_v1'
 };
 
 // Initialize Application
@@ -766,13 +814,22 @@ function setupCalculator() {
 
 // Shopping List Logic
 function setupShoppingList() {
-  // Render recommended Demian spices pills
+  // Render recommended Demian spices pills by groups
   const pillsContainer = document.getElementById('demian-spices-pills');
   if (pillsContainer) {
-    pillsContainer.innerHTML = DEMIAN_RECOMMENDED_SPICES.map(spice => `
-      <button class="pill-spice" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}', 'Базовый запас', 'spice')">
-        <span>+</span> ${escapeHtml(spice)}
-      </button>
+    pillsContainer.innerHTML = DEMIAN_SPICE_GROUPS.map(group => `
+      <div class="spice-group-wrap">
+        <div class="spice-group-title">
+          ${escapeHtml(group.title)}
+        </div>
+        <div class="spice-group-pills">
+          ${group.items.map(spice => `
+            <button class="pill-spice ${group.isChef ? 'pill-spice-chef' : ''}" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}', '${escapeHtml(group.title)}', 'spice')">
+              <span>+</span> ${escapeHtml(spice)}
+            </button>
+          `).join('')}
+        </div>
+      </div>
     `).join('');
   }
 
@@ -884,12 +941,8 @@ function clearPurchasedShopping() {
   showToast('Купленные товары удалены');
 }
 
-function copyShoppingToClipboard() {
-  if (state.shoppingList.length === 0) {
-    showToast('Список покупок пуст');
-    return;
-  }
-
+function getFormattedShoppingText() {
+  if (state.shoppingList.length === 0) return '';
   const spiceItems = state.shoppingList.filter(i => i.category === 'spice');
   const recipeItems = state.shoppingList.filter(i => i.category === 'recipe');
 
@@ -909,11 +962,142 @@ function copyShoppingToClipboard() {
     });
   }
 
-  navigator.clipboard.writeText(text.trim()).then(() => {
+  return text.trim();
+}
+
+function copyShoppingToClipboard() {
+  const text = getFormattedShoppingText();
+  if (!text) {
+    showToast('Список покупок пуст');
+    return;
+  }
+
+  navigator.clipboard.writeText(text).then(() => {
     showToast('Список скопирован в буфер для мессенджера!');
   }).catch(() => {
     showToast('Не удалось скопировать в буфер');
   });
+}
+
+async function shareShoppingToTelegram() {
+  const text = getFormattedShoppingText();
+  if (!text) {
+    showToast('Список покупок пуст');
+    return;
+  }
+
+  const tgToken = localStorage.getItem(STORAGE_KEYS.TG_TOKEN);
+  const tgChatId = localStorage.getItem(STORAGE_KEYS.TG_CHAT_ID);
+
+  // If direct Telegram Bot API is configured
+  if (tgToken && tgChatId) {
+    try {
+      showToast('Отправка в Telegram-бота...');
+      const response = await fetch(`https://api.telegram.org/bot${encodeURIComponent(tgToken.trim())}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: tgChatId.trim(),
+          text: text
+        })
+      });
+      const data = await response.json();
+      if (data.ok) {
+        showToast('✅ Список отправлен в Telegram бота!');
+        return;
+      } else {
+        console.warn('Telegram API Error:', data);
+        showToast(`Ошибка бота: ${data.description || 'Проверьте токен'}`);
+      }
+    } catch (err) {
+      console.warn('Telegram Bot Fetch Error:', err);
+      showToast('Ошибка сети при отправке в бота');
+    }
+  }
+
+  // Fallback / standard Telegram Web/App Share link
+  const shareUrl = `https://t.me/share/url?url=&text=${encodeURIComponent(text)}`;
+  window.open(shareUrl, '_blank');
+  showToast('✈️ Открываем Telegram...');
+}
+
+// Telegram Modal & Settings Handlers
+function openTelegramModal() {
+  const modal = document.getElementById('tg-modal-backdrop');
+  const tokenInput = document.getElementById('tg-bot-token-input');
+  const chatInput = document.getElementById('tg-chat-id-input');
+
+  if (tokenInput) tokenInput.value = localStorage.getItem(STORAGE_KEYS.TG_TOKEN) || '';
+  if (chatInput) chatInput.value = localStorage.getItem(STORAGE_KEYS.TG_CHAT_ID) || '';
+
+  if (modal) modal.classList.add('active');
+}
+
+function closeTelegramModal() {
+  const modal = document.getElementById('tg-modal-backdrop');
+  if (modal) modal.classList.remove('active');
+}
+
+function saveTelegramSettings() {
+  const tokenInput = document.getElementById('tg-bot-token-input');
+  const chatInput = document.getElementById('tg-chat-id-input');
+
+  const token = tokenInput ? tokenInput.value.trim() : '';
+  const chatId = chatInput ? chatInput.value.trim() : '';
+
+  if (token) localStorage.setItem(STORAGE_KEYS.TG_TOKEN, token);
+  else localStorage.removeItem(STORAGE_KEYS.TG_TOKEN);
+
+  if (chatId) localStorage.setItem(STORAGE_KEYS.TG_CHAT_ID, chatId);
+  else localStorage.removeItem(STORAGE_KEYS.TG_CHAT_ID);
+
+  closeTelegramModal();
+  showToast('Настройки Telegram бота сохранены');
+}
+
+async function testTelegramBot() {
+  const tokenInput = document.getElementById('tg-bot-token-input');
+  const chatInput = document.getElementById('tg-chat-id-input');
+
+  const token = tokenInput ? tokenInput.value.trim() : '';
+  const chatId = chatInput ? chatInput.value.trim() : '';
+
+  if (!token || !chatId) {
+    showToast('Введите Bot Token и Chat ID для теста');
+    return;
+  }
+
+  try {
+    showToast('Отправка тестового сообщения...');
+    const testText = "🧪 Sous-Vide Chef Lab: Тестовое сообщение бота успешно доставлено! Ваш список покупок будет приходить сюда.";
+    const response = await fetch(`https://api.telegram.org/bot${encodeURIComponent(token)}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: testText
+      })
+    });
+    const data = await response.json();
+    if (data.ok) {
+      showToast('✅ Тест успешен! Бот работает.');
+    } else {
+      showToast(`❌ Ошибка Telegram: ${data.description}`);
+    }
+  } catch (e) {
+    showToast('❌ Ошибка сети при тесте бота');
+  }
+}
+
+function clearTelegramSettings() {
+  localStorage.removeItem(STORAGE_KEYS.TG_TOKEN);
+  localStorage.removeItem(STORAGE_KEYS.TG_CHAT_ID);
+  const tokenInput = document.getElementById('tg-bot-token-input');
+  const chatInput = document.getElementById('tg-chat-id-input');
+  if (tokenInput) tokenInput.value = '';
+  if (chatInput) chatInput.value = '';
+  closeTelegramModal();
+  showToast('Настройки Telegram сброшены');
 }
 
 function renderShoppingList() {

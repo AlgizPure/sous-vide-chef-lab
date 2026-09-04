@@ -720,9 +720,29 @@ input:checked + .slider:before {
 
 .pills-cloud {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 20px;
+}
+.spice-group-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.spice-group-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.spice-group-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 .pill-spice {
   background: var(--bg-surface);
@@ -739,10 +759,28 @@ input:checked + .slider:before {
   box-shadow: var(--shadow-card);
   transition: all 0.15s ease;
 }
+.pill-spice:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-emerald);
+}
 .pill-spice:active {
   transform: scale(0.95);
   background: var(--accent-emerald);
   border-color: var(--accent-emerald);
+  color: #ffffff;
+}
+.pill-spice-chef {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--text-primary);
+}
+.pill-spice-chef:hover {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: var(--accent-amber);
+}
+.pill-spice-chef:active {
+  background: var(--accent-amber);
+  border-color: var(--accent-amber);
   color: #ffffff;
 }
 
@@ -941,6 +979,34 @@ input:checked + .slider:before {
 }
 .btn-del:hover {
   color: var(--accent-ruby);
+}
+
+.shop-actions-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.btn-tg {
+  background: #229ED9;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(34, 158, 217, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1.3;
+}
+.btn-tg:active {
+  transform: scale(0.97);
+  background: #1b87ba;
+}
+.btn-icon-only {
+  flex: 0 0 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
 }
 
 /* Modal Dialog */

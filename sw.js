@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.3 - Two-Category Shopping Engine)
-const CACHE_NAME = 'sous-vide-v2.3';
+// Service Worker: Sous-Vide Chef Lab (v2.4 - Telegram Bot Export & Extended Chef Rubs)
+const CACHE_NAME = 'sous-vide-v2.4';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.3',
-  './app.js?v=2.3',
+  './style.css?v=2.4',
+  './app.js?v=2.4',
   './manifest.json'
 ];
 
