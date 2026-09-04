@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.1">
+  <link rel="stylesheet" href="style.css?v=2.2">
 </head>
 <body>
 
@@ -47,6 +47,7 @@
     <main id="view-recipes" class="view-panel active">
       <div class="chip-row">
         <button class="chip active" data-category="all">Все</button>
+        <button class="chip" data-category="fav">❤️ Избранное <span id="fav-count-badge"></span></button>
         <button class="chip" data-category="chef">⭐️ Шеф Демьян</button>
         <button class="chip" data-category="poultry">Птица</button>
         <button class="chip" data-category="beef">Говядина</button>
@@ -353,6 +354,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.1"></script>
+  <script src="app.js?v=2.2"></script>
 </body>
 </html>

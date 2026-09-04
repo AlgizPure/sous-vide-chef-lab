@@ -267,6 +267,42 @@ body {
   margin-bottom: 10px;
 }
 
+.btn-fav {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.btn-fav:hover {
+  border-color: var(--accent-ruby);
+  color: var(--accent-ruby);
+}
+.btn-fav.active {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--accent-ruby);
+  color: var(--accent-ruby);
+}
+.btn-fav.active svg {
+  fill: var(--accent-ruby);
+  stroke: var(--accent-ruby);
+}
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+.btn-fav-pop {
+  animation: heartPop 0.3s ease;
+}
+
 .card-title {
   font-size: 1.05rem;
   font-weight: 700;

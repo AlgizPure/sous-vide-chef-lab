@@ -283,6 +283,7 @@ const state = {
   activeTab: 'recipes',
   shoppingList: [],
   activeTimers: [],
+  favorites: [],
   audioCtx: null
 };
 
@@ -291,7 +292,8 @@ const STORAGE_KEYS = {
   RECIPES: 'sous_vide_recipes_v2',
   SHOPPING: 'sous_vide_shopping_v2',
   TIMERS: 'sous_vide_timers_v2',
-  THEME: 'sous_vide_theme_v2'
+  THEME: 'sous_vide_theme_v2',
+  FAVORITES: 'sous_vide_favorites_v2'
 };
 
 // Initialize Application
@@ -369,6 +371,19 @@ function loadStoredData() {
       state.activeTimers = [];
     }
   }
+
+  const storedFavs = localStorage.getItem(STORAGE_KEYS.FAVORITES);
+  if (storedFavs) {
+    try {
+      state.favorites = JSON.parse(storedFavs);
+    } catch (e) {
+      state.favorites = [];
+    }
+  }
+}
+
+function saveFavorites() {
+  localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(state.favorites));
 }
 
 function saveRecipes() {
@@ -423,33 +438,60 @@ function renderRecipes() {
   const container = document.getElementById('recipes-container');
   if (!container) return;
 
+  // Update Fav Count Badge
+  const favBadge = document.getElementById('fav-count-badge');
+  if (favBadge) {
+    favBadge.textContent = state.favorites.length > 0 ? `(${state.favorites.length})` : '';
+  }
+
   let filtered = state.recipes;
-  if (state.activeCategory === 'chef') {
+  if (state.activeCategory === 'fav') {
+    filtered = state.recipes.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'chef') {
     filtered = state.recipes.filter(r => r.isChef);
   } else if (state.activeCategory !== 'all') {
     filtered = state.recipes.filter(r => r.category === state.activeCategory);
   }
 
   if (filtered.length === 0) {
-    container.innerHTML = `
-      <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
-        <p>В этой категории пока нет рецептов.</p>
-        <button class="btn btn-primary" onclick="openAddRecipeModal()" style="margin-top: 12px;">+ Добавить свой рецепт</button>
-      </div>
-    `;
+    if (state.activeCategory === 'fav') {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
+          <div style="font-size: 2.2rem; margin-bottom: 8px;">❤️</div>
+          <p style="font-weight: 700; color: var(--text-primary); font-size: 1rem;">Избранных рецептов пока нет</p>
+          <p style="font-size: 0.82rem; margin-top: 4px;">Нажмите на сердечко на карточке любого рецепта, чтобы добавить его сюда.</p>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
+          <p>В этой категории пока нет рецептов.</p>
+          <button class="btn btn-primary" onclick="openAddRecipeModal()" style="margin-top: 12px;">+ Добавить свой рецепт</button>
+        </div>
+      `;
+    }
     return;
   }
 
-  container.innerHTML = filtered.map(recipe => `
+  container.innerHTML = filtered.map(recipe => {
+    const isFav = state.favorites.includes(recipe.id);
+    return `
     <div class="card ${recipe.isChef ? 'card-chef' : ''}" id="recipe-${recipe.id}">
       <div class="card-header">
         <div>
           <h3 class="card-title">${escapeHtml(recipe.title)}</h3>
           <p class="card-subtitle">${recipe.isChef ? '⭐️ ' : ''}${escapeHtml(recipe.author)}</p>
         </div>
-        <span class="badge ${recipe.isChef ? 'badge-chef' : 'badge-temp'}">
-          ${recipe.isChef ? 'Шеф Демьян' : recipe.category.toUpperCase()}
-        </span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button class="btn-fav ${isFav ? 'active' : ''}" id="fav-btn-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)" title="${isFav ? 'Удалить из закладок' : 'Добавить в закладки'}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="badge ${recipe.isChef ? 'badge-chef' : 'badge-temp'}">
+            ${recipe.isChef ? 'Шеф Демьян' : recipe.category.toUpperCase()}
+          </span>
+        </div>
       </div>
 
       <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px;">
@@ -496,13 +538,34 @@ function renderRecipes() {
         </button>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Update counts
   const headerCount = document.getElementById('header-recipe-count');
   if (headerCount) headerCount.textContent = state.recipes.length;
   const drawerCount = document.getElementById('drawer-total-count');
   if (drawerCount) drawerCount.textContent = `${state.recipes.length} рецептов в книге`;
+}
+
+// Favorite toggle handler
+function toggleFavorite(recipeId, e) {
+  if (e) e.stopPropagation();
+  const idx = state.favorites.indexOf(recipeId);
+  const btn = document.getElementById(`fav-btn-${recipeId}`);
+  if (btn) btn.classList.add('btn-fav-pop');
+
+  if (idx > -1) {
+    state.favorites.splice(idx, 1);
+    showToast('Удалено из избранного');
+  } else {
+    state.favorites.push(recipeId);
+    showToast('❤️ Добавлено в избранное');
+  }
+
+  saveFavorites();
+  renderRecipes();
+  renderDrawerRecipes();
 }
 
 // =========================================
@@ -559,8 +622,19 @@ function renderDrawerRecipes(searchTerm = '') {
     return;
   }
 
-  // Categories definitions
-  const categories = [
+  // Categories definitions (Favorites pinned first if available)
+  const categories = [];
+
+  // Pinned Favorites section
+  if (!searchTerm && state.favorites.length > 0) {
+    categories.push({
+      key: 'favs',
+      title: '❤️ Избранные закладки',
+      filter: r => state.favorites.includes(r.id)
+    });
+  }
+
+  categories.push(
     { key: 'chef', title: '⭐️ Шеф Демьян (Рекомендации)', filter: r => r.isChef },
     { key: 'poultry', title: '🍗 Птица (Курица, Индейка, Утка)', filter: r => r.category === 'poultry' },
     { key: 'beef', title: '🥩 Говядина и Стейки', filter: r => r.category === 'beef' },
@@ -568,7 +642,7 @@ function renderDrawerRecipes(searchTerm = '') {
     { key: 'fish', title: '🐟 Рыба и Морепродукты', filter: r => r.category === 'fish' },
     { key: 'eggs', title: '🥚 Яйца и Овощи', filter: r => r.category === 'eggs' },
     { key: 'other', title: '🍽 Другие блюда', filter: r => r.category === 'meat' || (!r.isChef && !['poultry','beef','pork','fish','eggs'].includes(r.category)) }
-  ];
+  );
 
   let html = '';
   categories.forEach(cat => {
@@ -581,10 +655,11 @@ function renderDrawerRecipes(searchTerm = '') {
         </div>
       `;
       items.forEach(recipe => {
+        const isFav = state.favorites.includes(recipe.id);
         html += `
           <div class="drawer-item" onclick="jumpToRecipe('${recipe.id}')">
             <div>
-              <div class="drawer-item-title">${escapeHtml(recipe.title)}</div>
+              <div class="drawer-item-title">${isFav ? '❤️ ' : ''}${escapeHtml(recipe.title)}</div>
               <div class="drawer-item-badges">
                 <span class="drawer-tag badge-temp">${recipe.tempC}°C</span>
                 <span class="drawer-tag badge-time">${recipe.timeFormatted}</span>
