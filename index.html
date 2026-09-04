@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 <body>
 
@@ -168,7 +168,7 @@
     <!-- VIEW 4: SHOPPING LIST -->
     <main id="view-shopping" class="view-panel">
       <div class="shop-section-title">
-        <span>⭐️ Специи и соусы от Демьяна</span>
+        <span>🌿 Базовые специи от Демьяна</span>
         <span style="font-size: 0.72rem; color: var(--accent-amber); font-weight: 600;">Нажмите для добавления</span>
       </div>
       <div class="pills-cloud" id="demian-spices-pills">
@@ -176,12 +176,28 @@
       </div>
 
       <div class="shop-section-title">
-        <span>Корзина покупок</span>
+        <span>Добавить в список</span>
       </div>
 
-      <div style="display: flex; gap: 8px; margin-bottom: 14px;">
-        <input type="text" id="input-custom-item" class="input-field" placeholder="Добавить свой товар..." style="margin-bottom: 0;">
-        <button id="btn-add-custom-item" class="btn btn-primary" style="flex: 0 0 60px;">+</button>
+      <div class="shop-add-form">
+        <input type="text" id="input-custom-item" class="input-field" placeholder="Название товара..." style="margin-bottom: 0;">
+        <select id="select-custom-category" class="shop-cat-select" style="margin-bottom: 0;">
+          <option value="recipe">🥩 Рецепт</option>
+          <option value="spice">🌿 Специи</option>
+        </select>
+        <button id="btn-add-custom-item" class="btn btn-primary shop-add-btn">+</button>
+      </div>
+
+      <div class="shop-filter-bar">
+        <button class="shop-chip active" data-shop-filter="all">
+          Все <span class="shop-chip-count" id="shop-count-all">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="spice">
+          🌿 Специи (База) <span class="shop-chip-count" id="shop-count-spice">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="recipe">
+          🥩 Из рецептов <span class="shop-chip-count" id="shop-count-recipe">0</span>
+        </button>
       </div>
 
       <div id="shopping-items-list">
@@ -354,6 +370,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.2"></script>
+  <script src="app.js?v=2.3"></script>
 </body>
 </html>

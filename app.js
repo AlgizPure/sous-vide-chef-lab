@@ -282,6 +282,7 @@ const state = {
   activeCategory: 'all',
   activeTab: 'recipes',
   shoppingList: [],
+  shoppingFilter: 'all',
   activeTimers: [],
   favorites: [],
   audioCtx: null
@@ -358,6 +359,14 @@ function loadStoredData() {
   if (storedShopping) {
     try {
       state.shoppingList = JSON.parse(storedShopping);
+      // Ensure each item has a valid category
+      state.shoppingList.forEach(item => {
+        if (!item.category) {
+          const isSpice = (item.source && (item.source.includes('Демьян') || item.source.includes('Спец') || item.source.includes('Базов'))) ||
+                          DEMIAN_RECOMMENDED_SPICES.some(s => s.toLowerCase().includes(item.name.toLowerCase()));
+          item.category = isSpice ? 'spice' : 'recipe';
+        }
+      });
     } catch (e) {
       state.shoppingList = [];
     }
@@ -420,9 +429,9 @@ function switchTab(tabId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Filter Chips
+// Filter Chips for Recipes
 function setupFilterChips() {
-  const chips = document.querySelectorAll('.chip');
+  const chips = document.querySelectorAll('#view-recipes .chip');
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
       chips.forEach(c => c.classList.remove('active'));
@@ -761,37 +770,53 @@ function setupShoppingList() {
   const pillsContainer = document.getElementById('demian-spices-pills');
   if (pillsContainer) {
     pillsContainer.innerHTML = DEMIAN_RECOMMENDED_SPICES.map(spice => `
-      <button class="pill-spice" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}')">
+      <button class="pill-spice" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}', 'Базовый запас', 'spice')">
         <span>+</span> ${escapeHtml(spice)}
       </button>
     `).join('');
   }
 
+  // Setup Add Custom Item
   const addCustomBtn = document.getElementById('btn-add-custom-item');
   const customInput = document.getElementById('input-custom-item');
+  const catSelect = document.getElementById('select-custom-category');
+
   if (addCustomBtn && customInput) {
-    addCustomBtn.addEventListener('click', () => {
+    const handleAdd = () => {
       const val = customInput.value.trim();
+      const cat = catSelect ? catSelect.value : 'recipe';
       if (val) {
-        addSingleSpiceToShopping(val, 'Мой список');
+        const src = cat === 'spice' ? 'Базовый запас' : 'Мой список';
+        addSingleSpiceToShopping(val, src, cat);
         customInput.value = '';
       }
-    });
+    };
+    addCustomBtn.addEventListener('click', handleAdd);
     customInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        addCustomBtn.click();
-      }
+      if (e.key === 'Enter') handleAdd();
     });
   }
+
+  // Setup Shopping Filter Chips
+  const shopChips = document.querySelectorAll('.shop-chip');
+  shopChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      shopChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      state.shoppingFilter = chip.dataset.shopFilter || 'all';
+      renderShoppingList();
+    });
+  });
 }
 
-function addSingleSpiceToShopping(name, source = 'Рекомендация Демьяна') {
+function addSingleSpiceToShopping(name, source = 'Базовый запас', category = 'spice') {
   const existing = state.shoppingList.find(i => i.name.toLowerCase() === name.toLowerCase());
   if (!existing) {
     state.shoppingList.push({
       id: 'shop_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
       name: name,
       source: source,
+      category: category,
       checked: false
     });
     saveShopping();
@@ -813,7 +838,8 @@ function addRecipeToShopping(recipeId) {
       state.shoppingList.push({
         id: 'shop_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
         name: ing,
-        source: recipe.title,
+        source: `Рецепт: ${recipe.title}`,
+        category: 'recipe',
         checked: false
       });
       addedCount++;
@@ -835,6 +861,16 @@ function toggleShoppingItem(id) {
   }
 }
 
+function toggleShoppingItemCategory(id) {
+  const item = state.shoppingList.find(i => i.id === id);
+  if (item) {
+    item.category = item.category === 'spice' ? 'recipe' : 'spice';
+    saveShopping();
+    renderShoppingList();
+    showToast(`Категория: ${item.category === 'spice' ? '🌿 Специи' : '🥩 Рецепт'}`);
+  }
+}
+
 function deleteShoppingItem(id) {
   state.shoppingList = state.shoppingList.filter(i => i.id !== id);
   saveShopping();
@@ -853,11 +889,27 @@ function copyShoppingToClipboard() {
     showToast('Список покупок пуст');
     return;
   }
-  const text = "🛒 СПИСОК ПОКУПОК ДЛЯ СУ-ВИДА:\n" + state.shoppingList.map((i, idx) => {
-    return `${idx + 1}. [${i.checked ? 'x' : ' '}] ${i.name} (${i.source})`;
-  }).join('\n');
 
-  navigator.clipboard.writeText(text).then(() => {
+  const spiceItems = state.shoppingList.filter(i => i.category === 'spice');
+  const recipeItems = state.shoppingList.filter(i => i.category === 'recipe');
+
+  let text = "🛒 СПИСОК ПОКУПОК ДЛЯ СУ-ВИДА\n";
+
+  if (spiceItems.length > 0) {
+    text += "\n🌿 СПЕЦИИ И СОУСЫ (Базовый запас):\n";
+    spiceItems.forEach((i, idx) => {
+      text += `${idx + 1}. [${i.checked ? 'x' : ' '}] ${i.name}\n`;
+    });
+  }
+
+  if (recipeItems.length > 0) {
+    text += "\n🥩 ИЗ РЕЦЕПТОВ:\n";
+    recipeItems.forEach((i, idx) => {
+      text += `${idx + 1}. [${i.checked ? 'x' : ' '}] ${i.name} (${i.source})\n`;
+    });
+  }
+
+  navigator.clipboard.writeText(text.trim()).then(() => {
     showToast('Список скопирован в буфер для мессенджера!');
   }).catch(() => {
     showToast('Не удалось скопировать в буфер');
@@ -867,13 +919,23 @@ function copyShoppingToClipboard() {
 function renderShoppingList() {
   const container = document.getElementById('shopping-items-list');
   const countBadge = document.getElementById('shopping-count-badge');
+  const countAll = document.getElementById('shop-count-all');
+  const countSpice = document.getElementById('shop-count-spice');
+  const countRecipe = document.getElementById('shop-count-recipe');
   if (!container) return;
 
+  const totalUnbought = state.shoppingList.filter(i => !i.checked).length;
   if (countBadge) {
-    const unbought = state.shoppingList.filter(i => !i.checked).length;
-    countBadge.textContent = unbought > 0 ? unbought : '';
-    countBadge.style.display = unbought > 0 ? 'block' : 'none';
+    countBadge.textContent = totalUnbought > 0 ? totalUnbought : '';
+    countBadge.style.display = totalUnbought > 0 ? 'block' : 'none';
   }
+
+  const spiceItems = state.shoppingList.filter(i => i.category === 'spice');
+  const recipeItems = state.shoppingList.filter(i => i.category === 'recipe');
+
+  if (countAll) countAll.textContent = state.shoppingList.length;
+  if (countSpice) countSpice.textContent = spiceItems.length;
+  if (countRecipe) countRecipe.textContent = recipeItems.length;
 
   if (state.shoppingList.length === 0) {
     container.innerHTML = `
@@ -885,22 +947,76 @@ function renderShoppingList() {
     return;
   }
 
-  container.innerHTML = state.shoppingList.map(item => `
-    <div class="shop-item-row ${item.checked ? 'checked' : ''}">
+  const renderItemRow = (item) => `
+    <div class="shop-item-row ${item.checked ? 'checked' : ''}" id="item-${item.id}">
       <div class="shop-item-left" onclick="toggleShoppingItem('${item.id}')">
         <div class="custom-checkbox">
-          ${item.checked ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}
+          ${item.checked ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}
         </div>
         <div>
           <div class="shop-item-name">${escapeHtml(item.name)}</div>
-          <div class="shop-item-source">${escapeHtml(item.source)}</div>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
+            <span class="shop-item-source">${escapeHtml(item.source)}</span>
+            <span class="shop-item-badge ${item.category === 'spice' ? 'shop-item-badge-spice' : 'shop-item-badge-recipe'}" onclick="event.stopPropagation(); toggleShoppingItemCategory('${item.id}')" title="Нажмите для смены категории">
+              ${item.category === 'spice' ? '🌿 Специи' : '🥩 Рецепт'}
+            </span>
+          </div>
         </div>
       </div>
-      <button class="btn-del" onclick="deleteShoppingItem('${item.id}')">
+      <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
       </button>
     </div>
-  `).join('');
+  `;
+
+  let html = '';
+  const filter = state.shoppingFilter || 'all';
+
+  if (filter === 'all' || filter === 'spice') {
+    if (spiceItems.length > 0) {
+      const unboughtSpices = spiceItems.filter(i => !i.checked).length;
+      html += `
+        <div class="shop-category-header">
+          <div class="shop-category-title" style="color: var(--accent-emerald);">
+            🌿 Специи и соусы (Повседневные)
+          </div>
+          <span class="shop-category-badge">${unboughtSpices} из ${spiceItems.length}</span>
+        </div>
+        ${spiceItems.map(renderItemRow).join('')}
+      `;
+    } else if (filter === 'spice') {
+      html += `
+        <div style="text-align: center; padding: 24px 10px; color: var(--text-muted);">
+          <p>В категории «Специи» пока ничего нет.</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Выберите специи из облака вверху или добавьте свою.</p>
+        </div>
+      `;
+    }
+  }
+
+  if (filter === 'all' || filter === 'recipe') {
+    if (recipeItems.length > 0) {
+      const unboughtRecipes = recipeItems.filter(i => !i.checked).length;
+      html += `
+        <div class="shop-category-header" style="${filter === 'all' && spiceItems.length > 0 ? 'margin-top: 20px;' : ''}">
+          <div class="shop-category-title" style="color: var(--accent-amber);">
+            🥩 Ингредиенты из рецептов
+          </div>
+          <span class="shop-category-badge">${unboughtRecipes} из ${recipeItems.length}</span>
+        </div>
+        ${recipeItems.map(renderItemRow).join('')}
+      `;
+    } else if (filter === 'recipe') {
+      html += `
+        <div style="text-align: center; padding: 24px 10px; color: var(--text-muted);">
+          <p>В категории «Из рецептов» пока ничего нет.</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Нажмите кнопку «В список покупок» в карточке любого рецепта.</p>
+        </div>
+      `;
+    }
+  }
+
+  container.innerHTML = html;
 }
 
 // Audio Chime & Web Notifications

@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.2 - Favorites & Bookmarks)
-const CACHE_NAME = 'sous-vide-v2.2';
+// Service Worker: Sous-Vide Chef Lab (v2.3 - Two-Category Shopping Engine)
+const CACHE_NAME = 'sous-vide-v2.3';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.2',
-  './app.js?v=2.2',
+  './style.css?v=2.3',
+  './app.js?v=2.3',
   './manifest.json'
 ];
 
