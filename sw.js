@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.0 - Network-First Cache Strategy)
-const CACHE_NAME = 'sous-vide-v2.0';
+// Service Worker: Sous-Vide Chef Lab (v2.1 - Recipe Navigator Drawer)
+const CACHE_NAME = 'sous-vide-v2.1';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.0',
-  './app.js?v=2.0',
+  './style.css?v=2.1',
+  './app.js?v=2.1',
   './manifest.json'
 ];
 

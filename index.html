@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
 
@@ -17,11 +17,14 @@
     <!-- Header -->
     <header class="app-header">
       <div class="brand">
-        <div class="brand-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        <button class="btn-menu-trigger" id="btn-open-drawer" onclick="openNavDrawer()" title="Навигатор рецептов">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-        </div>
+          <span class="menu-badge-count" id="header-recipe-count">11</span>
+        </button>
         <div>
           <h1 class="brand-title">Sous-Vide Lab</h1>
           <div class="brand-subtitle">Chef Guide & Timer</div>
@@ -322,6 +325,34 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.0"></script>
+  <!-- Recipe Navigator Drawer (Slide-In Menu) -->
+  <div class="drawer-backdrop" id="nav-drawer" onclick="closeNavDrawer(event)">
+    <div class="drawer-panel" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div>
+          <h2 class="drawer-title">Навигатор рецептов</h2>
+          <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
+        </div>
+        <button class="btn-icon" onclick="closeNavDrawer()" title="Закрыть">&times;</button>
+      </div>
+
+      <div class="drawer-search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="drawer-search-input" class="drawer-search-input" placeholder="Поиск блюда, продукта, °C..." oninput="filterDrawerRecipes()">
+      </div>
+
+      <div class="drawer-content" id="drawer-recipes-list">
+        <!-- Injected by app.js -->
+      </div>
+
+      <div class="drawer-footer">
+        <button class="btn btn-primary" style="width: 100%; padding: 10px;" onclick="closeNavDrawer(); openAddRecipeModal();">
+          + Добавить новый рецепт
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2.1"></script>
 </body>
 </html>

@@ -855,3 +855,186 @@ textarea.input-field {
   border-left: 3px solid var(--accent-ruby);
   color: var(--text-primary);
 }
+
+/* =========================================
+   Recipe Navigator Drawer & Top-Left Menu
+========================================= */
+
+.btn-menu-trigger {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  flex-shrink: 0;
+}
+.btn-menu-trigger:hover, .btn-menu-trigger:active {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-amber);
+}
+.menu-badge-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--accent-amber);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 1px 5px;
+  box-shadow: 0 2px 6px var(--accent-amber-glow);
+}
+
+.drawer-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 250;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: min(88vw, 360px);
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 260;
+}
+.drawer-backdrop.active .drawer-panel {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.drawer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.drawer-subtitle {
+  font-size: 0.72rem;
+  color: var(--accent-amber);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.drawer-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.drawer-search-input {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  width: 100%;
+  outline: none;
+}
+
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px 20px;
+}
+
+.drawer-group-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 14px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-group-title:first-child {
+  margin-top: 4px;
+}
+
+.drawer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.drawer-item:hover, .drawer-item:active {
+  border-color: var(--accent-amber);
+  background: var(--bg-card-hover);
+  transform: translateX(3px);
+}
+.drawer-item-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.drawer-item-badges {
+  display: flex;
+  gap: 4px;
+  margin-top: 3px;
+}
+.drawer-tag {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.drawer-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+/* Card Pulse Animation on Jump */
+@keyframes pulseCard {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.6); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(217, 119, 6, 0); }
+  100% { transform: scale(1); box-shadow: var(--shadow-card); }
+}
+.card-pulse {
+  animation: pulseCard 1s ease;
+  border-color: var(--accent-amber) !important;
+}
+

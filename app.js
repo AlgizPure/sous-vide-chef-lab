@@ -497,6 +497,136 @@ function renderRecipes() {
       </div>
     </div>
   `).join('');
+
+  // Update counts
+  const headerCount = document.getElementById('header-recipe-count');
+  if (headerCount) headerCount.textContent = state.recipes.length;
+  const drawerCount = document.getElementById('drawer-total-count');
+  if (drawerCount) drawerCount.textContent = `${state.recipes.length} рецептов в книге`;
+}
+
+// =========================================
+// Recipe Navigator Drawer Engine
+// =========================================
+
+function openNavDrawer() {
+  const drawer = document.getElementById('nav-drawer');
+  if (!drawer) return;
+  drawer.classList.add('active');
+  renderDrawerRecipes();
+  const input = document.getElementById('drawer-search-input');
+  if (input) {
+    input.value = '';
+    input.focus();
+  }
+}
+
+function closeNavDrawer(e) {
+  const drawer = document.getElementById('nav-drawer');
+  if (!drawer) return;
+  if (!e || e.target === drawer || e.currentTarget === drawer || e.target.classList.contains('btn-icon')) {
+    drawer.classList.remove('active');
+  }
+}
+
+function filterDrawerRecipes() {
+  const input = document.getElementById('drawer-search-input');
+  const term = input ? input.value.trim().toLowerCase() : '';
+  renderDrawerRecipes(term);
+}
+
+function renderDrawerRecipes(searchTerm = '') {
+  const container = document.getElementById('drawer-recipes-list');
+  if (!container) return;
+
+  let list = state.recipes;
+  if (searchTerm) {
+    list = list.filter(r => 
+      r.title.toLowerCase().includes(searchTerm) ||
+      r.author.toLowerCase().includes(searchTerm) ||
+      r.spices.toLowerCase().includes(searchTerm) ||
+      String(r.tempC).includes(searchTerm) ||
+      (r.ingredients && r.ingredients.some(i => i.toLowerCase().includes(searchTerm)))
+    );
+  }
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 30px 10px; color: var(--text-muted);">
+        <p>Ничего не найдено по запросу "${escapeHtml(searchTerm)}"</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Categories definitions
+  const categories = [
+    { key: 'chef', title: '⭐️ Шеф Демьян (Рекомендации)', filter: r => r.isChef },
+    { key: 'poultry', title: '🍗 Птица (Курица, Индейка, Утка)', filter: r => r.category === 'poultry' },
+    { key: 'beef', title: '🥩 Говядина и Стейки', filter: r => r.category === 'beef' },
+    { key: 'pork', title: '🥓 Свинина и Ребра', filter: r => r.category === 'pork' },
+    { key: 'fish', title: '🐟 Рыба и Морепродукты', filter: r => r.category === 'fish' },
+    { key: 'eggs', title: '🥚 Яйца и Овощи', filter: r => r.category === 'eggs' },
+    { key: 'other', title: '🍽 Другие блюда', filter: r => r.category === 'meat' || (!r.isChef && !['poultry','beef','pork','fish','eggs'].includes(r.category)) }
+  ];
+
+  let html = '';
+  categories.forEach(cat => {
+    const items = list.filter(cat.filter);
+    if (items.length > 0) {
+      html += `
+        <div class="drawer-group-title">
+          <span>${cat.title}</span>
+          <span style="font-family: var(--font-mono); color: var(--accent-amber);">${items.length}</span>
+        </div>
+      `;
+      items.forEach(recipe => {
+        html += `
+          <div class="drawer-item" onclick="jumpToRecipe('${recipe.id}')">
+            <div>
+              <div class="drawer-item-title">${escapeHtml(recipe.title)}</div>
+              <div class="drawer-item-badges">
+                <span class="drawer-tag badge-temp">${recipe.tempC}°C</span>
+                <span class="drawer-tag badge-time">${recipe.timeFormatted}</span>
+                ${recipe.isChef ? '<span class="drawer-tag badge-chef">Демьян</span>' : ''}
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        `;
+      });
+    }
+  });
+
+  container.innerHTML = html;
+}
+
+function jumpToRecipe(recipeId) {
+  closeNavDrawer();
+  switchTab('recipes');
+
+  // Ensure category allows this recipe to be visible
+  const recipe = state.recipes.find(r => r.id === recipeId);
+  if (recipe) {
+    if (state.activeCategory !== 'all' && state.activeCategory !== recipe.category && !(state.activeCategory === 'chef' && recipe.isChef)) {
+      state.activeCategory = 'all';
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.category === 'all');
+      });
+      renderRecipes();
+    }
+  }
+
+  // Scroll to recipe element
+  setTimeout(() => {
+    const el = document.getElementById(`recipe-${recipeId}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.remove('card-pulse');
+      void el.offsetWidth; // trigger reflow
+      el.classList.add('card-pulse');
+    }
+  }, 100);
 }
 
 // Cure and Marinade Calculator
