@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.6 - Market Preferences, Deep-Links & Batch Cart Runner)
-const CACHE_NAME = 'sous-vide-v2.6';
+// Service Worker: Sous-Vide Chef Lab (v2.7 - Top Pork, Poultry & Beef Master Collection)
+const CACHE_NAME = 'sous-vide-v2.7';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.6',
-  './app.js?v=2.6',
+  './style.css?v=2.7',
+  './app.js?v=2.7',
   './manifest.json'
 ];
 
