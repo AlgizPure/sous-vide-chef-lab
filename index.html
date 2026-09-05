@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.7">
+  <link rel="stylesheet" href="style.css?v=2.8">
 </head>
 <body>
 
@@ -23,15 +23,15 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <span class="menu-badge-count" id="header-recipe-count">21</span>
+          <span class="menu-badge-count" id="header-recipe-count">27</span>
         </button>
         <div>
           <h1 class="brand-title">Sous-Vide Lab</h1>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
       </div>
-      <div class="header-actions">
-        <button class="btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Сменить тему">
+      <div class="actions">
+        <button class="btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Переключить тему">
           <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
         <button class="btn-icon" onclick="openAddRecipeModal()" title="Добавить рецепт">
@@ -52,6 +52,8 @@
         <button class="chip" data-category="poultry">Птица</button>
         <button class="chip" data-category="beef">Говядина</button>
         <button class="chip" data-category="pork">Свинина</button>
+        <button class="chip" data-category="meat">🍖 Баранина и плов</button>
+        <button class="chip" data-category="sauces">🍯 Соусы / ПФ</button>
         <button class="chip" data-category="fish">Рыба</button>
         <button class="chip" data-category="eggs">Яйца</button>
       </div>
@@ -65,9 +67,19 @@
     <main id="view-calc" class="view-panel">
       <div class="calc-box">
         <h2 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Калькулятор посола и специй</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;">
-          Автоматический расчет по правилу Шефа Демьяна (10г соли + 5г сахара на 500г сырья).
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
+          Автоматический расчет по формуле Шефа Демьяна (крупная морская соль + сахар-антагонист).
         </p>
+
+        <!-- Ratio Switcher -->
+        <div class="shop-filter-bar" style="margin-bottom: 12px;">
+          <button class="shop-chip active" id="calc-mode-chef" onclick="setCalcMode('chef')">
+            ⭐️ Стандарт шефа (10г/5г на 1кг)
+          </button>
+          <button class="shop-chip" id="calc-mode-dense" onclick="setCalcMode('dense')">
+            🧂 Плотный посол (20г/10г на 1кг)
+          </button>
+        </div>
 
         <div class="form-group">
           <label class="form-label">Вес продукта (сырья)</label>
@@ -97,14 +109,14 @@
 
         <div class="calc-results-grid">
           <div class="calc-result-card highlight">
-            <div class="calc-result-name">Соль поваренная</div>
-            <div class="calc-result-val" id="res-salt" style="color: var(--accent-amber);">10.0 г</div>
-            <div style="font-size: 0.7rem; color: var(--text-muted);">2.0% от массы</div>
+            <div class="calc-result-name">Морская соль</div>
+            <div class="calc-result-val" id="res-salt" style="color: var(--accent-amber);">5.0 г</div>
+            <div style="font-size: 0.7rem; color: var(--text-muted);" id="res-salt-sub">1.0% (крупная Metro Chef)</div>
           </div>
           <div class="calc-result-card highlight">
-            <div class="calc-result-name">Сахар-песок</div>
-            <div class="calc-result-val" id="res-sugar" style="color: var(--accent-sky);">5.0 г</div>
-            <div style="font-size: 0.7rem; color: var(--text-muted);">1.0% баланс вкуса</div>
+            <div class="calc-result-name">Сахар-антагонист</div>
+            <div class="calc-result-val" id="res-sugar" style="color: var(--accent-sky);">2.5 г</div>
+            <div style="font-size: 0.7rem; color: var(--text-muted);" id="res-sugar-sub">0.5% баланс вкуса</div>
           </div>
           <div class="calc-result-card">
             <div class="calc-result-name">Время посола</div>
@@ -119,7 +131,7 @@
         </div>
 
         <div id="res-soy-row" style="display: none; margin-top: 10px;" class="callout callout-amber">
-          <strong>Внимание к соусу:</strong> Добавьте <span id="res-soy-val" style="font-weight: 700;">20 г</span> соевого соуса в пакет. Базовая дозировка соли уменьшена вдвое.
+          <strong>Внимание к соусу:</strong> Шеф рекомендует качественный соевый соус (быстрее проникает жидким путем). Добавьте <span id="res-soy-val" style="font-weight: 700;">20 г</span> в пакет. Соль снижена вдвое.
         </div>
 
         <button class="btn btn-primary" style="width: 100%; margin-top: 16px; padding: 12px;" onclick="startCureTimer30Min()">
@@ -245,6 +257,51 @@
         </div>
         <div class="callout callout-ruby">
           <strong>5. Строжайший запрет СВЧ:</strong> Микроволновка разрушает нежную текстуру белка. Разогревать пакет только в теплой воде 50°C 10 минут.
+        </div>
+      </div>
+
+      <div class="card card-chef">
+        <h3 class="card-title" style="color: var(--accent-amber);">🥓 Свиные рёбра: выбор сырья и 2 режима текстуры</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Аудио-инструкция от Шефа Демьяна</p>
+        
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>Отказ от магазинных рёбер в маринаде:</strong> В готовые пакеты супермаркетов фасуют неликвид — обрезки, жилы и избыточный жир, которые не продать открыто. Берите только свежую мясную ленту рёбер.
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Режим 1 «Пожевать на косточке» (65°C х 12–14 часов):</strong> Идеальный баланс. Мясо мягкое, сочное, волокна не разваливаются в кашу, а приятно жуются и обгладываются с кости.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>Режим 2 «Распад волокон» (67–68°C х 18–20 часов):</strong> Косточки вынимаются руками без ножа. Мясо тает и разбирается пальцами как тушенка (pulled pork).
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; padding: 4px;">
+          <strong>Фактор мясистости и возраста:</strong> Молодая нежирная свинина готовится быстрее (12ч). Плотная взрослая свинина или ребра с грудинкой требуют больше времени на распад соединительной ткани.
+        </div>
+      </div>
+
+      <div class="card card-chef">
+        <h3 class="card-title" style="color: var(--accent-emerald);">🧂 Секреты соления и усилители Умами</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Технологические стандарты ресторанного вкуса</p>
+        
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>1. Запрет мелкой соли «Экстра»:</strong> Мелкая выварочная соль даёт едкий пересол и пережигает волокна. Шеф использует только крупную морскую соль (Metro Chef помол №1–2).
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>2. Сахар как антагонист (10г соли + 5г сахара / кг):</strong> Сахар заставляет рецепторы языка острее воспринимать соль. Дозировка 10г соли + 5г сахара дает тот же вкус, что 20г чистой соли, но без вредного пересола.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>3. Жидкий маринад (Соевый соус):</strong> Соевый соус (креветочный или премиум) проникает вглубь волокон в разы быстрее сухих кристаллов соли благодаря жидкой диффузии.
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 4px;">
+          <strong>4. Усилители вкуса из техкарт Шефа:</strong><br>
+          • <strong>Дашида (Dashida):</strong> корейский концентрат говяжьего умами (для ростбифа и стейков).<br>
+          • <strong>Хондаши (Hondashi):</strong> японский экстракт тунца бонито (секрет говядины по-бургундски).<br>
+          • <strong>Демиглас (Demiglace):</strong> уваренный желатиновый бульон для глянцевых ресторанных соусов.
         </div>
       </div>
 
@@ -523,6 +580,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.7"></script>
+  <script src="app.js?v=2.8"></script>
 </body>
 </html>

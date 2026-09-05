@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.7 - Top Pork, Poultry & Beef Master Collection)
-const CACHE_NAME = 'sous-vide-v2.7';
+// Service Worker: Sous-Vide Chef Lab (v2.8 - Chef Demian Tech Cards & Umami Balance)
+const CACHE_NAME = 'sous-vide-v2.8';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.7',
-  './app.js?v=2.7',
+  './style.css?v=2.8',
+  './app.js?v=2.8',
   './manifest.json'
 ];
 
