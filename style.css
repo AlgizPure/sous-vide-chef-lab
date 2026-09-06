@@ -1,6 +1,7 @@
 /* Sous-Vide Chef Lab - Modern Anti-Slop Stylesheet (Light & Dark Themes) */
 
-:root {
+:root, [data-theme="light"] {
+  color-scheme: light;
   /* Default: Fresh Light Culinary Theme */
   --bg-primary: #f8fafc;
   --bg-surface: #ffffff;
@@ -23,6 +24,7 @@
   --accent-sky: #0284c7;
   --accent-sky-glow: rgba(2, 132, 199, 0.15);
   --accent-ruby: #dc2626;
+  --accent-ruby-glow: rgba(220, 38, 38, 0.15);
   
   --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
   --nav-backdrop: rgba(255, 255, 255, 0.92);
@@ -34,6 +36,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   /* Dark Pro Kitchen Theme */
   --bg-primary: #0a0c10;
   --bg-surface: #12161f;
@@ -56,6 +59,7 @@
   --accent-sky: #38bdf8;
   --accent-sky-glow: rgba(56, 189, 248, 0.18);
   --accent-ruby: #ef4444;
+  --accent-ruby-glow: rgba(239, 68, 68, 0.18);
   
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.25);
   --nav-backdrop: rgba(18, 22, 31, 0.94);
@@ -68,7 +72,6 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 body {
@@ -80,6 +83,17 @@ body {
   padding-bottom: 90px;
   overflow-x: hidden;
   user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+option {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
 }
 
 /* Scrollbar */
@@ -1294,7 +1308,7 @@ textarea.input-field {
   color: var(--text-primary);
 }
 .callout-ruby {
-  background: rgba(220, 38, 38, 0.1);
+  background: var(--accent-ruby-glow);
   border-left: 3px solid var(--accent-ruby);
   color: var(--text-primary);
 }

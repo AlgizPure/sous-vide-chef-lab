@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#0a0c10">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.8">
+  <link rel="stylesheet" href="style.css?v=2.9">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('sous_vide_theme_v2');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0c10' : '#f8fafc');
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -30,7 +43,7 @@
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
       </div>
-      <div class="actions">
+      <div class="header-actions">
         <button class="btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Переключить тему">
           <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         </button>
@@ -66,7 +79,7 @@
     <!-- VIEW 2: CALCULATOR -->
     <main id="view-calc" class="view-panel">
       <div class="calc-box">
-        <h2 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Калькулятор посола и специй</h2>
+        <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Калькулятор посола и специй</h2>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
           Автоматический расчет по формуле Шефа Демьяна (крупная морская соль + сахар-антагонист).
         </p>
@@ -98,7 +111,7 @@
 
         <div class="toggle-row">
           <div>
-            <div style="font-size: 0.9rem; font-weight: 600; color: #fff;">Маринад с соленым соусом</div>
+            <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Маринад с соленым соусом</div>
             <div style="font-size: 0.75rem; color: var(--text-muted);">Соевый соус / BBQ / Терияки (снижает соль на 50%)</div>
           </div>
           <label class="toggle-switch">
@@ -147,7 +160,7 @@
       </div>
 
       <div style="margin-top: 20px;">
-        <h3 style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 10px;">Быстрые кулинарные пресеты</h3>
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">Быстрые кулинарные пресеты</h3>
         <div class="timer-presets-grid">
           <div class="preset-card" onclick="startCureTimer30Min()">
             <div class="preset-name">Сухой посол (Пресол)</div>
@@ -580,6 +593,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.8"></script>
+  <script src="app.js?v=2.9"></script>
 </body>
 </html>

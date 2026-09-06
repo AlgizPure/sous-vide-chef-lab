@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v2.8 - Chef Demian Tech Cards & Umami Balance)
-const CACHE_NAME = 'sous-vide-v2.8';
+// Service Worker: Sous-Vide Chef Lab (v2.9 - Theme Contrast, Status Bar & Dynamic Toggle Fix)
+const CACHE_NAME = 'sous-vide-v2.9';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=2.8',
-  './app.js?v=2.8',
+  './style.css?v=2.9',
+  './app.js?v=2.9',
   './manifest.json'
 ];
 
