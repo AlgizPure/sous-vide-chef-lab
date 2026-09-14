@@ -825,6 +825,15 @@ function initTheme() {
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    icon.classList.remove('theme-icon-spin');
+    void icon.offsetWidth;
+    icon.classList.add('theme-icon-spin');
+    setTimeout(() => icon.classList.remove('theme-icon-spin'), 320);
+  }
+
   applyTheme(newTheme);
   localStorage.setItem(STORAGE_KEYS.THEME, newTheme);
   showToast(newTheme === 'light' ? '☀️ Включена светлая тема' : '🌙 Включена темная тема');

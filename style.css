@@ -183,6 +183,13 @@ option {
   background: var(--bg-card-hover);
 }
 
+#theme-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-icon-spin {
+  transform: rotate(360deg) scale(1.18);
+}
+
 /* Navigation Tabs */
 .bottom-nav {
   position: fixed;
