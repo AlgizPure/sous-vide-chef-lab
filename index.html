@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.1">
+  <link rel="stylesheet" href="style.css?v=3.2">
   <script>
     (function() {
       try {
@@ -36,7 +36,7 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <span class="menu-badge-count" id="header-recipe-count">34</span>
+          <span class="menu-badge-count" id="header-recipe-count">66</span>
         </button>
         <div>
           <h1 class="brand-title">Sous-Vide Lab</h1>
@@ -58,17 +58,29 @@
 
     <!-- VIEW 1: RECIPES COOKBOOK -->
     <main id="view-recipes" class="view-panel active">
+      <!-- Live Search Bar -->
+      <div class="recipe-search-wrap">
+        <svg class="recipe-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="recipe-search-input" class="recipe-search-input" placeholder="🔍 Поиск: стейк, утка, лопатка, ветчина, соус..." oninput="handleRecipeSearch(this.value)">
+        <button id="recipe-search-clear" class="recipe-search-clear" onclick="clearRecipeSearch()" style="display: none;" title="Очистить поиск">&times;</button>
+      </div>
+
       <div class="chip-row">
         <button class="chip active" data-category="all">Все</button>
         <button class="chip" data-category="fav">❤️ Избранное <span id="fav-count-badge"></span></button>
         <button class="chip" data-category="chef">⭐️ Шеф Демьян</button>
-        <button class="chip" data-category="poultry">Птица</button>
-        <button class="chip" data-category="beef">Говядина</button>
-        <button class="chip" data-category="pork">Свинина</button>
-        <button class="chip" data-category="meat">🍖 Баранина и плов</button>
+        <button class="chip" data-category="video">🎥 Видео-шефы</button>
+        <button class="chip" data-category="poultry">🍗 Птица</button>
+        <button class="chip" data-category="beef">🥩 Говядина</button>
+        <button class="chip" data-category="pork">🥓 Свинина</button>
+        <button class="chip" data-category="ham">🍖 Ветчина / Колбасы</button>
+        <button class="chip" data-category="fish">🐟 Рыба / Морепродукты</button>
+        <button class="chip" data-category="vegetables">🥦 Овощи</button>
+        <button class="chip" data-category="pate">🫙 Паштеты / Рийеты</button>
+        <button class="chip" data-category="desserts">🍹 Десерты / Напитки</button>
+        <button class="chip" data-category="eggs">🥚 Яйца</button>
+        <button class="chip" data-category="meat">🍲 Баранина и плов</button>
         <button class="chip" data-category="sauces">🍯 Соусы / ПФ</button>
-        <button class="chip" data-category="fish">Рыба</button>
-        <button class="chip" data-category="eggs">Яйца</button>
       </div>
 
       <!-- Sub-Category Selection Menu -->
@@ -274,7 +286,19 @@
 
     <!-- VIEW 5: GUIDE & HACCP -->
     <main id="view-guide" class="view-panel">
-      <div class="card card-chef">
+      <!-- Guide Category Tabs -->
+      <div class="guide-tab-bar">
+        <button class="guide-tab active" data-guide-tab="all" onclick="setGuideTab('all')">Все материалы</button>
+        <button class="guide-tab" data-guide-tab="chef" onclick="setGuideTab('chef')">⭐️ Законы Шефа</button>
+        <button class="guide-tab" data-guide-tab="science" onclick="setGuideTab('science')">🧪 Наука и тесты</button>
+        <button class="guide-tab" data-guide-tab="videos" onclick="setGuideTab('videos')">🎥 Видео-мастера</button>
+        <button class="guide-tab" data-guide-tab="hacks" onclick="setGuideTab('hacks')">💡 Лайфхаки упаковки</button>
+        <button class="guide-tab" data-guide-tab="ham" onclick="setGuideTab('ham')">🥓 Ветчинницы и колбасы</button>
+        <button class="guide-tab" data-guide-tab="storage" onclick="setGuideTab('storage')">🛡 Сроки и HACCP</button>
+      </div>
+
+      <!-- CHEF SECTION -->
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-amber);">5 Золотых Законов Су-Вида</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Технологические постулаты от Шефа Демьяна</p>
         
@@ -295,7 +319,7 @@
         </div>
       </div>
 
-      <div class="card card-chef">
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-amber);">🥓 Свиные рёбра: выбор сырья и 2 режима текстуры</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Аудио-инструкция от Шефа Демьяна</p>
         
@@ -316,7 +340,7 @@
         </div>
       </div>
 
-      <div class="card card-chef">
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-emerald);">🧂 Секреты соления и усилители Умами</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Технологические стандарты ресторанного вкуса</p>
         
@@ -340,7 +364,7 @@
         </div>
       </div>
 
-      <div class="card card-chef">
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-amber);">🍗 Птица и мясо на кости: Закон 66.5°C и миоглобин</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Технологический стандарт безопасности Шефа Демьяна</p>
         
@@ -357,7 +381,7 @@
         </div>
       </div>
 
-      <div class="card card-chef">
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-amber);">🥩 Говяжья лопатка для спорта: 2 режима и секрет жареного вкуса</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Питательный белок на каждый день без сложных ресторанных соусов</p>
         
@@ -378,7 +402,7 @@
         </div>
       </div>
 
-      <div class="card card-chef">
+      <div class="card card-chef" data-guide-section="chef">
         <h3 class="card-title" style="color: var(--accent-emerald);">🐟 Рыбный ресторанный протокол Шефа Демьяна (HACCP)</h3>
         <p class="card-subtitle" style="margin-bottom: 12px;">Официальные техкарты ООО «Мой Шеф»</p>
         
@@ -410,7 +434,141 @@
         </div>
       </div>
 
-      <div class="card">
+      <!-- SCIENCE SECTION -->
+      <div class="card" data-guide-section="science">
+        <h3 class="card-title" style="color: var(--accent-sky);">🧪 Наука сочности: Парадокс влагопотерь су-вида</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Научный эксперимент канала Доброслав13 с точными весами</p>
+        
+        <div class="recipe-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+          <div class="metric-item">
+            <span class="metric-label">65°C • 40 мин (Эталон)</span>
+            <span class="metric-value" style="color: var(--accent-emerald);">8.5% потери веса</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">65°C • 60 мин + масло</span>
+            <span class="metric-value" style="color: var(--accent-amber);">12.0% (Топ слепого теста)</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">62°C • 3 часа (Передержка)</span>
+            <span class="metric-value" style="color: var(--accent-ruby);">17.0% потери сока</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Сковорода / духовка</span>
+            <span class="metric-value" style="color: var(--accent-ruby);">28–35% потери</span>
+          </div>
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Почему время сушит мясо:</strong> При длительной выдержке мышечные волокна продолжают медленно сжиматься, выдавливая влагу («эффект отжимаемой губки»). Понижение температуры на 3°C не компенсирует лишние 2 часа!
+        </div>
+
+        <div class="callout callout-amber">
+          <strong>Эффект сливочного масла (20г в пакет):</strong> На слепой дегустации образец со сливочным маслом единогласно победил: молочный жир соединяется с мясным соком в эмульсию и запечатывает волокна.
+        </div>
+      </div>
+
+      <!-- VIDEOS SECTION -->
+      <div class="card" data-guide-section="videos">
+        <h3 class="card-title" style="color: #ef4444;">🎥 Видео мастер-классы от шефов (YouTube)</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Проверенные техники с таймкодами и параметрами</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="callout callout-ruby" style="background: rgba(239, 68, 68, 0.08);">
+            <div style="font-weight: 700; font-size: 0.88rem; color: #ef4444; margin-bottom: 4px;">
+              1. Олег Чешик (Шеф V-ZUG) — Стриплойн Medium & Зеленая спаржа
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px;">
+              Параметры: Стриплойн <strong>59°C • 1 час</strong>; Спаржа <strong>80°C • 10 мин</strong>. Секрет: добавка вустерского соуса прямо в вакуумный пакет и быстрое колерование на топленом масле Гхи.
+            </div>
+            <a href="https://www.youtube.com/watch?v=IX2eCQCKMmg" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" style="display: inline-flex;">
+              ▶️ Смотреть на YouTube (11:24)
+            </a>
+          </div>
+
+          <div class="callout callout-amber" style="background: rgba(245, 158, 11, 0.08);">
+            <div style="font-weight: 700; font-size: 0.88rem; color: var(--accent-amber); margin-bottom: 4px;">
+              2. RAWMID — Физика толщины куска и выбор вакуумных пакетов
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px;">
+              Закон толщины: теплопередача нелинейна. Кусок 2 см прогревается за 35 мин, кусок 4 см — за 1 час 45 мин. Используйте только сертифицированные пищевые пакеты PA/PE без бисфенола-А (BPA-free).
+            </div>
+            <a href="https://www.youtube.com/watch?v=OPF-zXgI5A8" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" style="display: inline-flex;">
+              ▶️ Смотреть на YouTube (09:45)
+            </a>
+          </div>
+
+          <div class="callout callout-emerald" style="background: rgba(16, 185, 129, 0.08);">
+            <div style="font-weight: 700; font-size: 0.88rem; color: var(--accent-emerald); margin-bottom: 4px;">
+              3. Доброслав13 — Точные лабораторные замеры сочности курицы
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px;">
+              Практический эксперимент: сравнение потерь влаги при 65°C 40 мин (8.5%), 65°C 60 мин с маслом (12%) и 62°C 3 часа (17%). Доказано на весах: передержка сушит птицу!
+            </div>
+            <a href="https://www.youtube.com/watch?v=gGzSHlMw5Og" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" style="display: inline-flex;">
+              ▶️ Смотреть на YouTube (14:18)
+            </a>
+          </div>
+
+          <div class="callout callout-sky" style="background: rgba(14, 165, 233, 0.08);">
+            <div style="font-weight: 700; font-size: 0.88rem; color: var(--accent-sky); margin-bottom: 4px;">
+              4. Маша Шелушенко — Ресторанный Meal Prep заготовок на 14 дней
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px;">
+              Система умных заготовок: одновременное приготовление мясных стейков и овощей в су-виде, шоковое охлаждение в ледяной воде и хранение при +2...+4°C. Ужин за 5 минут в любой будний день.
+            </div>
+            <a href="https://www.youtube.com/watch?v=cm_bP-faMzk" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" style="display: inline-flex;">
+              ▶️ Смотреть на YouTube (18:30)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HACKS SECTION -->
+      <div class="card" data-guide-section="hacks">
+        <h3 class="card-title" style="color: var(--accent-amber);">💡 Золотые лайфхаки форума «Хлебопечка.ру»</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">2159 постов опыта домашних и профессиональных сувидистов</p>
+        
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>1. Трюк с бумажной салфеткой (Экономия на пакетах):</strong> Бытовой бескамерный вакууматор отказывается откачивать воздух из дешевых гладких пакетов. Вложите в горловину пакета полоску чистой бумажной салфетки (шириной 1 см) или обрезок рифленого пакета. Она работает как капиллярный микроканал — воздух откачивается на 100%!
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>2. Anti-Albumin барьер для рыбы (10% рассол):</strong> Чтобы лосось, форель или треска не покрывались белыми хлопьями альбумина, опустите филе перед вакуумированием на 12 минут в 10%-й солевой раствор (100г соли на 1л воды). Соль денатурирует белки тонкого приповерхностного слоя, запечатывая сок внутри.
+        </div>
+
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>3. Правило «Двух пальцев» (Finger-Tight) для баночек Twist-Off:</strong> При готовке паштетов, рийетов и десертов в стеклянных банках крышку закручивать <strong>строго кончиками большого и указательного пальцев</strong> без нажима! При нагреве расширяющийся воздух свободно стравится через микрозазор, а при остывании крышка втянется внутрь с характерным щелчком. Перетянутая банка в воде лопнет!
+        </div>
+
+        <div class="callout callout-sky">
+          <strong>4. Борьба со всплыванием легких пакетов:</strong> Овощи, птица и грибы всплывают из-за микропор воздуха. Чтобы не покупать дорогие держатели: положите на дно пакета тяжелую чистую ложку из пищевой нержавеющей стали, либо прижмите пакет снаружи гастроемкости сильным неодимовым магнитом.
+        </div>
+      </div>
+
+      <!-- HAM SECTION -->
+      <div class="card" data-guide-section="ham">
+        <h3 class="card-title" style="color: var(--accent-emerald);">🥓 Ветчинницы (Белобока / Tescoma) и домашние колбасы</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Технология упругого монолитного среза без бульонного отека</p>
+
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>1. Главный враг — температура фарша выше +10°C:</strong> Если фарш нагреется при вымешивании, жир оплавится, белок потеряет способность удерживать влагу, и вы получите сухую котлету, плавающую в бульоне (бульонный отек). Мясо должно быть подмороженным (-2...+1°C).
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>2. Вымешивание до «белковых нитей» + ледяная вода (10–15%):</strong> Фарш интенсивно вымешивается вручную или планетарным миксером с добавлением ледяной воды до появления белых липких волокон (экстракция миозина). Именно миозин склеивает кусочки мяса в единую монолитную ветчину.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>3. Нитритная соль 50/50:</strong> 10г поваренной соли + 10г нитритной соли (0.6%) на 1 кг мяса. Нитрит натрия защищает от Clostridium botulinum при многочасовом прогреве и сохраняет классический аппетитный розовый ветчинный цвет.
+        </div>
+
+        <div class="callout callout-emerald">
+          <strong>4. Режим термообработки в су-виде (68°C • 3.5–4.0 часа):</strong> Поместите заряженную пружинную ветчинницу целиком в су-вид при 68°C. Пружины постепенно сжимают оседающий батон. Сразу после окончания — шоковое охлаждение в ледяной воде на 1 час и выдержка 8–12 часов в холодильнике до стабилизации коллагена.
+        </div>
+      </div>
+
+      <!-- STORAGE SECTION -->
+      <div class="card" data-guide-section="storage">
         <h3 class="card-title">Сроки хранения и безопасность (HACCP)</h3>
         <div class="recipe-metrics" style="grid-template-columns: 1fr; margin-top: 10px;">
           <div class="metric-item" style="margin-bottom: 6px;">
@@ -419,9 +577,9 @@
           </div>
           <div class="metric-item" style="margin-bottom: 6px;">
             <span class="metric-label">Готовый пастеризованный продукт</span>
-            <span class="metric-value" style="color: var(--accent-emerald);">До 14 суток в невскрытом пакете</span>
+            <span class="metric-value" style="color: var(--accent-emerald);">До 14 суток в невскрытом пакете (+2...+4°C)</span>
           </div>
-          <div class="metric-item">
+          <div class="metric-item" style="margin-bottom: 6px;">
             <span class="metric-label">Глубокая заморозка (-18°C)</span>
             <span class="metric-value" style="color: var(--accent-sky);">От 90 дней до 3 лет</span>
           </div>
@@ -482,12 +640,16 @@
           <div>
             <label class="form-label">Категория</label>
             <select id="modal-cat-select" class="input-field">
-              <option value="poultry">Птица</option>
-              <option value="beef">Говядина</option>
-              <option value="pork">Свинина</option>
-              <option value="fish">Рыба</option>
-              <option value="meat">Другое мясо</option>
-              <option value="eggs">Яйца/Овощи</option>
+              <option value="poultry">🍗 Птица</option>
+              <option value="beef">🥩 Говядина</option>
+              <option value="pork">🥓 Свинина</option>
+              <option value="ham">🍖 Ветчина / Колбасы</option>
+              <option value="fish">🐟 Рыба / Морепродукты</option>
+              <option value="vegetables">🥦 Овощи</option>
+              <option value="pate">🫙 Паштеты / Рийеты</option>
+              <option value="desserts">🍹 Десерты / Напитки</option>
+              <option value="meat">🍲 Баранина / Плов</option>
+              <option value="eggs">🥚 Яйца</option>
             </select>
           </div>
           <div>
@@ -685,6 +847,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.1"></script>
+  <script src="app.js?v=3.2"></script>
 </body>
 </html>
