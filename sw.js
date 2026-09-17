@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.6 - Deep Chuck Anatomy, Science Matrices, Monter au Beurre & Version Sync)
-const CACHE_NAME = 'sous-vide-v3.6';
+// Service Worker: Sous-Vide Chef Lab (v3.7 - Beef Chuck Butchery Guide, Seam Cutting & Cut Modals)
+const CACHE_NAME = 'sous-vide-v3.7';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.6',
-  './app.js?v=3.6',
+  './style.css?v=3.7',
+  './app.js?v=3.7',
   './manifest.json'
 ];
 
