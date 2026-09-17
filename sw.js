@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.5 - Visual Version Badge & Forced Cache Clear)
-const CACHE_NAME = 'sous-vide-v3.5';
+// Service Worker: Sous-Vide Chef Lab (v3.6 - Deep Chuck Anatomy, Science Matrices, Monter au Beurre & Version Sync)
+const CACHE_NAME = 'sous-vide-v3.6';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.5',
-  './app.js?v=3.5',
+  './style.css?v=3.6',
+  './app.js?v=3.6',
   './manifest.json'
 ];
 

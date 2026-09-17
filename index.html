@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.5">
+  <link rel="stylesheet" href="style.css?v=3.6">
   <script>
     (function() {
       try {
@@ -41,7 +41,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h1 class="brand-title">Sous-Vide Lab</h1>
-            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.5</span>
+            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.6</span>
           </div>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
@@ -493,6 +493,183 @@
         </div>
       </div>
 
+      <!-- CHUCK ANATOMY & BUTCHERY GUIDE -->
+      <div class="card" data-guide-section="science">
+        <h3 class="card-title" style="color: #a855f7;">🥩 Анатомический атлас и разделка говяжьей лопатки</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Научное руководство мясника по субпрималам бескостной лопатки (Chuck Roll)</p>
+        
+        <div class="callout callout-amber" style="margin-bottom: 10px;">
+          <strong>Биология лопатки (26% туши):</strong> Мышцы плечевого пояса — локомоторные («heavy lifters»), они работают непрерывно при ходьбе и поддержании веса. Они богаты миоглобином (глубокий говяжий вкус), но содержат рекордное количество соединительной ткани.
+        </div>
+
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr>
+                <th>Субпримал / Мышца</th>
+                <th>Анатомическое расположение</th>
+                <th>Особенности волокон и текстуры</th>
+                <th>Кулинарный протокол су-вид</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Chuck Eye Roll</strong><br><span style="color: var(--text-muted); font-size: 0.7rem;">(Longissimus dorsi)</span></td>
+                <td>Продолжение мышцы рибая в плечевую зону (1–5 ребра)</td>
+                <td>Высокая мраморность, крупные волокна. Первые 5–7 см дают стейки Chuck Eye («рибай для бедных»).</td>
+                <td>54–56°C х 24–36 ч: текстура премиального рибая при 50% экономии бюджета.</td>
+              </tr>
+              <tr>
+                <td><strong>Flat Iron / Top Blade</strong><br><span style="color: var(--text-muted); font-size: 0.7rem;">(Infraspinatus)</span></td>
+                <td>Подостная мышца на лопаточной кости (скапуле)</td>
+                <td><strong>2-я по нежности мышца туши</strong> после вырезки! По центру проходит жесткая центральная жила.</td>
+                <td>Разрезать пласт вдоль центральной жилы, удалить жилу. Су-вид: 54.5°C х 2.5 ч. Нежнейший стейк!</td>
+              </tr>
+              <tr>
+                <td><strong>Denver Steak</strong><br><span style="color: var(--text-muted); font-size: 0.7rem;">(Serratus ventralis)</span></td>
+                <td>Зубчатая мышца под пластом Chuck Eye Roll</td>
+                <td>Мелковолокнистая структура, обильная мраморная сеточка как у Стриплойна / Нью-Йорка.</td>
+                <td>Нарезка поперек волокон толщиной 3 см. Су-вид 54.5°C х 4 ч + быстрый колер на чугуне.</td>
+              </tr>
+              <tr>
+                <td><strong>Teres Major</strong><br><span style="color: var(--text-muted); font-size: 0.7rem;">(Petite Tender)</span></td>
+                <td>Веретенообразная мышца плечевого блока (230–350г)</td>
+                <td><strong>3-я по нежности мышца туши</strong>. Насыщенный минеральный вкус железа (как у Hanger). Покрыта пленкой.</td>
+                <td>Срезать серебристую пленку (silverskin). Су-вид 54.5°C ровно 2 ч. Отдых 10 мин перед нарезкой.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>Коллаген против Эластина (Главный закон зачистки):</strong><br>
+          • <strong>Коллаген</strong> в межмышечных оболочках растворяется в шелковистый желатин при 52–58°C за 24–36 часов.<br>
+          • <strong>Эластин (серебристая пленка silverskin и центральная жила)</strong> — химически стабилен и <strong>НЕ РАСТВОРЯЕТСЯ</strong> при температурах су-вид никогда! Если оставить пленку на мясе, она останется резиновой. Срезайте её острым ножом ДО вакуумирования!
+        </div>
+
+        <div class="callout callout-emerald">
+          <strong>Мясницкий прием Seam Cutting & Trussing (Обвязка):</strong> Разделывайте охлажденное мясо (0–3°C) строго по естественным швам между мышцами. Для цельного ростбифа (Poor Man's Prime Rib) вырежьте внутренний грубый жир, сложите куски вместе и <strong>туго перевяжите шпагатом каждые 2.5 см</strong>: мясо не распадется и прогреется идеально равномерно.
+        </div>
+      </div>
+
+      <!-- TEMPERATURE AND TIME MATRIX -->
+      <div class="card" data-guide-section="science">
+        <h3 class="card-title" style="color: var(--accent-sky);">⏱ Температурно-временная матрица лопатки: от стейка до тушенки</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Научная кинетика гидролиза коллагена по исследованиям Baldwin, Bouton & Harris</p>
+        
+        <div class="callout callout-sky" style="margin-bottom: 10px;">
+          <strong>Фермент Коллагеназа (Активен до 60°C):</strong> При температуре 54–56°C мышечный актин не пережимается и не выжимает влагу, а естественный фермент коллагеназа вместе с мягким гидролизом за 24–36 часов растворяет грубый коллаген в желатин.
+        </div>
+
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr>
+                <th>Профиль текстуры</th>
+                <th>Температура (°C)</th>
+                <th>Время (ч)</th>
+                <th>Текстура и физика мяса</th>
+                <th>Подача и назначение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Стейк Medium-Rare</strong></td>
+                <td><strong style="color: var(--accent-sky);">54.0–55.0°C</strong></td>
+                <td>24 ч</td>
+                <td>Мягкое мясо с плотностью и упругостью классического стейка, сочный розовый срез от края до края.</td>
+                <td>Chuck Steak ломтями, стейковая подача с маслом.</td>
+              </tr>
+              <tr>
+                <td><strong>«Poor Man's Prime Rib»</strong></td>
+                <td><strong style="color: var(--accent-amber);">55.5–56.5°C</strong></td>
+                <td>30–36 ч</td>
+                <td><strong>Золотой баланс:</strong> максимальный выход желатина при сохранении сока. Текстура элитного прайм-риба.</td>
+                <td>Праздничный ростбиф слайсами 1.5–2 см с соусом на вине.</td>
+              </tr>
+              <tr>
+                <td><strong>Тающий ростбиф (Филе-Миньон)</strong></td>
+                <td><strong style="color: var(--accent-emerald);">54.5–56.0°C</strong></td>
+                <td>44–48 ч</td>
+                <td>Предельная мягкость, сравнимо с нежнейшей вырезкой. Внимание: свыше 48ч мясо рискует стать кашеобразным!</td>
+                <td>Тонкая ресторанная нарезка, сэндвичи French Dip.</td>
+              </tr>
+              <tr>
+                <td><strong>Сочный Пот-Роаст (Medium-Well)</strong></td>
+                <td><strong style="color: var(--accent-amber);">65.0°C</strong></td>
+                <td>18–24 ч</td>
+                <td>Полная прожарка, но мясо невероятно сочное благодаря растопленному желатину. Держит форму, режется вилкой.</td>
+                <td>Домашнее жаркое с морковью, картофелем и грейви.</td>
+              </tr>
+              <tr>
+                <td><strong>Рваная говядина (Pulled Beef)</strong></td>
+                <td><strong style="color: var(--accent-ruby);">68.0–74.0°C</strong></td>
+                <td>18–24 ч</td>
+                <td>Волокна легко разделяются двумя вилками, внутримышечный жир и соединительная ткань полностью вытоплены.</td>
+                <td>Начинка для бургеров, тако, буррито, барбакоа.</td>
+              </tr>
+              <tr>
+                <td><strong>Рагу распадающееся (Fall-Apart)</strong></td>
+                <td><strong style="color: var(--accent-ruby);">75.0–80.0°C</strong></td>
+                <td>12–16 ч</td>
+                <td>Имитация традиционного томления в печи при 100% сохранении летучих ароматических масел внутри пакета.</td>
+                <td>Гуляш, бефстроганов, соус Болоньезе.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LACTOBACILLUS MICROBIOLOGY -->
+      <div class="card" data-guide-section="science">
+        <h3 class="card-title" style="color: var(--accent-ruby);">🛡 Микробиология Lactobacillus: 100% защита от кислого/сырного запаха</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Протокол безопасности Modernist Cuisine для длительных варок 24–48 часов</p>
+        
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>Откуда берется запах сыра или «грязных носков»?</strong> При температурах 54–57°C в теплой анаэробной среде вакуумного пакета за 24–48 часов могут активизироваться термотолерантные бактерии <em>Lactobacillus</em>. Они не являются опасными токсинами, но выделяют газы с отталкивающим кислым запахом ферментированного сыра и создают белесую пленку.
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Метод 1: Быстрое бланширование в кипятке (Fast Blanching — Эталон):</strong><br>
+          Опустите сырой цельный кусок мяса в быстро кипящую воду (100°C) ровно на <strong>15–30 секунд</strong> перед вакуумированием! Кипяток мгновенно уничтожает 100% поверхностных спор и бактерий в каждой микротрещине отруба, не проваривая внутренние ткани. Затем обсушите полотенцем и пакуйте.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>Метод 2: Предварительная обжарка (Pre-sear):</strong><br>
+          Обжарьте сухой кусок на раскаленной сковороде с маслом по 1 минуте со всех сторон. Высокая температура сковороды стерилизует внешнюю поверхность и закладывает вкусовую базу реакции Майяра.
+        </div>
+
+        <div class="callout callout-ruby">
+          <strong>⚠️ Смертельный враг су-вида — тендеризатор Jaccard:</strong><br>
+          Никогда не покупайте для длительного су-вида (свыше 12ч при температуре до 58°C) мясо из супермаркета со следами машинного прокалывания иглами (механический тендеризатор). Иглы вдавливают поверхностные бактерии глубоко в центр мяса, где внешнее бланширование бессильно!
+        </div>
+      </div>
+
+      <!-- BAG JUICES & MONTER AU BEURRE CHEMISTRY -->
+      <div class="card" data-guide-section="science">
+        <h3 class="card-title" style="color: var(--accent-amber);">🍯 Физико-химия соуса из сока пакета (Bag Juices & Monter au beurre)</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Как превратить мутный сок су-вида в зеркальный бархатный шеф-соус</p>
+        
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>Парадокс свернувшегося белка (Альбумин):</strong> При су-виде из мяса выделяется драгоценный концентрированный сок, богатый водорастворимым белком альбумином. Если просто вскипятить его на сковороде, альбумин мгновенно сворачивается в неприятные серые хлопья, делая соус мутным и непривлекательным.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>Шаг 1: Выпаривание до мясного фонда (Fond):</strong><br>
+          Вылейте сок из пакета вместе с чесноком и травами на горячую сковороду. Выпаривайте жидкость полностью на средне-сильном огне (3–4 мин). Вода испарится, а осевший альбумин начнет карамелизоваться и поджариваться в вытопленном жире, образуя темно-коричневую ароматную глазурь (<em>fond</em>).
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Шаг 2: Деглазирование и фильтрация:</strong><br>
+          Влейте 150 мл сухого красного вина или 300 мл говяжьего бульона. Деревянной лопаткой тщательно соскребите все карамелизованные частички со дна. Уварите жидкость вдвое и процедите через мелкое сито (chinois): серые свернувшиеся хлопья останутся на сетке, а соус получится прозрачным и насыщенно-рубиновым.
+        </div>
+
+        <div class="callout callout-sky">
+          <strong>Шаг 3: Монтирование маслом (Monter au beurre):</strong><br>
+          Снимите сотейник с огня (температура соуса должна остыть до 70–75°C). Добавьте 30–40 г <strong>ледяного сливочного масла</strong> кубиками. Непрерывно взбивайте венчиком до полного растворения. Молочный жир образует стойкую термодинамическую эмульсию: соус моментально густеет, приобретает шелковистый бархатный вкус и глянцевый блеск.
+        </div>
+      </div>
+
       <!-- VIDEOS SECTION -->
       <div class="card" data-guide-section="videos">
         <h3 class="card-title" style="color: #ef4444;">🎥 Видео мастер-классы от шефов (YouTube)</h3>
@@ -715,7 +892,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h2 class="drawer-title">Навигатор рецептов</h2>
-            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.5</span>
+            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.6</span>
           </div>
           <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
         </div>
@@ -736,7 +913,7 @@
           + Добавить новый рецепт
         </button>
         <button class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.76rem; display: flex; align-items: center; justify-content: center; gap: 6px;" onclick="forceAppUpdate()" title="Очистить локальный кэш браузера и перезагрузить свежую версию">
-          🔄 Проверить и форсировать обновление (v3.5)
+          🔄 Проверить и форсировать обновление (v3.6)
         </button>
       </div>
     </div>
@@ -884,6 +1061,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.5"></script>
+  <script src="app.js?v=3.6"></script>
 </body>
 </html>

@@ -1444,6 +1444,11 @@ textarea.input-field {
   border-left: 3px solid var(--accent-ruby);
   color: var(--text-primary);
 }
+.callout-sky {
+  background: var(--accent-sky-glow);
+  border-left: 3px solid var(--accent-sky);
+  color: var(--text-primary);
+}
 
 /* =========================================
    Recipe Navigator Drawer & Top-Left Menu
@@ -1855,6 +1860,112 @@ textarea.input-field {
   42% { transform: scale(1.15); }
   70% { transform: scale(1); }
 }
+
+/* =========================================
+   Guide Tables & Rich Recipe Details
+========================================= */
+
+.guide-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 10px 0 14px 0;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+}
+
+.guide-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  background: var(--bg-surface);
+}
+
+.guide-table th, .guide-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.35;
+}
+
+.guide-table th {
+  color: var(--accent-amber);
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.08);
+  white-space: nowrap;
+}
+
+.guide-table tr:last-child td {
+  border-bottom: none;
+}
+
+.recipe-extra-block {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  line-height: 1.42;
+}
+
+.recipe-extra-title {
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recipe-extra-butchery {
+  background: rgba(168, 85, 247, 0.08);
+  border-left: 3px solid #a855f7;
+  color: var(--text-primary);
+}
+.recipe-extra-butchery .recipe-extra-title {
+  color: #a855f7;
+}
+
+.recipe-extra-science {
+  background: var(--accent-sky-glow);
+  border-left: 3px solid var(--accent-sky);
+  color: var(--text-primary);
+}
+.recipe-extra-science .recipe-extra-title {
+  color: var(--accent-sky);
+}
+
+.recipe-extra-sauce {
+  background: var(--accent-amber-glow);
+  border-left: 3px solid var(--accent-amber);
+  color: var(--text-primary);
+}
+.recipe-extra-sauce .recipe-extra-title {
+  color: var(--accent-amber);
+}
+
+.matrix-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.matrix-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 0.74rem;
+}
+
+.matrix-pill strong {
+  display: block;
+  color: var(--accent-emerald);
+  font-size: 0.78rem;
+}
+
 
 
 

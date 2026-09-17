@@ -1794,6 +1794,15 @@ const DEFAULT_RECIPES = [
       'Свежий розмарин и тимьян — по 2 веточки',
       'Дижонская горчица — 25г',
       'Топленое масло (Гхи) — 20г'
+    ],
+    butcheryTips: 'Охладите лопатку до 0–3°C. Удалите поверхностную нерастворимую серебристую пленку (silverskin). Разделите отруб по естественному межмышечному шву, срежьте внутренний плотный пласт жира. Сложите куски вместе и туго перевяжите кулинарным шпагатом с шагом 2.5 см (Trussing) для формирования идеального цилиндра.',
+    scienceNotes: 'При 56.5°C и 36 часах фермент коллагеназа и мягкий гидролиз переводят до 80% коллагена в желатин без пережимания актина. Перед вакуумированием бланшируйте кусок в кипятке 20 секунд или обжарьте (pre-sear) для 100% уничтожения молочнокислых бактерий Lactobacillus.',
+    sauceRecipe: 'Мясной сок из пакета перелейте в сковороду, выпарите воду до образования карамелизованного нагара (fond). Деглазируйте 150 мл сухого красного вина, соскребая пригар лопаткой. Уварите наполовину, процедите через мелкое сито от хлопьев альбумина и взбейте с 35г ледяного сливочного масла (Monter au beurre) при 70°C.',
+    matrix: [
+      { mode: 'Стейк', tempTime: '55°C • 24 ч', result: 'Упругий сочный Medium-Rare' },
+      { mode: 'Прайм-Риб', tempTime: '56.5°C • 36 ч', result: 'Золотой баланс сока и желатина' },
+      { mode: 'Вырезка', tempTime: '55°C • 48 ч', result: 'Тающая текстура Filet Mignon' },
+      { mode: 'Пот-Роаст', tempTime: '65°C • 24 ч', result: 'Сочнейшее тушеное мясо' }
     ]
   },
   {
@@ -1830,6 +1839,15 @@ const DEFAULT_RECIPES = [
       'Сухое красное вино или говяжий бульон — 150 мл',
       'Сливочное масло 82.5% (ледяное кубиками) — 30г',
       'Растительное масло для пре-колера — 20 мл'
+    ],
+    butcheryTips: 'Работайте с охлажденным мясом (0–3°C). Срежьте внешнюю нерастворимую пленку (silverskin). Разделите отруб по естественному межмышечному шву, удалите пласт грубого жира. Сложите мясо обратно в цилиндр и туго обвяжите кулинарной бечевкой (Trussing) с шагом 2.5 см, чтобы кусок держал форму и прогревался равномерно.',
+    scienceNotes: 'Коллаген начинает плавиться в желатин при 52–55°C благодаря ферменту коллагеназе (активен до 60°C). Быстрый Pre-sear или бланширование в кипятке 15–30с обязательны для 100% уничтожения поверхностных бактерий Lactobacillus, вызывающих сырный запах при варке >24ч.',
+    sauceRecipe: 'Выпарить весь сок из пакета на горячей сковороде до образования темно-коричневой карамельной корочки (fond). Деглазировать 150 мл вина/бульона, уварить в 2 раза и отфильтровать от свернувшегося альбумина через тонкое сито. Снять с огня (70°C) и взбить с 30г ледяного сливочного масла венчиком (Monter au beurre) для создания глянцевой зеркальной эмульсии.',
+    matrix: [
+      { mode: 'Стейк', tempTime: '55°C • 24 ч', result: 'Упругий сочный Medium-Rare' },
+      { mode: 'Прайм-Риб', tempTime: '56.5°C • 36 ч', result: 'Золотой баланс сока и желатина' },
+      { mode: 'Вырезка', tempTime: '55°C • 48 ч', result: 'Тающая нежность Filet Mignon' },
+      { mode: 'Пот-Роаст', tempTime: '65°C • 24 ч', result: 'Сочнейшее тушеное мясо' }
     ]
   },
   {
@@ -1863,7 +1881,10 @@ const DEFAULT_RECIPES = [
       'Свежий розмарин — 1 веточка',
       'Сливочное масло 82.5% — 20г',
       'Масло топленое (Гхи) для жарки — 15г'
-    ]
+    ],
+    butcheryTips: 'Мышца Teres Major (Petite Tender) весит всего 250–350г и расположена с внутренней стороны плечевого пояса. Входит в топ-3 нежнейших мышц говяжьей туши. Обязательно срежьте плотную серебристую пленку (silverskin) тонким филейным ножом — эластин не варится!',
+    scienceNotes: 'Благодаря постоянному кровоснабжению мышца Teres Major имеет глубокий железистый стейковый вкус (как у Hanger Steak). Температура 54.5°C дает непревзойденный нежный розовый срез.',
+    sauceRecipe: 'После обжарки стейка на сковороде добавьте мелко рубленый лук-шалот, раздавленный чеснок, деглазируйте 30 мл бурбона или коньяка, влейте сок из пакета и уварите на треть. Снимите с огня и взбейте с 20г холодного сливочного масла.'
   },
   {
     id: 'beef-flat-iron-steak',
@@ -1894,7 +1915,10 @@ const DEFAULT_RECIPES = [
       'Сухой чеснок — 2г',
       'Тимьян свежий — 2 веточки',
       'Масло Гхи для колера — 15г'
-    ]
+    ],
+    butcheryTips: 'Top Blade (Infraspinatus) — 2-я по нежности мышца во всей туше говядины! Вдоль всего мускула идет толстая нерастворимая соединительная жила. Положите пласт на доску плашмя и разрежьте вдоль жилы на две половины, срезав жилу в утиль. Получаются два чистых стейка Flat Iron.',
+    scienceNotes: 'Центральная жила состоит из эластина, который невозможно размягчить в су-виде. Удаление жилы мясницким способом раскрывает ультра-нежное мраморное филе.',
+    sauceRecipe: 'Сок из пакета смешать с чайной ложкой дижонской горчицы, рубленой петрушкой и кубиком сливочного масла прямо в теплой сковороде после колеровки стейка.'
   },
   {
     id: 'beef-chuck-pot-roast',
@@ -1914,7 +1938,7 @@ const DEFAULT_RECIPES = [
       'Лопатку нарезать крупными кубиками 4–5 см. Обсушить.',
       'Обжарить мясо на сильном огне до темно-коричневой корочки (2 минуты), переложить в миску.',
       'В той же сковороде спассеровать нарезанную морковь, шалот и чеснок. Деглазировать 60 мл красного сухого вина, выпарив наполовину.',
-      'Остудить овощи до комнатной температуры.',
+      'Остудить овощие до комнатной температуры.',
       'Сложить в пакет: обжаренное мясо, овощи с винным деглазом, 2 ст. л. демигласа и тимьян.',
       'Варить в су-виде при 75°C 14 часов.',
       'Вскрыть пакет, слить образовавшийся бульон в сотейник и уварить 3 минуты до состояния шелковистой глазури. Полить мясо и овощи при подаче.'
@@ -1928,7 +1952,10 @@ const DEFAULT_RECIPES = [
       'Демиглас (или концентрированный говяжий бульон) — 2 ст. л.',
       'Соль поваренная — 13г',
       'Свежий тимьян — 3 веточки'
-    ]
+    ],
+    butcheryTips: 'Нарезать лопатку поперек волокон крупными кубиками 4–5 см. Не срезайте внутренние жировые прожилки — при 75°C они полностью вытопятся и обогатят соус.',
+    scienceNotes: 'При температуре 75°C за 14 часов происходит полный гидролиз коллагена в растворимый желатин. Волокна мяса легко распадаются от прикосновения вилки, а жидкость становится насыщенным натуральным консоме.',
+    sauceRecipe: 'Бульон из пакета с овощами и демигласом слить в сотейник и уварить 3–5 минут до легкого загустения. Снять с огня, ввести 25г сливочного масла для зеркального блеска.'
   },
   {
     id: 'beef-chuck-pastrami',
@@ -2486,8 +2513,8 @@ const CATEGORY_SUBMENUS = {
   // Legacy category mappings for backwards-compatible direct filtering
   beef: [
     { key: 'all', label: 'Вся говядина', match: () => true },
-    { key: 'steak', label: '🔥 Стейки и ростбиф', match: r => ['demian-pepper-steak', 'classic-roast-beef-chateaubriand', 'demian-roast-beef-striploin', 'yt-cheshik-striploin', 'yt-shelushenko-mealprep-beef', 'forum-beef-roastbeef-tellicherry', 'beef-teres-major-steak', 'beef-flat-iron-steak', 'beef-chuck-prime-rib'].includes(r.id) },
-    { key: 'sport', label: '💪 Лопатка и томление', match: r => ['demian-beef-shoulder-pulled', 'demian-beef-sear-flour', 'beef-chuck-prime-rib', 'beef-chuck-pot-roast', 'beef-chuck-pastrami'].includes(r.id) },
+    { key: 'steak', label: '🔥 Стейки и ростбиф', match: r => ['demian-pepper-steak', 'classic-roast-beef-chateaubriand', 'demian-roast-beef-striploin', 'yt-cheshik-striploin', 'yt-shelushenko-mealprep-beef', 'forum-beef-roastbeef-tellicherry', 'beef-teres-major-steak', 'beef-flat-iron-steak', 'beef-chuck-prime-rib', 'beef-herb-crusted-chuck-roast'].includes(r.id) },
+    { key: 'sport', label: '💪 Лопатка и томление', match: r => ['demian-beef-shoulder-pulled', 'demian-beef-sear-flour', 'beef-chuck-prime-rib', 'beef-herb-crusted-chuck-roast', 'beef-chuck-pot-roast', 'beef-chuck-pastrami'].includes(r.id) },
     { key: 'tongue', label: '👅 Язык и щечки', match: r => ['forum-beef-tongue-tender', 'forum-beef-cheeks-wine', 'classic-beef-cheeks-wine'].includes(r.id) },
     { key: 'slow', label: '⏳ Томление 8–48ч', match: r => r.timeMin >= 480 }
   ],
@@ -2814,6 +2841,44 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
             <ul style="padding-left: 18px; color: var(--text-secondary); line-height: 1.4;">
               ${recipe.ingredients.map(ing => `<li>${escapeHtml(ing)}</li>`).join('')}
             </ul>
+          </div>
+        ` : ''}
+
+        ${recipe.butcheryTips ? `
+          <div class="recipe-extra-block recipe-extra-butchery">
+            <div class="recipe-extra-title">🔪 Мясницкая разделка и зачистка:</div>
+            <div>${escapeHtml(recipe.butcheryTips).replace(/\n/g, '<br>')}</div>
+          </div>
+        ` : ''}
+
+        ${recipe.scienceNotes ? `
+          <div class="recipe-extra-block recipe-extra-science">
+            <div class="recipe-extra-title">🧪 Научные параметры и безопасность:</div>
+            <div>${escapeHtml(recipe.scienceNotes).replace(/\n/g, '<br>')}</div>
+          </div>
+        ` : ''}
+
+        ${recipe.sauceRecipe ? `
+          <div class="recipe-extra-block recipe-extra-sauce">
+            <div class="recipe-extra-title">🍯 Шеф-соус из сока пакета (Monter au beurre):</div>
+            <div>${escapeHtml(recipe.sauceRecipe).replace(/\n/g, '<br>')}</div>
+          </div>
+        ` : ''}
+
+        ${recipe.matrix && recipe.matrix.length > 0 ? `
+          <div style="margin-top: 10px;">
+            <div style="font-weight: 700; color: var(--text-primary); font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">
+              ⏱ Режимы и текстуры лопатки:
+            </div>
+            <div class="matrix-pill-grid">
+              ${recipe.matrix.map(m => `
+                <div class="matrix-pill">
+                  <strong>${escapeHtml(m.mode)}</strong>
+                  <span style="color: var(--accent-amber); font-weight: 600;">${escapeHtml(m.tempTime)}</span>
+                  <div style="color: var(--text-secondary); font-size: 0.7rem; margin-top: 2px;">${escapeHtml(m.result)}</div>
+                </div>
+              `).join('')}
+            </div>
           </div>
         ` : ''}
       </div>
@@ -4392,12 +4457,12 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-const APP_VERSION = 'v3.5';
+const APP_VERSION = 'v3.6';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.5)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.6)' : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);
