@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.7">
+  <link rel="stylesheet" href="style.css?v=3.8">
   <script>
     (function() {
       try {
@@ -41,7 +41,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h1 class="brand-title">Sous-Vide Lab</h1>
-            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.7</span>
+            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.8</span>
           </div>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
@@ -1014,6 +1014,126 @@
         </div>
       </div>
 
+      <!-- BUTCHERY MASTER PREP MATRIX: CUTTING, MARINATING, PIECES & VACUUMING -->
+      <div class="card card-chef" data-guide-section="butchery">
+        <h3 class="card-title" style="color: var(--accent-amber);">📦 Заготовки из лопатки: Нарезка, Маринование, Форма кусков и Вакуумация</h3>
+        <p class="card-subtitle" style="margin-bottom: 14px;">Технологический стандарт заготовок (Meal Prep & Batch Cook) для идеального су-вида</p>
+
+        <!-- 1. КАК РЕЗАТЬ И КАКИМИ КУСКАМИ ДЕЛАТЬ -->
+        <div style="margin-bottom: 14px;">
+          <h4 style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span>🥩 1. Геометрия кусков: какими частями и как нарезать</span>
+          </h4>
+          
+          <div class="cut-specs-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px;">
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: var(--accent-amber);">Стейк Denver (Serratus ventralis)</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Толщина 3.5–4.0 см • Вес 300–350г</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Нарезать <strong>строго под 90° к ходу волокон</strong> (волокна идут по диагонали). Тонкие клинья срезать на фарш или рагу.
+              </div>
+            </div>
+
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: #38bdf8;">Стейк Flat Iron (Top Blade / Infraspinatus)</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Толщина 2.0–2.5 см • Вес 220–260г</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Пласт распускается <strong>горизонтально вдоль центральной жилы</strong>. Жила полностью срезается в утиль/бульон. 2 ровных плоских стейка.
+              </div>
+            </div>
+
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: #c084fc;">Chuck Eye («Рибай для бедных»)</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Толщина 3.5–4.0 см • Вес 300–380г</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Первые 6–8 см спинного валика со стороны 5-го ребра туши. Нарезать перпендикулярно оси спины. Не делать тоньше 3 см!
+              </div>
+            </div>
+
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: #f43f5e;">Teres Major («Вырезка мясника»)</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Цельное веретено • Вес 250–350г</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Очищается от silverskin ножом под углом 30–45° вверх. Узкий край подворачивается внутрь для одинакового диаметра.
+              </div>
+            </div>
+
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: var(--accent-emerald);">Ростбиф цельным куском (Trussing)</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Цилиндр Ø 8–10 см • Вес 1.5–2.5 кг</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Срезать внутренний пласт сала. Свернуть в плотный цилиндр. Обвязать шпагатом каждые <strong>2.5 см</strong> узлом мясника.
+              </div>
+            </div>
+
+            <div class="cut-spec-item" style="padding: 10px 12px;">
+              <div class="cut-spec-label" style="color: #fbbf24;">Кубики для Пот-Роаста и рагу</div>
+              <div class="cut-spec-val" style="margin-bottom: 4px;">Крупные кубики 4.5–5.0 см • Вес 60–80г</div>
+              <div style="font-size: 0.76rem; color: var(--text-secondary); line-height: 1.4;">
+                Нарезать пласты поперек волокон, затем на кубики. <strong>Не мельчить до 2 см!</strong> Внутренние мраморные прожилки жира не срезать.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. КАК МАРИНОВАТЬ -->
+        <div style="margin-bottom: 14px;">
+          <h4 style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span>🧂 2. Как мариновать: золотые формулы посола и специй</span>
+          </h4>
+
+          <div class="callout callout-emerald" style="margin-bottom: 8px;">
+            <strong>Сухой посол Dry Brine (Эталон для стейков и ростбифа):</strong><br>
+            • <strong>Соль:</strong> ровно <strong>1.8%</strong> (18 г на 1 кг мяса). Крупная морская или поваренная.<br>
+            • <strong>Сахар:</strong> <strong>0.5%</strong> (5 г на 1 кг). Усиливает осмотическую диффузию и ускоряет карамелизацию при финальном колере.<br>
+            • <strong>Выдержка:</strong> Натереть мясо смесью соли, сахара и крупнодробленого перца (Tellicherry). Уложить на решетку в холодильник на <strong>45–60 мин</strong> (для стейков) или на <strong>12–24 ч</strong> (для цельного ростбифа). Соль растворяется в поверхностном соке, затем втягивается внутрь волокон, перестраивая структуру белков (миозина) для удержания сока.
+          </div>
+
+          <div class="callout callout-ruby" style="margin-bottom: 8px;">
+            <strong>⚠️ Запрет кислых маринадов до су-вида:</strong><br>
+            Никогда не маринуйте сырую говядину в уксусе, лимонном соке, ананасе или киви перед су-видом! При длительном нагреве кислота и фруктовые ферменты разрушают поверхностные волокна в кашу и серое месиво. Все кислоты (вино, бальзамик, лимон) добавляются только в готовый соус после варки!
+          </div>
+
+          <div class="callout callout-amber" style="margin-bottom: 8px;">
+            <strong>🧄 Правило чеснока и трав:</strong><br>
+            • <strong>Чеснок:</strong> используйте сушеный гранулированный чеснок. Сырой чеснок при 54–56°C не проваривается, выделяет неприятный серный запах и горчит. Если кладете свежий зубчик — обязательно удалите зеленый росток и быстро обжарьте зубчик на сковороде перед упаковкой.<br>
+            • <strong>Травы:</strong> веточка свежего розмарина и 2 веточки тимьяна на пакет. Не перебарщивайте: в замкнутом объеме вакуума летучие масла трав концентрируются в 5 раз сильнее!
+          </div>
+
+          <div class="callout callout-sky">
+            <strong>🛡 Защита от Lactobacillus (Fast Blanching):</strong><br>
+            Для заготовок ростбифа длительной варки (24–48ч): перед посолом опустите кусок в кипящую воду на <strong>15–30 секунд</strong> или сделайте быстрый Pre-sear на раскаленной сковороде. Это на 100% уничтожает поверхностные споры бактерий, гарантируя отсутствие кислого запаха.
+          </div>
+        </div>
+
+        <!-- 3. КАК ВАКУУМИРОВАТЬ В ПАКЕТЕ -->
+        <div>
+          <h4 style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span>🎒 3. Как правильно вакуумировать в пакете: 5 шеф-правил</span>
+          </h4>
+
+          <div class="callout callout-amber" style="margin-bottom: 8px;">
+            <strong>1. Правило одного слоя (Single Layer):</strong> Стейки укладываются в пакет строго плашмя в один слой на расстоянии 1–2 см друг от друга. Никогда не укладывайте стейки стопкой друг на друга — толщина удвоится, а время прогрева сердцевины возрастет в 4 раза!
+          </div>
+
+          <div class="callout callout-emerald" style="margin-bottom: 8px;">
+            <strong>2. Лайфхак с бумажной салфеткой (Dry Strip):</strong> Если мясо влажное, бытовой бескамерный вакууматор при откачке засасывает мясной сок в шов сварки, и пакет расклеивается. Решение: сверните полоску бумажного полотенца шириной 2 см и положите ее поперек пакета между мясом и зоной сварки. Салфетка впитает влагу, а шов останется сухим и герметичным.
+          </div>
+
+          <div class="callout callout-sky" style="margin-bottom: 8px;">
+            <strong>3. Вакуумация рагу с вином и соусом (Подморозка):</strong> Если делаете заготовку для Pot Roast с винным деглазом и бульоном: положите мясо и соус в пакет и уберите в морозилку на <strong>45–60 минут</strong>. Жидкость превратится в ледяную кашицу (slush) и вакууматор откачает 100% воздуха без засасывания капель в насос!
+          </div>
+
+          <div class="callout callout-ruby" style="margin-bottom: 8px;">
+            <strong>4. Двойной шов (Double Seal) и запас пакета:</strong> Всегда оставляйте не менее 8–10 см свободного края пакета до сварного шва. Для варок свыше 12 часов делайте два параллельных сварных шва на расстоянии 5 мм друг от друга.
+          </div>
+
+          <div class="callout callout-amber">
+            <strong>5. Batch Prep (Заготовка впрок в морозилку):</strong> Завакуумированные пакеты со стейками или кубиками лопатки можно сразу отправлять в шоковую заморозку при -18°C. Хранение до 6 месяцев. <strong>Готовить можно прямо из морозилки без разморозки!</strong> Просто опустите ледяной пакет в су-вид ванну и добавьте +30–40 минут к стандартному времени техкарты.
+          </div>
+        </div>
+      </div>
+
       <!-- VIDEOS SECTION -->
       <div class="card" data-guide-section="videos">
         <h3 class="card-title" style="color: #ef4444;">🎥 Видео мастер-классы от шефов (YouTube)</h3>
@@ -1236,7 +1356,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h2 class="drawer-title">Навигатор рецептов</h2>
-            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.7</span>
+            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.8</span>
           </div>
           <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
         </div>
@@ -1257,7 +1377,7 @@
           + Добавить новый рецепт
         </button>
         <button class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.76rem; display: flex; align-items: center; justify-content: center; gap: 6px;" onclick="forceAppUpdate()" title="Очистить локальный кэш браузера и перезагрузить свежую версию">
-          🔄 Проверить и форсировать обновление (v3.7)
+          🔄 Проверить и форсировать обновление (v3.8)
         </button>
       </div>
     </div>
@@ -1418,6 +1538,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.7"></script>
+  <script src="app.js?v=3.8"></script>
 </body>
 </html>

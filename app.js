@@ -4928,12 +4928,12 @@ function closeButcheryModal() {
   document.body.style.overflow = '';
 }
 
-const APP_VERSION = 'v3.7';
+const APP_VERSION = 'v3.8';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.7)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.8)' : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);
