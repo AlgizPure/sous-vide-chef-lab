@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.2 - Live Search, Accordion & Guide Tabs)
-const CACHE_NAME = 'sous-vide-v3.2';
+// Service Worker: Sous-Vide Chef Lab (v3.3 - Favorites Operational Workbench)
+const CACHE_NAME = 'sous-vide-v3.3';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.2',
-  './app.js?v=3.2',
+  './style.css?v=3.3',
+  './app.js?v=3.3',
   './manifest.json'
 ];
 

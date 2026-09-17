@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.2">
+  <link rel="stylesheet" href="style.css?v=3.3">
   <script>
     (function() {
       try {
@@ -95,6 +95,37 @@
 
       <div id="recipes-container">
         <!-- Injected by app.js -->
+      </div>
+    </main>
+
+    <!-- VIEW 1.5: FAVORITES OPERATIONAL WORKBENCH -->
+    <main id="view-favorites" class="view-panel">
+      <div class="card card-chef" style="margin-bottom: 14px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), var(--bg-card) 55%); border-left: 3px solid var(--accent-ruby);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 style="font-size: 1.12rem; font-weight: 700; color: var(--text-primary); margin-bottom: 3px;">
+              ❤️ Оперативный стол избранного
+            </h2>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">
+              Быстрый доступ к вашим частым техкартам и запуск таймеров
+            </p>
+          </div>
+          <span class="badge" id="fav-summary-badge" style="background: rgba(239,68,68,0.15); color: var(--accent-ruby); font-weight: 700; font-size: 0.8rem; padding: 4px 8px; white-space: nowrap;">
+            0 рецептов
+          </span>
+        </div>
+      </div>
+
+      <!-- Live Search inside Favorites -->
+      <div class="recipe-search-wrap" id="fav-search-wrap" style="display: none;">
+        <svg class="recipe-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="fav-search-input" class="recipe-search-input" placeholder="🔍 Поиск в избранном..." oninput="handleFavSearch(this.value)">
+        <button id="fav-search-clear" class="recipe-search-clear" onclick="clearFavSearch()" style="display: none;" title="Очистить поиск">&times;</button>
+      </div>
+
+      <!-- Favorites Container -->
+      <div id="favorites-container">
+        <!-- Injected dynamically by app.js -->
       </div>
     </main>
 
@@ -602,6 +633,11 @@
       <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
       <span>Книга</span>
     </button>
+    <button class="nav-item" data-tab="favorites">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Избранное</span>
+      <span class="badge-dot" id="fav-count-nav-dot" style="display: none;"></span>
+    </button>
     <button class="nav-item" data-tab="calc">
       <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
       <span>Посол</span>
@@ -847,6 +883,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.2"></script>
+  <script src="app.js?v=3.3"></script>
 </body>
 </html>

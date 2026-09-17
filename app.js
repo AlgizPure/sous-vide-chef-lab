@@ -1918,6 +1918,7 @@ const state = {
   activeCategory: 'all',
   activeSubcategory: 'all',
   searchQuery: '',
+  favSearchQuery: '',
   expandedCards: new Set(),
   guideTab: 'all',
   activeTab: 'recipes',
@@ -1953,6 +1954,8 @@ function initApp() {
   setupTimerEngine();
   setupModal();
   renderRecipes();
+  renderFavoritesView();
+  updateFavBadges();
   renderShoppingList();
   renderActiveTimers();
   registerServiceWorker();
@@ -2121,6 +2124,9 @@ function switchTab(tabId) {
   document.querySelectorAll('.view-panel').forEach(p => {
     p.classList.toggle('active', p.id === `view-${tabId}`);
   });
+  if (tabId === 'favorites') {
+    renderFavoritesView();
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -2341,15 +2347,163 @@ function setupFilterChips() {
 }
 
 // Render Recipes List
+function pluralize(n, one, two, five) {
+  let num = Math.abs(n) % 100;
+  let n1 = num % 10;
+  if (num > 10 && num < 20) return five;
+  if (n1 > 1 && n1 < 5) return two;
+  if (n1 === 1) return one;
+  return five;
+}
+
+function updateFavBadges() {
+  const count = state.favorites.length;
+  // Nav dot in bottom bar
+  const navDot = document.getElementById('fav-count-nav-dot');
+  if (navDot) {
+    navDot.style.display = count > 0 ? 'block' : 'none';
+  }
+  // Chip badge in recipes view
+  const favBadge = document.getElementById('fav-count-badge');
+  if (favBadge) {
+    favBadge.textContent = count > 0 ? `(${count})` : '';
+  }
+  // Summary badge in favorites workbench view
+  const summaryBadge = document.getElementById('fav-summary-badge');
+  if (summaryBadge) {
+    summaryBadge.textContent = `${count} ${pluralize(count, 'рецепт', 'рецепта', 'рецептов')}`;
+  }
+}
+
+function handleFavSearch(val) {
+  state.favSearchQuery = val || '';
+  const clearBtn = document.getElementById('fav-search-clear');
+  if (clearBtn) {
+    clearBtn.style.display = state.favSearchQuery.length > 0 ? 'block' : 'none';
+  }
+  renderFavoritesView();
+}
+
+function clearFavSearch() {
+  state.favSearchQuery = '';
+  const input = document.getElementById('fav-search-input');
+  if (input) input.value = '';
+  const clearBtn = document.getElementById('fav-search-clear');
+  if (clearBtn) clearBtn.style.display = 'none';
+  renderFavoritesView();
+}
+
+// Unified Recipe Card Renderer
+function renderRecipeCardHtml(recipe, isInsideFavView = false) {
+  const isFav = state.favorites.includes(recipe.id);
+  const isExpanded = state.expandedCards.has(recipe.id);
+
+  return `
+    <div class="card ${recipe.isChef ? 'card-chef' : ''}" id="recipe-${recipe.id}">
+      <div class="card-header">
+        <div>
+          <h3 class="card-title">${escapeHtml(recipe.title)}</h3>
+          <div class="card-subtitle" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 2px;">
+            <span>${recipe.isChef ? '⭐️ ' : ''}${escapeHtml(recipe.author)}</span>
+            ${recipe.source ? `<span class="badge-source">${escapeHtml(recipe.source)}</span>` : ''}
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          ${isFav ? `<span class="badge badge-fav-tag" id="fav-badge-${recipe.id}">❤️ В избранном</span>` : ''}
+          <button class="btn-fav ${isFav ? 'active' : ''}" id="fav-btn-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)" title="${isFav ? 'Удалить из избранного' : 'Добавить в избранное'}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <span class="badge ${recipe.isChef ? 'badge-chef' : (recipe.youtubeUrl ? 'badge-video' : 'badge-temp')}">
+            ${recipe.isChef ? 'Шеф Демьян' : (recipe.youtubeUrl ? '▶️ ВИДЕО' : recipe.category.toUpperCase())}
+          </span>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px;">
+        ${escapeHtml(recipe.description)}
+      </p>
+
+      <div class="recipe-metrics">
+        <div class="metric-item">
+          <span class="metric-label">Температура</span>
+          <span class="metric-value" style="color: var(--accent-sky);">${recipe.tempC}°C</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Время су-вид</span>
+          <span class="metric-value" style="color: var(--accent-emerald);">${recipe.timeFormatted}</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Базовый посол</span>
+          <span class="metric-value">${recipe.saltGperKg ? `${recipe.saltGperKg}г соль / ${recipe.sugarGperKg}г сахар` : '10г соль / 5г сахар'}</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Маринование</span>
+          <span class="metric-value">30 мин (комната)</span>
+        </div>
+      </div>
+
+      <!-- Collapsible Detailed Techcard -->
+      <div class="recipe-details-collapsible ${isExpanded ? 'expanded' : ''}" id="details-${recipe.id}">
+        ${recipe.spices ? `
+          <div style="font-size: 0.8rem; color: var(--accent-amber); margin-bottom: 8px; font-weight: 600;">
+            🌿 Специи и акценты: <span style="color: var(--text-secondary); font-weight: normal;">${escapeHtml(recipe.spices)}</span>
+          </div>
+        ` : ''}
+
+        <div class="recipe-steps">
+          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 6px; font-size: 0.8rem; text-transform: uppercase;">
+            Технологическая карта:
+          </div>
+          ${recipe.steps.map((step, idx) => `
+            <div class="step-item">
+              <span class="step-num">${idx + 1}</span>
+              <span>${escapeHtml(step)}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        ${recipe.ingredients && recipe.ingredients.length > 0 ? `
+          <div style="margin-top: 10px; font-size: 0.8rem;">
+            <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px; text-transform: uppercase;">
+              Ингредиенты:
+            </div>
+            <ul style="padding-left: 18px; color: var(--text-secondary); line-height: 1.4;">
+              ${recipe.ingredients.map(ing => `<li>${escapeHtml(ing)}</li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      </div>
+
+      <div class="card-actions" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="btn btn-primary btn-sm" onclick="startRecipeTimer('${recipe.id}')">
+          ⏱ Таймер
+        </button>
+        <button class="btn btn-secondary btn-sm" onclick="addRecipeToShopping('${recipe.id}')">
+          🛒 В список
+        </button>
+        <button class="btn ${isFav ? 'btn-fav-active' : 'btn-fav-toggle'} btn-sm" id="fav-act-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)">
+          ${isFav ? '❤️ В избранном' : '🤍 В избранное'}
+        </button>
+        <button class="btn btn-accordion btn-sm" onclick="toggleCardExpand('${recipe.id}')">
+          ${isExpanded ? '▲ Свернуть' : '📖 Техкарта ▾'}
+        </button>
+        ${recipe.youtubeUrl ? `
+          <a href="${recipe.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" title="Смотреть мастер-класс на YouTube">
+            ▶️ Мастер-класс
+          </a>
+        ` : ''}
+      </div>
+    </div>
+  `;
+}
+
 function renderRecipes() {
   const container = document.getElementById('recipes-container');
   if (!container) return;
 
-  // Update Fav Count Badge
-  const favBadge = document.getElementById('fav-count-badge');
-  if (favBadge) {
-    favBadge.textContent = state.favorites.length > 0 ? `(${state.favorites.length})` : '';
-  }
+  updateFavBadges();
 
   // 1. Filter by Search Query & Category
   let baseFiltered = state.recipes;
@@ -2447,105 +2601,7 @@ function renderRecipes() {
     return;
   }
 
-  container.innerHTML = filtered.map(recipe => {
-    const isFav = state.favorites.includes(recipe.id);
-    const isExpanded = state.expandedCards.has(recipe.id);
-    return `
-    <div class="card ${recipe.isChef ? 'card-chef' : ''}" id="recipe-${recipe.id}">
-      <div class="card-header">
-        <div>
-          <h3 class="card-title">${escapeHtml(recipe.title)}</h3>
-          <div class="card-subtitle" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 2px;">
-            <span>${recipe.isChef ? '⭐️ ' : ''}${escapeHtml(recipe.author)}</span>
-            ${recipe.source ? `<span class="badge-source">${escapeHtml(recipe.source)}</span>` : ''}
-          </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <button class="btn-fav ${isFav ? 'active' : ''}" id="fav-btn-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)" title="${isFav ? 'Удалить из закладок' : 'Добавить в закладки'}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </button>
-          <span class="badge ${recipe.isChef ? 'badge-chef' : (recipe.youtubeUrl ? 'badge-video' : 'badge-temp')}">
-            ${recipe.isChef ? 'Шеф Демьян' : (recipe.youtubeUrl ? '▶️ ВИДЕО' : recipe.category.toUpperCase())}
-          </span>
-        </div>
-      </div>
-
-      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px;">
-        ${escapeHtml(recipe.description)}
-      </p>
-
-      <div class="recipe-metrics">
-        <div class="metric-item">
-          <span class="metric-label">Температура</span>
-          <span class="metric-value" style="color: var(--accent-sky);">${recipe.tempC}°C</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-label">Время су-вид</span>
-          <span class="metric-value" style="color: var(--accent-emerald);">${recipe.timeFormatted}</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-label">Базовый посол</span>
-          <span class="metric-value">${recipe.saltGperKg ? `${recipe.saltGperKg}г соль / ${recipe.sugarGperKg}г сахар` : '10г соль / 5г сахар'}</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-label">Маринование</span>
-          <span class="metric-value">30 мин (комната)</span>
-        </div>
-      </div>
-
-      <!-- Collapsible Detailed Techcard -->
-      <div class="recipe-details-collapsible ${isExpanded ? 'expanded' : ''}" id="details-${recipe.id}">
-        ${recipe.spices ? `
-          <div style="font-size: 0.8rem; color: var(--accent-amber); margin-bottom: 8px; font-weight: 600;">
-            🌿 Специи и акценты: <span style="color: var(--text-secondary); font-weight: normal;">${escapeHtml(recipe.spices)}</span>
-          </div>
-        ` : ''}
-
-        <div class="recipe-steps">
-          <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 6px; font-size: 0.8rem; text-transform: uppercase;">
-            Технологическая карта:
-          </div>
-          ${recipe.steps.map((step, idx) => `
-            <div class="step-item">
-              <span class="step-num">${idx + 1}</span>
-              <span>${escapeHtml(step)}</span>
-            </div>
-          `).join('')}
-        </div>
-
-        ${recipe.ingredients && recipe.ingredients.length > 0 ? `
-          <div style="margin-top: 10px; font-size: 0.8rem;">
-            <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 4px; text-transform: uppercase;">
-              Ингредиенты:
-            </div>
-            <ul style="padding-left: 18px; color: var(--text-secondary); line-height: 1.4;">
-              ${recipe.ingredients.map(ing => `<li>${escapeHtml(ing)}</li>`).join('')}
-            </ul>
-          </div>
-        ` : ''}
-      </div>
-
-      <div class="card-actions" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-        <button class="btn btn-primary btn-sm" onclick="startRecipeTimer('${recipe.id}')">
-          ⏱ Таймер
-        </button>
-        <button class="btn btn-secondary btn-sm" onclick="addRecipeToShopping('${recipe.id}')">
-          🛒 В список
-        </button>
-        <button class="btn btn-accordion btn-sm" onclick="toggleCardExpand('${recipe.id}')">
-          ${isExpanded ? '▲ Свернуть' : '📖 Техкарта ▾'}
-        </button>
-        ${recipe.youtubeUrl ? `
-          <a href="${recipe.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-video btn-sm" title="Смотреть мастер-класс на YouTube">
-            ▶️ Мастер-класс
-          </a>
-        ` : ''}
-      </div>
-    </div>
-  `;
-  }).join('');
+  container.innerHTML = filtered.map(recipe => renderRecipeCardHtml(recipe, false)).join('');
 
   // Update counts
   const headerCount = document.getElementById('header-recipe-count');
@@ -2554,24 +2610,113 @@ function renderRecipes() {
   if (drawerCount) drawerCount.textContent = `${state.recipes.length} рецептов в книге`;
 }
 
-// Favorite toggle handler
+// Render Dedicated Favorites Operational View
+function renderFavoritesView() {
+  const container = document.getElementById('favorites-container');
+  if (!container) return;
+
+  updateFavBadges();
+
+  const favRecipes = state.recipes.filter(r => state.favorites.includes(r.id));
+  const searchWrap = document.getElementById('fav-search-wrap');
+
+  if (searchWrap) {
+    searchWrap.style.display = favRecipes.length > 3 ? 'block' : 'none';
+  }
+
+  let displayRecipes = favRecipes;
+  if (state.favSearchQuery && state.favSearchQuery.trim().length > 0) {
+    const q = state.favSearchQuery.trim().toLowerCase();
+    displayRecipes = displayRecipes.filter(r => {
+      return (r.title || '').toLowerCase().includes(q) ||
+             (r.description || '').toLowerCase().includes(q) ||
+             (r.author || '').toLowerCase().includes(q) ||
+             (r.spices || '').toLowerCase().includes(q);
+    });
+  }
+
+  if (favRecipes.length === 0) {
+    container.innerHTML = `
+      <div class="empty-fav-box">
+        <div style="font-size: 3rem; margin-bottom: 12px; animation: heartBeat 2s infinite;">❤️</div>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+          Оперативный стол пуст
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 320px; margin: 0 auto 16px; line-height: 1.4;">
+          Добавляйте сюда рецепты, которые готовите чаще всего. Нажмите «В избранное» на любой карточке в Книге рецептов.
+        </p>
+        <button class="btn btn-primary" onclick="switchTab('recipes')" style="padding: 10px 20px;">
+          📖 Открыть Книгу рецептов (${state.recipes.length})
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = displayRecipes.map(recipe => renderRecipeCardHtml(recipe, true)).join('');
+}
+
+// Favorite toggle handler with tactile feedback and multi-element sync
 function toggleFavorite(recipeId, e) {
   if (e) e.stopPropagation();
   const idx = state.favorites.indexOf(recipeId);
-  const btn = document.getElementById(`fav-btn-${recipeId}`);
-  if (btn) btn.classList.add('btn-fav-pop');
+  const isNowFav = idx === -1;
 
-  if (idx > -1) {
-    state.favorites.splice(idx, 1);
-    showToast('Удалено из избранного');
-  } else {
+  if (isNowFav) {
     state.favorites.push(recipeId);
     showToast('❤️ Добавлено в избранное');
+  } else {
+    state.favorites.splice(idx, 1);
+    showToast('Удалено из избранного');
   }
 
   saveFavorites();
-  renderRecipes();
-  renderDrawerRecipes();
+  updateFavBadges();
+
+  // Tactile animation on icon buttons
+  const iconBtn = document.getElementById(`fav-btn-${recipeId}`);
+  if (iconBtn) {
+    iconBtn.classList.toggle('active', isNowFav);
+    iconBtn.classList.remove('btn-fav-pop');
+    void iconBtn.offsetWidth;
+    iconBtn.classList.add('btn-fav-pop');
+    const svg = iconBtn.querySelector('svg');
+    if (svg) svg.setAttribute('fill', isNowFav ? 'currentColor' : 'none');
+  }
+
+  // Update action text button
+  const actBtn = document.getElementById(`fav-act-${recipeId}`);
+  if (actBtn) {
+    actBtn.className = `btn btn-sm ${isNowFav ? 'btn-fav-active' : 'btn-fav-toggle'}`;
+    actBtn.innerHTML = isNowFav ? '❤️ В избранном' : '🤍 В избранное';
+  }
+
+  // Update badge tag in card header
+  const headerCard = document.getElementById(`recipe-${recipeId}`);
+  if (headerCard) {
+    const badgesContainer = headerCard.querySelector('.card-header > div:last-child');
+    const existingBadge = document.getElementById(`fav-badge-${recipeId}`);
+    if (isNowFav && !existingBadge && badgesContainer) {
+      const newBadge = document.createElement('span');
+      newBadge.className = 'badge badge-fav-tag';
+      newBadge.id = `fav-badge-${recipeId}`;
+      newBadge.textContent = '❤️ В избранном';
+      badgesContainer.insertBefore(newBadge, badgesContainer.firstChild);
+    } else if (!isNowFav && existingBadge) {
+      existingBadge.remove();
+    }
+  }
+
+  // If in favorites view, refresh it
+  if (state.activeTab === 'favorites') {
+    renderFavoritesView();
+  } else if (state.activeCategory === 'fav') {
+    renderRecipes();
+  }
+
+  if (typeof renderDrawerRecipes === 'function') {
+    renderDrawerRecipes();
+  }
 }
 
 // =========================================

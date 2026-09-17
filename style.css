@@ -212,22 +212,24 @@ option {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 6px 10px;
+  padding: 5px 3px;
   border-radius: 10px;
   position: relative;
-  min-width: 58px;
+  min-width: 44px;
+  flex: 1;
+  max-width: 70px;
 }
 
 .nav-item svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   stroke: currentColor;
   stroke-width: 2;
   transition: transform 0.2s;
@@ -1746,5 +1748,71 @@ textarea.input-field {
   border-color: var(--accent-amber);
   box-shadow: 0 2px 8px var(--accent-amber-glow);
 }
+
+/* Favorites Operational Workbench & Card Badges */
+.badge-fav-tag {
+  background: rgba(239, 68, 68, 0.14);
+  color: var(--accent-ruby);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-fav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.btn-fav-toggle:hover {
+  border-color: var(--accent-ruby);
+  color: var(--accent-ruby);
+  background: rgba(239, 68, 68, 0.05);
+}
+.btn-fav-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: var(--accent-ruby);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.btn-fav-active:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: var(--accent-ruby);
+}
+.empty-fav-box {
+  text-align: center;
+  padding: 44px 20px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 18px;
+  margin-top: 10px;
+}
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
 
 
