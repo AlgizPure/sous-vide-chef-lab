@@ -1759,7 +1759,273 @@ const DEFAULT_RECIPES = [
       "Сливочное масло 82.5% - 20г",
       "Тростниковый сахар - 1 ч. л.",
       "Темный ром или коньяк - 1 ст. л."
-]
+    ]
+  },
+  {
+    id: 'beef-chuck-prime-rib',
+    title: '«Poor Man’s Prime Rib» (Праздничный ростбиф из лопатки)',
+    author: 'Шеф-Лаб / SVE',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'shoulder',
+    tempC: 56.5,
+    timeMin: 2160,
+    timeFormatted: '36 ч',
+    saltGperKg: 18,
+    sugarGperKg: 6,
+    spices: 'Черный перец Tellicherry, чесночный порошок, розмарин, тимьян, дижонская горчица',
+    description: 'Легендарная трансформация цельной говяжьей лопатки в тающий сочный ростбиф. За 36 часов при 56.5°C грубый коллаген переходит в желатин, сохраняя цвет и сочность идеального Medium-Rare.',
+    steps: [
+      'Кусок говяжьей лопатки (1.5–2.5 кг) зачистить от излишков внешнего жесткого жира.',
+      'Сухой посол: равномерно натереть солью (18г/кг) и сахаром (6г/кг), обсыпать крупнодробленым перцем и чесночным порошком.',
+      'Поместить на решетку в холодильник на 12–24 часа для диффузии соли и подсушивания поверхности.',
+      'Вложить в вакуумный пакет с веточками свежего розмарина и тимьяна, плотно завакуумировать.',
+      'Готовить в су-виде при 56.5°C строго 30–36 часов.',
+      'Охладить пакет в холодной воде 15 минут (чтобы сердцевина не перегрелась при колеровании).',
+      'Насухо обсушить салфетками, смазать тонким слоем смеси дижонской горчицы и топленого масла.',
+      'Запечь в духовке при 230°C или под грилем 8–10 минут до темно-золотистой хрустящей корочки. Нарезать ломтями 1.5–2 см.'
+    ],
+    ingredients: [
+      'Говяжья лопатка цельным куском — 2 кг',
+      'Соль поваренная крупная — 36г',
+      'Сахар тростниковый — 12г',
+      'Черный перец дробленый (Tellicherry) — 6г',
+      'Чесночный порошок — 4г',
+      'Свежий розмарин и тимьян — по 2 веточки',
+      'Дижонская горчица — 25г',
+      'Топленое масло (Гхи) — 20г'
+    ]
+  },
+  {
+    id: 'beef-teres-major-steak',
+    title: 'Стейк Teres Major / Petite Tender («Вырезка мясника»)',
+    author: 'Шеф-Лаб / Анатомия',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'steak',
+    tempC: 54.5,
+    timeMin: 120,
+    timeFormatted: '2 ч',
+    saltGperKg: 18,
+    sugarGperKg: 5,
+    spices: 'Морская соль, свежемолотый черный перец, чеснок без ростка, розмарин, сливочное масло',
+    description: 'Вторая по нежности мышца во всей говяжьей туше после вырезки (филе-миньон). Выделяется из плечевой зоны лопатки. Обладает ультра-нежной шелковистой текстурой и богатым говяжьим ароматом.',
+    steps: [
+      'Выделить веретенообразную мышцу Teres Major (250–350г) из плечевой части лопатки.',
+      'Острым филейным ножом срезать плотную серебристую пленку (silverskin).',
+      'Сухой посол: посолить и поперчить за 30–45 минут до вакуумирования.',
+      'В пакет положить раздавленный зубчик чеснока без зеленого ростка и веточку розмарина.',
+      'Варить в су-виде при 54.5°C ровно 2 часа (для идеального нежнейшего Medium-Rare).',
+      'Насухо обсушить полотенцем. Обжарить на раскаленной чугунной сковороде по 45 секунд с каждой стороны на масле Гхи со сливочным маслом.',
+      'Обязательно дать отдохнуть 10–12 минут перед нарезкой ломтиками.'
+    ],
+    ingredients: [
+      'Стейк Teres Major (вырезка из лопатки) — 300г',
+      'Соль крупная морская — 5г',
+      'Сахар — 1.5г',
+      'Свежий чеснок — 1 зубчик',
+      'Свежий розмарин — 1 веточка',
+      'Сливочное масло 82.5% — 20г',
+      'Масло топленое (Гхи) для жарки — 15г'
+    ]
+  },
+  {
+    id: 'beef-flat-iron-steak',
+    title: 'Стейк Flat Iron без жилы (Мраморный Top Blade)',
+    author: 'Шеф-Лаб',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'steak',
+    tempC: 55.0,
+    timeMin: 150,
+    timeFormatted: '2.5 ч',
+    saltGperKg: 18,
+    sugarGperKg: 5,
+    spices: 'Дробленый черный перец, копченая соль, сухой чеснок, тимьян',
+    description: 'Шеф-разделка отруба Top Blade: пласт распускается горизонтально вдоль центральной жилы, жила удаляется. Получаются стейки с изумительной мелкой мраморной сеточкой.',
+    steps: [
+      'Пласт Top Blade разрезать острым слайсером горизонтально вдоль центральной соединительной жилы.',
+      'Полностью удалить жилу, получив 2 плоских бескостных стейка Flat Iron.',
+      'Приправить солью, сахаром, сухим чесноком и тимьяном.',
+      'Завакуумировать с каплей оливкового масла.',
+      'Готовить при 55.0°C 2.5 часа.',
+      'Обсушить салфетками. Обжечь кулинарной горелкой или обжарить на раскаленной сковороде по 1 минуте с каждой стороны.'
+    ],
+    ingredients: [
+      'Стейк Flat Iron (зачищенный) — 400г',
+      'Копченая или морская соль — 7г',
+      'Сахар — 2г',
+      'Сухой чеснок — 2г',
+      'Тимьян свежий — 2 веточки',
+      'Масло Гхи для колера — 15г'
+    ]
+  },
+  {
+    id: 'beef-chuck-pot-roast',
+    title: 'Американский Pot Roast из лопатки (С овощами и винным демигласом)',
+    author: 'Шеф-Лаб / Томильня',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'shoulder',
+    tempC: 75.0,
+    timeMin: 840,
+    timeFormatted: '14 ч',
+    saltGperKg: 16,
+    sugarGperKg: 4,
+    spices: 'Красное сухое вино, демиглас, тимьян, морковь, лук-шалот, чеснок',
+    description: 'Кубики говяжьей лопатки томятся в су-виде с пассерованными корнеплодами, вином и концентрированным бульоном. Мясо распадается на нежнейшие волокна, а сок образует густой глянцевый соус.',
+    steps: [
+      'Лопатку нарезать крупными кубиками 4–5 см. Обсушить.',
+      'Обжарить мясо на сильном огне до темно-коричневой корочки (2 минуты), переложить в миску.',
+      'В той же сковороде спассеровать нарезанную морковь, шалот и чеснок. Деглазировать 60 мл красного сухого вина, выпарив наполовину.',
+      'Остудить овощи до комнатной температуры.',
+      'Сложить в пакет: обжаренное мясо, овощи с винным деглазом, 2 ст. л. демигласа и тимьян.',
+      'Варить в су-виде при 75°C 14 часов.',
+      'Вскрыть пакет, слить образовавшийся бульон в сотейник и уварить 3 минуты до состояния шелковистой глазури. Полить мясо и овощи при подаче.'
+    ],
+    ingredients: [
+      'Говяжья лопатка — 800г',
+      'Морковь крупная — 2 шт.',
+      'Лук-шалот или репчатый — 2 шт.',
+      'Чеснок свежий — 3 зубчика',
+      'Вино сухое красное (Каберне/Мерло) — 60 мл',
+      'Демиглас (или концентрированный говяжий бульон) — 2 ст. л.',
+      'Соль поваренная — 13г',
+      'Свежий тимьян — 3 веточки'
+    ]
+  },
+  {
+    id: 'beef-chuck-pastrami',
+    title: 'Пастрами из говяжьей лопатки су-вид (Chuck Pastrami)',
+    author: 'Шеф-Лаб / Деликатесы',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'shoulder',
+    tempC: 63.0,
+    timeMin: 2400,
+    timeFormatted: '40 ч',
+    saltGperKg: 20,
+    sugarGperKg: 10,
+    spices: 'Нитритная соль, дробленый кориандр, черный перец горошком, копченая паприка, чеснок, лавровый лист',
+    description: 'Нью-Йоркская деликатесная классика из говяжьей лопатки. 4 дня мокрого посола с нитритной солью и пряностями, плотный пряный руб и 40 часов томления при 63°C. Идеально для сэндвичей Рубен с квашеной капустой.',
+    steps: [
+      'Приготовить рассол (на 1 литр воды): 25г поваренной соли, 25г нитритной соли 0.6%, 20г сахара, лавровый лист, раздавленный чеснок, кориандр и душистый перец.',
+      'Опустить кусок лопатки (1–1.5 кг) в остывший рассол и убрать в холодильник на 4 суток.',
+      'Извлечь мясо, промыть в холодной воде 20 минут, насухо обсушить.',
+      'Приготовить обсыпку (руб): грубо смолоть 2 ст. л. черного перца, 2 ст. л. кориандра, 1 ч. л. копченой паприки. Щедро обвалять мясо со всех сторон.',
+      'Плотно завакуумировать. Варить в су-виде при 63°C 40 часов.',
+      'Остудить пакет в ледяной воде и выдержать в холодильнике 12 часов для стабилизации текстуры.',
+      'Нарезать тончайшими слайсами поперек волокон.'
+    ],
+    ingredients: [
+      'Говяжья лопатка — 1.2 кг',
+      'Нитритная соль (0.6%) — 25г',
+      'Поваренная соль — 25г',
+      'Сахар тростниковый — 20г',
+      'Семена кориандра дробленые — 2 ст. л.',
+      'Черный перец крупнодробленый — 2 ст. л.',
+      'Копченая паприка — 1 ч. л.',
+      'Чеснок свежий — 4 зубчика',
+      'Лавровый лист — 2 шт.'
+    ]
+  },
+  {
+    id: 'soup-borscht-ruby-concentrate',
+    title: 'Борщ Рубиновый Шеф-Концентрат (В вакууме без потери цвета)',
+    author: 'Шеф-Лаб / Супы',
+    isChef: true,
+    category: 'vegetables',
+    subcategory: 'soup',
+    tempC: 84.0,
+    timeMin: 90,
+    timeFormatted: '1.5 ч',
+    saltGperKg: 12,
+    sugarGperKg: 6,
+    spices: 'Свекла соломкой, лимонный сок, чеснок, укроп, концентрированный мясной бульон, лавровый лист',
+    description: 'Технология идеального борща без окисления и выцветания. В вакууме бетанин свеклы не разрушается кислородом, сохраняя фантастический рубиновый цвет и кристальную чистоту вкуса.',
+    steps: [
+      'Свеклу, морковь и лук нарезать тонкой соломкой (жюльен). Свеклу сбрызнуть лимонным соком (кислотная фиксация пигмента).',
+      'Быстро спассеровать овощи 2 минуты на ложке топленого масла для раскрытия жирорастворимых каротиноидов.',
+      'Тонко нашинковать капусту.',
+      'Сложить овощи в пакет, влить 200 мл крепкого говяжьего бульона, добавить соль, сахар, чеснок и укроп.',
+      'Завакуумировать (с бережным откачиванием жидкости или методом вытеснения).',
+      'Варить при 84°C 1.5 часа (пектин размягчается, цвет остается сияюще-рубиновым).',
+      'При подаче соединить содержимое пакета с горячим готовым мясом су-вид и бульоном. Подавать со сметаной и бородинским хлебом.'
+    ],
+    ingredients: [
+      'Свекла сырая сладкая — 200г',
+      'Капуста белокочанная — 150г',
+      'Морковь — 80г',
+      'Лук репчатый — 60г',
+      'Лимонный сок — 1 ст. л.',
+      'Крепкий говяжий бульон — 200 мл',
+      'Чеснок — 2 зубчика',
+      'Свежий укроп — 10г',
+      'Соль — 6г',
+      'Сахар — 4г'
+    ]
+  },
+  {
+    id: 'sides-fondant-potatoes-cascade',
+    title: 'Картофель Fondant каскадный (Сливочное масло, розмарин и Holding)',
+    author: 'Шеф-Лаб / Гарниры',
+    isChef: true,
+    category: 'vegetables',
+    subcategory: 'sides',
+    tempC: 85.0,
+    timeMin: 50,
+    timeFormatted: '50 мин (+Holding)',
+    saltGperKg: 15,
+    sugarGperKg: 0,
+    spices: 'Сливочное масло 82.5%, морская соль, чеснок, свежий розмарин, мускатный орех',
+    description: 'Каскадный метод в одной ванне: картофель готовится при 85°C 50 минут до кремовой текстуры фондана, затем температура снижается до 56–58°C, закладывается мясо, а картофель остается в ванне в режиме теплого хранения (Holding) до подачи.',
+    steps: [
+      'Картофель очистить и нарезать шайбами толщиной 2.5–3 см, промыть от поверхностного крахмала и обсушить.',
+      'В пакет выложить картофель в один слой, добавить 40г качественного сливочного масла, крупную соль, щепотку мускатного ореха, раздавленный чеснок и веточку розмарина.',
+      'Завакуумировать в плотный пакет.',
+      'ЭТАП 1: Варить в су-виде при 85°C ровно 50 минут (разрушение картофельного пектина).',
+      'ЭТАП 2 (Каскад): Долить холодной воды или дать ванне остыть до 56–58°C. Заложить пакет со стейком/лопаткой. Пакет с картофелем оставить в ванне на все время варки мяса (он не переварится, а пропитается сливочным ароматом).',
+      'Перед подачей быстро подрумянить шайбы картофеля на сковороде по 1 минуте с каждой стороны до золотистого колера.'
+    ],
+    ingredients: [
+      'Картофель среднекрахмалистый — 500г',
+      'Сливочное масло 82.5% — 50г',
+      'Соль морская — 7г',
+      'Свежий розмарин — 1 веточка',
+      'Чеснок — 2 зубчика',
+      'Мускатный орех молотый — 1 щепотка'
+    ]
+  },
+  {
+    id: 'sides-braised-chickpeas-steak-juice',
+    title: 'Томленый нут в мясном соке стейка (Пряный соус умами)',
+    author: 'Шеф-Лаб / Гарниры',
+    isChef: true,
+    category: 'vegetables',
+    subcategory: 'sides',
+    tempC: 60.0,
+    timeMin: 90,
+    timeFormatted: '1.5 ч',
+    saltGperKg: 12,
+    sugarGperKg: 0,
+    spices: 'Мясной сок из пакета от стейка су-вид, копченая паприка, зира, оливковое масло, кинза',
+    description: 'Безотходная шеф-кулинария: драгоценный мясной сок от стейка или лопатки су-вид не выливается, а используется для настаивания отварного нута при 60°C прямо в су-виде, создавая роскошный гарнир с глубоким вкусом умами.',
+    steps: [
+      'Взять готовый отварной (или консервированный качественный) нут, промыть и обсушить.',
+      'Собрать весь сок, выделившийся из пакета после приготовления стейка или лопатки су-вид.',
+      'Смешать в пакете нут, мясной сок, 1 ст. л. оливкового масла, щепотку молотой зиры и копченой паприки.',
+      'Завакуумировать и варить при 60°C 1–1.5 часа.',
+      'Подавать теплым с рубленой свежей кинзой и хрустящим колерованным стейком.'
+    ],
+    ingredients: [
+      'Нут отварной или консервированный — 300г',
+      'Натуральный мясной сок от стейка су-вид — 80–100 мл',
+      'Оливковое масло Extra Virgin — 1 ст. л.',
+      'Копченая паприка — 1/2 ч. л.',
+      'Зира молотая — 1/3 ч. л.',
+      'Свежая кинза — 10г',
+      'Соль и черный перец — по вкусу'
+    ]
   }
 ];
 
@@ -2134,31 +2400,58 @@ function switchTab(tabId) {
 const CATEGORY_SUBMENUS = {
   all: [
     { key: 'all', label: 'Все блюда', match: () => true },
-    { key: 'chef', label: '⭐️ Шеф Демьян', match: r => r.isChef },
+    { key: 'chef', label: '⭐️ От Шефа', match: r => r.isChef },
     { key: 'video', label: '🎥 Видео-шефы', match: r => !!r.youtubeUrl },
     { key: 'quick', label: '⚡️ Быстрые (≤1.5ч)', match: r => r.timeMin <= 90 },
     { key: 'slow', label: '⏳ Томление (4ч+)', match: r => r.timeMin >= 240 },
-    { key: 'ham', label: '🥓 Домашняя ветчина', match: r => r.category === 'ham' },
     { key: 'sear', label: '🔥 С пред-колером', match: r => (r.title + r.description).toLowerCase().includes('колер') || (r.title + r.description).toLowerCase().includes('муке') }
   ],
-  video: [
-    { key: 'all', label: 'Все видео-уроки', match: () => true },
-    { key: 'beef', label: '🥩 Стриплойн / Стейк (Чешик / Шелушенко)', match: r => r.category === 'beef' },
-    { key: 'poultry', label: '🍗 Сочность грудки (Доброслав13)', match: r => r.category === 'poultry' },
-    { key: 'vegetables', label: '🥦 Спаржа и овощи (Чешик / Шелушенко)', match: r => r.category === 'vegetables' }
-  ],
-  chef: [
-    { key: 'all', label: 'Все от Шефа', match: () => true },
-    { key: 'poultry', label: '🍗 Птица', match: r => r.category === 'poultry' },
-    { key: 'beef', label: '🥩 Говядина', match: r => r.category === 'beef' },
+  fav: [
+    { key: 'all', label: 'Все закладки', match: () => true },
+    { key: 'meat', label: '🥩 Мясо и птица', match: r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category) },
     { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
-    { key: 'pork', label: '🥓 Ребра и мясо', match: r => r.category === 'pork' },
-    { key: 'sauces', label: '🍯 Соусы и плов', match: r => ['sauces', 'meat'].includes(r.category) }
+    { key: 'sides', label: '🥦 Гарниры и супы', match: r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables' },
+    { key: 'delicacy', label: '🫙 Деликатесы', match: r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category) }
   ],
+  meat_hub: [
+    { key: 'all', label: 'Все мясные', match: () => true },
+    { key: 'beef', label: '🥩 Говядина и стейки', match: r => r.category === 'beef' },
+    { key: 'chuck', label: '💪 Лопатка и ростбиф', match: r => r.category === 'beef' && (r.subcategory === 'shoulder' || (r.title + r.description).toLowerCase().includes('лопатк') || (r.title + r.description).toLowerCase().includes('ростбиф') || r.id.includes('chuck')) },
+    { key: 'poultry', label: '🍗 Птица (грудка, утка)', match: r => r.category === 'poultry' },
+    { key: 'pork', label: '🥓 Свинина и ребра BBQ', match: r => r.category === 'pork' },
+    { key: 'meat', label: '🍲 Баранина и кролик', match: r => r.category === 'meat' }
+  ],
+  fish: [
+    { key: 'all', label: 'Вся рыба и море', match: () => true },
+    { key: 'salmon', label: 'Лосось и форель', match: r => ['classic-salmon', 'forum-trout-anti-albumin'].includes(r.id) || r.title.toLowerCase().includes('лосось') || r.title.toLowerCase().includes('форел') },
+    { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch', 'demian-sea-bass'].includes(r.id) },
+    { key: 'tuna', label: 'Тунец Sashimi (42°C)', match: r => r.id === 'demian-tuna-steak' },
+    { key: 'calamari', label: '🦑 Кальмары и море', match: r => ['forum-calamari-tender', 'forum-mackerel-spiced'].includes(r.id) }
+  ],
+  sides_hub: [
+    { key: 'all', label: 'Все гарниры и супы', match: () => true },
+    { key: 'soup', label: '🍲 Супы и борщи', match: r => r.subcategory === 'soup' || (r.title + r.description).toLowerCase().includes('борщ') || (r.title + r.description).toLowerCase().includes('суп') },
+    { key: 'sides', label: '🥔 Гарниры су-вид', match: r => r.subcategory === 'sides' || (r.title + r.description).toLowerCase().includes('картофел') || (r.title + r.description).toLowerCase().includes('нут') },
+    { key: 'veg', label: '🥦 Спаржа и овощи', match: r => (r.title + r.description).toLowerCase().includes('спарж') || (r.title + r.description).toLowerCase().includes('микс') || (r.title + r.description).toLowerCase().includes('морков') || (r.title + r.description).toLowerCase().includes('свекл') || (r.title + r.description).toLowerCase().includes('кукуруз') }
+  ],
+  delicacy_hub: [
+    { key: 'all', label: 'Все заготовки', match: () => true },
+    { key: 'ham', label: '🍖 Ветчина и колбасы', match: r => r.category === 'ham' },
+    { key: 'pate', label: '🫙 Паштеты и рийеты', match: r => r.category === 'pate' },
+    { key: 'eggs', label: '🥚 Яйца (Онсэн/Пашот)', match: r => r.category === 'eggs' },
+    { key: 'sauces', label: '🍯 Соусы и основы', match: r => r.category === 'sauces' }
+  ],
+  collections_hub: [
+    { key: 'all', label: 'Все коллекции', match: () => true },
+    { key: 'chef', label: '⭐️ Шеф Демьян', match: r => r.isChef },
+    { key: 'video', label: '🎥 Видео мастер-классы', match: r => !!r.youtubeUrl },
+    { key: 'desserts', label: '🍹 Десерты и напитки', match: r => r.category === 'desserts' }
+  ],
+  // Legacy category mappings for backwards-compatible direct filtering
   beef: [
     { key: 'all', label: 'Вся говядина', match: () => true },
-    { key: 'steak', label: '🔥 Стейки и ростбиф', match: r => ['demian-pepper-steak', 'classic-roast-beef-chateaubriand', 'demian-roast-beef-striploin', 'yt-cheshik-striploin', 'yt-shelushenko-mealprep-beef', 'forum-beef-roastbeef-tellicherry'].includes(r.id) },
-    { key: 'sport', label: '💪 Лопатка / Спорт', match: r => ['demian-beef-shoulder-pulled', 'demian-beef-sear-flour'].includes(r.id) },
+    { key: 'steak', label: '🔥 Стейки и ростбиф', match: r => ['demian-pepper-steak', 'classic-roast-beef-chateaubriand', 'demian-roast-beef-striploin', 'yt-cheshik-striploin', 'yt-shelushenko-mealprep-beef', 'forum-beef-roastbeef-tellicherry', 'beef-teres-major-steak', 'beef-flat-iron-steak', 'beef-chuck-prime-rib'].includes(r.id) },
+    { key: 'sport', label: '💪 Лопатка и томление', match: r => ['demian-beef-shoulder-pulled', 'demian-beef-sear-flour', 'beef-chuck-prime-rib', 'beef-chuck-pot-roast', 'beef-chuck-pastrami'].includes(r.id) },
     { key: 'tongue', label: '👅 Язык и щечки', match: r => ['forum-beef-tongue-tender', 'forum-beef-cheeks-wine', 'classic-beef-cheeks-wine'].includes(r.id) },
     { key: 'slow', label: '⏳ Томление 8–48ч', match: r => r.timeMin >= 480 }
   ],
@@ -2180,18 +2473,12 @@ const CATEGORY_SUBMENUS = {
     { key: 'ham_maker', label: '🥫 В ветчиннице (Белобока)', match: r => r.subcategory === 'ham_maker' },
     { key: 'sausage', label: '🌭 Сосиски и сардельки', match: r => r.subcategory === 'sausage' }
   ],
-  fish: [
-    { key: 'all', label: 'Вся рыба и морепродукты', match: () => true },
-    { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch', 'demian-sea-bass'].includes(r.id) },
-    { key: 'salmon', label: 'Лосось / Форель Anti-Albumin', match: r => ['classic-salmon', 'forum-trout-anti-albumin'].includes(r.id) },
-    { key: 'tuna', label: 'Тунец Sashimi (42°C)', match: r => r.id === 'demian-tuna-steak' },
-    { key: 'calamari', label: '🦑 Кальмары и скумбрия', match: r => ['forum-calamari-tender', 'forum-mackerel-spiced'].includes(r.id) }
-  ],
   vegetables: [
-    { key: 'all', label: 'Все овощи', match: () => true },
+    { key: 'all', label: 'Все овощи и супы', match: () => true },
+    { key: 'soup', label: '🍲 Супы и борщи', match: r => r.subcategory === 'soup' || (r.title + r.description).toLowerCase().includes('борщ') },
+    { key: 'sides', label: '🥔 Гарниры су-вид', match: r => r.subcategory === 'sides' },
     { key: 'mix', label: '🥦 Миксы и спаржа', match: r => ['yt-shelushenko-veg-mix', 'yt-cheshik-asparagus'].includes(r.id) },
-    { key: 'roots', label: '🥕 Морковь и свекла', match: r => ['forum-carrots-honey-thyme', 'forum-beetroot-salad'].includes(r.id) },
-    { key: 'corn', label: '🌽 Кукуруза в початках', match: r => r.id === 'forum-corn-cobs-butter' }
+    { key: 'roots', label: '🥕 Морковь и свекла', match: r => ['forum-carrots-honey-thyme', 'forum-beetroot-salad'].includes(r.id) }
   ],
   pate: [
     { key: 'all', label: 'Все паштеты и заготовки', match: () => true },
@@ -2217,8 +2504,19 @@ const CATEGORY_SUBMENUS = {
   sauces: [
     { key: 'all', label: 'Все соусы', match: () => true }
   ],
-  fav: [
-    { key: 'all', label: 'Все закладки', match: () => true }
+  chef: [
+    { key: 'all', label: 'Все от Шефа', match: () => true },
+    { key: 'poultry', label: '🍗 Птица', match: r => r.category === 'poultry' },
+    { key: 'beef', label: '🥩 Говядина', match: r => r.category === 'beef' },
+    { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
+    { key: 'pork', label: '🥓 Ребра и мясо', match: r => r.category === 'pork' },
+    { key: 'sauces', label: '🍯 Соусы и плов', match: r => ['sauces', 'meat'].includes(r.category) }
+  ],
+  video: [
+    { key: 'all', label: 'Все видео-уроки', match: () => true },
+    { key: 'beef', label: '🥩 Стриплойн / Стейк', match: r => r.category === 'beef' },
+    { key: 'poultry', label: '🍗 Сочность грудки', match: r => r.category === 'poultry' },
+    { key: 'vegetables', label: '🥦 Спаржа и овощи', match: r => r.category === 'vegetables' }
   ]
 };
 
@@ -2292,6 +2590,14 @@ function getCurrentFilteredRecipes() {
   }
   if (state.activeCategory === 'fav') {
     list = list.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'meat_hub') {
+    list = list.filter(r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category));
+  } else if (state.activeCategory === 'sides_hub') {
+    list = list.filter(r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables');
+  } else if (state.activeCategory === 'delicacy_hub') {
+    list = list.filter(r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category));
+  } else if (state.activeCategory === 'collections_hub') {
+    list = list.filter(r => r.isChef || !!r.youtubeUrl || r.category === 'desserts');
   } else if (state.activeCategory === 'chef') {
     list = list.filter(r => r.isChef);
   } else if (state.activeCategory === 'video') {
@@ -2522,6 +2828,14 @@ function renderRecipes() {
 
   if (state.activeCategory === 'fav') {
     baseFiltered = baseFiltered.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'meat_hub') {
+    baseFiltered = baseFiltered.filter(r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category));
+  } else if (state.activeCategory === 'sides_hub') {
+    baseFiltered = baseFiltered.filter(r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables');
+  } else if (state.activeCategory === 'delicacy_hub') {
+    baseFiltered = baseFiltered.filter(r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category));
+  } else if (state.activeCategory === 'collections_hub') {
+    baseFiltered = baseFiltered.filter(r => r.isChef || !!r.youtubeUrl || r.category === 'desserts');
   } else if (state.activeCategory === 'chef') {
     baseFiltered = baseFiltered.filter(r => r.isChef);
   } else if (state.activeCategory === 'video') {
@@ -2842,9 +3156,21 @@ function jumpToRecipe(recipeId) {
   state.expandedCards.add(recipeId);
   const recipe = state.recipes.find(r => r.id === recipeId);
   if (recipe) {
-    if (state.activeCategory !== 'all' && state.activeCategory !== recipe.category && !(state.activeCategory === 'chef' && recipe.isChef)) {
+    let allowed = false;
+    if (state.activeCategory === 'all') allowed = true;
+    else if (state.activeCategory === 'fav' && state.favorites.includes(recipe.id)) allowed = true;
+    else if (state.activeCategory === 'meat_hub' && ['beef', 'poultry', 'pork', 'meat'].includes(recipe.category)) allowed = true;
+    else if (state.activeCategory === 'sides_hub' && (['vegetables', 'soup', 'sides'].includes(recipe.category) || recipe.category === 'vegetables')) allowed = true;
+    else if (state.activeCategory === 'delicacy_hub' && ['ham', 'pate', 'eggs', 'sauces'].includes(recipe.category)) allowed = true;
+    else if (state.activeCategory === 'collections_hub' && (recipe.isChef || !!recipe.youtubeUrl || recipe.category === 'desserts')) allowed = true;
+    else if (state.activeCategory === recipe.category) allowed = true;
+    else if (state.activeCategory === 'chef' && recipe.isChef) allowed = true;
+    else if (state.activeCategory === 'video' && !!recipe.youtubeUrl) allowed = true;
+
+    if (!allowed) {
       state.activeCategory = 'all';
-      document.querySelectorAll('.chip').forEach(c => {
+      state.activeSubcategory = 'all';
+      document.querySelectorAll('#view-recipes .chip').forEach(c => {
         c.classList.toggle('active', c.dataset.category === 'all');
       });
       renderRecipes();

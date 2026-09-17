@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.3">
+  <link rel="stylesheet" href="style.css?v=3.4">
   <script>
     (function() {
       try {
@@ -65,22 +65,14 @@
         <button id="recipe-search-clear" class="recipe-search-clear" onclick="clearRecipeSearch()" style="display: none;" title="Очистить поиск">&times;</button>
       </div>
 
-      <div class="chip-row">
-        <button class="chip active" data-category="all">Все</button>
+      <div class="chip-row category-hubs">
+        <button class="chip active" data-category="all">🍽 Все блюда</button>
         <button class="chip" data-category="fav">❤️ Избранное <span id="fav-count-badge"></span></button>
-        <button class="chip" data-category="chef">⭐️ Шеф Демьян</button>
-        <button class="chip" data-category="video">🎥 Видео-шефы</button>
-        <button class="chip" data-category="poultry">🍗 Птица</button>
-        <button class="chip" data-category="beef">🥩 Говядина</button>
-        <button class="chip" data-category="pork">🥓 Свинина</button>
-        <button class="chip" data-category="ham">🍖 Ветчина / Колбасы</button>
-        <button class="chip" data-category="fish">🐟 Рыба / Морепродукты</button>
-        <button class="chip" data-category="vegetables">🥦 Овощи</button>
-        <button class="chip" data-category="pate">🫙 Паштеты / Рийеты</button>
-        <button class="chip" data-category="desserts">🍹 Десерты / Напитки</button>
-        <button class="chip" data-category="eggs">🥚 Яйца</button>
-        <button class="chip" data-category="meat">🍲 Баранина и плов</button>
-        <button class="chip" data-category="sauces">🍯 Соусы / ПФ</button>
+        <button class="chip" data-category="meat_hub">🥩 Мясо и Птица</button>
+        <button class="chip" data-category="fish">🐟 Рыба и Море</button>
+        <button class="chip" data-category="sides_hub">🥦 Гарниры и Супы</button>
+        <button class="chip" data-category="delicacy_hub">🫙 Деликатесы</button>
+        <button class="chip" data-category="collections_hub">⭐️ Коллекции</button>
       </div>
 
       <!-- Sub-Category Selection Menu -->
@@ -883,6 +875,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.3"></script>
+  <script src="app.js?v=3.4"></script>
 </body>
 </html>

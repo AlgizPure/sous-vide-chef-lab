@@ -392,6 +392,11 @@ option {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: var(--shadow-card);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.chip:hover:not(.active) {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
 }
 .chip.active {
   background: var(--accent-amber);
@@ -400,17 +405,27 @@ option {
   box-shadow: 0 2px 10px var(--accent-amber-glow);
 }
 
+/* Category Hubs Bar */
+.category-hubs {
+  gap: 7px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.category-hubs .chip {
+  letter-spacing: 0.01em;
+}
+
 /* Sub-category Filter Sub-menu */
 .subchip-bar {
   display: flex;
   align-items: center;
   gap: 6px;
   overflow-x: auto;
-  padding: 4px 2px 10px;
+  padding: 6px 2px 12px;
   margin-bottom: 12px;
   scrollbar-width: none;
   border-bottom: 1px dashed var(--border-subtle);
-  animation: fadeInSubmenu 0.2s ease;
+  animation: fadeInSubmenu 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .subchip-bar::-webkit-scrollbar {
   display: none;
