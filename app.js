@@ -625,6 +625,179 @@ const DEFAULT_RECIPES = [
       'Фасовать в пакеты PA. Использовать для прогрева и эффектной ресторанной подачи кролика и птицы су-вид.'
     ],
     ingredients: ['Сливки 10% ультра METRO Chef - 650мл', 'Корень сельдерея свежий - 200г', 'Лук-порей свежий - 150г', 'Морковь свежая - 220г', 'Масло оливковое Extra Virgin - 15мл', 'Чеснок сухой гранулированный - 5г', 'Листья свежего тимьяна - 2г', 'Соль морская крупная Metro Chef - 10г', 'Сахар белый кристалл - 5г']
+  },
+  {
+    id: 'demian-chicken-thighs-bone',
+    title: 'Куриные бёдра на кости и коже (Закон кости 66.5°C)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'poultry',
+    tempC: 66.5,
+    timeMin: 150,
+    timeFormatted: '2.5 ч',
+    saltGperKg: 20,
+    sugarGperKg: 10,
+    spices: 'Свежий чеснок без ростка, тимьян, паприка, капля сливочного масла',
+    description: 'Технологический стандарт Шефа для птицы на кости: 66.5°C исключает сырость у сустава. Розоватый оттенок кости — безопасный миоглобин.',
+    steps: [
+      'Закон кости: для мяса на кости температура ВСЕГДА от 65°C и выше! При 61–63°C мясо у кости останется сырым.',
+      'Сухой посол: обсыпать солью (10г) и сахаром (5г) на 500г бёдер. Выдержать 30 мин при комнатной температуре.',
+      'В пакет заложить бёдра на коже, давленый чеснок (без зеленого ростка!), веточку тимьяна и кусочек сливочного масла.',
+      'Завакуумировать. Опустить в воду су-вида.',
+      'Готовить при 66.5°C ровно 2.5 часа (для мягкого бройлера) или 3 часа (для плотной фермерской птицы).',
+      'Охладить пакет в холодной воде 10 минут. Обсушить кожу салфеткой.',
+      'Колер: быстро обжечь кожу на раскаленной сковороде или под грилем 45–60 секунд до хруста.',
+      'Безопасность: красноватый оттенок кости у мозга — это термостабильный миоглобин/глобулин, а не сырая кровь (она сворачивается выше 78–88°C). Мясо на 100% пастеризовано.'
+    ],
+    ingredients: ['Куриные бёдра на кости и коже - 600г', 'Соль морская крупная Metro Chef - 12г', 'Сахар - 6г', 'Свежий чеснок - 2 зубчика', 'Свежий тимьян - 2 веточки', 'Сливочное масло 82.5% - 15г', 'Паприка сладкая - 3г']
+  },
+  {
+    id: 'demian-beef-shoulder-pulled',
+    title: 'Говяжья лопатка «Рваная говядина для спортсмена» (Шеф Демьян)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'beef',
+    tempC: 82,
+    timeMin: 720,
+    timeFormatted: '12.0 ч',
+    saltGperKg: 20,
+    sugarGperKg: 10,
+    spices: 'Томатная паста на сливочном масле, соус Ворчестер, фасоль/нут из банки',
+    description: 'Идеальное белковое блюдо для спорта и здорового питания без сложного ресторанного протокола. Коллаген полностью переходит в желатин, мясо распадается на волокна.',
+    steps: [
+      'Говяжью лопатку (рабочую мышцу) полностью разморозить в холодильнике.',
+      'Сухой посол: натереть солью (10г) и сахаром (5г) на 500г мяса, выдержать 30 мин.',
+      'Быстрый соус Шефа: обжарить столовую ложку томатной пасты на сливочном масле буквально до закипания (уходит сырая кислота, раскрывается аромат сладких томатов).',
+      'Влить в соус 1–2 ч.л. соуса Ворчестер (или капли винного уксуса / выпаренного вина). Легкая кислинка размягчает волокна говядины.',
+      'Закон бобовых: сухая фасоль/нут в су-виде не сварится! Добавьте в пакет готовую консервированную фасоль или нут из банки — они пропитаются соком и не разварятся.',
+      'Завакуумировать мясо с соусом и бобовыми. Обязательно накрыть су-вид ванну крышкой.',
+      'Готовить при 80–82°C не менее 12 часов (12–16 часов). Волокна полностью расходятся от легкого нажатия вилкой.'
+    ],
+    ingredients: ['Говяжья лопатка (б/к) - 800г', 'Томатная паста METRO Chef / Mutti - 40г', 'Сливочное масло 82.5% - 25г', 'Соус Ворчестер - 15мл', 'Фасоль белая или нут (консервированные) - 200г', 'Соль морская крупная Metro Chef - 16г', 'Сахар - 8г', 'Черный перец дробленый - 3г']
+  },
+  {
+    id: 'demian-beef-sear-flour',
+    title: 'Говядина кусочками с пред-колером в муке «Вкус жареного мяса»',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'beef',
+    tempC: 74,
+    timeMin: 480,
+    timeFormatted: '8.0 ч',
+    saltGperKg: 20,
+    sugarGperKg: 10,
+    spices: 'Мука пшеничная, томатная паста, сливочное масло, чеснок, ворчестер',
+    description: 'Секрет Шефа Демьяна: обваливание кусочков в муке и быстрый колер на раскаленной сковороде дает су-виду глубокий вкус натурального жареного мяса, а не тушеного.',
+    steps: [
+      'Говядину (лопатка, огузок или шея) нарезать кусочками по 3–4 см (или брусками 5–10 см).',
+      'Выполнить сухой посол: соль 10г + сахар 5г на 500г мяса, выдержать 30 мин.',
+      'Секрет корочки: слегка обсыпать кусочки мукой. Разогреть сковороду со сливочным или растительным маслом и быстро обжарить мясо до золотистого колера.',
+      'Остудить мясо 20 минут, чтобы пар не мешал вакууматору.',
+      'На той же сковороде прогреть томатную пасту со сливочным маслом до закипания, добавить лук, чеснок и пару ложек соуса Ворчестер.',
+      'Поместить говядину и соус в вакуумный пакет. По желанию добавить готовую баночную фасоль.',
+      'Вакуумировать. Готовить при 74°C ровно 8 часов.',
+      'Мясо сохраняет упругую, сочную жевательную текстуру со вкусом жареного стейка.'
+    ],
+    ingredients: ['Говядина (лопатка/огузок) - 600г', 'Мука пшеничная в/с - 20г', 'Сливочное масло 82.5% - 25г', 'Томатная паста густая - 30г', 'Соус Ворчестер - 10мл', 'Свежий чеснок - 2 зубчика', 'Соль морская крупная Metro Chef - 12г', 'Сахар - 6г']
+  },
+  {
+    id: 'demian-cod-fillet',
+    title: 'Филе трески б/к с лаймом и тимьяном (Шеф Демьян, 55°C)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'fish',
+    tempC: 55,
+    timeMin: 30,
+    timeFormatted: '30 мин',
+    saltGperKg: 10,
+    sugarGperKg: 5,
+    spices: 'Цедра лайма (пилер), свежий тимьян, оливковое масло Extra Virgin',
+    description: 'Официальная техкарта Шефа Демьяна (ООО "Мой Шеф" от сентября 2024). Нежнейшие сочные хлопья белой рыбы с тонким цитрусовым ароматом цедры лайма.',
+    steps: [
+      'Дефростация: размораживать филе трески при +4°C в течение 24 часов в перфорированной гастроемкости.',
+      'Очистить филе от остатков теши и костей. Сформировать порционные куски по 150–200г.',
+      'Свежим пилером аккуратно снять тонкую цедру с лайма (без белого горького слоя).',
+      'Замариновать треску в морской крупной соли (10г/кг), сахаре (5г/кг), цедре лайма и оливковом масле Extra Virgin на 30 минут при комнатной температуре.',
+      'Расфасовать в пакеты. В каждый пакет добавить веточку свежего тимьяна и оставшийся маринад.',
+      'Вакуумировать бережно на режиме 15 (не сдавливать нежные волокна рыбы).',
+      'Су-вид: готовить при 55°C ровно 30 минут.',
+      'Шоковое охлаждение в ледяной воде до +4°C. Хранение до 10 суток в невскрытом пакете при +4°C.'
+    ],
+    ingredients: ['Филе трески б/к свежемороженое - 600г', 'Лайм свежий (цедра) - 1 шт', 'Масло оливковое Extra Virgin - 15мл', 'Свежий тимьян - 2 веточки', 'Соль морская крупная Metro Chef - 6г', 'Сахар белый RIOBA - 3г']
+  },
+  {
+    id: 'demian-tuna-steak',
+    title: 'Стейк тунца Sashimi-grade (Шеф Демьян, 42°C)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'fish',
+    tempC: 42,
+    timeMin: 45,
+    timeFormatted: '45 мин',
+    saltGperKg: 10,
+    sugarGperKg: 5,
+    spices: 'Оливковое масло Extra Virgin, крупная морская соль Metro Chef, сахар',
+    description: 'Официальная техкарта Шефа Демьяна (ООО "Мой Шеф" от сентября 2023). Ультра-деликатный ресторанный режим 42°C: тающая структура без малейшей сухости. Срок хранения 10 суток.',
+    steps: [
+      'Дефростация: размораживать при +3°C в течение 24 часов. Не извлекать из упаковки до полной оттайки!',
+      'Тщательно просушить стейки тунца бумажными салфетками.',
+      'Смешать оливковое масло Extra Virgin с крупной морской солью (10г/кг) и сахаром (5г/кг).',
+      'Мариновать стейки в масляной смеси 30 минут при комнатной температуре.',
+      'Расфасовать в вакуумные пакеты по порциям, вакуумировать на деликатном режиме 15.',
+      'Су-вид: готовить при 42°C ровно 45 минут.',
+      'Шоковое охлаждение в ледяной воде или шокере до +3°C.',
+      'Подача: подавать холодным как сашими/татаки или быстро опалить края газовой горелкой по 5 секунд на сторону. Хранение при +4°C до 10 суток.'
+    ],
+    ingredients: ['Тунец стейки (филе) - 500г', 'Масло оливковое Extra Virgin - 15мл', 'Соль морская крупная Metro Chef - 5г', 'Сахар белый - 2.5г']
+  },
+  {
+    id: 'demian-pike-perch',
+    title: 'Филе судака на коже (Шеф Демьян, 57°C)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'fish',
+    tempC: 57,
+    timeMin: 40,
+    timeFormatted: '40 мин',
+    saltGperKg: 10,
+    sugarGperKg: 5,
+    spices: 'Свежий тимьян, оливковое масло Extra Virgin, крупная морская соль',
+    description: 'Официальная техкарта Шефа Демьяна (ООО "Мой Шеф" от марта 2023). Белоснежное упругое филе судака на коже. Идеальный баланс сочности и плотности.',
+    steps: [
+      'Дефростация в холоде 24 часа. Проверить филе на коже, удалить оставшиеся чешуйки и мелкие косточки.',
+      'Порционировать филе кусочками по 150–200г.',
+      'Сухой посол: обсыпать морской солью (10г/кг) и сахаром (5г/кг), смазать оливковым маслом Extra Virgin. Выдержать 20 минут.',
+      'Заложить в пакет с веточкой свежего тимьяна.',
+      'Вакуумировать бережно.',
+      'Су-вид: готовить при 57°C ровно 40 минут.',
+      'Охладить в воде до +4°C. Хранение в вакууме от +2°C до +5°C до 7 суток.',
+      'Финиш по желанию: обсушить кожу и обжарить на сковороде со сливочным маслом со стороны кожи 45 секунд до хруста.'
+    ],
+    ingredients: ['Филе судака на коже - 500г', 'Масло оливковое Extra Virgin - 15мл', 'Свежий тимьян - 2 веточки', 'Соль морская крупная Metro Chef - 5г', 'Сахар - 2.5г', 'Сливочное масло (для финиша) - 15г']
+  },
+  {
+    id: 'demian-sea-bass',
+    title: 'Филе морского окуня со стружкой тунца (Шеф Демьян, 56°C)',
+    author: 'Шеф Демьян',
+    isChef: true,
+    category: 'fish',
+    tempC: 56,
+    timeMin: 30,
+    timeFormatted: '30 мин',
+    saltGperKg: 10,
+    sugarGperKg: 5,
+    spices: 'Стружка тунца (бонито), свежий тимьян, оливковое масло Extra Virgin',
+    description: 'Официальная техкарта Шефа Демьяна (ООО "Мой Шеф" от марта 2023). Фирменный секрет: добавление стружки тунца бонито в вакуумный пакет создает взрывной умами-профиль.',
+    steps: [
+      'Дефростировать окуня в холодильнике 24 часа. Ножом тщательно зачистить кожу от мелкой чешуи.',
+      'Посолить крупной морской солью (10г/кг) и сахаром (5г/кг), выдержать 20 минут.',
+      'Секрет Шефа: добавить в пакет щепотку японской стружки тунца (бонито/katsuobushi), веточку тимьяна и ложку оливкового масла.',
+      'Вакуумировать пакет.',
+      'Су-вид: варить при 56°C ровно 30 минут.',
+      'Шоковое охлаждение в воде со льдом.',
+      'Хранение в вакууме от +2°C до +5°C до 7 суток.'
+    ],
+    ingredients: ['Филе морского окуня на коже - 500г', 'Стружка тунца (бонито / katsuobushi) - 3г', 'Масло оливковое Extra Virgin - 15мл', 'Свежий тимьян - 2 веточки', 'Соль морская крупная Metro Chef - 5г', 'Сахар - 2.5г']
   }
 ];
 
@@ -669,7 +842,9 @@ const DEMIAN_SPICE_GROUPS = [
       'Чернослив без косточек (METRO Chef)',
       'Корень сельдерея свежий',
       'Лук-порей свежий',
-      'Фасоль белая и красная'
+      'Фасоль белая и красная',
+      'Стружка тунца (Бонито / Katsuobushi)',
+      'Лайм свежий'
     ]
   },
   {
@@ -692,7 +867,9 @@ const DEMIAN_SPICE_GROUPS = [
       'Томаты резаные кубиком Fiamma',
       'Сливки 10% ультрапастеризованные METRO Chef',
       'Сухое красное вино (для соуса Мирпуа / Бургиньон)',
-      'Сухое белое вино (для птицы и рыбы)'
+      'Сухое белое вино (для птицы и рыбы)',
+      'Фасоль белая / красная консервированная (в банке)',
+      'Нут консервированный (в банке)'
     ]
   },
   {
@@ -704,6 +881,7 @@ const DEMIAN_SPICE_GROUPS = [
       'Утиный жир (для конфи)',
       'Оливковое масло Extra Virgin',
       'Масло растительное рафинированное',
+      'Мука пшеничная высший сорт (для пред-колера)',
       'Стебли сельдерея (для Мирпуа)',
       'Цедра свежего апельсина'
     ]
@@ -776,6 +954,7 @@ const DEMIAN_RECOMMENDED_SPICES = DEMIAN_SPICE_GROUPS.flatMap(g => g.items);
 const state = {
   recipes: [],
   activeCategory: 'all',
+  activeSubcategory: 'all',
   activeTab: 'recipes',
   shoppingList: [],
   shoppingFilter: 'all',
@@ -980,6 +1159,81 @@ function switchTab(tabId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Recipe Submenus Definition (Interactive sub-filtering per category)
+const CATEGORY_SUBMENUS = {
+  all: [
+    { key: 'all', label: 'Все блюда', match: () => true },
+    { key: 'chef', label: '⭐️ Шеф Демьян', match: r => r.isChef },
+    { key: 'quick', label: '⚡️ Быстрые (≤1.5ч)', match: r => r.timeMin <= 90 },
+    { key: 'slow', label: '⏳ Томление (4ч+)', match: r => r.timeMin >= 240 },
+    { key: 'sear', label: '🔥 С пред-колером', match: r => (r.title + r.description).toLowerCase().includes('колер') || (r.title + r.description).toLowerCase().includes('муке') }
+  ],
+  chef: [
+    { key: 'all', label: 'Все от Шефа', match: () => true },
+    { key: 'poultry', label: '🍗 Птица', match: r => r.category === 'poultry' },
+    { key: 'beef', label: '🥩 Говядина', match: r => r.category === 'beef' },
+    { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
+    { key: 'pork', label: '🥓 Ребра и мясо', match: r => r.category === 'pork' },
+    { key: 'sauces', label: '🍯 Соусы и плов', match: r => ['sauces', 'meat'].includes(r.category) }
+  ],
+  beef: [
+    { key: 'all', label: 'Вся говядина', match: () => true },
+    { key: 'steak', label: '🔥 Стейки (Medium)', match: r => ['demian-pepper-steak', 'classic-roast-beef-chateaubriand', 'demian-roast-beef-striploin'].includes(r.id) },
+    { key: 'sport', label: '💪 Лопатка / Спорт', match: r => ['demian-beef-shoulder-pulled', 'demian-beef-sear-flour'].includes(r.id) },
+    { key: 'slow', label: '⏳ Томление 8–48ч', match: r => r.timeMin >= 480 },
+    { key: 'roast', label: '🥩 Ростбиф', match: r => r.title.toLowerCase().includes('ростбиф') || r.id.includes('roast') }
+  ],
+  poultry: [
+    { key: 'all', label: 'Вся птица', match: () => true },
+    { key: 'breast', label: '✨ Нежная грудка', match: r => r.title.toLowerCase().includes('грудка') },
+    { key: 'bone', label: '🍗 На кости (66.5°C)', match: r => ['demian-chicken-thighs-bone', 'demian-chicken-tabaka'].includes(r.id) },
+    { key: 'duck', label: '🦆 Утка (Магре/Конфи)', match: r => r.title.toLowerCase().includes('ут') || r.id.includes('duck') },
+    { key: 'thigh', label: '🌿 Бедро и индейка', match: r => r.title.toLowerCase().includes('бедр') || r.title.toLowerCase().includes('индейк') }
+  ],
+  fish: [
+    { key: 'all', label: 'Вся рыба', match: () => true },
+    { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch'].includes(r.id) },
+    { key: 'tuna', label: 'Тунец Sashimi (42°C)', match: r => r.id === 'demian-tuna-steak' },
+    { key: 'bass', label: 'Окунь со стружкой тунца', match: r => r.id === 'demian-sea-bass' },
+    { key: 'salmon', label: 'Лосось Mi-Cuit', match: r => r.id === 'classic-salmon' }
+  ],
+  pork: [
+    { key: 'all', label: 'Вся свинина', match: () => true },
+    { key: 'ribs', label: 'Рёбра BBQ (12–24ч)', match: r => r.title.toLowerCase().includes('ребр') },
+    { key: 'tenderloin', label: 'Шелковая вырезка', match: r => r.id === 'classic-pork-tenderloin' },
+    { key: 'belly', label: 'Грудинка / Поркетта', match: r => r.id === 'classic-pork-belly-crispy' },
+    { key: 'chop', label: 'Корейка на кости', match: r => r.id === 'classic-pork-chop' }
+  ],
+  meat: [
+    { key: 'all', label: 'Все блюда', match: () => true },
+    { key: 'plov', label: 'Зирвак для плова', match: r => r.id === 'demian-zirvak-plov' },
+    { key: 'rabbit', label: 'Кролик на кости', match: r => r.id === 'demian-rabbit' }
+  ],
+  sauces: [
+    { key: 'all', label: 'Все соусы', match: () => true }
+  ],
+  eggs: [
+    { key: 'all', label: 'Все яйца / овощи', match: () => true }
+  ],
+  fav: [
+    { key: 'all', label: 'Все закладки', match: () => true }
+  ]
+};
+
+function setRecipeSubcategory(subKey) {
+  state.activeSubcategory = subKey;
+  renderRecipes();
+}
+
+function resetRecipeFilter() {
+  state.activeCategory = 'all';
+  state.activeSubcategory = 'all';
+  document.querySelectorAll('#view-recipes .chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.category === 'all');
+  });
+  renderRecipes();
+}
+
 // Filter Chips for Recipes
 function setupFilterChips() {
   const chips = document.querySelectorAll('#view-recipes .chip');
@@ -988,6 +1242,7 @@ function setupFilterChips() {
       chips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       state.activeCategory = chip.dataset.category;
+      state.activeSubcategory = 'all'; // Reset subcategory on category switch
       renderRecipes();
     });
   });
@@ -1004,13 +1259,53 @@ function renderRecipes() {
     favBadge.textContent = state.favorites.length > 0 ? `(${state.favorites.length})` : '';
   }
 
-  let filtered = state.recipes;
+  // 1. Filter by Main Category
+  let baseFiltered = state.recipes;
   if (state.activeCategory === 'fav') {
-    filtered = state.recipes.filter(r => state.favorites.includes(r.id));
+    baseFiltered = state.recipes.filter(r => state.favorites.includes(r.id));
   } else if (state.activeCategory === 'chef') {
-    filtered = state.recipes.filter(r => r.isChef);
+    baseFiltered = state.recipes.filter(r => r.isChef);
   } else if (state.activeCategory !== 'all') {
-    filtered = state.recipes.filter(r => r.category === state.activeCategory);
+    baseFiltered = state.recipes.filter(r => r.category === state.activeCategory);
+  }
+
+  // 2. Render Sub-menu Bar
+  const subBar = document.getElementById('subchip-bar');
+  const subConfig = CATEGORY_SUBMENUS[state.activeCategory] || [{ key: 'all', label: 'Все', match: () => true }];
+  
+  if (subBar) {
+    if (subConfig.length > 1) {
+      subBar.style.display = 'flex';
+      subBar.innerHTML = subConfig.map(sub => {
+        const count = baseFiltered.filter(sub.match).length;
+        const isActive = (state.activeSubcategory === sub.key) || (!subConfig.some(s => s.key === state.activeSubcategory) && sub.key === 'all');
+        return `
+          <button class="subchip ${isActive ? 'active' : ''}" onclick="setRecipeSubcategory('${sub.key}')">
+            <span>${sub.label}</span>
+            <span class="subchip-count">(${count})</span>
+          </button>
+        `;
+      }).join('');
+    } else {
+      subBar.style.display = 'none';
+      subBar.innerHTML = '';
+    }
+  }
+
+  // 3. Filter by Active Subcategory
+  const activeSubDef = subConfig.find(s => s.key === state.activeSubcategory);
+  const filtered = activeSubDef && activeSubDef.key !== 'all' 
+    ? baseFiltered.filter(activeSubDef.match) 
+    : baseFiltered;
+
+  // 4. Render Summary Bar
+  const summaryEl = document.getElementById('recipes-filter-summary');
+  if (summaryEl) {
+    const isFiltered = state.activeCategory !== 'all' || (state.activeSubcategory && state.activeSubcategory !== 'all');
+    summaryEl.innerHTML = `
+      <span>Найдено: <strong>${filtered.length}</strong> из ${state.recipes.length} техкарт</span>
+      ${isFiltered ? `<button class="recipes-reset-btn" onclick="resetRecipeFilter()">Сбросить фильтр &times;</button>` : ''}
+    `;
   }
 
   if (filtered.length === 0) {
@@ -1025,8 +1320,8 @@ function renderRecipes() {
     } else {
       container.innerHTML = `
         <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
-          <p>В этой категории пока нет рецептов.</p>
-          <button class="btn btn-primary" onclick="openAddRecipeModal()" style="margin-top: 12px;">+ Добавить свой рецепт</button>
+          <p>В этой подкатегории пока нет рецептов.</p>
+          <button class="btn btn-secondary btn-sm" onclick="setRecipeSubcategory('all')" style="margin-top: 10px;">Показать все (${baseFiltered.length})</button>
         </div>
       `;
     }
@@ -1681,6 +1976,18 @@ const CHEF_RUB_SEARCH_DECOMPOSITION = {
     'Розмарин сушеный',
     'Эстрагон сушеный тархун',
     'Майоран сушеный'
+  ],
+  'рыба шеф': [
+    'Тимьян свежий веточки',
+    'Лайм свежий',
+    'Масло оливковое Extra Virgin',
+    'Стружка тунца Бонито Katsuobushi'
+  ],
+  'быстрый соус говядина': [
+    'Томатная паста METRO Chef Mutti',
+    'Сливочное масло 82.5%',
+    'Соус Ворчестер',
+    'Фасоль белая консервированная'
   ]
 };
 

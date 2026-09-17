@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=2.9">
+  <link rel="stylesheet" href="style.css?v=3.1">
   <script>
     (function() {
       try {
@@ -36,7 +36,7 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <span class="menu-badge-count" id="header-recipe-count">27</span>
+          <span class="menu-badge-count" id="header-recipe-count">34</span>
         </button>
         <div>
           <h1 class="brand-title">Sous-Vide Lab</h1>
@@ -69,6 +69,16 @@
         <button class="chip" data-category="sauces">🍯 Соусы / ПФ</button>
         <button class="chip" data-category="fish">Рыба</button>
         <button class="chip" data-category="eggs">Яйца</button>
+      </div>
+
+      <!-- Sub-Category Selection Menu -->
+      <div class="subchip-bar" id="subchip-bar">
+        <!-- Injected dynamically by app.js -->
+      </div>
+
+      <!-- Filter Summary & Reset Bar -->
+      <div class="recipes-filter-summary" id="recipes-filter-summary">
+        <!-- Injected dynamically by app.js -->
       </div>
 
       <div id="recipes-container">
@@ -170,13 +180,25 @@
             <div class="preset-name">Куриная грудка (61°C)</div>
             <div class="preset-time">1.5 часа</div>
           </div>
+          <div class="preset-card" onclick="startCustomTimer('Куриные бёдра на кости (Шеф)', 150, 66.5)">
+            <div class="preset-name">Бёдра на кости (66.5°C)</div>
+            <div class="preset-time">2.5 часа</div>
+          </div>
+          <div class="preset-card" onclick="startCustomTimer('Треска / Окунь (Шеф)', 30, 55)">
+            <div class="preset-name">Треска / Окунь (55°C)</div>
+            <div class="preset-time">30 минут</div>
+          </div>
+          <div class="preset-card" onclick="startCustomTimer('Стейк тунца Sashimi (Шеф)', 45, 42)">
+            <div class="preset-name">Тунец стейк (42°C)</div>
+            <div class="preset-time">45 минут</div>
+          </div>
           <div class="preset-card" onclick="startCustomTimer('Pepper Стейк (Medium)', 240, 57)">
             <div class="preset-name">Стейк (57°C)</div>
             <div class="preset-time">4.0 часа</div>
           </div>
-          <div class="preset-card" onclick="startCustomTimer('Бедро индейки', 90, 64)">
-            <div class="preset-name">Бедро индейки (64°C)</div>
-            <div class="preset-time">1.5 часа</div>
+          <div class="preset-card" onclick="startCustomTimer('Рваная говядина для спорта', 720, 82)">
+            <div class="preset-name">Рваная говядина (82°C)</div>
+            <div class="preset-time">12.0 часов</div>
           </div>
           <div class="preset-card" onclick="startShockChillTimer15Min()">
             <div class="preset-name">Шоковое охлаждение</div>
@@ -315,6 +337,76 @@
           • <strong>Дашида (Dashida):</strong> корейский концентрат говяжьего умами (для ростбифа и стейков).<br>
           • <strong>Хондаши (Hondashi):</strong> японский экстракт тунца бонито (секрет говядины по-бургундски).<br>
           • <strong>Демиглас (Demiglace):</strong> уваренный желатиновый бульон для глянцевых ресторанных соусов.
+        </div>
+      </div>
+
+      <div class="card card-chef">
+        <h3 class="card-title" style="color: var(--accent-amber);">🍗 Птица и мясо на кости: Закон 66.5°C и миоглобин</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Технологический стандарт безопасности Шефа Демьяна</p>
+        
+        <div class="callout callout-ruby" style="margin-bottom: 8px;">
+          <strong>Закон кости (65°C+):</strong> Если мясо готовится на кости (куриные бёдра, голени, окорочка, кролик), температура <strong>ВСЕГДА 65°C и выше</strong>! При 61–63°C мясо у сустава останется сыроватым из-за плотности кости и костного мозга.
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Эталонный режим бёдер (66.5°C х 2.5 ~ 3.0 часа):</strong> Идеальная сочность, соединительная ткань размягчается, шкурка легко колеруется. Для бройлера — 2.5 ч, для плотной домашней птицы — 3.0 ч.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 4px;">
+          <strong>Почему кость остаётся красной (Это безопасно!):</strong> Розовый или красноватый оттенок кости и зоны костного мозга даже при 75°C — это <strong>НЕ кровь</strong>, а термостабильный миоглобин и глобулин кости (сворачивается только выше 78–88°C). Мясо при 66.5°C на 100% пастеризовано и полностью готово.
+        </div>
+      </div>
+
+      <div class="card card-chef">
+        <h3 class="card-title" style="color: var(--accent-amber);">🥩 Говяжья лопатка для спорта: 2 режима и секрет жареного вкуса</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Питательный белок на каждый день без сложных ресторанных соусов</p>
+        
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Режим 1 «Рваная говядина» (80–82°C х 12–16 часов):</strong> Для любых рабочих мышц (лопатка, шея, огузок). Коллаген полностью растворяется в желатин, волокна распадаются от прикосновения вилки.
+        </div>
+
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>Режим 2 «Вкус жареного мяса с пред-колером в муке» (74°C х 8 часов):</strong> Нарезать кусочками 3–4 см, посолить (10г соли + 5г сахара на 500г), <strong>обвалять в муке</strong> и быстро обжарить на сливочном/растительном масле до румяной корочки. В су-виде это даст яркий вкус именно жареного стейка, а не тушеного мяса.
+        </div>
+
+        <div class="callout callout-emerald" style="margin-bottom: 8px;">
+          <strong>Быстрый соус Шефа на сливочном масле:</strong> Томатную пасту (или готовый соус для пасты) обязательно <strong>обжарить на сливочном масле</strong> до закипания — уходит сырая резкая кислота, раскрывается сладость томатов и паприки. Добавить овощи, соус Ворчестер / соевый / винный уксус (кислинка размягчает волокна).
+        </div>
+
+        <div class="callout callout-ruby" style="margin-bottom: 4px;">
+          <strong>Железный закон бобовых (Фасоль / Нут):</strong> В су-виде сухие бобы <strong>НЕ приготовятся</strong> (не хватает температуры 95–100°C для крахмала). Берите готовую консервированную фасоль/нут из банки — она отлично впитает мясной сок и не разварится! Либо сухую заранее полностью отварите до готовности.
+        </div>
+      </div>
+
+      <div class="card card-chef">
+        <h3 class="card-title" style="color: var(--accent-emerald);">🐟 Рыбный ресторанный протокол Шефа Демьяна (HACCP)</h3>
+        <p class="card-subtitle" style="margin-bottom: 12px;">Официальные техкарты ООО «Мой Шеф»</p>
+        
+        <div class="callout callout-amber" style="margin-bottom: 8px;">
+          <strong>Дефростация рыбы (+3...+4°C х 24 часа):</strong> Размораживать строго в холодильнике в перфорированной гастроемкости или в вакуумном пакете до полной оттайки. Не размораживать в теплой воде!
+        </div>
+
+        <div class="recipe-metrics" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+          <div class="metric-item">
+            <span class="metric-label">Треска б/к (с лаймом)</span>
+            <span class="metric-value" style="color: var(--accent-amber);">55°C • 30 мин</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Тунец стейк (Sashimi)</span>
+            <span class="metric-value" style="color: var(--accent-ruby);">42°C • 45 мин</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Судак на коже</span>
+            <span class="metric-value" style="color: var(--accent-emerald);">57°C • 40 мин</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">Окунь (+ стружка тунца)</span>
+            <span class="metric-value" style="color: var(--accent-sky);">56°C • 30 мин</span>
+          </div>
+        </div>
+
+        <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; padding: 4px;">
+          <strong>Сроки хранения пастеризованной рыбы:</strong> Тунец и треска — до 10 суток при +4°C; окунь и судак — до 7 суток при +2...+5°C в невскрытом вакуумном пакете.
         </div>
       </div>
 
@@ -593,6 +685,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.9"></script>
+  <script src="app.js?v=3.1"></script>
 </body>
 </html>
