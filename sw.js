@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.4 - Two-tier Category Hubs & 8 Master Recipes)
-const CACHE_NAME = 'sous-vide-v3.4';
+// Service Worker: Sous-Vide Chef Lab (v3.5 - Visual Version Badge & Forced Cache Clear)
+const CACHE_NAME = 'sous-vide-v3.5';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.4',
-  './app.js?v=3.4',
+  './style.css?v=3.5',
+  './app.js?v=3.5',
   './manifest.json'
 ];
 

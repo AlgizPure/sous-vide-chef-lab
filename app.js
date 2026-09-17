@@ -1797,6 +1797,42 @@ const DEFAULT_RECIPES = [
     ]
   },
   {
+    id: 'beef-herb-crusted-chuck-roast',
+    title: 'Пряный ростбиф из лопатки в травяной корочке с шеф-соусом (ChefSteps)',
+    author: 'ChefSteps / Модернист',
+    isChef: true,
+    category: 'beef',
+    subcategory: 'shoulder',
+    tempC: 55.0,
+    timeMin: 1440,
+    timeFormatted: '24 ч',
+    saltGperKg: 18,
+    sugarGperKg: 5,
+    spices: 'Свежий розмарин, тимьян, чеснок, черный перец крупного помола, дижонская горчица, сливочное масло',
+    description: 'Научно выверенная трансформация бескостной лопатки: пред-колерование (pre-sear) для стерилизации Lactobacillus, 24ч су-вид при 55°C, запекание в хрустящей травяной корочке и бархатный глянцевый соус из уваренного сока пакета (Monter au beurre).',
+    steps: [
+      'Зачистить лопатку от серебристых пленок. Разделить по естественному шву, удалить внутренний грубый жир, сложить обратно и туго перевязать кулинарной бечевкой каждые 2.5 см.',
+      'Pre-sear (стерилизация против Lactobacillus): натереть солью и перцем, обжарить на раскаленной сковороде с маслом 6–8 минут до румянца. В конце добавить раздавленный чеснок и веточку розмарина на 1 мин.',
+      'Завакуумировать мясо вместе с чесноком, розмарином и соком со сковороды.',
+      'Готовить в су-виде при 55.0°C ровно 24 часа (для тающего сочного Medium-Rare).',
+      'Извлечь ростбиф, слить весь мясной сок из пакета в отдельную посуду для соуса. Мясо насухо обсушить салфетками.',
+      'Смазать ростбиф взбитым белком (или горчицей), плотно обсыпать смесью из рубленых свежих трав (розмарин, тимьян, петрушка) и перца.',
+      'Запечь при 245°C в духовке 10–12 минут до хрустящей ароматной корочки.',
+      'Шеф-соус из сока пакета: сок из пакета вылить на сковороду и выпарить до образования темно-коричневого мясного пригара (фонда). Деглазировать 100 мл вина или 300 мл бульона, соскребая пригар лопаткой. Уварить вдвое, процедить через мелкое сито от свернувшегося альбумина. Снять с огня и взбить с 30г ледяного сливочного масла до зеркального глянца (monter au beurre).'
+    ],
+    ingredients: [
+      'Бескостная говяжья лопатка (Chuck Roast) — 1.5–2 кг',
+      'Крупная морская соль — 25–30г',
+      'Черный перец свежемолотый крупный — 8г',
+      'Свежий розмарин и тимьян — по 4 веточки',
+      'Свежий чеснок — 5 зубчиков',
+      'Яичный белок (для травяной панировки) — 1 шт.',
+      'Сухое красное вино или говяжий бульон — 150 мл',
+      'Сливочное масло 82.5% (ледяное кубиками) — 30г',
+      'Растительное масло для пре-колера — 20 мл'
+    ]
+  },
+  {
     id: 'beef-teres-major-steak',
     title: 'Стейк Teres Major / Petite Tender («Вырезка мясника»)',
     author: 'Шеф-Лаб / Анатомия',
@@ -4354,6 +4390,39 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+const APP_VERSION = 'v3.5';
+
+// Show tactile version details toast
+function showAppVersionInfo() {
+  const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.5)' : 'Автономен';
+  const count = state.recipes ? state.recipes.length : 0;
+  
+  showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);
+}
+
+// Clear all client caches and force clean reload
+async function forceAppUpdate() {
+  showToast('🔄 Сброс локального кэша и обновление...', 2500);
+  try {
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    if ('serviceWorker' in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const reg of registrations) {
+        await reg.update();
+      }
+    }
+  } catch (e) {
+    console.error('Update cache clear error:', e);
+  }
+  setTimeout(() => {
+    window.location.reload(true);
+  }, 600);
 }
 
 // Service Worker Registration with Auto-Update

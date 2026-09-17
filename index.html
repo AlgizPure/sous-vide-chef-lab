@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.4">
+  <link rel="stylesheet" href="style.css?v=3.5">
   <script>
     (function() {
       try {
@@ -39,7 +39,10 @@
           <span class="menu-badge-count" id="header-recipe-count">66</span>
         </button>
         <div>
-          <h1 class="brand-title">Sous-Vide Lab</h1>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <h1 class="brand-title">Sous-Vide Lab</h1>
+            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.5</span>
+          </div>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
       </div>
@@ -710,7 +713,10 @@
     <div class="drawer-panel" onclick="event.stopPropagation()">
       <div class="drawer-header">
         <div>
-          <h2 class="drawer-title">Навигатор рецептов</h2>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <h2 class="drawer-title">Навигатор рецептов</h2>
+            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.5</span>
+          </div>
           <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
         </div>
         <button class="btn-icon" onclick="closeNavDrawer()" title="Закрыть">&times;</button>
@@ -726,8 +732,11 @@
       </div>
 
       <div class="drawer-footer">
-        <button class="btn btn-primary" style="width: 100%; padding: 10px;" onclick="closeNavDrawer(); openAddRecipeModal();">
+        <button class="btn btn-primary" style="width: 100%; padding: 10px; margin-bottom: 8px;" onclick="closeNavDrawer(); openAddRecipeModal();">
           + Добавить новый рецепт
+        </button>
+        <button class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.76rem; display: flex; align-items: center; justify-content: center; gap: 6px;" onclick="forceAppUpdate()" title="Очистить локальный кэш браузера и перезагрузить свежую версию">
+          🔄 Проверить и форсировать обновление (v3.5)
         </button>
       </div>
     </div>
@@ -875,6 +884,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.4"></script>
+  <script src="app.js?v=3.5"></script>
 </body>
 </html>
