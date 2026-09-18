@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.8 - Master Prep Matrix: Cutting, Marinating, Shaping & Vacuuming)
-const CACHE_NAME = 'sous-vide-v3.8';
+// Service Worker: Sous-Vide Chef Lab (v3.9 - Chef Demyan Gravity Edge Vacuum & Ghee Prep Edition)
+const CACHE_NAME = 'sous-vide-v3.9';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.8',
-  './app.js?v=3.8',
+  './style.css?v=3.9',
+  './app.js?v=3.9',
   './manifest.json'
 ];
 
