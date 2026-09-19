@@ -179,16 +179,16 @@ const DEFAULT_RECIPES = [
     timeFormatted: '40 мин',
     saltGperKg: 15,
     sugarGperKg: 8,
-    spices: 'Оливковое масло, морская соль, укроп, цедра лимона',
-    description: 'Текстура, недостижимая традиционной жаркой. Прозрачные хлопья, тающие во рту.',
+    spices: 'Оливковое масло (или сливочное масло), морская соль, укроп или тимьян, цедра лимона',
+    description: 'Текстура, недостижимая традиционной жаркой. Прозрачные хлопья, тающие во рту. Для классической ресторанной плотности используйте калибровку Хлебопечки #442074: 55°C (20 мин на каждые 10 мм толщины со сливочным маслом и тимьяном).',
     steps: [
-      'Слабый посол 20 мин (15г соли на 1кг). Обсушить.',
-      'Положить в пакет филе лосося с ложкой оливкового масла и веточкой укропа.',
-      'Бережно вакуумировать (не сдавливать рыбу).',
-      'Готовить при 48°C ровно 40 минут.',
-      'Подавать теплым или быстро опалить кожу газовой горелкой.'
+      'Слабый посол 20 мин (15г соли на 1кг). Обсушить (или выдержать 12 мин в 10% рассоле против альбумина).',
+      'Положить в пакет филе лосося с ложкой оливкового масла и веточкой укропа (альтернатива по канону Хлебопечки: пластинка сливочного масла 82.5% + веточка тимьяна).',
+      'Бережно вакуумировать (не сдавливать рыбу, использовать щадящий режим или метод вытеснения водой).',
+      'Выбор температуры: 48°C для тающего Mi-Cuit (40 мин) или 55°C для плотного сочного лосося (по шкале толщины: 10 мм — 20 мин, 20 мм — 40 мин, 40 мм — 80 мин).',
+      'Подавать теплым с соками из пакета или быстро опалить кожу газовой горелкой.'
     ],
-    ingredients: ['Филе лосося / семги - 400г', 'Оливковое масло Extra Virgin - 20мл', 'Свежий укроп - 2 веточки', 'Цедра лимона - 2г', 'Соль морская - 6г']
+    ingredients: ['Филе лосося / семги - 400г', 'Оливковое или сливочное масло 82.5% - 20г', 'Свежий укроп или свежий тимьян - 2-3 веточки', 'Цедра лимона - 2г', 'Соль морская - 6г']
   },
   {
     id: 'classic-pork-ribs',
@@ -1454,7 +1454,39 @@ const DEFAULT_RECIPES = [
       "Соль поваренная для рассола - 100г",
       "Сливочное масло 82.5% - 15г",
       "Свежемолотый белый перец - по вкусу"
-]
+    ]
+  },
+  {
+    id: "forum-salmon-thyme-classic",
+    title: "Лосось со сливочным маслом и тимьяном (Хлебопечка #442074)",
+    author: "Форум Хлебопечка.ру (тема 442074)",
+    isChef: false,
+    category: "fish",
+    subcategory: "salmon",
+    tempC: 55.0,
+    timeMin: 80,
+    timeFormatted: "80 мин (для 40 мм)",
+    saltGperKg: 12,
+    sugarGperKg: 0,
+    spices: "Сливочное масло 82.5% (или гхи), свежий тимьян, морская соль, свежемолотый перец",
+    source: "forum",
+    description: "Канонический рецепт с форума Хлебопечка.ру (тема 442074). Пластинка сливочного масла на каждый стейк, свежий тимьян и строгая математическая калибровка времени по толщине куска (20 минут на каждые 10 мм толщины) при температуре 55–57°C. Рыба сочная, слоистая, тающая.",
+    steps: [
+      "Подготовка: стейки лосося или семги промыть ледяной водой и насухо обсушить бумажными полотенцами с обеих сторон.",
+      "Приправить: равномерно посыпать морской солью (12-15 г/кг) и свежемолотым белым или черным перцем.",
+      "Масло и травы: на каждый кусочек сверху положить пластинку холодного сливочного масла 82.5% (10–15г) или топленого гхи и веточку свежего тимьяна.",
+      "Вакуумирование: бережно уложить в вакуумный пакет и завакуумировать (в импульсном режиме или методом вытеснения водой Water Displacement), не сдавливая волокна.",
+      "Калибровка времени при 55°C (рекомендованный диапазон 55–57°C по шкале автора): 10 мм — 20 мин; 20 мм — 40 мин; 30 мм — 60 мин; 40 мм — 80 мин (рекомендовано для стейков); 50 мм — 100 мин; 60 мм — 120 мин.",
+      "Подача: извлечь рыбу немедленно по завершении таймера (рыба не выносит передержки в теплой воде). Выложить на тарелку, полить ароматным маслом с травами из пакета. Рекомендованный гарнир автора с форума: смесь отварного дикого и бурого риса с сыром."
+    ],
+    ingredients: [
+      "Стейки или филе лосося (толщина ~40 мм) — 2 шт (400–500г)",
+      "Сливочное масло 82.5% (или топленое масло гхи) — 25–30г",
+      "Свежий тимьян — 2–4 веточки",
+      "Морская соль мелкая — 6г",
+      "Свежемолотый белый или черный перец — 1г",
+      "Смесь дикого и бурого риса с тертым сыром — для гарнира"
+    ]
   },
   {
     id: "forum-calamari-tender",
@@ -3133,7 +3165,7 @@ const CATEGORY_SUBMENUS = {
   ],
   fish: [
     { key: 'all', label: 'Вся рыба и море', match: () => true },
-    { key: 'salmon', label: 'Лосось и форель', match: r => ['classic-salmon', 'forum-trout-anti-albumin'].includes(r.id) || r.title.toLowerCase().includes('лосось') || r.title.toLowerCase().includes('форел') },
+    { key: 'salmon', label: 'Лосось и форель', match: r => ['classic-salmon', 'forum-trout-anti-albumin', 'forum-salmon-thyme-classic'].includes(r.id) || r.title.toLowerCase().includes('лосось') || r.title.toLowerCase().includes('форел') },
     { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch', 'demian-sea-bass'].includes(r.id) },
     { key: 'tuna', label: 'Тунец Sashimi (42°C)', match: r => r.id === 'demian-tuna-steak' },
     { key: 'calamari', label: '🦑 Кальмары и море', match: r => ['forum-calamari-tender', 'forum-mackerel-spiced'].includes(r.id) }
@@ -3903,20 +3935,20 @@ function renderDrawerRecipes(searchTerm = '') {
 
   categories.push(
     { key: 'chef', title: '⭐️ Шеф Демьян (Рекомендации)', filter: r => r.isChef },
-    { key: 'jars', title: '🫙 В баночках Kerr (8 oz)', filter: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
+    { key: 'breakfast', title: '🍳 Завтраки (Омлеты, Скрэмбл, Onsen)', filter: r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') },
+    { key: 'desserts', title: '🍰 Изысканные десерты', filter: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
+    { key: 'jars', title: '🫙 В баночках Kerr (8 oz)', filter: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
     { key: 'video', title: '🎥 Видео мастер-классы', filter: r => !!r.youtubeUrl },
     { key: 'poultry', title: '🍗 Птица (Курица, Индейка, Утка)', filter: r => r.category === 'poultry' },
     { key: 'beef', title: '🥩 Говядина и Стейки', filter: r => r.category === 'beef' },
     { key: 'pork', title: '🥓 Свинина и Ребра', filter: r => r.category === 'pork' },
     { key: 'ham', title: '🍖 Ветчина и колбасы', filter: r => r.category === 'ham' },
     { key: 'fish', title: '🐟 Рыба и Морепродукты', filter: r => r.category === 'fish' },
-    { key: 'vegetables', title: '🥦 Овощи и гарниры', filter: r => r.category === 'vegetables' },
+    { key: 'vegetables', title: '🥦 Овощи и гарниры', filter: r => ['vegetables', 'soup', 'sides'].includes(r.category) },
     { key: 'pate', title: '🫙 Паштеты и рийеты', filter: r => r.category === 'pate' },
-    { key: 'desserts', title: '🍹 Десерты и напитки', filter: r => r.category === 'desserts' },
-    { key: 'eggs', title: '🥚 Яйца', filter: r => r.category === 'eggs' },
     { key: 'meat', title: '🍲 Плов и Баранина', filter: r => r.category === 'meat' },
     { key: 'sauces', title: '🍯 Фирменные соусы и ПФ', filter: r => r.category === 'sauces' },
-    { key: 'other', title: '🍽 Другие блюда', filter: r => !r.isChef && !['poultry','beef','pork','ham','fish','vegetables','pate','desserts','eggs','meat','sauces'].includes(r.category) }
+    { key: 'other', title: '🍽 Другие блюда', filter: r => !r.isChef && !['breakfast','poultry','beef','pork','ham','fish','vegetables','soup','sides','pate','desserts','eggs','meat','sauces'].includes(r.category) && !r.id.startsWith('breakfast-') && !r.id.startsWith('dessert-') }
   );
 
   let html = '';
@@ -5985,12 +6017,12 @@ function closeButcheryModal() {
   document.body.style.overflow = '';
 }
 
-const APP_VERSION = 'v3.11';
+const APP_VERSION = 'v3.12';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.11)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.12)' : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);

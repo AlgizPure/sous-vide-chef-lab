@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.11 - Single Sous-Vide Cascade Planner & Desserts Edition)
-const CACHE_NAME = 'sous-vide-v3.11';
+// Service Worker: Sous-Vide Chef Lab (v3.12 - Hlebopechka Salmon & Cascade Planner Edition)
+const CACHE_NAME = 'sous-vide-v3.12';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.11',
-  './app.js?v=3.11',
+  './style.css?v=3.12',
+  './app.js?v=3.12',
   './manifest.json'
 ];
 
