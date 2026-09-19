@@ -1799,6 +1799,233 @@ const DEFAULT_RECIPES = [
     ]
   },
   {
+    id: "jar-cheesecake-classic",
+    title: "Чизкейк New York в баночках Kerr (8 oz / 80°C)",
+    author: "ChefSteps & Sansaire",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 80.0,
+    timeMin: 90,
+    timeFormatted: "1.5 ч",
+    saltGperKg: 0,
+    sugarGperKg: 100,
+    spices: "Сливочный сыр Philadelphia/Cremette, яйца, сливки 33%, ваниль, песочная основа с маслом",
+    description: "Шедевр ChefSteps в порционных баночках Kerr (8 унций). Без водяной бани в духовке и без риска трещин: нежнейшая кремовая текстура с хрустящей песочной крошкой на дне.",
+    steps: [
+      "Песочная основа: измельчить 80г печенья в крошку, смешать с 30г растопленного сливочного масла. Распределить по дну 4 баночек Kerr 8 oz и слегка утрамбовать.",
+      "Сырный крем: в блендере взбить 450г сливочного сыра (комнатной t°), 100г сахара, 2 яйца, 120г сливок 33%, 1 ч.л. ванили и 1 ч.л. лимонного сока до шелковистой текстуры без воздушных пузырей.",
+      "Заливка: аккуратно разлить сырный крем по баночкам поверх основы, оставляя 1.5–2 см свободного пространства до края горлышка.",
+      "Правило Fingertip-Tight: накрыть плоским диском Kerr и накрутить кольцо кончиками двух пальцев до первого легкого упора (не затягивать со всей силы!).",
+      "Су-вид: погрузить баночки в воду 80°C (уровень воды по плечики банок) на 90 минут.",
+      "Охлаждение: извлечь, остудить до комнатной температуры (диск втянется с характерным щелчком), убрать в холодильник минимум на 6 часов."
+    ],
+    ingredients: [
+      "Сливочный сыр (Philadelphia / Cremette) — 450г",
+      "Песочное печенье (Graham / Юбилейное) — 80г",
+      "Сливочное масло 82.5% (растопленное) — 30г",
+      "Сахар мелкий — 100г",
+      "Сливки 33% или сметана 25% — 120г",
+      "Яйца куриные C1 — 2 шт. (100г)",
+      "Экстракт ванили — 1 ч. л.",
+      "Сок лимона — 1 ч. л."
+    ]
+  },
+  {
+    id: "jar-creme-brulee-vanilla",
+    title: "Крем-брюле с ванилью Бурбон в баночках Kerr (8 oz / 80°C)",
+    author: "Modernist Cuisine / ChefSteps",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 80.0,
+    timeMin: 60,
+    timeFormatted: "1.0 ч",
+    saltGperKg: 0,
+    sugarGperKg: 80,
+    spices: "Желтки, сливки 33–35%, сахар, стручок ванили Бурбон, тростниковый сахар для карамели",
+    description: "Французская классика: су-вид гарантирует идеальное свертывание желтков при 80°C без риска перегрева краев. Шелковый заварной крем под хрустящей карамельной корочкой.",
+    steps: [
+      "Ароматизация: сливки (400 мл) со стручком ванили (разрезать вдоль, выскоблить семена) прогреть в сотейнике до 70°C (не кипятить!). Снять с огня, дать настояться 15 минут.",
+      "Эмульсия: венчиком растереть 5 желтков с 75г сахара и щепоткой соли до растворения сахара (не взбивать в пену). Тонкой струйкой ввести теплые сливки, процедить через сито.",
+      "Розлив: разлить по баночкам Kerr 8 oz, снять пенку ложкой с поверхности.",
+      "Fingertip-Tight: закрутить крышки Kerr кончиками пальцев без нажима.",
+      "Варка: готовить при 80°C ровно 60 минут (уровень воды по плечики).",
+      "Финиш: охладить в ледяной воде и убрать в холодильник на 4–6 часов. Перед подачей посыпать 1 ч.л. сахара и обжечь газовой горелкой до карамельного стекла."
+    ],
+    ingredients: [
+      "Сливки натуральные 33–35% — 400 мл",
+      "Яичные желтки — 5 шт. (около 90г)",
+      "Сахар белый мелкий — 75г",
+      "Стручок ванили Бурбон (или паста) — 1 шт.",
+      "Тростниковый сахар (для обжига горелкой) — 20г",
+      "Соль мелкая — щепотка"
+    ]
+  },
+  {
+    id: "jar-poached-pears-wine",
+    title: "Груши в пряном вине с бадьяном и корицей (Kerr 8 oz / 84°C)",
+    author: "Шеф-Лаб / Baldwin Fruit Method",
+    isChef: true,
+    category: "desserts",
+    subcategory: "fruit",
+    tempC: 84.0,
+    timeMin: 60,
+    timeFormatted: "1.0 ч",
+    saltGperKg: 0,
+    sugarGperKg: 80,
+    spices: "Красное сухое вино, тростниковый сахар, палочка корицы, звездочка бадьяна, цедра апельсина",
+    description: "Груши в баночке пропитываются вином и специями до самой сердцевины, но сохраняют упругую текстуру благодаря бережному растворению пектина при 84°C.",
+    steps: [
+      "Подготовка: очистить груши (сорт Конференс или Боск) от кожуры, разрезать вдоль пополам, удалить семенную коробку ложкой-нуазеткой.",
+      "Сироп: в сотейнике смешать сухое красное вино, сахар, корицу, бадьян и цедру апельсина, довести до кипения и остудить.",
+      "Укладка: плотно уложить половинки груш срезом к стеклу в баночки Kerr 8 oz, залить пряным винным сиропом по плечики.",
+      "Закрутка: крышки Kerr закрутить кончиками пальцев (Fingertip-Tight).",
+      "Су-вид: готовить при 84°C ровно 60 минут.",
+      "Подача: подавать теплыми с шариком пломбира или холодными, поливая густым винным сиропом."
+    ],
+    ingredients: [
+      "Груши твердые (Конференс / Боск) — 4 шт.",
+      "Красное сухое вино (Мерло / Каберне) — 250 мл",
+      "Сахар тростниковый — 80г",
+      "Корица (палочка) — 1 шт.",
+      "Бадьян (звездчатый анис) — 2 звездочки",
+      "Цедра апельсина — 2 полоски"
+    ]
+  },
+  {
+    id: "jar-spiced-butter-apples",
+    title: "Пряные яблоки в карамельном масле (Cinnamon Butter Apples)",
+    author: "Шеф-Лаб / Anova Precision",
+    isChef: true,
+    category: "desserts",
+    subcategory: "fruit",
+    tempC: 80.0,
+    timeMin: 60,
+    timeFormatted: "1.0 ч",
+    saltGperKg: 0,
+    sugarGperKg: 50,
+    spices: "Яблоки Granny Smith, сливочное масло, коричневый сахар мусковадо, корица, мускатный орех",
+    description: "Универсальный десертный и гастрономический хит: кубики яблок томятся в собственном соку со сливочным маслом и корицей. Идеально к блинчикам, сырникам или утке.",
+    steps: [
+      "Нарезка: яблоки Granny Smith очистить от кожуры и нарезать ровными кубиками 1.5х1.5 см.",
+      "Закладка: уложить кубики яблок в баночки Kerr 8 oz, пересыпая тростниковым сахаром, корицей и тертым мускатным орехом.",
+      "Сверху положить кусочек сливочного масла (15г на баночку).",
+      "Закрыть крышку Kerr пальчиковой затяжкой (Fingertip-Tight).",
+      "Варить при 80°C ровно 1 час.",
+      "После варки встряхнуть баночку: масло и сок яблок объединяются в густую карамельную эмульсию."
+    ],
+    ingredients: [
+      "Яблоки кислые плотные (Granny Smith) — 3 шт. (около 450г)",
+      "Сливочное масло 82.5% — 45г",
+      "Коричневый сахар (тростниковый) — 50г",
+      "Молотая корица — 1 ч. л.",
+      "Мускатный орех свеженатертый — щепотка"
+    ]
+  },
+  {
+    id: "jar-chefsteps-crispy-pickles",
+    title: "Хрустящие малосольные огурцы ChefSteps Quick Pickles (60°C)",
+    author: "ChefSteps Standard",
+    isChef: true,
+    category: "vegetables",
+    subcategory: "pickles",
+    tempC: 60.0,
+    timeMin: 150,
+    timeFormatted: "2.5 ч",
+    saltGperKg: 20,
+    sugarGperKg: 40,
+    spices: "Яблочный уксус, семена горчицы, чеснок, зонтики укропа, перец горошком",
+    description: "Секрет ресторанного звонкого хруста: при 60°C огурцы пастеризуются и пропитываются маринадом, но фермент пектин не разрушает клеточный каркас (в отличие от кипятка!).",
+    steps: [
+      "Подготовка: огурцы вымыть, срезать кончики, нарезать вдоль на 4 части (брусочками) или рифленым ножом кружками 1 см.",
+      "Маринад: смешать 250 мл воды, 250 мл яблочного уксуса 6%, 20г соли и 40г сахара до полного растворения (не кипятить!).",
+      "Закладка: в баночки Kerr 8 oz плотно уложить огурцы вертикально, добавить по зубчику чеснока, веточке укропа и 1/2 ч.л. семян горчицы.",
+      "Залить маринадом, оставив 1.5 см до верха горлышка.",
+      "Крышка Kerr: закрыть по правилу Fingertip-Tight (кончиками пальцев).",
+      "Су-вид: готовить при 60°C ровно 2.5 часа (150 минут).",
+      "Охлаждение: сразу охладить в ледяной воде и убрать в холодильник. Готовы к дегустации через 12 часов. Хранение до 6 месяцев в холодильнике!"
+    ],
+    ingredients: [
+      "Огурцы свежие грунтовые (хрустящие) — 500г",
+      "Вода питьевая — 250 мл",
+      "Уксус яблочный или белый винный 6% — 250 мл",
+      "Соль каменная крупная — 20г",
+      "Сахар — 40г",
+      "Чеснок свежий — 3 зубчика",
+      "Семена горчицы — 1 ч. л.",
+      "Зонтики укропа свежие — 2 шт.",
+      "Черный перец горошком — 10 шт."
+    ]
+  },
+  {
+    id: "jar-cherry-tomato-confit",
+    title: "Томаты черри конфи в оливковом масле с чесноком и травами",
+    author: "Шеф-Лаб / Provence Jar",
+    isChef: true,
+    category: "vegetables",
+    subcategory: "confit",
+    tempC: 75.0,
+    timeMin: 90,
+    timeFormatted: "1.5 ч",
+    saltGperKg: 10,
+    sugarGperKg: 5,
+    spices: "Томаты черри, оливковое масло Extra Virgin, чеснок слайсами, тимьян, розмарин, морская соль",
+    description: "Томаты не лопаются и не превращаются в пасту: при 75°C они сохраняют целостность, становясь сладкими ароматными жемчужинами в чесночно-травяном оливковом масле.",
+    steps: [
+      "Томаты черри вымыть и насухо обсушить салфеткой.",
+      "Уложить в баночки Kerr 8 oz вперемешку с тонкими слайсами чеснока, веточками свежего тимьяна и розмарина.",
+      "Посолить морской солью (1/2 ч.л. на баночку), добавить щепотку сахара.",
+      "Залить оливковым маслом так, чтобы томаты были полностью покрыты, оставив 1 см до края.",
+      "Закрутить крышки Kerr пальчиками (Fingertip-Tight).",
+      "Готовить при 75°C 1.5 часа.",
+      "Использование: томаты подавать на брускеттах, к стейкам или пасте, а ароматное томатное масло использовать для салатных заправок."
+    ],
+    ingredients: [
+      "Томаты черри спелые плотные — 400г",
+      "Масло оливковое (Extra Virgin / Pure) — 200 мл",
+      "Чеснок — 4 зубчика",
+      "Свежий тимьян — 4 веточки",
+      "Свежий розмарин — 2 маленькие веточки",
+      "Морская соль крупная — 4г",
+      "Сахар — 2г"
+    ]
+  },
+  {
+    id: "jar-starbucks-egg-bites",
+    title: "Яичные суфле Egg Bites с беконом и сыром Грюйер (Kerr 8 oz / 77.8°C)",
+    author: "Starbucks Secret / ChefSteps",
+    isChef: true,
+    category: "eggs",
+    subcategory: "jar",
+    tempC: 77.8,
+    timeMin: 60,
+    timeFormatted: "1.0 ч",
+    saltGperKg: 8,
+    sugarGperKg: 0,
+    spices: "Яйца, рикотта, сыр Грюйер/Эмменталь, обжаренный бекон, белый перец",
+    description: "Знаменитые ресторанные су-вид укусы: воздушная суфлейная текстура без сухости. Идеальный белковый кето-завтрак прямо из стеклянной баночки.",
+    steps: [
+      "Баночки Kerr 8 oz изнутри смазать каплей сливочного масла.",
+      "В блендер разбить 4 яйца, добавить 100г сыра рикотта (или мягкого творога), 50 мл сливок 20–33%, щепотку соли и белого перца. Взбить 20 секунд до однородной воздушной пены.",
+      "На дно баночек выложить хрустящий обжаренный бекон и натертый сыр Грюйер.",
+      "Залить яичной смесью на 80% высоты баночки.",
+      "Закрутить крышку Kerr пальчиками (Fingertip-Tight).",
+      "Варить при 77.8°C (172°F) ровно 60 минут.",
+      "Подавать теплыми ложкой прямо из баночки или провести тонким ножом вдоль края и выложить на тарелку."
+    ],
+    ingredients: [
+      "Яйца куриные свежие — 4 шт.",
+      "Сыр Рикотта или мягкий творог 9% — 100г",
+      "Сливки 20–33% — 50 мл",
+      "Сыр Грюйер или Эмменталь (тертый) — 60г",
+      "Бекон копченый (обжаренный до хруста) — 50г",
+      "Соль мелкая — 3г",
+      "Белый перец молотый — 1г",
+      "Сливочное масло (для смазки) — 10г"
+    ]
+  },
+  {
     id: 'beef-chuck-prime-rib',
     title: '«Poor Man’s Prime Rib» (Праздничный ростбиф из лопатки)',
     author: 'Шеф-Лаб / SVE',
@@ -2546,6 +2773,7 @@ const CATEGORY_SUBMENUS = {
   all: [
     { key: 'all', label: 'Все блюда', match: () => true },
     { key: 'chef', label: '⭐️ От Шефа', match: r => r.isChef },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
     { key: 'video', label: '🎥 Видео-шефы', match: r => !!r.youtubeUrl },
     { key: 'quick', label: '⚡️ Быстрые (≤1.5ч)', match: r => r.timeMin <= 90 },
     { key: 'slow', label: '⏳ Томление (4ч+)', match: r => r.timeMin >= 240 },
@@ -2575,12 +2803,14 @@ const CATEGORY_SUBMENUS = {
   ],
   sides_hub: [
     { key: 'all', label: 'Все гарниры и супы', match: () => true },
+    { key: 'jar', label: '🫙 Закрутки и соления (Kerr)', match: r => ['jar-chefsteps-crispy-pickles', 'jar-cherry-tomato-confit'].includes(r.id) || r.subcategory === 'pickles' || r.subcategory === 'confit' },
     { key: 'soup', label: '🍲 Супы и борщи', match: r => r.subcategory === 'soup' || (r.title + r.description).toLowerCase().includes('борщ') || (r.title + r.description).toLowerCase().includes('суп') },
     { key: 'sides', label: '🥔 Гарниры су-вид', match: r => r.subcategory === 'sides' || (r.title + r.description).toLowerCase().includes('картофел') || (r.title + r.description).toLowerCase().includes('нут') },
     { key: 'veg', label: '🥦 Спаржа и овощи', match: r => (r.title + r.description).toLowerCase().includes('спарж') || (r.title + r.description).toLowerCase().includes('микс') || (r.title + r.description).toLowerCase().includes('морков') || (r.title + r.description).toLowerCase().includes('свекл') || (r.title + r.description).toLowerCase().includes('кукуруз') }
   ],
   delicacy_hub: [
     { key: 'all', label: 'Все заготовки', match: () => true },
+    { key: 'jar', label: '🫙 Баночки Kerr (Egg Bites / Паштеты)', match: r => r.id.startsWith('jar-') || r.subcategory === 'jar' || r.id === 'forum-chicken-liver-pate-jar' },
     { key: 'ham', label: '🍖 Ветчина и колбасы', match: r => r.category === 'ham' },
     { key: 'pate', label: '🫙 Паштеты и рийеты', match: r => r.category === 'pate' },
     { key: 'eggs', label: '🥚 Яйца (Онсэн/Пашот)', match: r => r.category === 'eggs' },
@@ -2588,6 +2818,7 @@ const CATEGORY_SUBMENUS = {
   ],
   collections_hub: [
     { key: 'all', label: 'Все коллекции', match: () => true },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
     { key: 'chef', label: '⭐️ Шеф Демьян', match: r => r.isChef },
     { key: 'video', label: '🎥 Видео мастер-классы', match: r => !!r.youtubeUrl },
     { key: 'desserts', label: '🍹 Десерты и напитки', match: r => r.category === 'desserts' }
@@ -2619,7 +2850,8 @@ const CATEGORY_SUBMENUS = {
     { key: 'sausage', label: '🌭 Сосиски и сардельки', match: r => r.subcategory === 'sausage' }
   ],
   vegetables: [
-    { key: 'all', label: 'Все овощи и супы', match: () => true },
+    { key: 'all', label: 'Все овощи и закрутки', match: () => true },
+    { key: 'jar', label: '🫙 Закрутки и конфи (Kerr)', match: r => ['jar-chefsteps-crispy-pickles', 'jar-cherry-tomato-confit'].includes(r.id) || r.subcategory === 'pickles' || r.subcategory === 'confit' },
     { key: 'soup', label: '🍲 Супы и борщи', match: r => r.subcategory === 'soup' || (r.title + r.description).toLowerCase().includes('борщ') },
     { key: 'sides', label: '🥔 Гарниры су-вид', match: r => r.subcategory === 'sides' },
     { key: 'mix', label: '🥦 Миксы и спаржа', match: r => ['yt-shelushenko-veg-mix', 'yt-cheshik-asparagus'].includes(r.id) },
@@ -2632,12 +2864,14 @@ const CATEGORY_SUBMENUS = {
   ],
   desserts: [
     { key: 'all', label: 'Все десерты и напитки', match: () => true },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.subcategory === 'jar' || r.id.startsWith('jar-') },
     { key: 'infusion', label: '🍋 Лимончелло (2.5ч)', match: r => r.id === 'forum-limoncello-infusion' },
     { key: 'dairy', label: '🥛 Топленое молоко', match: r => r.id === 'forum-caramel-baked-milk' },
-    { key: 'fruit', label: '🍌 Бананы в роме', match: r => r.id === 'forum-bananas-choco-rum' }
+    { key: 'fruit', label: '🍐 Фрукты и бананы', match: r => r.subcategory === 'fruit' || r.id === 'forum-bananas-choco-rum' || r.id.includes('pears') || r.id.includes('apples') }
   ],
   eggs: [
     { key: 'all', label: 'Все яйца', match: () => true },
+    { key: 'jar', label: '🫙 В баночках (Egg Bites)', match: r => r.id === 'jar-starbucks-egg-bites' || r.subcategory === 'jar' },
     { key: 'onsen', label: '🥚 Onsen Tamago (63–64°C)', match: r => ['classic-onsen-egg', 'forum-onsen-egg-lazerson'].includes(r.id) },
     { key: 'poached', label: '🍳 Пашот экспресс (75°C)', match: r => r.id === 'forum-express-poached-egg' }
   ],
@@ -3296,6 +3530,7 @@ function renderDrawerRecipes(searchTerm = '') {
 
   categories.push(
     { key: 'chef', title: '⭐️ Шеф Демьян (Рекомендации)', filter: r => r.isChef },
+    { key: 'jars', title: '🫙 В баночках Kerr (8 oz)', filter: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
     { key: 'video', title: '🎥 Видео мастер-классы', filter: r => !!r.youtubeUrl },
     { key: 'poultry', title: '🍗 Птица (Курица, Индейка, Утка)', filter: r => r.category === 'poultry' },
     { key: 'beef', title: '🥩 Говядина и Стейки', filter: r => r.category === 'beef' },
@@ -4971,12 +5206,12 @@ function closeButcheryModal() {
   document.body.style.overflow = '';
 }
 
-const APP_VERSION = 'v3.9';
+const APP_VERSION = 'v3.10';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.9)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.10)' : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);

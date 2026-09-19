@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.9 - Chef Demyan Gravity Edge Vacuum & Ghee Prep Edition)
-const CACHE_NAME = 'sous-vide-v3.9';
+// Service Worker: Sous-Vide Chef Lab (v3.10 - Kerr 8 oz Mason Jar Delicacies Edition)
+const CACHE_NAME = 'sous-vide-v3.10';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.9',
-  './app.js?v=3.9',
+  './style.css?v=3.10',
+  './app.js?v=3.10',
   './manifest.json'
 ];
 
