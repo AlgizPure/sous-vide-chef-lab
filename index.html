@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.12">
+  <link rel="stylesheet" href="style.css?v=3.13">
   <script>
     (function() {
       try {
@@ -36,12 +36,12 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <span class="menu-badge-count" id="header-recipe-count">94</span>
+          <span class="menu-badge-count" id="header-recipe-count">104</span>
         </button>
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h1 class="brand-title">Sous-Vide Lab</h1>
-            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.12</span>
+            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.13</span>
           </div>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
@@ -77,6 +77,7 @@
         <button class="chip" data-category="sides_hub">🥦 Гарниры и Супы</button>
         <button class="chip" data-category="desserts_hub">🍰 Десерты</button>
         <button class="chip" data-category="delicacy_hub">🫙 Деликатесы</button>
+        <button class="chip" data-category="photo_hub">📸 С фото</button>
         <button class="chip" data-category="collections_hub">⭐️ Коллекции</button>
       </div>
 
@@ -1584,7 +1585,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h2 class="drawer-title">Навигатор рецептов</h2>
-            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.12</span>
+            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.13</span>
           </div>
           <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
         </div>
@@ -1605,7 +1606,7 @@
           + Добавить новый рецепт
         </button>
         <button class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.76rem; display: flex; align-items: center; justify-content: center; gap: 6px;" onclick="forceAppUpdate()" title="Очистить локальный кэш браузера и перезагрузить свежую версию">
-          🔄 Проверить и форсировать обновление (v3.12)
+          🔄 Проверить и форсировать обновление (v3.13)
         </button>
       </div>
     </div>
@@ -1750,6 +1751,26 @@
     </div>
   </div>
 
+  <!-- VIEW MODAL: IMAGE LIGHTBOX MODAL -->
+  <div class="modal-backdrop" id="image-lightbox-modal" onclick="closeImageModal()">
+    <div class="modal-sheet image-modal-sheet" onclick="event.stopPropagation()">
+      <div class="image-modal-header">
+        <h3 class="modal-title" id="image-modal-title" style="font-size: 1rem; margin: 0; display: flex; align-items: center; gap: 8px;">
+          <span>📸 Фото блюда</span>
+        </h3>
+        <button class="btn-icon" onclick="closeImageModal()" title="Закрыть (Esc)">&times;</button>
+      </div>
+      <div class="image-modal-body">
+        <div class="image-modal-frame">
+          <img id="image-modal-img" class="image-modal-img" src="" alt="Фото блюда">
+        </div>
+        <div class="image-modal-meta" id="image-modal-meta">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Batch Runner Toast / Bar -->
   <div class="floating-batch-bar" id="floating-batch-bar" style="display: none;">
     <div class="batch-bar-content">
@@ -1766,6 +1787,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.12"></script>
+  <script src="app.js?v=3.13"></script>
 </body>
 </html>

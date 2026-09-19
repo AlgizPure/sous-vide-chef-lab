@@ -1470,6 +1470,7 @@ const DEFAULT_RECIPES = [
     sugarGperKg: 0,
     spices: "Сливочное масло 82.5% (или гхи), свежий тимьян, морская соль, свежемолотый перец",
     source: "forum",
+    image: "./assets/recipes/recipe-442074.webp",
     description: "Канонический рецепт с форума Хлебопечка.ру (тема 442074). Пластинка сливочного масла на каждый стейк, свежий тимьян и строгая математическая калибровка времени по толщине куска (20 минут на каждые 10 мм толщины) при температуре 55–57°C. Рыба сочная, слоистая, тающая.",
     steps: [
       "Подготовка: стейки лосося или семги промыть ледяной водой и насухо обсушить бумажными полотенцами с обеих сторон.",
@@ -2712,6 +2713,345 @@ const DEFAULT_RECIPES = [
       'Свежая кинза — 10г',
       'Соль и черный перец — по вкусу'
     ]
+  },
+  {
+    id: "hlebopechka-298388",
+    title: "Яблоки с мёдом, орехами и корицей в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 298388)",
+    isChef: false,
+    category: "desserts",
+    subcategory: "fruit",
+    tempC: 65.0,
+    timeMin: 270,
+    timeFormatted: "4.5 ч (при 65°C)",
+    saltGperKg: 0,
+    sugarGperKg: 100,
+    spices: "Натуральный цветочный мёд, дробленые грецкие орехи, молотая корица",
+    source: "forum",
+    image: "./assets/recipes/recipe-298388.webp",
+    description: "Изысканный десерт из домашней антоновки с форума Хлебопечка.ру. Сердцевина яблока удаляется и фаршируется смесью мёда, среднедробленых грецких орехов и корицы. За 4.5 часа при 65°C яблоки становятся мармеладно-нежными, не разваливаясь, а сок превращается в карамельный соус.",
+    steps: [
+      "Подготовка яблок: 5 крепких яблок (идеально — антоновка) вымыть. Специальным цилиндрическим ножом удалить сердцевину насквозь через оба полюса, затем разрезать каждое яблоко пополам поперек.",
+      "Приготовление начинки: 4 ст. л. с горкой натурального цветочного мёда смешать с 60–80г грецких орехов, измельченных пульсирующим блендером до средних кусочков, и 1 ч. л. молотой корицы.",
+      "Фарширование: плотно наполнить сквозную полость каждой половинки яблока пряной медово-ореховой смесью.",
+      "Вакуумирование: аккуратно выложить яблоки в один слой в вакуумный пакет срезом вверх, чтобы начинка не вытекла до откачки воздуха. Запечатать вакууматором.",
+      "Су-вид томление: готовить в су-виде при 65°C от 4 до 5 часов (для плотной кислой антоновки оптимально 4.5 часа).",
+      "Подача: аккуратно вскрыть пакет (аромат корицы и мёда поразителен). Переложить половинки яблок на десертные тарелки, полить густым орехово-медовым сиропом из пакета. Прекрасно гармонирует с шариком сливочного пломбира."
+    ],
+    ingredients: [
+      "Яблоки крепкие (антоновка или симиренко) — 5 шт.",
+      "Мёд натуральный цветочный — 4 ст. л. с горкой (~100г)",
+      "Грецкие орехи (средний помол) — 60–80г",
+      "Корица молотая — 1 ч. л."
+    ]
+  },
+  {
+    id: "hlebopechka-299685",
+    title: "Филе индейки под соусом Бешамель в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 299685)",
+    isChef: false,
+    category: "poultry",
+    subcategory: "turkey",
+    tempC: 65.0,
+    timeMin: 240,
+    timeFormatted: "4 ч (5 ч для заморозки)",
+    saltGperKg: 12,
+    sugarGperKg: 5,
+    spices: "Соус бешамель, мускатный орех, белый перец, сливочное масло",
+    source: "forum",
+    image: "./assets/recipes/recipe-299685.webp",
+    description: "Нежнейшее диетическое филе грудки индейки, которое часто пересушивается при запекании. В су-виде Steba при 65°C филе томится непосредственно в классическом соусе бешамель, пропитываясь сливочными нотами и мускатным орехом.",
+    steps: [
+      "Подготовка птицы: филе индейки промыть ледяной водой, тщательно обсушить бумажными полотенцами, равномерно посолить морской солью.",
+      "Варка соуса Бешамель: на водяной бане или в сотейнике растопить 30г сливочного масла, вмешать 25г муки и прогревать 2 минуты; тонкой струйкой при постоянном помешивании венчиком влить 250 мл подогретого молока до температуры 80°C и варить до загустения 6–8 минут; приправить мускатным орехом и щепоткой белого перца.",
+      "Охлаждение соуса: дать соусу бешамель остыть до комнатной температуры.",
+      "Вакуумирование: уложить филе индейки в пакет для вакуумирования и залить приготовленным соусом бешамель. Запечатать в щадящем/жидкостном режиме (или методом вытеснения воды Water Displacement).",
+      "Су-вид приготовление: погрузить в су-вид при 65°C. Время приготовления: 4 часа для свежего/охлажденного филе или 5 часов, если мясо взято напрямую из морозилки.",
+      "Отдых и подача: после сигнала таймера дать филе отдохнуть в остывающей ванне 10–15 минут. Нарезать медальонами толщиной 1.5–2 см, щедро сервировать теплым бархатным соусом из пакета."
+    ],
+    ingredients: [
+      "Филе индейки (грудка) — 500–600г",
+      "Сливочное масло 82.5% — 30г",
+      "Мука пшеничная в/с — 25г",
+      "Молоко цельное 3.2% — 250 мл",
+      "Мускатный орех молотый — 1/4 ч. л.",
+      "Свежемолотый белый перец — 1/3 ч. л.",
+      "Соль поваренная — 6–8г"
+    ]
+  },
+  {
+    id: "hlebopechka-301362",
+    title: "Дорадо целиком с луком-порей и оливковым маслом в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 301362)",
+    isChef: false,
+    category: "fish",
+    subcategory: "white",
+    tempC: 60.0,
+    timeMin: 180,
+    timeFormatted: "3 ч (при 60°C)",
+    saltGperKg: 10,
+    sugarGperKg: 2,
+    spices: "Оливковое масло Extra Virgin, лук-порей колечками, сушеная петрушка, смесь острых перцев",
+    source: "forum",
+    image: "./assets/recipes/recipe-301362.webp",
+    description: "Средиземноморская классика с форума Хлебопечка.ру: целая тушка дорадо смазывается пряной оливковой эмульсией и томится с кольцами лука-порей при 60°C. Рыба буквально тает во рту, сохраняя сочность каждого волокна.",
+    steps: [
+      "Подготовка рыбы: тушку дорадо тщательно очистить от чешуи, выпотрошить, удалить жабры, промыть и насухо промокнуть бумажным полотенцем.",
+      "Ароматная эмульсия: в пиале соединить 30 мл оливкового масла Extra Virgin, 5г соли, 1 ч. л. сушеной петрушки и свежемолотую смесь перцев. Тщательно перемешать.",
+      "Маринование: силиконовой кулинарной кистью щедро обмазать дорадо полученным маслом как снаружи тушки, так и внутри брюшной полости.",
+      "Формирование пакета: нарезать белую часть лука-порей тонкими кольцами. Часть положить в брюшко, остальное распределить по бокам рыбы в вакуумном пакете.",
+      "Вакуумирование: откачать воздух в импульсном режиме (Gentle/Pulse), чтобы тушка не деформировалась, и герметично запечатать шов.",
+      "Варка в су-виде: опустить пакет в су-видницу, разогретую до 60°C, на 3 часа.",
+      "Подача: аккуратно извлечь рыбу (мясо настолько нежное, что легко отходит от кости). Подавать с кольцами карамелизованного в пакете порея, долькой лимона и соком из пакета."
+    ],
+    ingredients: [
+      "Рыба дорадо свежая (целая тушка) — 1 шт. (~400–500г)",
+      "Оливковое масло Extra Virgin — 30 мл",
+      "Лук-порей (белая часть) — 60г",
+      "Сушеная петрушка — 1 ч. л.",
+      "Смесь острых свежемолотых перцев — 1/2 ч. л.",
+      "Морская соль — 5г"
+    ]
+  },
+  {
+    id: "hlebopechka-296967",
+    title: "Нежная телятина со сливочным маслом и паприкой в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 296967)",
+    isChef: false,
+    category: "beef",
+    subcategory: "tenderloin",
+    tempC: 65.0,
+    timeMin: 180,
+    timeFormatted: "3 ч (4 ч для говядины)",
+    saltGperKg: 10,
+    sugarGperKg: 3,
+    spices: "Сладкая красная паприка, сливочное масло кусочками, чеснок, кольца репчатого лука",
+    source: "forum",
+    image: "./assets/recipes/recipe-296967.webp",
+    description: "Проверенный форумный рецепт приготовления молодой телятины кусочками. Логика основана на добавлении небольших кубиков холодного сливочного масла прямо между кусочками мяса в пакете: мясо тает, отдавая насыщенный бульон со сладкой паприкой и чесноком.",
+    steps: [
+      "Нарезка: телятину нарезать аккуратными средними кусочками (3–4 см). Лук нарезать тонкими полукольцами, чеснок мелко измельчить ножом.",
+      "Пряный сухой посол: посолить мясо и обильно со всех сторон обмазать сладкой красной паприкой.",
+      "Сборка пакета: уложить кусочки телятины равномерным слоем в вакуумный пакет. Между мясом равномерно распределить лук, чеснок и маленькие кубики холодного сливочного масла 82.5%.",
+      "Вакуумирование: запечатать вакууматором.",
+      "Су-вид: готовить при 65°C ровно 3 часа (для взрослой говядины время увеличить до 4 часов). Сверху на пакет рекомендуется положить решетку, чтобы предотвратить всплытие.",
+      "Отдых: по завершении программы оставить мясо остывать прямо в воде 10–15 минут.",
+      "Сервировка: подавать со сливочно-папричной подливкой из пакета к картофельному пюре, гречке или отварному рису."
+    ],
+    ingredients: [
+      "Телятина мякоть (нарезка средними кусочками) — 450–500г",
+      "Масло сливочное 82.5% — 35г",
+      "Лук репчатый — 1 шт.",
+      "Чеснок свежий — 1–2 зубчика",
+      "Сладкая красная паприка — 1.5 ч. л.",
+      "Соль поваренная — 5г",
+      "Черный свежемолотый перец — по вкусу"
+    ]
+  },
+  {
+    id: "hlebopechka-309788",
+    title: "Ленивые перцы с куриным фаршем и овощной подушкой в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 309788)",
+    isChef: false,
+    category: "poultry",
+    subcategory: "minced",
+    tempC: 75.0,
+    timeMin: 90,
+    timeFormatted: "1.5 ч (при 75°C)",
+    saltGperKg: 10,
+    sugarGperKg: 4,
+    spices: "Смесь прованских сушеных трав, свежемолотый перец, чеснок, паприка",
+    source: "forum",
+    image: "./assets/recipes/recipe-309788.webp",
+    description: "Остроумная форумная вариация фаршированных перцев: вместо трудоемкой чистки и начинки формируются нежные куриные шайбы-фрикадельки с рисом, которые укладываются в пакет под плотный ковер из сладкого болгарского перца, спелых томатов и моркови.",
+    steps: [
+      "Приготовление фарша: филе курицы пропустить через мясорубку или измельчить блендером вместе с луком и половиной моркови. Соединить с рисом (предварительно сваренным до полуготовности), посолить, поперчить и вымесить.",
+      "Формование: из фарша скатать плотные круглые шарики, слегка приплюснуть их в шайбы и равномерно выложить на расстоянии друг от друга в вакуумном пакете.",
+      "Овощная подушка: сладкий болгарский перец нарезать аккуратным кубиком и плотно укрыть им мясные фрикадельки; помидоры нарезать кольцами и выложить верхним слоем, посыпать оставшейся тертой морковью и сушеными прованскими травами.",
+      "Вакуумирование: откачать воздух и герметично запечатать пакет.",
+      "Приготовление: томить в су-виде при 75°C в течение 1 часа 30 минут.",
+      "Подача: при 75°C овощи размягчаются, отдавая сок, а фрикадельки пропитываются сладким папричным ароматом. Подавать с образовавшимся томатно-овощным соусом."
+    ],
+    ingredients: [
+      "Филе куриное — 450г",
+      "Рис (отваренный до полуготовности) — 80г",
+      "Сладкий болгарский перец — 2 шт.",
+      "Помидоры сочные спелые — 2 шт.",
+      "Морковь свежая — 1 шт.",
+      "Лук репчатый — 1 шт.",
+      "Смесь сушеных прованских трав — 1 ч. л.",
+      "Соль и свежемолотый перец — по вкусу"
+    ]
+  },
+  {
+    id: "hlebopechka-309355",
+    title: "Куриные котлеты на яблочной подложке с черносливом в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 309355)",
+    isChef: false,
+    category: "poultry",
+    subcategory: "minced",
+    tempC: 75.0,
+    timeMin: 150,
+    timeFormatted: "2.5 ч (при 75°C)",
+    saltGperKg: 10,
+    sugarGperKg: 3,
+    spices: "Мясистый чернослив без косточек, пряности для птицы, морковь, лук",
+    source: "forum",
+    image: "./assets/recipes/recipe-309355.webp",
+    description: "Необычный кулинарный дуэт с форума Хлебопечка.ру: куриные котлеты собираются многослойной башенкой на толстом кольце сочного яблока, накрываются ломтиком помидора и черносливом. За 2.5 часа при 75°C чернослив плавится в десертно-пряный соус-глазурь.",
+    steps: [
+      "Фарш: куриную грудку мелко порубить или измельчить блендером вместе с очищенной морковью и луком, посолить, добавить специи для птицы и вымесить до однородной вязкости.",
+      "Нарезка фруктов и томатов: яблоко (лучше кисло-сладких сортов) и помидор нарезать аккуратными толстыми кольцами (1–1.5 см толщиной). Чем толще яблоко, тем богаче фруктовый баланс блюда.",
+      "Сборка башенок: на кольцо яблока выложить порцию куриного фарша, разровнять по диаметру яблока, сверху положить кольцо помидора, а на него по центру — 1–2 ягоды мягкого промытого чернослива.",
+      "Вакуумирование: бережно уложить собранные конструкции в пакет в один ряд, откачать воздух в щадящем режиме вакууматора и запаять.",
+      "Су-вид: готовить 2.5 часа при температуре 75°C.",
+      "Подача: при температуре 75°C чернослив тает и превращается в густой бархатистый соус, пропитывая котлету. Сервировать на теплых тарелках целиком башенками."
+    ],
+    ingredients: [
+      "Филе куриной грудки — 500г",
+      "Яблоки кисло-сладкие — 2 шт.",
+      "Помидоры средние — 2 шт.",
+      "Чернослив вяленый без косточек — 8–10 шт.",
+      "Морковь — 1 шт.",
+      "Лук репчатый — 1 шт.",
+      "Соль и специи — по вкусу"
+    ]
+  },
+  {
+    id: "hlebopechka-299992",
+    title: "Рагу из говядины в пряном томатно-овощном соусе в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 299992)",
+    isChef: false,
+    category: "beef",
+    subcategory: "stew",
+    tempC: 65.0,
+    timeMin: 270,
+    timeFormatted: "4.5 ч (при 65°C)",
+    saltGperKg: 10,
+    sugarGperKg: 4,
+    spices: "Пассерованный лук, сладкий перец, помидоры, петрушка, лук-порей, сметана 20%",
+    source: "forum",
+    image: "./assets/recipes/recipe-299992.webp",
+    description: "Нежнейшее рагу из говядины кусочками в авторском эмульгированном соусе. Овощи (томаты, перец, лук) предварительно пассеруются, тушатся и взбиваются со сметаной и зеленью, после чего мясо маринуется и томится 4.5 часа при 65°C.",
+    steps: [
+      "Мясо: говядину промыть, обсушить и нарезать средними кусочками для рагу (~3 см). Оставить в дуршлаге стекать.",
+      "Приготовление соуса: лук мелко нашинковать и пассеровать на растительном масле 7–10 минут; помидоры и сладкий перец измельчить в блендере, добавить к луку, посолить, поперчить и тушить 15 минут с открытой крышкой для испарения лишней влаги; добавить сметану и рубленую петрушку, потомить еще 3 минуты и взбить погружным блендером в нежнейший соус.",
+      "Маринование: лук-порей нарезать кольцами, перемешать с кусочками сырой говядины, залить теплым овощным соусом и дать постоять 10–15 минут.",
+      "Вакуумирование: распределить мясо с соусом по пакетам (обычно 2 пакета для равномерного слоя) и запечатать вакууматором.",
+      "Су-вид: готовить 4.5 часа при температуре 65°C.",
+      "Отдых и подача: после отключения не вынимать пакет сразу, дать мясу постоять в ванне 10–15 минут. Говядина в разрезе сохраняет сочную розовинку, а волокна расходятся на вилке."
+    ],
+    ingredients: [
+      "Говядина мякоть (лопатка, бедро или кострец) — 600–700г",
+      "Помидоры спелые — 300г",
+      "Сладкий красный перец — 100г",
+      "Лук репчатый — 150г",
+      "Лук-порей — 80г",
+      "Петрушка свежая — 50г",
+      "Растительное масло — 30г",
+      "Сметана 20% — 60г",
+      "Соль и свежемолотый перец — по вкусу"
+    ]
+  },
+  {
+    id: "hlebopechka-299838",
+    title: "Курица целиком под сметанно-сырным соусом с карри в су-виде Steba SV-1",
+    author: "Форум Хлебопечка.ру (тема 299838)",
+    isChef: false,
+    category: "poultry",
+    subcategory: "whole",
+    tempC: 68.0,
+    timeMin: 300,
+    timeFormatted: "5 ч (после 15 мин колерования)",
+    saltGperKg: 12,
+    sugarGperKg: 3,
+    spices: "Нежный карри, сладкая паприка, чеснок, тертый сыр, сметана 20%, зелень петрушки",
+    source: "forum",
+    image: "./assets/recipes/recipe-299838.webp",
+    description: "Прорывной способ приготовления целой курицы в су-виде: 15 минут предварительного обжаривания в скороварке/духовке перед вакуумированием запускают реакцию Майяра, а 5 часов в су-виде при 68°C под сырно-сметанной глазурью делают мясо на костях невероятно сочным.",
+    steps: [
+      "Подготовка курицы: целую охлажденную тушку курицы (1.3–1.5 кг) промыть, вычистить внутри, просушить полотенцем.",
+      "Предварительное колерование: обжарить курицу целиком 15 минут в скороварке (режим «Обжарка») или на сухой горячей сковороде со всех сторон до золотистой корочки. Вынуть и остудить.",
+      "Пряная глазурь: сметану 20% соединить с карри, паприкой, солью, измельченным чесноком и мелко натертым полутвердым сыром; тщательно вымесить до однородной пасты.",
+      "Глазирование и упаковка: обильно обмазать курицу со всех сторон сырно-сметанным соусом; внутрь пакета и в брюшко положить веточки свежей петрушки; упаковать в большой вакуумный пакет (или zip-lock пакет методом погружения).",
+      "Су-вид варка: поместить в су-видницу при температуре 68°C на 5 часов.",
+      "Подача: курица абсолютно не похожа на вареную: мясо упругое, сочное, хрящи и суставы ножек полностью размягчены, а сырная глазурь образует пикантную бархатистую корочку."
+    ],
+    ingredients: [
+      "Курица целая тушка (охлажденная) — 1.3–1.5 кг",
+      "Сметана 20% — 150г",
+      "Сыр полутвердый (тертый на мелкой терке) — 80г",
+      "Приправа карри нежная — 1 ч. л.",
+      "Паприка сладкая молотая — 1.5 ч. л.",
+      "Чеснок свежий — 3–4 зубчика",
+      "Свежая зелень петрушки — 1 небольшой пучок",
+      "Соль поваренная — 15–18г"
+    ]
+  },
+  {
+    id: "hlebopechka-425149",
+    title: "Куриные бёдра, фаршированные нутом и овощами в су-виде Steba DD2",
+    author: "Форум Хлебопечка.ру (тема 425149)",
+    isChef: false,
+    category: "poultry",
+    subcategory: "thigh",
+    tempC: 63.0,
+    timeMin: 180,
+    timeFormatted: "3 ч (в мясном желе)",
+    saltGperKg: 12,
+    sugarGperKg: 4,
+    spices: "Пассерованная морковь с луком, смесь кавказских трав или хмели-сунели, черный перец",
+    source: "forum",
+    image: "./assets/recipes/recipe-425149.webp",
+    description: "Безупречная холодная закуска или горячее блюдо из бескостных куриных бёдер с форума Хлебопечка.ру. Бёдра начиняются отварным нутом и золотистыми пассерованными овощами. При остывании выделяющийся сок застывает в прозрачное мясное желе без желатина.",
+    steps: [
+      "Подготовка нута: сухой нут замочить на 4 часа, затем отварить до мягкости (около 45 минут в режиме скороварки/супа).",
+      "Овощная зажарка: репчатый лук и морковь измельчить тонкой соломкой и спассеровать на растительном масле до мягкости и золотистого колера.",
+      "Начинка: смешать нут с пассерованными овощами, посолить, поперчить, добавить любимые пряности (хмели-сунели или прованские травы).",
+      "Фарширование: бескостные куриные бёдра промыть, обсушить, расправить, слегка посолить и начинить овощно-нутовой смесью, свернув в рулеты.",
+      "Вакуумирование: поместить фаршированные бёдра в вакуумные пакеты и плотно запечатать вакууматором.",
+      "Варка в су-виде: уложить пакеты на решетку чаши (в мультиварке Steba DD2 или су-виде), сверху прижать перфорированной корзиной пароварки от всплытия; варить при 63°C ровно 3 часа.",
+      "Охлаждение и подача: дать остыть в чаше, затем нераспечатанные пакеты убрать в холодильник на 3–4 часа. Подавать нарезанным кружками в натуральном мясном желе как закуску или подогреть перед сервировкой."
+    ],
+    ingredients: [
+      "Бёдра куриные бескостные — 5 шт. (~700–800г)",
+      "Нут (предварительно отваренный) — 200г",
+      "Лук репчатый — 2 шт.",
+      "Морковь свежая крупная — 2 шт.",
+      "Масло растительное для пассеровки — 25 мл",
+      "Соль, свежемолотый перец, специи — по вкусу"
+    ]
+  },
+  {
+    id: "hlebopechka-424776",
+    title: "Пряные груши с апельсиновым джемом в су-виде Steba DD2",
+    author: "Форум Хлебопечка.ру (тема 424776)",
+    isChef: false,
+    category: "desserts",
+    subcategory: "fruit",
+    tempC: 65.0,
+    timeMin: 240,
+    timeFormatted: "4 ч (при 65°C)",
+    saltGperKg: 0,
+    sugarGperKg: 80,
+    spices: "Апельсиновый джем с цедрой, опционально корица или бадьян",
+    source: "forum",
+    image: "./assets/recipes/recipe-424776.webp",
+    description: "Шедевр десертной технологии су-вид с форума Хлебопечка.ру: половинки плотных груш начиняются апельсиновым джемом с цедрой, соединяются и вакуумируются. За 4 часа при 65°C эфирные масла апельсина пропитывают мякоть плода насквозь. Невероятный аромат, идеальный компаньон к белому вину.",
+    steps: [
+      "Подготовка груш: плотные крепкие груши (Конференц, Вильямс или Пакхам) вымыть, разрезать вдоль пополам, чайной ложкой или нуазеткой аккуратно удалить семенную коробку.",
+      "Начинка: полученные углубления в половинках груш щедро заполнить апельсиновым джемом с корочками цитрусовых.",
+      "Сборка: соединить половинки груш вместе, восстановив форму целого плода (джем надежно запечатывается внутри).",
+      "Вакуумирование: аккуратно поместить груши в пакет для вакуумирования и запаять с помощью вакуумного упаковщика.",
+      "Варка в су-виде: уложить пакет в чашу на решетку, сверху прижать вкладышем-пароваркой (чтобы пакет не всплывал); выставить температуру 65°C и готовить 4 часа.",
+      "Охлаждение: после окончания процесса дать пакету остыть в чаше, затем убрать нераспечатанным в холодильник минимум на 2 часа.",
+      "Подача: при вскрытии пакета высвобождается сногсшибательный цитрусово-грушевый аромат; мякоть груши становится полупрозрачной и шелковистой; подавать как самостоятельный десерт или к сухому вину."
+    ],
+    ingredients: [
+      "Груши крепкие десертные — 3 шт.",
+      "Апельсиновый джем с цедрой — 1 банка (~250–300г)",
+      "Звездочка бадьяна или щепотка корицы — по желанию"
+    ]
   }
 ];
 
@@ -3137,6 +3477,7 @@ function switchTab(tabId) {
 const CATEGORY_SUBMENUS = {
   all: [
     { key: 'all', label: 'Все блюда', match: () => true },
+    { key: 'photo', label: '📸 С фото автора', match: r => Boolean(r.image) },
     { key: 'chef', label: '⭐️ От Шефа', match: r => r.isChef },
     { key: 'breakfast', label: '🍳 Завтраки', match: r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites' },
     { key: 'desserts', label: '🍰 Десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
@@ -3148,6 +3489,7 @@ const CATEGORY_SUBMENUS = {
   ],
   fav: [
     { key: 'all', label: 'Все закладки', match: () => true },
+    { key: 'photo', label: '📸 С фото', match: r => Boolean(r.image) },
     { key: 'meat', label: '🥩 Мясо и птица', match: r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category) },
     { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
     { key: 'sides', label: '🥦 Гарниры и супы', match: r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables' },
@@ -3166,7 +3508,7 @@ const CATEGORY_SUBMENUS = {
   fish: [
     { key: 'all', label: 'Вся рыба и море', match: () => true },
     { key: 'salmon', label: 'Лосось и форель', match: r => ['classic-salmon', 'forum-trout-anti-albumin', 'forum-salmon-thyme-classic'].includes(r.id) || r.title.toLowerCase().includes('лосось') || r.title.toLowerCase().includes('форел') },
-    { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch', 'demian-sea-bass'].includes(r.id) },
+    { key: 'white', label: 'Белая рыба (Треска/Судак)', match: r => ['demian-cod-fillet', 'demian-pike-perch', 'demian-sea-bass', 'hlebopechka-301362'].includes(r.id) },
     { key: 'tuna', label: 'Тунец Sashimi (42°C)', match: r => r.id === 'demian-tuna-steak' },
     { key: 'calamari', label: '🦑 Кальмары и море', match: r => ['forum-calamari-tender', 'forum-mackerel-spiced'].includes(r.id) }
   ],
@@ -3194,14 +3536,21 @@ const CATEGORY_SUBMENUS = {
   ],
   desserts_hub: [
     { key: 'all', label: 'Все десерты', match: () => true },
+    { key: 'fruit', label: '🍐 Фрукты и ягоды', match: r => ['jar-poached-pears-wine', 'jar-spiced-butter-apples', 'dessert-lemon-curd-jar', 'dessert-vanilla-panna-cotta', 'forum-bananas-choco-rum', 'hlebopechka-298388', 'hlebopechka-424776'].includes(r.id) || r.subcategory === 'fruit' || r.title.toLowerCase().includes('груш') || r.title.toLowerCase().includes('яблок') },
     { key: 'pumpkin', label: '🎃 Тыквенный пирог', match: r => r.id === 'dessert-pumpkin-pie-jar' || r.title.toLowerCase().includes('тыквен') },
     { key: 'jar', label: '🫙 В баночках Kerr', match: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
     { key: 'chocolate', label: '🍫 Шоколад и кремы', match: r => ['dessert-chocolate-pot-de-creme', 'jar-creme-brulee-vanilla', 'jar-cheesecake-classic'].includes(r.id) || r.title.toLowerCase().includes('шоколад') || r.title.toLowerCase().includes('крем') || r.title.toLowerCase().includes('чизкейк') },
-    { key: 'fruit', label: '🍐 Фрукты и цитрусы', match: r => ['jar-poached-pears-wine', 'jar-spiced-butter-apples', 'dessert-lemon-curd-jar', 'dessert-vanilla-panna-cotta', 'forum-bananas-choco-rum'].includes(r.id) || r.subcategory === 'fruit' },
     { key: 'drinks', label: '🍋 Напитки и ликеры', match: r => ['forum-limoncello-infusion', 'forum-caramel-baked-milk'].includes(r.id) }
+  ],
+  photo_hub: [
+    { key: 'all', label: '📸 Все с фото', match: () => true },
+    { key: 'meat', label: '🥩 Мясо и птица', match: r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category) },
+    { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
+    { key: 'desserts', label: '🍰 Десерты', match: r => r.category === 'desserts' }
   ],
   collections_hub: [
     { key: 'all', label: 'Все коллекции', match: () => true },
+    { key: 'photo', label: '📸 С фото автора', match: r => Boolean(r.image) },
     { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
     { key: 'breakfast', label: '🍳 Завтраки шефа', match: r => r.category === 'breakfast' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites' },
     { key: 'desserts', label: '🍰 Изысканные десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
@@ -3486,6 +3835,16 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
 
   return `
     <div class="card ${recipe.isChef ? 'card-chef' : ''}" id="recipe-${recipe.id}">
+      ${recipe.image ? `
+        <div class="recipe-card-media" onclick="openImageModal('${recipe.image}', '${escapeHtml(recipe.title)}', '${escapeHtml(recipe.author)}', '${escapeHtml(recipe.source || '')}')" title="Нажмите, чтобы открыть фото блюда">
+          <img src="${recipe.image}" alt="${escapeHtml(recipe.title)}" class="recipe-card-img" loading="lazy" onerror="this.closest('.recipe-card-media').style.display='none'">
+          <div class="recipe-card-media-overlay">
+            <span class="recipe-photo-badge">📸 Реальное фото</span>
+            <span class="recipe-zoom-hint">🔍 Увеличить</span>
+          </div>
+        </div>
+      ` : ''}
+
       <div class="card-header">
         <div>
           <h3 class="card-title">${escapeHtml(recipe.title)}</h3>
@@ -3495,6 +3854,7 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 6px;">
+          ${recipe.image ? `<span class="badge badge-photo" title="Рецепт с оригинальной фотографией автора">📸 Фото</span>` : ''}
           ${isFav ? `<span class="badge badge-fav-tag" id="fav-badge-${recipe.id}">❤️ В избранном</span>` : ''}
           <button class="btn-fav ${isFav ? 'active' : ''}" id="fav-btn-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)" title="${isFav ? 'Удалить из избранного' : 'Добавить в избранное'}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
@@ -3532,6 +3892,18 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
 
       <!-- Collapsible Detailed Techcard -->
       <div class="recipe-details-collapsible ${isExpanded ? 'expanded' : ''}" id="details-${recipe.id}">
+        ${recipe.image ? `
+          <div class="recipe-photo-showcase">
+            <img src="${recipe.image}" class="recipe-photo-full" loading="lazy" onclick="openImageModal('${recipe.image}', '${escapeHtml(recipe.title)}', '${escapeHtml(recipe.author)}', '${escapeHtml(recipe.source || '')}')" alt="${escapeHtml(recipe.title)}" onerror="this.closest('.recipe-photo-showcase').style.display='none'">
+            <div class="recipe-photo-caption">
+              <span>📸 Подача автора: <strong>${escapeHtml(recipe.title)}</strong></span>
+              <button class="btn btn-secondary btn-sm" style="font-size: 0.72rem; padding: 3px 8px;" onclick="openImageModal('${recipe.image}', '${escapeHtml(recipe.title)}', '${escapeHtml(recipe.author)}', '${escapeHtml(recipe.source || '')}')">
+                🔍 Развернуть фото
+              </button>
+            </div>
+          </div>
+        ` : ''}
+
         ${recipe.spices ? `
           <div style="font-size: 0.8rem; color: var(--accent-amber); margin-bottom: 8px; font-weight: 600;">
             🌿 Специи и акценты: <span style="color: var(--text-secondary); font-weight: normal;">${escapeHtml(recipe.spices)}</span>
@@ -3617,6 +3989,11 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
         <button class="btn ${isFav ? 'btn-fav-active' : 'btn-fav-toggle'} btn-sm" id="fav-act-${recipe.id}" onclick="toggleFavorite('${recipe.id}', event)">
           ${isFav ? '❤️ В избранном' : '🤍 В избранное'}
         </button>
+        ${recipe.image ? `
+          <button class="btn btn-secondary btn-sm" onclick="openImageModal('${recipe.image}', '${escapeHtml(recipe.title)}', '${escapeHtml(recipe.author)}', '${escapeHtml(recipe.source || '')}')" title="Просмотреть фотографию блюда">
+            📸 Фото
+          </button>
+        ` : ''}
         ${recipe.butcheryCutId ? `
           <button class="btn btn-secondary btn-sm" onclick="openButcheryModal('${recipe.butcheryCutId}')" title="Пошаговая анатомия и разделка отруба" style="border-color: rgba(168,85,247,0.35); color: #c084fc;">
             🔪 Разделка
@@ -3652,12 +4029,15 @@ function renderRecipes() {
       const matchAuthor = (r.author || '').toLowerCase().includes(q);
       const matchSpices = (r.spices || '').toLowerCase().includes(q);
       const matchIng = (r.ingredients || []).some(i => i.toLowerCase().includes(q));
-      return matchTitle || matchDesc || matchAuthor || matchSpices || matchIng;
+      const matchPhoto = (q === 'фото' || q === 'с фото' || q === 'photo' || q === 'с фотографией') && Boolean(r.image);
+      return matchTitle || matchDesc || matchAuthor || matchSpices || matchIng || matchPhoto;
     });
   }
 
   if (state.activeCategory === 'fav') {
     baseFiltered = baseFiltered.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'photo_hub') {
+    baseFiltered = baseFiltered.filter(r => Boolean(r.image));
   } else if (state.activeCategory === 'breakfast_hub') {
     baseFiltered = baseFiltered.filter(r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites');
   } else if (state.activeCategory === 'meat_hub') {
@@ -3669,7 +4049,7 @@ function renderRecipes() {
   } else if (state.activeCategory === 'delicacy_hub') {
     baseFiltered = baseFiltered.filter(r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category));
   } else if (state.activeCategory === 'collections_hub') {
-    baseFiltered = baseFiltered.filter(r => r.isChef || !!r.youtubeUrl || r.category === 'desserts');
+    baseFiltered = baseFiltered.filter(r => r.isChef || !!r.youtubeUrl || r.category === 'desserts' || Boolean(r.image));
   } else if (state.activeCategory === 'chef') {
     baseFiltered = baseFiltered.filter(r => r.isChef);
   } else if (state.activeCategory === 'video') {
@@ -6017,12 +6397,54 @@ function closeButcheryModal() {
   document.body.style.overflow = '';
 }
 
-const APP_VERSION = 'v3.12';
+// Image Lightbox Modal Engine
+function openImageModal(imgSrc, title, author, source) {
+  const modal = document.getElementById('image-lightbox-modal');
+  const modalImg = document.getElementById('image-modal-img');
+  const modalTitle = document.getElementById('image-modal-title');
+  const modalMeta = document.getElementById('image-modal-meta');
+  if (!modal || !modalImg) return;
+
+  modalImg.src = imgSrc;
+  modalImg.alt = title || 'Фото блюда';
+  if (modalTitle) {
+    modalTitle.innerHTML = `<span>📸 ${escapeHtml(title || 'Фото блюда')}</span>`;
+  }
+  if (modalMeta) {
+    const srcNote = source ? ` [${escapeHtml(source)}]` : '';
+    modalMeta.innerHTML = `
+      <div><strong>Автор рецепта:</strong> ${escapeHtml(author || 'Шеф-Лаб / Форум Хлебопечка.ру')}${srcNote}</div>
+      <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 4px;">
+        Оригинальная фотография результата приготовления по технологии су-вид.
+      </div>
+    `;
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('image-lightbox-modal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+}
+
+// Global ESC key handler for modals
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeImageModal();
+    closeButcheryModal();
+  }
+});
+
+const APP_VERSION = 'v3.13';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.12)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? `Активен (${APP_VERSION})` : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);

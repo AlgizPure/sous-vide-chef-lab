@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.12 - Hlebopechka Salmon & Cascade Planner Edition)
-const CACHE_NAME = 'sous-vide-v3.12';
+// Service Worker: Sous-Vide Chef Lab (v3.13 - Hlebopechka Recipes & Photo Gallery Edition)
+const CACHE_NAME = 'sous-vide-v3.13';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.12',
-  './app.js?v=3.12',
+  './style.css?v=3.13',
+  './app.js?v=3.13',
   './manifest.json'
 ];
 
