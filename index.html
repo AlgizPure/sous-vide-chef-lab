@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Sous-Vide Chef Lab</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=3.10">
+  <link rel="stylesheet" href="style.css?v=3.11">
   <script>
     (function() {
       try {
@@ -36,12 +36,12 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <span class="menu-badge-count" id="header-recipe-count">84</span>
+          <span class="menu-badge-count" id="header-recipe-count">93</span>
         </button>
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h1 class="brand-title">Sous-Vide Lab</h1>
-            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.10</span>
+            <span class="app-version-badge" id="app-version-badge" onclick="showAppVersionInfo()" title="Версия приложения — нажмите для проверки">v3.11</span>
           </div>
           <div class="brand-subtitle">Chef Guide & Timer</div>
         </div>
@@ -71,9 +71,11 @@
       <div class="chip-row category-hubs">
         <button class="chip active" data-category="all">🍽 Все блюда</button>
         <button class="chip" data-category="fav">❤️ Избранное <span id="fav-count-badge"></span></button>
+        <button class="chip" data-category="breakfast_hub">🍳 Завтраки</button>
         <button class="chip" data-category="meat_hub">🥩 Мясо и Птица</button>
         <button class="chip" data-category="fish">🐟 Рыба и Море</button>
         <button class="chip" data-category="sides_hub">🥦 Гарниры и Супы</button>
+        <button class="chip" data-category="desserts_hub">🍰 Десерты</button>
         <button class="chip" data-category="delicacy_hub">🫙 Деликатесы</button>
         <button class="chip" data-category="collections_hub">⭐️ Коллекции</button>
       </div>
@@ -201,50 +203,105 @@
       </div>
     </main>
 
-    <!-- VIEW 3: TIMERS -->
-    <main id="view-timer" class="view-panel">
-      <div id="active-timers-list">
-        <!-- Injected by app.js -->
+    <!-- VIEW 3: SINGLE SOUS-VIDE CASCADE PLANNER -->
+    <main id="view-planner" class="view-panel">
+      <!-- Active Process Hero / Active Step Timer -->
+      <div id="planner-active-hero">
+        <!-- Injected dynamically by app.js -->
       </div>
 
-      <div style="margin-top: 20px;">
-        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">Быстрые кулинарные пресеты</h3>
+      <!-- Cascade Golden Rules Card -->
+      <div class="card card-chef" style="margin-bottom: 16px; border-left: 3px solid var(--accent-amber);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-amber); margin-bottom: 4px;">
+              ⏱ Планировщик одного су-вида (Каскад)
+            </h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+              У вас один су-вид? Готовьте комплексный обед или заготовки конвейером по физике су-вида:
+            </p>
+          </div>
+          <span class="badge" style="background: rgba(245,158,11,0.15); color: var(--accent-amber); font-weight: 700; font-size: 0.75rem; padding: 4px 8px; white-space: nowrap;">
+            1 Аппарат
+          </span>
+        </div>
+        <div class="cascade-pills-row" style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+          <span class="cascade-rule-pill">🔻 1. От высоких к низким (85°C ➔ 55°C)</span>
+          <span class="cascade-rule-pill">🧊 2. Сброс температуры льдом/водой (1 мин)</span>
+          <span class="cascade-rule-pill">♨️ 3. Holding (гарнир не переварится в ванне)</span>
+        </div>
+      </div>
+
+      <!-- Presets Selector -->
+      <div style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
+            ⭐️ Готовые каскады в 1 су-виде
+          </span>
+        </div>
+        <div class="planner-presets-row">
+          <div class="planner-preset-card" onclick="loadPlannerPreset('chef_dinner')">
+            <div class="preset-badge">Ужин</div>
+            <div class="planner-preset-title">🍽 Шеф-Ужин: Стейк + Спаржа + Десерт</div>
+            <div class="planner-preset-desc">85°C пирог Kerr ➔ 85°C спаржа ➔ Сброс льдом ➔ 56°C стейк (овощи в Holding)</div>
+          </div>
+          <div class="planner-preset-card" onclick="loadPlannerPreset('sunday_brunch')">
+            <div class="preset-badge">Завтрак</div>
+            <div class="planner-preset-title">🍳 Воскресный бранч: Омлет + Onsen Egg</div>
+            <div class="planner-preset-desc">75°C омлет-ролл ➔ Сброс воды ➔ 64°C яйца Onsen Tamago (45 мин)</div>
+          </div>
+          <div class="planner-preset-card" onclick="loadPlannerPreset('meal_prep')">
+            <div class="preset-badge">Заготовки</div>
+            <div class="planner-preset-title">📦 Meal Prep: Конвейер на неделю</div>
+            <div class="planner-preset-desc">85°C овощи ➔ 74°C бедра ➔ 61°C филе ➔ шоковое охлаждение</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Queue Section -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">
+          📋 Очередь ванны (<span id="planner-queue-count">0</span>)
+        </h3>
+        <div style="display: flex; gap: 6px;">
+          <button class="btn btn-secondary btn-sm" onclick="optimizePlannerCascade()" title="Авто-сортировка: от горячего к холодному">
+            ⚡️ Оптимизировать
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="openAddStepModal()" title="Добавить этап">
+            + Шаг
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="clearPlannerQueue()" title="Очистить очередь">
+            🧹
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Queue Container -->
+      <div id="planner-queue-container">
+        <!-- Injected dynamically by app.js -->
+      </div>
+
+      <!-- Quick Solo Timers & Stages -->
+      <div style="margin-top: 24px;">
+        <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px;">
+          ⏱ Быстрые технологические таймеры
+        </h4>
         <div class="timer-presets-grid">
           <div class="preset-card" onclick="startCureTimer30Min()">
-            <div class="preset-name">Сухой посол (Пресол)</div>
+            <div class="preset-name">🧂 Сухой посол (Пресол)</div>
             <div class="preset-time">30 минут</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Куриная грудка (Шеф)', 90, 61)">
-            <div class="preset-name">Куриная грудка (61°C)</div>
-            <div class="preset-time">1.5 часа</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Куриные бёдра на кости (Шеф)', 150, 66.5)">
-            <div class="preset-name">Бёдра на кости (66.5°C)</div>
-            <div class="preset-time">2.5 часа</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Треска / Окунь (Шеф)', 30, 55)">
-            <div class="preset-name">Треска / Окунь (55°C)</div>
-            <div class="preset-time">30 минут</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Стейк тунца Sashimi (Шеф)', 45, 42)">
-            <div class="preset-name">Тунец стейк (42°C)</div>
-            <div class="preset-time">45 минут</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Pepper Стейк (Medium)', 240, 57)">
-            <div class="preset-name">Стейк (57°C)</div>
-            <div class="preset-time">4.0 часа</div>
-          </div>
-          <div class="preset-card" onclick="startCustomTimer('Рваная говядина для спорта', 720, 82)">
-            <div class="preset-name">Рваная говядина (82°C)</div>
-            <div class="preset-time">12.0 часов</div>
           </div>
           <div class="preset-card" onclick="startShockChillTimer15Min()">
-            <div class="preset-name">Шоковое охлаждение</div>
+            <div class="preset-name">🧊 Шоковое охлаждение (Лед)</div>
             <div class="preset-time">15 минут</div>
           </div>
           <div class="preset-card" onclick="startSearTimer45Sec()">
-            <div class="preset-name">Финишная обжарка</div>
+            <div class="preset-name">🔥 Финишный колер (Сковорода)</div>
             <div class="preset-time">45 секунд</div>
+          </div>
+          <div class="preset-card" onclick="openCustomTimerPrompt()">
+            <div class="preset-name">⏱ Произвольный таймер</div>
+            <div class="preset-time">Задать минуты</div>
           </div>
         </div>
       </div>
@@ -267,8 +324,16 @@
       <div class="shop-add-form">
         <input type="text" id="input-custom-item" class="input-field" placeholder="Название товара..." style="margin-bottom: 0;">
         <select id="select-custom-category" class="shop-cat-select" style="margin-bottom: 0;">
-          <option value="recipe">🥩 Рецепт</option>
-          <option value="spice">🌿 Специи</option>
+          <option value="spice">🌿 Специи и соусы</option>
+          <option value="desserts">🍰 Десерты и выпечка</option>
+          <option value="breakfast">🍳 Завтраки и сыры</option>
+          <option value="beef">🥩 Говядина</option>
+          <option value="pork">🥓 Свинина</option>
+          <option value="poultry">🍗 Птица</option>
+          <option value="fish">🐟 Рыба и море</option>
+          <option value="vegetables">🥦 Овощи и гарниры</option>
+          <option value="delicacy">🫙 Деликатесы и банки</option>
+          <option value="recipe">📝 Общие ингредиенты</option>
         </select>
         <button id="btn-add-custom-item" class="btn btn-primary shop-add-btn">+</button>
       </div>
@@ -277,11 +342,32 @@
         <button class="shop-chip active" data-shop-filter="all">
           Все <span class="shop-chip-count" id="shop-count-all">0</span>
         </button>
-        <button class="shop-chip" data-shop-filter="spice">
-          🌿 Специи (База) <span class="shop-chip-count" id="shop-count-spice">0</span>
+        <button class="shop-chip" data-shop-filter="desserts">
+          🍰 Десерты <span class="shop-chip-count" id="shop-count-desserts">0</span>
         </button>
-        <button class="shop-chip" data-shop-filter="recipe">
-          🥩 Из рецептов <span class="shop-chip-count" id="shop-count-recipe">0</span>
+        <button class="shop-chip" data-shop-filter="breakfast">
+          🍳 Завтраки <span class="shop-chip-count" id="shop-count-breakfast">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="beef">
+          🥩 Говядина <span class="shop-chip-count" id="shop-count-beef">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="pork">
+          🥓 Свинина <span class="shop-chip-count" id="shop-count-pork">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="poultry">
+          🍗 Птица <span class="shop-chip-count" id="shop-count-poultry">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="fish">
+          🐟 Рыба <span class="shop-chip-count" id="shop-count-fish">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="vegetables">
+          🥦 Овощи <span class="shop-chip-count" id="shop-count-vegetables">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="delicacy">
+          🫙 Деликатесы <span class="shop-chip-count" id="shop-count-delicacy">0</span>
+        </button>
+        <button class="shop-chip" data-shop-filter="spice">
+          🌿 Специи <span class="shop-chip-count" id="shop-count-spice">0</span>
         </button>
       </div>
 
@@ -1388,10 +1474,10 @@
       <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
       <span>Посол</span>
     </button>
-    <button class="nav-item" data-tab="timer">
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-      <span>Таймер</span>
-      <span class="badge-dot" id="timer-count-badge" style="display: none;"></span>
+    <button class="nav-item" data-tab="planner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>План</span>
+      <span class="badge-dot" id="planner-count-badge" style="display: none;"></span>
     </button>
     <button class="nav-item" data-tab="shopping">
       <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -1403,6 +1489,38 @@
       <span>Шеф-Гид</span>
     </button>
   </nav>
+
+  <!-- Add Custom Planner Step Modal -->
+  <div class="modal-backdrop" id="add-step-modal">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <h3 class="modal-title">Добавить этап в план су-вида</h3>
+        <button class="btn-icon" onclick="closeAddStepModal()">&times;</button>
+      </div>
+      <div>
+        <label class="form-label">Название блюда / заготовки</label>
+        <input type="text" id="step-input-title" class="input-field" placeholder="Например: Спаржа со сливочным маслом">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div>
+            <label class="form-label">Температура (°C)</label>
+            <input type="number" id="step-input-temp" class="input-field" value="85" step="0.5" min="30" max="95">
+          </div>
+          <div>
+            <label class="form-label">Время (в минутах)</label>
+            <input type="number" id="step-input-time" class="input-field" value="25" step="5" min="1">
+          </div>
+        </div>
+
+        <label class="form-label">Технологическая подсказка (Holding / Охлаждение / Финиш)</label>
+        <input type="text" id="step-input-note" class="input-field" placeholder="Например: Оставить в ванне на подогреве со стейком">
+
+        <button class="btn btn-primary" style="width: 100%; margin-top: 14px; padding: 12px;" onclick="submitAddStepForm()">
+          ➕ Добавить в каскад
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Add Custom Recipe Modal -->
   <div class="modal-backdrop" id="add-recipe-modal">
@@ -1466,7 +1584,7 @@
         <div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <h2 class="drawer-title">Навигатор рецептов</h2>
-            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.10</span>
+            <span class="app-version-badge" style="font-size: 0.68rem; padding: 1px 6px;" onclick="showAppVersionInfo()">v3.11</span>
           </div>
           <div class="drawer-subtitle" id="drawer-total-count">Все рецепты и категории</div>
         </div>
@@ -1487,7 +1605,7 @@
           + Добавить новый рецепт
         </button>
         <button class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.76rem; display: flex; align-items: center; justify-content: center; gap: 6px;" onclick="forceAppUpdate()" title="Очистить локальный кэш браузера и перезагрузить свежую версию">
-          🔄 Проверить и форсировать обновление (v3.10)
+          🔄 Проверить и форсировать обновление (v3.11)
         </button>
       </div>
     </div>
@@ -1648,6 +1766,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3.10"></script>
+  <script src="app.js?v=3.11"></script>
 </body>
 </html>

@@ -2026,6 +2026,288 @@ const DEFAULT_RECIPES = [
     ]
   },
   {
+    id: "dessert-pumpkin-pie-jar",
+    title: "Тыквенный пирог с пряностями в баночках Kerr (85°C / 80 мин)",
+    author: "su-vide.ru & Шеф-Кондитер",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 85.0,
+    timeMin: 80,
+    timeFormatted: "1 ч 20 мин",
+    saltGperKg: 2,
+    sugarGperKg: 165,
+    spices: "Молотая корица, мускатный орех, имбирь сухой, гвоздика молотая, душистый перец, кошерная соль, ваниль",
+    description: "Нежнейший персональный тыквенный пирог в порционных баночках Kerr 8 oz: шелковая текстура без духовки и водяной бани, согревающий осенний букет пряностей и сгущенное молоко. Хранение до 7 дней в холодильнике.",
+    steps: [
+      "Пряная основа: в чаше блендером смешать 425г тыквенного пюре со 165г сахара, 2г соли, 2.5г корицы, 2г мускатного ореха, 1г сухого имбиря, 1г гвоздики и 1г душистого перца до однородности.",
+      "Эмульсия: добавить 2 куриных яйца C1, взбить блендером до гладкой кремовой текстуры.",
+      "Сгущенное молоко: ввести 370г цельного сгущенного молока и снова перемешать блендером.",
+      "Фильтрация: обязательно процедить тыквенную массу через сито в кувшин (убирает пузыри и волокна для бархатной гладкости).",
+      "Розлив: аккуратно разлить по 4 баночкам Kerr 8 oz, оставляя 2 см свободного объема под крышкой.",
+      "Правило Fingertip-Tight: накрыть жестяным диском Kerr и закрутить резьбовое кольцо кончиками двух пальцев (без нажима!).",
+      "Су-вид: готовить при 85°C ровно 1 час 20 минут (80 минут).",
+      "Охлаждение: извлечь, остудить в ледяной воде 2 часа, затем убрать в холодильник.",
+      "Подача: украсить шапкой взбитых сливок, присыпать молотой корицей или песочной крошкой."
+    ],
+    ingredients: [
+      "Пюре тыквенное натуральное (без сахара) — 425г",
+      "Сгущенное молоко цельное 8.5% ГОСТ — 370г",
+      "Сахар мелкий гранулированный — 165г",
+      "Яйца куриные свежие C1 — 2 шт. (100г)",
+      "Молотая корица — 2.5г (1 ч. л.)",
+      "Мускатный орех свеженатертый — 2г",
+      "Молотый имбирь сухой — 1г",
+      "Молотая гвоздика — 1г",
+      "Молотый душистый перец (Allspice) — 1г",
+      "Кошерная или морская соль — 2г",
+      "Взбитые сливки натуральные (для подачи) — 100г",
+      "Печенье песочное (крошка для украшения) — 30г"
+    ]
+  },
+  {
+    id: "dessert-chocolate-pot-de-creme",
+    title: "Шоколадный шелковый крем Pot de Crème в баночках (80°C / 60 мин)",
+    author: "Thomas Keller / ChefSteps",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 80.0,
+    timeMin: 60,
+    timeFormatted: "1.0 ч",
+    saltGperKg: 2,
+    sugarGperKg: 40,
+    spices: "Темный шоколад 70%, сливки 33%, желтки, ваниль Бурбон, морская соль Fleur de Sel",
+    description: "Изысканный французский десерт в баночках: шелковая тающая текстура темного шоколада с идеальным балансом сливочности и кристаллами морской соли Fleur de Sel.",
+    steps: [
+      "Прогреть 350 мл сливок 33% с сахаром (40г) и ванилью в сотейнике до 70°C (не кипятить!). Вылить на 200г темного шоколада, дать постоять 2 минуты, перемешать венчиком.",
+      "Ввести 5 желтков и щепотку соли, пробить погружным блендером на минимальной скорости без пены.",
+      "Процедить через сито, разлить по баночкам Kerr 8 oz, оставляя 1.5 см до верха.",
+      "Закрутить крышки пальчиками (Fingertip-Tight).",
+      "Су-вид: варить при 80°C ровно 60 минут (уровень воды по плечики).",
+      "Охладить в холодильнике минимум 4 часа. Подавать с кристаллами соли Fleur de Sel."
+    ],
+    ingredients: [
+      "Темный шоколад 70% (каллеты Callebaut / плитка) — 200г",
+      "Сливки натуральные 33–35% — 350 мл",
+      "Яичные желтки куриные — 5 шт. (90г)",
+      "Сахар тростниковый — 40г",
+      "Экстракт ванили натуральный — 1 ч. л.",
+      "Морская соль Fleur de Sel — 2г"
+    ]
+  },
+  {
+    id: "dessert-lemon-curd-jar",
+    title: "Лимонный бархатный курд (Lemon Curd) в баночках (75°C / 45 мин)",
+    author: "ChefSteps Pastry",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 75.0,
+    timeMin: 45,
+    timeFormatted: "45 мин",
+    saltGperKg: 0,
+    sugarGperKg: 150,
+    spices: "Свежие лимоны (сок и цедра), холодное сливочное масло 82.5%, желтки, сахар",
+    description: "Классический английский цитрусовый курд: су-вид гарантирует идеальную гладкость без риска свернуть яйца. Шелковый глянцевый крем к тостам, сырникам или ягодам.",
+    steps: [
+      "В блендере взбить лимонный сок (150 мл), цедру 2 лимонов, сахар (150г), 3 яйца, 1 желток и соль до растворения сахара.",
+      "Добавить кубики холодного сливочного масла (120г), пробить 20 секунд.",
+      "Разлить по 3 баночкам Kerr 8 oz, оставив 1.5 см до края горлышка.",
+      "Крышки Kerr закрутить кончиками пальцев (Fingertip-Tight).",
+      "Варить в су-виде при 75°C ровно 45 минут.",
+      "После варки энергично встряхнуть баночки (масло эмульгируется в глянцевый крем) и убрать в холод. Хранение до 1 месяца!"
+    ],
+    ingredients: [
+      "Свежевыжатый сок лимона — 150 мл (3–4 лимона)",
+      "Цедра лимона тертая — с 2 шт.",
+      "Сахар мелкий — 150г",
+      "Яйца куриные свежие C1 — 3 шт. + 1 желток",
+      "Сливочное масло 82.5% (холодное кубиками) — 120г",
+      "Соль мелкая — щепотка"
+    ]
+  },
+  {
+    id: "dessert-vanilla-panna-cotta",
+    title: "Итальянская ванильная панна-котта с ягодами (79°C / 45 мин)",
+    author: "Шеф-Лаб Кондитер",
+    isChef: true,
+    category: "desserts",
+    subcategory: "jar",
+    tempC: 79.0,
+    timeMin: 45,
+    timeFormatted: "45 мин",
+    saltGperKg: 0,
+    sugarGperKg: 60,
+    spices: "Сливки 33%, цельное молоко, стручок ванили Бурбон, сахар, листовой желатин Gold",
+    description: "Деликатная пастеризация сливок при 79°C раскрывает натуральную ваниль Бурбон и безупречно растворяет желатин без кипения. Дрожащая тающая текстура итальянского десерта.",
+    steps: [
+      "Листовой желатин (6г) замочить в ледяной воде на 7 минут.",
+      "В сотейнике соединить сливки 33% (300 мл), молоко (150 мл), сахар (60г) и семена стручка ванили. Отжать желатин и растворить в теплой смеси.",
+      "Процедить через сито, разлить по баночкам Kerr 8 oz.",
+      "Закрутить крышки пальчиками (Fingertip-Tight), варить при 79°C ровно 45 минут.",
+      "Охладить в холодильнике 4 часа до нежного дрожания. Подавать со свежими ягодами малины или клубники."
+    ],
+    ingredients: [
+      "Сливки натуральные 33% — 300 мл",
+      "Молоко цельное 3.2% — 150 мл",
+      "Сахар тростниковый белый — 60г",
+      "Стручок ванили Бурбон (семена) — 1 шт.",
+      "Желатин листовой (Gold / 200 bloom) — 6г (3 листа)",
+      "Свежие ягоды (малина / клубника) — 100г"
+    ]
+  },
+  {
+    id: "breakfast-french-scramble",
+    title: "Французский бархатный крем-скрэмбл (74°C / 20 мин)",
+    author: "Шеф Демьян & Thomas Keller",
+    isChef: true,
+    category: "breakfast",
+    subcategory: "scramble",
+    tempC: 74.0,
+    timeMin: 20,
+    timeFormatted: "20 мин",
+    saltGperKg: 8,
+    sugarGperKg: 0,
+    spices: "Свежие яйца, сливочное масло 82.5%, сливки 33%, белый перец, морская соль, шнитт-лук",
+    description: "Эталон ресторанного завтрака: яйца томятся в пакете с кусочками сливочного масла при 74°C. Каждые 5 минут пакет разминается через полотенце. Текстура нежнейшего заварного крема без пересушивания!",
+    steps: [
+      "В миске взбить 4 яйца с 30 мл сливок 33%, щепоткой соли и белого перца венчиком (не взбивать в пену).",
+      "Перелить в зиплок или вакуумный пакет, добавить 30г холодного сливочного масла кубиками.",
+      "Удалить воздух (методом вытеснения в воде) и закрыть замок.",
+      "Готовить при 74°C ровно 20 минут. Каждые 5 минут вынимать пакет и разминать пальцами через полотенце.",
+      "Выложить кремовый скрэмбл на поджаренный тост бриошь, посыпать шнитт-луком."
+    ],
+    ingredients: [
+      "Яйца куриные свежие отборные C0 — 4 шт.",
+      "Сливочное масло 82.5% (кубиками) — 30г",
+      "Сливки 20–33% — 30 мл",
+      "Морская соль мелкая — 2г",
+      "Белый перец молотый — щепотка",
+      "Шнитт-лук свежий нарезанный — 1 ст. л.",
+      "Хлеб бриошь или тостовый — 2 ломтика"
+    ]
+  },
+  {
+    id: "breakfast-omelette-roll",
+    title: "Су-вид омлет-ролл с ветчиной и сыром (75°C / 15 мин)",
+    author: "ChefSteps Breakfast Guide",
+    isChef: true,
+    category: "breakfast",
+    subcategory: "omelette",
+    tempC: 75.0,
+    timeMin: 15,
+    timeFormatted: "15 мин",
+    saltGperKg: 6,
+    sugarGperKg: 0,
+    spices: "Яйца, сыр Чеддер/Гауда, ветчина соломкой, молоко, сливочное масло, соль",
+    description: "Идеально ровный, сочный пласт омлета в зиплок-пакете. Сыр Чеддер плавится внутри, а омлет сворачивается в безупречный рулет без пригоревшей корочки.",
+    steps: [
+      "Взбить 3 яйца с 30 мл молока, растопленным маслом (10г), солью и перцем.",
+      "Вылить в плоский зиплок-пакет (20х20 см), равномерно насыпать тертый сыр и ветчину.",
+      "Погрузить пакет в воду вертикально, вытеснив воздух, закрыть замок.",
+      "Готовить в горизонтальном положении при 75°C ровно 15 минут.",
+      "Разрезать пакет и свернуть нежный эластичный пласт в рулет. Подавать со свежими томатами."
+    ],
+    ingredients: [
+      "Яйца куриные — 3 шт.",
+      "Молоко 3.2% — 30 мл",
+      "Сыр тертый (Чеддер / Гауда) — 40г",
+      "Ветчина соломкой — 40г",
+      "Сливочное масло растопленное — 10г",
+      "Соль и свежемолотый перец — по вкусу"
+    ]
+  },
+  {
+    id: "breakfast-onsen-egg-matrix",
+    title: "Идеальные яйца Onsen Tamago (Матрица 63–65°C / 45 мин)",
+    author: "Шеф Демьян & Kenji López-Alt",
+    isChef: true,
+    category: "breakfast",
+    subcategory: "eggs",
+    tempC: 64.0,
+    timeMin: 45,
+    timeFormatted: "45 мин",
+    saltGperKg: 0,
+    sugarGperKg: 0,
+    spices: "Свежие яйца C0/C1, соус Даши / Цую, лук зеленый, обжаренный кунжут",
+    description: "Шефская температурная матрица японских 온천 яиц: 63°C (жидкий шелк), 64°C (золотой канон — кремовый белок и помадный желток), 65°C (плотный белок и густой желток). Подаются с соусом Цую.",
+    steps: [
+      "Выберите желаемую текстуру: 63°C — жидкий шелк; 64°C — классический онсэн (белок схвачен кремом, желток густой); 65°C — плотный белок.",
+      "Целые яйца в скорлупе опустить ложкой в су-вид при выбранной температуре.",
+      "Время приготовления строго 45 минут.",
+      "Разбить скорлупу пополам прямо в глубокую пиалу — яйцо выскользнет цельным красивым шаром.",
+      "Полить теплым соусом Даши-соя, посыпать зеленым луком и кунжутом."
+    ],
+    ingredients: [
+      "Яйца куриные свежие C0/C1 — 4 шт.",
+      "Соевый соус или соус Цую — 2 ст. л.",
+      "Бульон Даши (или вода с щепоткой хондаши) — 2 ст. л.",
+      "Зеленый лук тонко нарезанный — 1 ст. л.",
+      "Семена кунжута обжаренные — 1/2 ч. л."
+    ]
+  },
+  {
+    id: "breakfast-poached-fast",
+    title: "Экспресс-пашот с плотным белком (Fast Poached 75°C / 13 мин)",
+    author: "Шеф Демьян (Научный метод)",
+    isChef: true,
+    category: "breakfast",
+    subcategory: "eggs",
+    tempC: 75.0,
+    timeMin: 13,
+    timeFormatted: "13 мин",
+    saltGperKg: 0,
+    sugarGperKg: 0,
+    spices: "Яйца, морская соль, хлопья чили, тост, спелый авокадо",
+    description: "Двухфазный метод температурного градиента: при 75°C внешний белок быстро коагулирует в плотный мешочек за 13 минут, а желток внутри остается горячим и текучим. Без уксуса и воронок в кастрюле!",
+    steps: [
+      "Опустить целые яйца в скорлупе в су-вид при 75°C ровно на 13 минут.",
+      "Переложить в ледяную воду ровно на 1 минуту, чтобы остановить варку.",
+      "Тупой стороной ножа надбить скорлупу и выложить идеальное яйцо-пашот на тост с пюре из авокадо.",
+      "Посыпать хлопьями чили и морской солью."
+    ],
+    ingredients: [
+      "Яйца куриные свежие С1 — 2 шт.",
+      "Хлеб тостовый или бриошь — 2 ломтика",
+      "Авокадо спелый — 1/2 шт.",
+      "Морская соль, хлопья чили — щепотка"
+    ]
+  },
+  {
+    id: "breakfast-salmon-frittata-jar",
+    title: "Фриттата с копченым лососем и шнитт-луком в баночках (77°C / 45 мин)",
+    author: "Шеф-Лаб Breakfast",
+    isChef: true,
+    category: "breakfast",
+    subcategory: "jar",
+    tempC: 77.0,
+    timeMin: 45,
+    timeFormatted: "45 мин",
+    saltGperKg: 6,
+    sugarGperKg: 0,
+    spices: "Яйца, лосось г/к или с/с, рикотта, сливки, шнитт-лук, цедра лимона, белый перец",
+    description: "Премиальный порционный завтрак в баночках Kerr 8 oz: нежнейшее суфле из рикотты и яиц с кусочками копченого лосося, шнитт-луком и цедрой лимона. Идеально для утренней подачи.",
+    steps: [
+      "Смазать баночки Kerr 8 oz сливочным маслом изнутри.",
+      "В блендере взбить яйца, рикотту, сливки, лимонную цедру и белый перец до кремовой пены.",
+      "На дно баночек выложить кусочки лосося и шнитт-лук, залить яичной смесью на 80% высоты.",
+      "Закрутить крышки пальчиками (Fingertip-Tight).",
+      "Варить при 77°C ровно 45 минут.",
+      "Подавать теплыми ложкой прямо из баночки."
+    ],
+    ingredients: [
+      "Яйца куриные свежие C1 — 4 шт.",
+      "Сыр Рикотта или Маскарпоне — 80г",
+      "Сливки 20% — 40 мл",
+      "Лосось горячего копчения или с/с (кусочками) — 80г",
+      "Шнитт-лук измельченный — 2 ст. л.",
+      "Цедра лимона тертая — 1/2 ч. л.",
+      "Белый перец молотый — щепотка",
+      "Сливочное масло (для смазки) — 10г"
+    ]
+  },
+  {
     id: 'beef-chuck-prime-rib',
     title: '«Poor Man’s Prime Rib» (Праздничный ростбиф из лопатки)',
     author: 'Шеф-Лаб / SVE',
@@ -2404,6 +2686,110 @@ const DEFAULT_RECIPES = [
 // Recommended Demian Spices & Chef Blends categorized for quick addition
 const DEMIAN_SPICE_GROUPS = [
   {
+    category: 'desserts',
+    title: '🍰 Для десертов и выпечки (Тыквенный пирог, чизкейк)',
+    isChef: true,
+    items: [
+      'Молотая корица (Кассия / Цейлон)',
+      'Мускатный орех (свеженатертый / молотый)',
+      'Молотый имбирь (для десертов)',
+      'Молотая гвоздика',
+      'Молотый душистый перец (Allspice)',
+      'Стручок ванили Бурбон / натуральная ваниль',
+      'Коричневый сахар тростниковый (Мусковадо / Демерара)',
+      'Сгущенное молоко цельное 8.5% ГОСТ',
+      'Пюре тыквенное натуральное (без сахара)',
+      'Сливочный сыр (Philadelphia / Cremette)',
+      'Шоколад темный 70% кондитерский (каллеты Callebaut)',
+      'Листовой желатин (Gold / 200 bloom)',
+      'Сливки натуральные 33–35% для взбивания',
+      'Морская соль Fleur de Sel (хлопья)'
+    ]
+  },
+  {
+    category: 'beef',
+    title: '🥩 Для говядины и стейков',
+    isChef: false,
+    items: [
+      'Черный перец Tellicherry (дробленый)',
+      'Соль морская крупная Metro Chef',
+      'Розмарин свежий',
+      'Тимьян свежий (веточки)',
+      'Сухой чеснок гранулированный (пачка Metro)',
+      'Масло Гхи (топленое масло 99%)',
+      'Соус Демигляс концентрированный Мираторг',
+      'Соус Ворчестер (Worcestershire Lea & Perrins / Zeisner)'
+    ]
+  },
+  {
+    category: 'pork',
+    title: '🥓 Для свинины и рёбер BBQ',
+    isChef: false,
+    items: [
+      'Копченая паприка (Pimenton de la Vera)',
+      'Кориандр дробленый',
+      'Семена фенхеля',
+      'Нитритная соль (0.6% для ветчины)',
+      'Дижонская зернистая горчица',
+      'Соус BBQ классический копченый',
+      'Яблочный уксус натуральный 6%'
+    ]
+  },
+  {
+    category: 'poultry',
+    title: '🍗 Для птицы (грудка, утка, индейка)',
+    isChef: false,
+    items: [
+      'Эстрагон свежий (тархун)',
+      'Красная паприка сладкая',
+      'Куркума молотая',
+      'Шалфей свежий (листья)',
+      'Утиный жир (для конфи)',
+      'Сливочное масло 82.5% (ГОСТ)'
+    ]
+  },
+  {
+    category: 'fish',
+    title: '🐟 Для рыбы и морепродуктов',
+    isChef: false,
+    items: [
+      'Белый перец горошком / молотый',
+      'Приправа Хондаши (японский рыбный экстракт)',
+      'Стружка тунца (Бонито / Katsuobushi)',
+      'Соевый соус креветочный премиум',
+      'Свежий имбирь (для слайсов)',
+      'Свежий укроп',
+      'Ягоды можжевельника'
+    ]
+  },
+  {
+    category: 'breakfast',
+    title: '🍳 Для завтраков (омлеты, скрэмбл, яйца)',
+    isChef: false,
+    items: [
+      'Сыр Рикотта или мягкий творог 9%',
+      'Сыр Грюйер / Эмменталь (тертый)',
+      'Сыр Чеддер выдержанный',
+      'Шнитт-лук свежий',
+      'Бекон копченый (полоски)',
+      'Лосось слабосоленый или г/к',
+      'Хлеб бриошь для тостов'
+    ]
+  },
+  {
+    category: 'delicacy',
+    title: '🫙 Для закруток, пикулей и конфи',
+    isChef: false,
+    items: [
+      'Семена горчицы желтой',
+      'Зонтики укропа свежие',
+      'Черный перец горошком Aro',
+      'Чеснок свежий (без ростка)',
+      'Оливковое масло Extra Virgin',
+      'Уксус белый винный 6%'
+    ]
+  },
+  {
     category: 'rubs',
     title: '⭐️ Фирменные шеф-смеси (Chef Rubs)',
     isChef: true,
@@ -2412,78 +2798,6 @@ const DEMIAN_SPICE_GROUPS = [
       '⭐️ Пряная птица (Тимьян + паприка + чеснок + куркума + имбирь)',
       '⭐️ Азиатский умами-микс (Имбирь + белый перец + сычуаньский перец + чеснок)',
       '⭐️ Прованский сбор (Тимьян + розмарин + эстрагон + майоран)'
-    ]
-  },
-  {
-    category: 'herbs',
-    title: '🌿 Травы и сухие пряности',
-    isChef: false,
-    items: [
-      'Тимьян свежий (веточки)',
-      'Розмарин свежий',
-      'Эстрагон свежий (тархун)',
-      'Шалфей свежий (листья)',
-      'Сухой чеснок гранулированный (пачка Metro)',
-      'Свежий чеснок (без зеленого ростка)',
-      'Свежий имбирь (для слайсов)',
-      'Красная паприка сладкая',
-      'Копченая паприка (Pimenton)',
-      'Куркума молотая',
-      'Черный перец Tellicherry (дробленый)',
-      'Черный перец горошком Aro',
-      'Розовый перец горошком',
-      'Кориандр дробленый',
-      'Мускатный орех',
-      'Зира (кумин)',
-      'Ягоды можжевельника',
-      'Бадьян (звездчатый анис)',
-      'Семена фенхеля',
-      'Соль морская крупная Metro Chef',
-      'Чернослив без косточек (METRO Chef)',
-      'Корень сельдерея свежий',
-      'Лук-порей свежий',
-      'Фасоль белая и красная',
-      'Стружка тунца (Бонито / Katsuobushi)',
-      'Лайм свежий'
-    ]
-  },
-  {
-    category: 'sauces',
-    title: '🍯 Соусы и жидкие маринады',
-    isChef: false,
-    items: [
-      'Приправа Дашида СИНХОНГ (корейский умами-бустер)',
-      'Приправа Хондаши (японский рыбный экстракт)',
-      'Соус Демигляс концентрированный Мираторг',
-      'Соевый соус креветочный премиум',
-      'Соус Ворчестер (Worcestershire Lea & Perrins / Zeisner)',
-      'Бальзамический крем / соус',
-      'Соевый соус темный премиум',
-      'Аджика абхазская классическая',
-      'Соус Терияки густой',
-      'Соус BBQ классический копченый',
-      'Дижонская зернистая горчица',
-      'Томатная паста густая METRO Chef / Mutti',
-      'Томаты резаные кубиком Fiamma',
-      'Сливки 10% ультрапастеризованные METRO Chef',
-      'Сухое красное вино (для соуса Мирпуа / Бургиньон)',
-      'Сухое белое вино (для птицы и рыбы)',
-      'Фасоль белая / красная консервированная (в банке)',
-      'Нут консервированный (в банке)'
-    ]
-  },
-  {
-    category: 'fats',
-    title: '🧈 Масла, жиры и ароматика',
-    isChef: false,
-    items: [
-      'Сливочное масло 82.5% (ГОСТ)',
-      'Утиный жир (для конфи)',
-      'Оливковое масло Extra Virgin',
-      'Масло растительное рафинированное',
-      'Мука пшеничная высший сорт (для пред-колера)',
-      'Стебли сельдерея (для Мирпуа)',
-      'Цедра свежего апельсина'
     ]
   }
 ];
@@ -2563,6 +2877,8 @@ const state = {
   shoppingList: [],
   shoppingFilter: 'all',
   activeTimers: [],
+  plannerQueue: [],
+  plannerActiveStepId: null,
   favorites: [],
   audioCtx: null,
   marketPrefs: { ...DEFAULT_MARKET_PREFS },
@@ -2574,6 +2890,7 @@ const STORAGE_KEYS = {
   RECIPES: 'sous_vide_recipes_v2',
   SHOPPING: 'sous_vide_shopping_v2',
   TIMERS: 'sous_vide_timers_v2',
+  PLANNER: 'sous_vide_planner_v3_11',
   THEME: 'sous_vide_theme_v2',
   FAVORITES: 'sous_vide_favorites_v2',
   TG_TOKEN: 'sous_vide_tg_token_v1',
@@ -2595,6 +2912,7 @@ function initApp() {
   renderFavoritesView();
   updateFavBadges();
   renderShoppingList();
+  renderPlannerView();
   renderActiveTimers();
   registerServiceWorker();
 }
@@ -2701,6 +3019,15 @@ function loadStoredData() {
     }
   }
 
+  const storedPlanner = localStorage.getItem(STORAGE_KEYS.PLANNER);
+  if (storedPlanner) {
+    try {
+      state.plannerQueue = JSON.parse(storedPlanner);
+    } catch (e) {
+      state.plannerQueue = [];
+    }
+  }
+
   const storedFavs = localStorage.getItem(STORAGE_KEYS.FAVORITES);
   if (storedFavs) {
     try {
@@ -2739,6 +3066,10 @@ function saveTimers() {
   localStorage.setItem(STORAGE_KEYS.TIMERS, JSON.stringify(state.activeTimers));
 }
 
+function savePlanner() {
+  localStorage.setItem(STORAGE_KEYS.PLANNER, JSON.stringify(state.plannerQueue));
+}
+
 function saveMarketPrefs() {
   localStorage.setItem(STORAGE_KEYS.MARKET_PREFS, JSON.stringify(state.marketPrefs));
 }
@@ -2764,6 +3095,8 @@ function switchTab(tabId) {
   });
   if (tabId === 'favorites') {
     renderFavoritesView();
+  } else if (tabId === 'planner') {
+    renderPlannerView();
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -2773,7 +3106,9 @@ const CATEGORY_SUBMENUS = {
   all: [
     { key: 'all', label: 'Все блюда', match: () => true },
     { key: 'chef', label: '⭐️ От Шефа', match: r => r.isChef },
-    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
+    { key: 'breakfast', label: '🍳 Завтраки', match: r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites' },
+    { key: 'desserts', label: '🍰 Десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
     { key: 'video', label: '🎥 Видео-шефы', match: r => !!r.youtubeUrl },
     { key: 'quick', label: '⚡️ Быстрые (≤1.5ч)', match: r => r.timeMin <= 90 },
     { key: 'slow', label: '⏳ Томление (4ч+)', match: r => r.timeMin >= 240 },
@@ -2784,7 +3119,9 @@ const CATEGORY_SUBMENUS = {
     { key: 'meat', label: '🥩 Мясо и птица', match: r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category) },
     { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
     { key: 'sides', label: '🥦 Гарниры и супы', match: r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables' },
-    { key: 'delicacy', label: '🫙 Деликатесы', match: r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category) }
+    { key: 'delicacy', label: '🫙 Деликатесы', match: r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category) },
+    { key: 'breakfast', label: '🍳 Завтраки', match: r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') },
+    { key: 'desserts', label: '🍰 Десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') }
   ],
   meat_hub: [
     { key: 'all', label: 'Все мясные', match: () => true },
@@ -2816,12 +3153,28 @@ const CATEGORY_SUBMENUS = {
     { key: 'eggs', label: '🥚 Яйца (Онсэн/Пашот)', match: r => r.category === 'eggs' },
     { key: 'sauces', label: '🍯 Соусы и основы', match: r => r.category === 'sauces' }
   ],
+  breakfast_hub: [
+    { key: 'all', label: 'Все завтраки', match: () => true },
+    { key: 'scramble', label: '🍳 Скрэмбл и омлеты', match: r => ['breakfast-french-scramble', 'breakfast-omelette-roll'].includes(r.id) || r.title.toLowerCase().includes('омлет') || r.title.toLowerCase().includes('скрэмбл') },
+    { key: 'onsen', label: '🥚 Onsen Tamago (63–65°C)', match: r => ['breakfast-onsen-egg-matrix', 'classic-onsen-egg', 'forum-onsen-egg-lazerson'].includes(r.id) || r.title.toLowerCase().includes('онсэн') || r.title.toLowerCase().includes('onsen') },
+    { key: 'poached', label: '✨ Пашот и всмятку', match: r => ['breakfast-poached-fast', 'forum-express-poached-egg'].includes(r.id) || r.title.toLowerCase().includes('пашот') },
+    { key: 'jar', label: '🫙 В баночках (Egg Bites)', match: r => ['jar-starbucks-egg-bites', 'breakfast-salmon-frittata-jar'].includes(r.id) || r.subcategory === 'jar' }
+  ],
+  desserts_hub: [
+    { key: 'all', label: 'Все десерты', match: () => true },
+    { key: 'pumpkin', label: '🎃 Тыквенный пирог', match: r => r.id === 'dessert-pumpkin-pie-jar' || r.title.toLowerCase().includes('тыквен') },
+    { key: 'jar', label: '🫙 В баночках Kerr', match: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
+    { key: 'chocolate', label: '🍫 Шоколад и кремы', match: r => ['dessert-chocolate-pot-de-creme', 'jar-creme-brulee-vanilla', 'jar-cheesecake-classic'].includes(r.id) || r.title.toLowerCase().includes('шоколад') || r.title.toLowerCase().includes('крем') || r.title.toLowerCase().includes('чизкейк') },
+    { key: 'fruit', label: '🍐 Фрукты и цитрусы', match: r => ['jar-poached-pears-wine', 'jar-spiced-butter-apples', 'dessert-lemon-curd-jar', 'dessert-vanilla-panna-cotta', 'forum-bananas-choco-rum'].includes(r.id) || r.subcategory === 'fruit' },
+    { key: 'drinks', label: '🍋 Напитки и ликеры', match: r => ['forum-limoncello-infusion', 'forum-caramel-baked-milk'].includes(r.id) }
+  ],
   collections_hub: [
     { key: 'all', label: 'Все коллекции', match: () => true },
-    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.subcategory === 'jar' },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.id.startsWith('jar-') || r.id.startsWith('dessert-') || r.subcategory === 'jar' },
+    { key: 'breakfast', label: '🍳 Завтраки шефа', match: r => r.category === 'breakfast' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites' },
+    { key: 'desserts', label: '🍰 Изысканные десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
     { key: 'chef', label: '⭐️ Шеф Демьян', match: r => r.isChef },
-    { key: 'video', label: '🎥 Видео мастер-классы', match: r => !!r.youtubeUrl },
-    { key: 'desserts', label: '🍹 Десерты и напитки', match: r => r.category === 'desserts' }
+    { key: 'video', label: '🎥 Видео мастер-классы', match: r => !!r.youtubeUrl }
   ],
   // Legacy category mappings for backwards-compatible direct filtering
   beef: [
@@ -2864,16 +3217,26 @@ const CATEGORY_SUBMENUS = {
   ],
   desserts: [
     { key: 'all', label: 'Все десерты и напитки', match: () => true },
-    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.subcategory === 'jar' || r.id.startsWith('jar-') },
+    { key: 'pumpkin', label: '🎃 Тыквенный пирог', match: r => r.id === 'dessert-pumpkin-pie-jar' || r.title.toLowerCase().includes('тыквен') },
+    { key: 'jar', label: '🫙 В баночках Kerr (8 oz)', match: r => r.subcategory === 'jar' || r.id.startsWith('jar-') || r.id.startsWith('dessert-') },
+    { key: 'chocolate', label: '🍫 Шоколад и кремы', match: r => ['dessert-chocolate-pot-de-creme', 'jar-creme-brulee-vanilla', 'jar-cheesecake-classic'].includes(r.id) || r.title.toLowerCase().includes('шоколад') || r.title.toLowerCase().includes('крем') },
+    { key: 'fruit', label: '🍐 Фрукты и бананы', match: r => r.subcategory === 'fruit' || r.id === 'forum-bananas-choco-rum' || r.id.includes('pears') || r.id.includes('apples') || r.id.includes('curd') || r.id.includes('panna') },
     { key: 'infusion', label: '🍋 Лимончелло (2.5ч)', match: r => r.id === 'forum-limoncello-infusion' },
-    { key: 'dairy', label: '🥛 Топленое молоко', match: r => r.id === 'forum-caramel-baked-milk' },
-    { key: 'fruit', label: '🍐 Фрукты и бананы', match: r => r.subcategory === 'fruit' || r.id === 'forum-bananas-choco-rum' || r.id.includes('pears') || r.id.includes('apples') }
+    { key: 'dairy', label: '🥛 Топленое молоко', match: r => r.id === 'forum-caramel-baked-milk' }
+  ],
+  breakfast: [
+    { key: 'all', label: 'Все завтраки', match: () => true },
+    { key: 'scramble', label: '🍳 Скрэмбл и омлеты', match: r => ['breakfast-french-scramble', 'breakfast-omelette-roll'].includes(r.id) || r.title.toLowerCase().includes('омлет') || r.title.toLowerCase().includes('скрэмбл') },
+    { key: 'onsen', label: '🥚 Onsen Tamago (63–65°C)', match: r => ['breakfast-onsen-egg-matrix', 'classic-onsen-egg', 'forum-onsen-egg-lazerson'].includes(r.id) || r.title.toLowerCase().includes('онсэн') || r.title.toLowerCase().includes('onsen') },
+    { key: 'poached', label: '✨ Пашот и всмятку', match: r => ['breakfast-poached-fast', 'forum-express-poached-egg'].includes(r.id) || r.title.toLowerCase().includes('пашот') },
+    { key: 'jar', label: '🫙 В баночках (Egg Bites)', match: r => ['jar-starbucks-egg-bites', 'breakfast-salmon-frittata-jar'].includes(r.id) || r.subcategory === 'jar' }
   ],
   eggs: [
     { key: 'all', label: 'Все яйца', match: () => true },
-    { key: 'jar', label: '🫙 В баночках (Egg Bites)', match: r => r.id === 'jar-starbucks-egg-bites' || r.subcategory === 'jar' },
-    { key: 'onsen', label: '🥚 Onsen Tamago (63–64°C)', match: r => ['classic-onsen-egg', 'forum-onsen-egg-lazerson'].includes(r.id) },
-    { key: 'poached', label: '🍳 Пашот экспресс (75°C)', match: r => r.id === 'forum-express-poached-egg' }
+    { key: 'jar', label: '🫙 В баночках (Egg Bites)', match: r => ['jar-starbucks-egg-bites', 'breakfast-salmon-frittata-jar'].includes(r.id) || r.subcategory === 'jar' },
+    { key: 'scramble', label: '🍳 Скрэмбл и омлеты', match: r => ['breakfast-french-scramble', 'breakfast-omelette-roll'].includes(r.id) },
+    { key: 'onsen', label: '🥚 Onsen Tamago (63–65°C)', match: r => ['breakfast-onsen-egg-matrix', 'classic-onsen-egg', 'forum-onsen-egg-lazerson'].includes(r.id) },
+    { key: 'poached', label: '🍳 Пашот экспресс (75°C)', match: r => ['breakfast-poached-fast', 'forum-express-poached-egg'].includes(r.id) }
   ],
   meat: [
     { key: 'all', label: 'Все блюда', match: () => true },
@@ -2885,6 +3248,8 @@ const CATEGORY_SUBMENUS = {
   ],
   chef: [
     { key: 'all', label: 'Все от Шефа', match: () => true },
+    { key: 'breakfast', label: '🍳 Завтраки', match: r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') },
+    { key: 'desserts', label: '🍰 Десерты', match: r => r.category === 'desserts' || r.id.startsWith('dessert-') },
     { key: 'poultry', label: '🍗 Птица', match: r => r.category === 'poultry' },
     { key: 'beef', label: '🥩 Говядина', match: r => r.category === 'beef' },
     { key: 'fish', label: '🐟 Рыба', match: r => r.category === 'fish' },
@@ -2969,10 +3334,14 @@ function getCurrentFilteredRecipes() {
   }
   if (state.activeCategory === 'fav') {
     list = list.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'breakfast_hub') {
+    list = list.filter(r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites');
   } else if (state.activeCategory === 'meat_hub') {
     list = list.filter(r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category));
   } else if (state.activeCategory === 'sides_hub') {
     list = list.filter(r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables');
+  } else if (state.activeCategory === 'desserts_hub') {
+    list = list.filter(r => r.category === 'desserts' || r.id.startsWith('dessert-') || (r.subcategory === 'jar' && (r.title.toLowerCase().includes('крем') || r.title.toLowerCase().includes('чизкейк') || r.title.toLowerCase().includes('груши') || r.title.toLowerCase().includes('яблоки') || r.title.toLowerCase().includes('пирог') || r.title.toLowerCase().includes('панна') || r.title.toLowerCase().includes('курд'))));
   } else if (state.activeCategory === 'delicacy_hub') {
     list = list.filter(r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category));
   } else if (state.activeCategory === 'collections_hub') {
@@ -3207,8 +3576,8 @@ function renderRecipeCardHtml(recipe, isInsideFavView = false) {
       </div>
 
       <div class="card-actions" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-        <button class="btn btn-primary btn-sm" onclick="startRecipeTimer('${recipe.id}')">
-          ⏱ Таймер
+        <button class="btn btn-primary btn-sm" onclick="addToPlanner('${recipe.id}')" title="Добавить блюдо в каскадный план одного су-вида">
+          📅 В план
         </button>
         <button class="btn btn-secondary btn-sm" onclick="addRecipeToShopping('${recipe.id}')">
           🛒 В список
@@ -3257,10 +3626,14 @@ function renderRecipes() {
 
   if (state.activeCategory === 'fav') {
     baseFiltered = baseFiltered.filter(r => state.favorites.includes(r.id));
+  } else if (state.activeCategory === 'breakfast_hub') {
+    baseFiltered = baseFiltered.filter(r => r.category === 'breakfast' || r.category === 'eggs' || r.id.startsWith('breakfast-') || r.id === 'jar-starbucks-egg-bites');
   } else if (state.activeCategory === 'meat_hub') {
     baseFiltered = baseFiltered.filter(r => ['beef', 'poultry', 'pork', 'meat'].includes(r.category));
   } else if (state.activeCategory === 'sides_hub') {
     baseFiltered = baseFiltered.filter(r => ['vegetables', 'soup', 'sides'].includes(r.category) || r.category === 'vegetables');
+  } else if (state.activeCategory === 'desserts_hub') {
+    baseFiltered = baseFiltered.filter(r => r.category === 'desserts' || r.id.startsWith('dessert-') || (r.subcategory === 'jar' && (r.title.toLowerCase().includes('крем') || r.title.toLowerCase().includes('чизкейк') || r.title.toLowerCase().includes('груши') || r.title.toLowerCase().includes('яблоки') || r.title.toLowerCase().includes('пирог') || r.title.toLowerCase().includes('панна') || r.title.toLowerCase().includes('курд'))));
   } else if (state.activeCategory === 'delicacy_hub') {
     baseFiltered = baseFiltered.filter(r => ['ham', 'pate', 'eggs', 'sauces'].includes(r.category));
   } else if (state.activeCategory === 'collections_hub') {
@@ -3589,8 +3962,10 @@ function jumpToRecipe(recipeId) {
     let allowed = false;
     if (state.activeCategory === 'all') allowed = true;
     else if (state.activeCategory === 'fav' && state.favorites.includes(recipe.id)) allowed = true;
+    else if (state.activeCategory === 'breakfast_hub' && (recipe.category === 'breakfast' || recipe.category === 'eggs' || recipe.id.startsWith('breakfast-') || recipe.id === 'jar-starbucks-egg-bites')) allowed = true;
     else if (state.activeCategory === 'meat_hub' && ['beef', 'poultry', 'pork', 'meat'].includes(recipe.category)) allowed = true;
     else if (state.activeCategory === 'sides_hub' && (['vegetables', 'soup', 'sides'].includes(recipe.category) || recipe.category === 'vegetables')) allowed = true;
+    else if (state.activeCategory === 'desserts_hub' && (recipe.category === 'desserts' || recipe.id.startsWith('dessert-') || (recipe.subcategory === 'jar' && (recipe.title.toLowerCase().includes('крем') || recipe.title.toLowerCase().includes('чизкейк') || recipe.title.toLowerCase().includes('груши') || recipe.title.toLowerCase().includes('яблоки') || recipe.title.toLowerCase().includes('пирог') || recipe.title.toLowerCase().includes('панна') || recipe.title.toLowerCase().includes('курд'))))) allowed = true;
     else if (state.activeCategory === 'delicacy_hub' && ['ham', 'pate', 'eggs', 'sauces'].includes(recipe.category)) allowed = true;
     else if (state.activeCategory === 'collections_hub' && (recipe.isChef || !!recipe.youtubeUrl || recipe.category === 'desserts')) allowed = true;
     else if (state.activeCategory === recipe.category) allowed = true;
@@ -3706,25 +4081,58 @@ function setupCalculator() {
   calculate();
 }
 
-// Shopping List Logic
+// Categorized Shopping List System
+const SHOPPING_CATEGORIES = {
+  all: { label: 'Все', icon: '🛒', color: 'var(--text-primary)' },
+  desserts: { label: 'Десерты и выпечка', icon: '🍰', color: '#f472b6' },
+  breakfast: { label: 'Завтраки и сыры', icon: '🍳', color: '#fbbf24' },
+  beef: { label: 'Говядина', icon: '🥩', color: '#f87171' },
+  pork: { label: 'Свинина', icon: '🥓', color: '#fb923c' },
+  poultry: { label: 'Птица', icon: '🍗', color: '#facc15' },
+  fish: { label: 'Рыба и море', icon: '🐟', color: '#38bdf8' },
+  vegetables: { label: 'Овощи и гарниры', icon: '🥦', color: '#4ade80' },
+  delicacy: { label: 'Деликатесы и банки', icon: '🫙', color: '#c084fc' },
+  spice: { label: 'Специи и соусы', icon: '🌿', color: '#34d399' },
+  recipe: { label: 'Прочие продукты', icon: '📝', color: '#94a3b8' }
+};
+
+const SHOPPING_CATEGORY_CYCLE = ['desserts', 'breakfast', 'beef', 'pork', 'poultry', 'fish', 'vegetables', 'delicacy', 'spice', 'recipe'];
+
+function getCategoryForRecipe(recipe) {
+  if (!recipe) return 'recipe';
+  if (recipe.category === 'desserts' || recipe.id.startsWith('dessert-')) return 'desserts';
+  if (recipe.category === 'breakfast' || recipe.category === 'eggs' || recipe.id.startsWith('breakfast-')) return 'breakfast';
+  if (recipe.category === 'beef') return 'beef';
+  if (recipe.category === 'pork') return 'pork';
+  if (recipe.category === 'poultry') return 'poultry';
+  if (recipe.category === 'fish') return 'fish';
+  if (['vegetables', 'soup', 'sides'].includes(recipe.category)) return 'vegetables';
+  if (['ham', 'pate'].includes(recipe.category) || recipe.subcategory === 'jar') return 'delicacy';
+  if (recipe.category === 'sauces') return 'spice';
+  return 'recipe';
+}
+
 function setupShoppingList() {
   // Render recommended Demian spices pills by groups
   const pillsContainer = document.getElementById('demian-spices-pills');
   if (pillsContainer) {
-    pillsContainer.innerHTML = DEMIAN_SPICE_GROUPS.map(group => `
+    pillsContainer.innerHTML = DEMIAN_SPICE_GROUPS.map(group => {
+      const defaultCat = group.category === 'desserts' ? 'desserts' : (group.category === 'breakfast' ? 'breakfast' : (['beef', 'pork', 'poultry', 'fish', 'delicacy'].includes(group.category) ? group.category : 'spice'));
+      return `
       <div class="spice-group-wrap">
         <div class="spice-group-title">
           ${escapeHtml(group.title)}
         </div>
         <div class="spice-group-pills">
           ${group.items.map(spice => `
-            <button class="pill-spice ${group.isChef ? 'pill-spice-chef' : ''}" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}', '${escapeHtml(group.title)}', 'spice')">
+            <button class="pill-spice ${group.isChef ? 'pill-spice-chef' : ''}" onclick="addSingleSpiceToShopping('${escapeHtml(spice)}', '${escapeHtml(group.title)}', '${defaultCat}')">
               <span>+</span> ${escapeHtml(spice)}
             </button>
           `).join('')}
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
   }
 
   // Setup Add Custom Item
@@ -3737,7 +4145,8 @@ function setupShoppingList() {
       const val = customInput.value.trim();
       const cat = catSelect ? catSelect.value : 'recipe';
       if (val) {
-        const src = cat === 'spice' ? 'Базовый запас' : 'Мой список';
+        const catMeta = SHOPPING_CATEGORIES[cat] || SHOPPING_CATEGORIES.recipe;
+        const src = `Пользовательский ввод (${catMeta.label})`;
         addSingleSpiceToShopping(val, src, cat);
         customInput.value = '';
       }
@@ -3782,6 +4191,8 @@ function addRecipeToShopping(recipeId) {
   const recipe = state.recipes.find(r => r.id === recipeId);
   if (!recipe || !recipe.ingredients) return;
 
+  const targetCategory = getCategoryForRecipe(recipe);
+
   let addedCount = 0;
   recipe.ingredients.forEach(ing => {
     const existing = state.shoppingList.find(i => i.name.toLowerCase() === ing.toLowerCase());
@@ -3790,7 +4201,7 @@ function addRecipeToShopping(recipeId) {
         id: 'shop_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
         name: ing,
         source: `Рецепт: ${recipe.title}`,
-        category: 'recipe',
+        category: targetCategory,
         checked: false
       });
       addedCount++;
@@ -3799,7 +4210,8 @@ function addRecipeToShopping(recipeId) {
 
   saveShopping();
   renderShoppingList();
-  showToast(`Добавлено ${addedCount} ингредиентов в список`);
+  const catMeta = SHOPPING_CATEGORIES[targetCategory] || { label: 'покупок' };
+  showToast(`Добавлено ${addedCount} ингредиентов в раздел «${catMeta.label}»`);
   switchTab('shopping');
 }
 
@@ -3815,10 +4227,13 @@ function toggleShoppingItem(id) {
 function toggleShoppingItemCategory(id) {
   const item = state.shoppingList.find(i => i.id === id);
   if (item) {
-    item.category = item.category === 'spice' ? 'recipe' : 'spice';
+    const curIdx = SHOPPING_CATEGORY_CYCLE.indexOf(item.category);
+    const nextIdx = (curIdx + 1) % SHOPPING_CATEGORY_CYCLE.length;
+    item.category = SHOPPING_CATEGORY_CYCLE[nextIdx];
     saveShopping();
     renderShoppingList();
-    showToast(`Категория: ${item.category === 'spice' ? '🌿 Специи' : '🥩 Рецепт'}`);
+    const meta = SHOPPING_CATEGORIES[item.category] || { label: item.category, icon: '🏷' };
+    showToast(`Категория: ${meta.icon} ${meta.label}`);
   }
 }
 
@@ -3837,25 +4252,21 @@ function clearPurchasedShopping() {
 
 function getFormattedShoppingText() {
   if (state.shoppingList.length === 0) return '';
-  const spiceItems = state.shoppingList.filter(i => i.category === 'spice');
-  const recipeItems = state.shoppingList.filter(i => i.category === 'recipe');
-
   let text = "🛒 СПИСОК ПОКУПОК ДЛЯ СУ-ВИДА\n";
 
-  if (spiceItems.length > 0) {
-    text += "\n🌿 СПЕЦИИ И СОУСЫ (Базовый запас):\n";
-    spiceItems.forEach((i, idx) => {
-      text += `${idx + 1}. [${i.checked ? 'x' : ' '}] ${i.name}\n`;
-    });
-  }
+  const order = ['desserts', 'breakfast', 'beef', 'pork', 'poultry', 'fish', 'vegetables', 'delicacy', 'spice', 'recipe'];
+  order.forEach(catKey => {
+    const items = state.shoppingList.filter(i => (i.category === catKey) || (catKey === 'recipe' && !order.includes(i.category)));
+    if (items.length > 0) {
+      const catMeta = SHOPPING_CATEGORIES[catKey] || { label: catKey, icon: '•' };
+      text += `\n${catMeta.icon} ${catMeta.label.toUpperCase()}:\n`;
+      items.forEach(i => {
+        text += `${i.checked ? ' [x] ' : ' [ ] '} ${i.name}\n`;
+      });
+    }
+  });
 
-  if (recipeItems.length > 0) {
-    text += "\n🥩 ИЗ РЕЦЕПТОВ:\n";
-    recipeItems.forEach((i, idx) => {
-      text += `${idx + 1}. [${i.checked ? 'x' : ' '}] ${i.name} (${i.source})\n`;
-    });
-  }
-
+  text += `\nВсего позиций: ${state.shoppingList.length}`;
   return text.trim();
 }
 
@@ -4350,8 +4761,6 @@ function renderShoppingList() {
   const container = document.getElementById('shopping-items-list');
   const countBadge = document.getElementById('shopping-count-badge');
   const countAll = document.getElementById('shop-count-all');
-  const countSpice = document.getElementById('shop-count-spice');
-  const countRecipe = document.getElementById('shop-count-recipe');
   if (!container) return;
 
   const totalUnbought = state.shoppingList.filter(i => !i.checked).length;
@@ -4360,18 +4769,22 @@ function renderShoppingList() {
     countBadge.style.display = totalUnbought > 0 ? 'block' : 'none';
   }
 
-  const spiceItems = state.shoppingList.filter(i => i.category === 'spice');
-  const recipeItems = state.shoppingList.filter(i => i.category === 'recipe');
-
   if (countAll) countAll.textContent = state.shoppingList.length;
-  if (countSpice) countSpice.textContent = spiceItems.length;
-  if (countRecipe) countRecipe.textContent = recipeItems.length;
+
+  const order = ['desserts', 'breakfast', 'beef', 'pork', 'poultry', 'fish', 'vegetables', 'delicacy', 'spice', 'recipe'];
+  order.forEach(cKey => {
+    const chipCount = document.getElementById(`shop-count-${cKey}`);
+    if (chipCount) {
+      const cnt = state.shoppingList.filter(i => (i.category === cKey) || (cKey === 'recipe' && !order.includes(i.category))).length;
+      chipCount.textContent = cnt;
+    }
+  });
 
   if (state.shoppingList.length === 0) {
     container.innerHTML = `
       <div style="text-align: center; padding: 30px 10px; color: var(--text-muted);">
         <p>Список покупок пуст.</p>
-        <p style="font-size: 0.8rem; margin-top: 4px;">Нажимайте на специи выше или кнопку «В список покупок» в рецептах.</p>
+        <p style="font-size: 0.8rem; margin-top: 4px;">Нажимайте на специи и ингредиенты выше или кнопку «🛒 В список» в рецептах.</p>
       </div>
     `;
     return;
@@ -4382,76 +4795,79 @@ function renderShoppingList() {
 
   const renderItemRow = (item) => {
     const cleanName = cleanSearchTerm(item.name);
+    const catMeta = SHOPPING_CATEGORIES[item.category] || SHOPPING_CATEGORIES.recipe;
     return `
-    <div class="shop-item-row ${item.checked ? 'checked' : ''}" id="item-${item.id}">
-      <div class="shop-item-left" onclick="toggleShoppingItem('${item.id}')">
-        <div class="custom-checkbox">
-          ${item.checked ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}
-        </div>
-        <div>
-          <div class="shop-item-name">${escapeHtml(item.name)}</div>
-          <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
-            <span class="shop-item-source">${escapeHtml(item.source)}</span>
-            <span class="shop-item-badge ${item.category === 'spice' ? 'shop-item-badge-spice' : 'shop-item-badge-recipe'}" onclick="event.stopPropagation(); toggleShoppingItemCategory('${item.id}')" title="Нажмите для смены категории">
-              ${item.category === 'spice' ? '🌿 Специи' : '🥩 Рецепт'}
-            </span>
+      <div class="shop-item-row ${item.checked ? 'checked' : ''}" id="item-${item.id}">
+        <div class="shop-item-left" onclick="toggleShoppingItem('${item.id}')">
+          <div class="custom-checkbox">
+            ${item.checked ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>' : ''}
+          </div>
+          <div>
+            <div class="shop-item-name">${escapeHtml(item.name)}</div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px; flex-wrap: wrap;">
+              <span class="shop-item-source">${escapeHtml(item.source)}</span>
+              <span class="shop-item-badge" style="background: rgba(255,255,255,0.06); color: ${catMeta.color}; border: 1px solid ${catMeta.color}44;" onclick="event.stopPropagation(); toggleShoppingItemCategory('${item.id}')" title="Нажмите для смены категории">
+                ${catMeta.icon} ${catMeta.label}
+              </span>
+            </div>
           </div>
         </div>
+        <div style="display: flex; align-items: center; gap: 4px;">
+          <button class="btn-inline-search" onclick="searchSingleItemOnline('${escapeHtml(cleanName)}')" title="Найти «${escapeHtml(cleanName)}» на ${prov.name}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          </button>
+        </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 4px;">
-        <button class="btn-inline-search" onclick="searchSingleItemOnline('${escapeHtml(cleanName)}')" title="Найти «${escapeHtml(cleanName)}» на ${prov.name}">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
-        <button class="btn-del" onclick="deleteShoppingItem('${item.id}')" title="Удалить">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-        </button>
-      </div>
-    </div>
-  `;
+    `;
   };
 
   let html = '';
   const filter = state.shoppingFilter || 'all';
 
-  if (filter === 'all' || filter === 'spice') {
-    if (spiceItems.length > 0) {
-      const unboughtSpices = spiceItems.filter(i => !i.checked).length;
+  if (filter === 'all') {
+    let renderedAny = false;
+    order.forEach((cKey, idx) => {
+      const items = state.shoppingList.filter(i => (i.category === cKey) || (cKey === 'recipe' && !order.includes(i.category)));
+      if (items.length > 0) {
+        renderedAny = true;
+        const catMeta = SHOPPING_CATEGORIES[cKey] || SHOPPING_CATEGORIES.recipe;
+        const unbought = items.filter(i => !i.checked).length;
+        html += `
+          <div class="shop-category-header" style="${idx > 0 ? 'margin-top: 18px;' : ''}">
+            <div class="shop-category-title" style="color: ${catMeta.color};">
+              ${catMeta.icon} ${catMeta.label}
+            </div>
+            <span class="shop-category-badge">${unbought} из ${items.length}</span>
+          </div>
+          ${items.map(renderItemRow).join('')}
+        `;
+      }
+    });
+    if (!renderedAny) {
+      html = state.shoppingList.map(renderItemRow).join('');
+    }
+  } else {
+    const items = state.shoppingList.filter(i => (i.category === filter) || (filter === 'recipe' && !order.includes(i.category)));
+    const catMeta = SHOPPING_CATEGORIES[filter] || SHOPPING_CATEGORIES.recipe;
+    if (items.length > 0) {
+      const unbought = items.filter(i => !i.checked).length;
       html += `
         <div class="shop-category-header">
-          <div class="shop-category-title" style="color: var(--accent-emerald);">
-            🌿 Специи и соусы (Повседневные)
+          <div class="shop-category-title" style="color: ${catMeta.color};">
+            ${catMeta.icon} ${catMeta.label}
           </div>
-          <span class="shop-category-badge">${unboughtSpices} из ${spiceItems.length}</span>
+          <span class="shop-category-badge">${unbought} из ${items.length}</span>
         </div>
-        ${spiceItems.map(renderItemRow).join('')}
+        ${items.map(renderItemRow).join('')}
       `;
-    } else if (filter === 'spice') {
+    } else {
       html += `
         <div style="text-align: center; padding: 24px 10px; color: var(--text-muted);">
-          <p>В категории «Специи» пока ничего нет.</p>
-          <p style="font-size: 0.8rem; margin-top: 4px;">Выберите специи из облака вверху или добавьте свою.</p>
-        </div>
-      `;
-    }
-  }
-
-  if (filter === 'all' || filter === 'recipe') {
-    if (recipeItems.length > 0) {
-      const unboughtRecipes = recipeItems.filter(i => !i.checked).length;
-      html += `
-        <div class="shop-category-header" style="${filter === 'all' && spiceItems.length > 0 ? 'margin-top: 20px;' : ''}">
-          <div class="shop-category-title" style="color: var(--accent-amber);">
-            🥩 Ингредиенты из рецептов
-          </div>
-          <span class="shop-category-badge">${unboughtRecipes} из ${recipeItems.length}</span>
-        </div>
-        ${recipeItems.map(renderItemRow).join('')}
-      `;
-    } else if (filter === 'recipe') {
-      html += `
-        <div style="text-align: center; padding: 24px 10px; color: var(--text-muted);">
-          <p>В категории «Из рецептов» пока ничего нет.</p>
-          <p style="font-size: 0.8rem; margin-top: 4px;">Нажмите кнопку «В список покупок» в карточке любого рецепта.</p>
+          <p>В категории «${catMeta.icon} ${catMeta.label}» пока ничего нет.</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Добавьте продукты из рецептов или воспользуйтесь формой выше.</p>
         </div>
       `;
     }
@@ -4560,7 +4976,7 @@ function startCustomTimer(name, durationMinutes, tempC = null) {
   state.activeTimers.push(timer);
   saveTimers();
   renderActiveTimers();
-  switchTab('timer');
+  switchTab('planner');
   showToast(`Таймер "${name}" запущен на ${durationMinutes} мин`);
 }
 
@@ -4571,21 +4987,34 @@ function startRecipeTimer(recipeId) {
 }
 
 function startCureTimer30Min() {
-  startCustomTimer('Сухой посол (Пресол)', 30);
+  startCustomTimer('🧂 Сухой посол (Пресол)', 30);
 }
 
 function startShockChillTimer15Min() {
-  startCustomTimer('Шоковое охлаждение в воде', 15);
+  startCustomTimer('🧊 Шоковое охлаждение в воде', 15);
 }
 
 function startSearTimer45Sec() {
-  startCustomTimer('Финишный колер на сковороде', 0.75); // 45 sec
+  startCustomTimer('🔥 Финишный колер на сковороде', 0.75); // 45 sec
+}
+
+function openCustomTimerPrompt() {
+  const mins = prompt('Введите длительность таймера в минутах:', '30');
+  if (mins) {
+    const m = parseFloat(mins);
+    if (!isNaN(m) && m > 0) {
+      startCustomTimer(`⏱ Таймер (${m} мин)`, m);
+    }
+  }
 }
 
 function stopTimer(id) {
   state.activeTimers = state.activeTimers.filter(t => t.id !== id);
   saveTimers();
   renderActiveTimers();
+  if (state.activeTab === 'planner') {
+    renderPlannerView();
+  }
 }
 
 function tickTimers() {
@@ -4600,7 +5029,10 @@ function tickTimers() {
       if (remaining <= 0) {
         t.status = 'completed';
         changed = true;
-        triggerNotification(`🏁 Таймер завершен: ${t.name}`, `Время вышло! Пора переходить к следующему этапу.`);
+        triggerNotification(`🏁 Этап завершен: ${t.name}`, `Время вышло! Остудите ванну при необходимости и переходите к следующему блюду.`);
+        if (state.activeTab === 'planner') {
+          renderPlannerView();
+        }
       }
     }
   });
@@ -4621,8 +5053,8 @@ function formatTimeRemaining(ms) {
 }
 
 function renderActiveTimers() {
-  const heroContainer = document.getElementById('active-timers-list');
-  const timerBadge = document.getElementById('timer-count-badge');
+  const heroContainer = document.getElementById('planner-active-hero') || document.getElementById('active-timers-list');
+  const timerBadge = document.getElementById('planner-count-badge') || document.getElementById('timer-count-badge');
   if (!heroContainer) return;
 
   const runningCount = state.activeTimers.filter(t => t.status === 'running').length;
@@ -4633,15 +5065,12 @@ function renderActiveTimers() {
 
   if (state.activeTimers.length === 0) {
     heroContainer.innerHTML = `
-      <div class="timer-hero">
-        <div class="timer-stage-title">Нет активных процессов</div>
-        <div class="timer-display">00:00:00</div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-          Выберите быстрый пресет ниже или запустите таймер из любого рецепта.
-        </p>
-        <button class="btn btn-primary btn-timer-large" onclick="startCureTimer30Min()">
-          Запустить посол (30 мин)
-        </button>
+      <div class="planner-hero planner-hero-idle">
+        <div class="planner-hero-status">♨️ ВАННА СУ-ВИД СВОБОДНА</div>
+        <div class="planner-hero-timer">00:00:00</div>
+        <div class="planner-hero-hint">
+          Выберите готовый каскад Шефа ниже или добавьте блюда кнопкой «📅 В план» из Книги
+        </div>
       </div>
     `;
     return;
@@ -4651,23 +5080,373 @@ function renderActiveTimers() {
   heroContainer.innerHTML = state.activeTimers.map(t => {
     const remaining = Math.max(0, t.endTime - now);
     const isDone = t.status === 'completed' || remaining === 0;
+    const progress = t.durationMs > 0 ? Math.min(100, Math.max(0, ((t.durationMs - remaining) / t.durationMs) * 100)) : 100;
 
     return `
-      <div class="timer-hero" style="${isDone ? 'border-color: var(--accent-emerald);' : ''}">
-        <div class="timer-stage-title" style="${isDone ? 'color: var(--accent-emerald);' : ''}">
-          ${isDone ? '✅ ЭТАП ЗАВЕРШЕН' : '⏳ В ПРОЦЕССЕ'} • ${escapeHtml(t.name)}
+      <div class="planner-hero ${isDone ? 'planner-hero-done' : 'planner-hero-running'}">
+        <div class="planner-hero-status">
+          ${isDone ? '✅ ЭТАП ЗАВЕРШЕН' : '⏳ В ПРОЦЕССЕ ВАРКИ'}
+          ${t.tempC ? `<span class="badge badge-temp" style="margin-left: 8px;">${t.tempC}°C</span>` : ''}
         </div>
-        <div class="timer-display" style="${isDone ? 'color: var(--accent-emerald); text-shadow: 0 0 20px rgba(16,185,129,0.3);' : ''}">
+        <div class="planner-hero-title">${escapeHtml(t.name)}</div>
+        <div class="planner-hero-timer">
           ${formatTimeRemaining(remaining)}
         </div>
-        <div class="timer-controls">
-          <button class="btn btn-secondary" onclick="stopTimer('${t.id}')">
-            ${isDone ? 'Скрыть таймер' : 'Отменить'}
+        <div class="planner-progress-bar">
+          <div class="planner-progress-fill" style="width: ${progress}%;"></div>
+        </div>
+        <div class="planner-hero-actions">
+          <button class="btn btn-secondary btn-sm" onclick="stopTimer('${t.id}')">
+            ${isDone ? 'Скрыть этап' : 'Остановить таймер'}
           </button>
         </div>
       </div>
     `;
   }).join('');
+}
+
+// =========================================
+// Single Sous-Vide Cascade Planner Engine
+// =========================================
+
+function addToPlanner(recipeId) {
+  const recipe = state.recipes.find(r => r.id === recipeId);
+  if (!recipe) return;
+
+  const step = {
+    id: 'step_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+    recipeId: recipe.id,
+    title: recipe.title,
+    tempC: recipe.tempC,
+    timeMin: recipe.timeMin,
+    timeFormatted: recipe.timeFormatted,
+    category: recipe.category,
+    note: recipe.tempC >= 80 ? 'Можно оставить в ванне при снижении температуры (режим Holding)' : 'По готовности подать или шоково охладить',
+    status: 'pending'
+  };
+
+  state.plannerQueue.push(step);
+  savePlanner();
+  renderPlannerView();
+  showToast(`«${recipe.title.slice(0, 26)}...» добавлено в план су-вида`);
+}
+
+function removePlannerStep(stepId) {
+  state.plannerQueue = state.plannerQueue.filter(s => s.id !== stepId);
+  savePlanner();
+  renderPlannerView();
+}
+
+function movePlannerStep(idx, dir) {
+  const targetIdx = idx + dir;
+  if (targetIdx < 0 || targetIdx >= state.plannerQueue.length) return;
+  const temp = state.plannerQueue[idx];
+  state.plannerQueue[idx] = state.plannerQueue[targetIdx];
+  state.plannerQueue[targetIdx] = temp;
+  savePlanner();
+  renderPlannerView();
+}
+
+function optimizePlannerCascade() {
+  if (state.plannerQueue.length < 2) {
+    showToast('В очереди должно быть хотя бы 2 шага для оптимизации');
+    return;
+  }
+  state.plannerQueue.sort((a, b) => b.tempC - a.tempC);
+  savePlanner();
+  renderPlannerView();
+  showToast('⚡️ Каскад оптимизирован: от высоких температур к низким (85°C ➔ 55°C)!');
+}
+
+function clearPlannerQueue() {
+  if (state.plannerQueue.length === 0) return;
+  if (confirm('Очистить всю очередь планировщика су-вида?')) {
+    state.plannerQueue = [];
+    savePlanner();
+    renderPlannerView();
+    showToast('Очередь планировщика очищена');
+  }
+}
+
+function startPlannerStep(stepId) {
+  const step = state.plannerQueue.find(s => s.id === stepId);
+  if (!step) return;
+
+  step.status = 'running';
+  savePlanner();
+  startCustomTimer(`${step.title} (${step.tempC}°C)`, step.timeMin, step.tempC);
+  renderPlannerView();
+}
+
+function togglePlannerStepComplete(stepId) {
+  const step = state.plannerQueue.find(s => s.id === stepId);
+  if (!step) return;
+  step.status = step.status === 'completed' ? 'pending' : 'completed';
+  savePlanner();
+  renderPlannerView();
+}
+
+function loadPlannerPreset(presetKey) {
+  if (presetKey === 'chef_dinner') {
+    state.plannerQueue = [
+      {
+        id: 'step_' + Date.now() + '_1',
+        recipeId: 'dessert-pumpkin-pie-jar',
+        title: 'Тыквенный пирог с пряностями в баночках Kerr',
+        tempC: 85.0,
+        timeMin: 80,
+        timeFormatted: '1 ч 20 мин',
+        category: 'desserts',
+        note: 'После 80 мин оставить в ванне в режиме Holding (56°C) вместе со стейком и спаржей!',
+        status: 'pending'
+      },
+      {
+        id: 'step_' + Date.now() + '_2',
+        recipeId: 'veg-asparagus-butter',
+        title: 'Спаржа со сливочным маслом и фенхелем',
+        tempC: 85.0,
+        timeMin: 25,
+        timeFormatted: '25 мин',
+        category: 'vegetables',
+        note: 'Загружается при 85°C к десерту за 25 мин до окончания этапа.',
+        status: 'pending'
+      },
+      {
+        id: 'step_' + Date.now() + '_3',
+        recipeId: 'chef-pepper-steak-demian',
+        title: 'Pepper Стейк стриплойн от Шефа (Medium-Rare)',
+        tempC: 56.0,
+        timeMin: 120,
+        timeFormatted: '2.0 часа',
+        category: 'beef',
+        note: 'Финиш: обжечь стейк 45 сек на сковороде. Спаржа и десерт уже горячие и готовы к подаче!',
+        status: 'pending'
+      }
+    ];
+    showToast('Загружен пресет «Шеф-Ужин: Стейк + Спаржа + Десерт»');
+  } else if (presetKey === 'sunday_brunch') {
+    state.plannerQueue = [
+      {
+        id: 'step_' + Date.now() + '_1',
+        recipeId: 'breakfast-omelette-roll',
+        title: 'Су-вид омлет-ролл с ветчиной и сыром',
+        tempC: 75.0,
+        timeMin: 15,
+        timeFormatted: '15 мин',
+        category: 'breakfast',
+        note: 'Нежнейший омлет за 15 мин. После извлечения свернуть рулетом в пакете.',
+        status: 'pending'
+      },
+      {
+        id: 'step_' + Date.now() + '_2',
+        recipeId: 'breakfast-onsen-egg-matrix',
+        title: 'Идеальные яйца Onsen Tamago (64°C)',
+        tempC: 64.0,
+        timeMin: 45,
+        timeFormatted: '45 мин',
+        category: 'breakfast',
+        note: 'Сбросить ванну 75°C ➔ 64°C холодной водой (1 мин), опустить яйца в скорлупе.',
+        status: 'pending'
+      }
+    ];
+    showToast('Загружен пресет «Воскресный бранч: Омлет + Onsen Egg»');
+  } else if (presetKey === 'meal_prep') {
+    state.plannerQueue = [
+      {
+        id: 'step_' + Date.now() + '_1',
+        recipeId: 'veg-glazed-carrots',
+        title: 'Глазированная морковь и овощи су-вид',
+        tempC: 85.0,
+        timeMin: 60,
+        timeFormatted: '60 мин',
+        category: 'vegetables',
+        note: 'Первый этап высокой температуры (разрушение пектина).',
+        status: 'pending'
+      },
+      {
+        id: 'step_' + Date.now() + '_2',
+        recipeId: 'poultry-chicken-thighs-bone',
+        title: 'Куриные бёдра на кости сочные',
+        tempC: 74.0,
+        timeMin: 120,
+        timeFormatted: '2.0 часа',
+        category: 'poultry',
+        note: 'Сбросить ванну до 74°C, варить 2 часа до тающего коллагена.',
+        status: 'pending'
+      },
+      {
+        id: 'step_' + Date.now() + '_3',
+        recipeId: 'chef-chicken-tarragon',
+        title: 'Куриная грудка с соусом эстрагон',
+        tempC: 61.0,
+        timeMin: 90,
+        timeFormatted: '1.5 часа',
+        category: 'poultry',
+        note: 'Сбросить ванну до 61°C. После готовности — шоковое охлаждение в ледяной воде.',
+        status: 'pending'
+      }
+    ];
+    showToast('Загружен пресет «Meal Prep: Конвейер заготовок на неделю»');
+  }
+  savePlanner();
+  renderPlannerView();
+}
+
+function renderPlannerView() {
+  renderActiveTimers();
+
+  const countEl = document.getElementById('planner-queue-count');
+  if (countEl) countEl.textContent = state.plannerQueue.length;
+
+  const queueContainer = document.getElementById('planner-queue-container');
+  if (!queueContainer) return;
+
+  if (state.plannerQueue.length === 0) {
+    queueContainer.innerHTML = `
+      <div class="empty-planner-box">
+        <div style="font-size: 2.5rem; margin-bottom: 8px;">♨️</div>
+        <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+          Очередь одного су-вида пуста
+        </h4>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); max-width: 380px; margin: 0 auto 12px; line-height: 1.4;">
+          Каскадный метод позволяет приготовить ужин из нескольких блюд в одном аппарате. Нажмите на любой готовый каскад выше или кнопку «📅 В план» на карточке любого блюда в Книге.
+        </p>
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-primary btn-sm" onclick="loadPlannerPreset('chef_dinner')">
+            🍽 Загрузить «Шеф-Ужин»
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('recipes')">
+            📖 Выбрать в Книге
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  let html = '';
+  for (let i = 0; i < state.plannerQueue.length; i++) {
+    const step = state.plannerQueue[i];
+    const nextStep = state.plannerQueue[i + 1];
+    const isFirst = i === 0;
+    const isLast = i === state.plannerQueue.length - 1;
+
+    html += `
+      <div class="planner-step-card ${step.status === 'running' ? 'running' : (step.status === 'completed' ? 'completed' : '')}" id="step-${step.id}">
+        <div class="planner-step-header">
+          <div class="planner-step-num-badge">${i + 1}</div>
+          <div style="flex: 1; min-width: 0;">
+            <div class="planner-step-title">${escapeHtml(step.title)}</div>
+            <div class="planner-step-meta">
+              <span class="badge badge-temp">${step.tempC}°C</span>
+              <span class="badge badge-time">⏱ ${step.timeFormatted || (step.timeMin + ' мин')}</span>
+              ${step.status === 'running' ? '<span class="badge badge-running">🔥 Варится</span>' : ''}
+              ${step.status === 'completed' ? '<span class="badge badge-done">✅ Готово</span>' : ''}
+              ${step.status === 'holding' ? '<span class="badge badge-holding">♨️ В Holding</span>' : ''}
+            </div>
+            ${step.note ? `<div class="planner-step-note">💡 ${escapeHtml(step.note)}</div>` : ''}
+          </div>
+          <div class="planner-step-controls">
+            <button class="btn btn-primary btn-xs" onclick="startPlannerStep('${step.id}')" title="Запустить этот этап">
+              ▶️ Старт
+            </button>
+            <button class="btn btn-secondary btn-xs" onclick="togglePlannerStepComplete('${step.id}')" title="Отметить готовность">
+              ${step.status === 'completed' ? '↩️' : '✓'}
+            </button>
+            <button class="btn-step-move" onclick="movePlannerStep(${i}, -1)" ${isFirst ? 'disabled style="opacity: 0.3;"' : ''} title="Вверх">▲</button>
+            <button class="btn-step-move" onclick="movePlannerStep(${i}, 1)" ${isLast ? 'disabled style="opacity: 0.3;"' : ''} title="Вниз">▼</button>
+            <button class="btn-step-del" onclick="removePlannerStep('${step.id}')" title="Удалить">&times;</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Cascade Transition Indicator between steps
+    if (nextStep) {
+      const delta = step.tempC - nextStep.tempC;
+      if (delta > 0) {
+        html += `
+          <div class="cascade-transition">
+            <div class="cascade-transition-header">
+              <span class="cascade-transition-tag">🔻 СБРОС ТЕМПЕРАТУРЫ: -${delta.toFixed(1)}°C (${step.tempC}°C ➔ ${nextStep.tempC}°C)</span>
+              <span class="cascade-transition-time">⏱ 1–2 мин</span>
+            </div>
+            <div class="cascade-transition-desc">
+              🧊 <strong>Действие:</strong> Отлейте 1–2 ковша горячей воды и добавьте холодной воды из-под крана или кубиков льда до ${nextStep.tempC}°C.<br>
+              ♨️ <strong>Режим Holding:</strong> Пакет шага ${i + 1} оставьте прямо в ванне — при более низкой температуре он не переварится и останется горячим до подачи!
+            </div>
+          </div>
+        `;
+      } else if (delta === 0) {
+        html += `
+          <div class="cascade-transition cascade-same-temp">
+            <span>♨️ <strong>Одинаковая температура (${step.tempC}°C):</strong> можно закладывать пакеты одновременно в одну ванну!</span>
+          </div>
+        `;
+      } else {
+        html += `
+          <div class="cascade-transition cascade-temp-up">
+            <span class="cascade-transition-tag">⚠️ НАГРЕВ: +${Math.abs(delta).toFixed(1)}°C (${step.tempC}°C ➔ ${nextStep.tempC}°C)</span>
+            <div class="cascade-transition-desc">
+              Нагрев ванны со стейком внутри запрещен! Нажмите <strong>«⚡️ Оптимизировать»</strong>, чтобы переставить шаги от горячих к холодным (физика одного су-вида).
+            </div>
+          </div>
+        `;
+      }
+    }
+  }
+
+  queueContainer.innerHTML = html;
+}
+
+function openAddStepModal() {
+  const modal = document.getElementById('add-step-modal');
+  if (modal) modal.classList.add('active');
+}
+
+function closeAddStepModal() {
+  const modal = document.getElementById('add-step-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function submitAddStepForm() {
+  const title = (document.getElementById('step-input-title')?.value || '').trim();
+  const temp = parseFloat(document.getElementById('step-input-temp')?.value);
+  const time = parseInt(document.getElementById('step-input-time')?.value);
+  const note = (document.getElementById('step-input-note')?.value || '').trim();
+
+  if (!title) {
+    showToast('Введите название блюда или этапа');
+    return;
+  }
+  if (isNaN(temp) || temp < 30 || temp > 100) {
+    showToast('Укажите корректную температуру (30–95°C)');
+    return;
+  }
+  if (isNaN(time) || time <= 0) {
+    showToast('Укажите время в минутах');
+    return;
+  }
+
+  const step = {
+    id: 'step_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+    title: title,
+    tempC: temp,
+    timeMin: time,
+    timeFormatted: `${time} мин`,
+    category: 'custom',
+    note: note,
+    status: 'pending'
+  };
+
+  state.plannerQueue.push(step);
+  savePlanner();
+  renderPlannerView();
+  closeAddStepModal();
+  showToast(`Шаг «${title}» добавлен в план`);
+
+  if (document.getElementById('step-input-title')) document.getElementById('step-input-title').value = '';
+  if (document.getElementById('step-input-note')) document.getElementById('step-input-note').value = '';
 }
 
 // Custom Recipe Modal
@@ -5206,12 +5985,12 @@ function closeButcheryModal() {
   document.body.style.overflow = '';
 }
 
-const APP_VERSION = 'v3.10';
+const APP_VERSION = 'v3.11';
 
 // Show tactile version details toast
 function showAppVersionInfo() {
   const isOnline = navigator.onLine ? 'Онлайн 🟢' : 'Оффлайн (PWA кэш) 🟠';
-  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.10)' : 'Автономен';
+  const swState = (navigator.serviceWorker && navigator.serviceWorker.controller) ? 'Активен (v3.11)' : 'Автономен';
   const count = state.recipes ? state.recipes.length : 0;
   
   showToast(`⚡️ Sous-Vide Chef Lab ${APP_VERSION}\n• Сеть: ${isOnline}\n• Service Worker: ${swState}\n• Техкарт в базе: ${count}\n(Нажмите в меню «Сбросить кэш», если нужно форсировать обновление)`, 4500);

@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.10 - Kerr 8 oz Mason Jar Delicacies Edition)
-const CACHE_NAME = 'sous-vide-v3.10';
+// Service Worker: Sous-Vide Chef Lab (v3.11 - Single Sous-Vide Cascade Planner & Desserts Edition)
+const CACHE_NAME = 'sous-vide-v3.11';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.10',
-  './app.js?v=3.10',
+  './style.css?v=3.11',
+  './app.js?v=3.11',
   './manifest.json'
 ];
 
