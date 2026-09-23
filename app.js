@@ -3275,6 +3275,7 @@ function initApp() {
   initTheme();
   loadStoredData();
   setupNavigation();
+  setupStickyHeader();
   setupFilterChips();
   setupCalculator();
   setupShoppingList();
@@ -3444,6 +3445,88 @@ function savePlanner() {
 
 function saveMarketPrefs() {
   localStorage.setItem(STORAGE_KEYS.MARKET_PREFS, JSON.stringify(state.marketPrefs));
+}
+
+// =========================================
+// Sticky Header & Quick Navigation Engine
+// =========================================
+
+function setupStickyHeader() {
+  const header = document.getElementById('app-header') || document.querySelector('.app-header');
+  if (!header) return;
+
+  let isCompact = false;
+  let ticking = false;
+
+  function updateHeaderState() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const shouldBeCompact = scrollY > 35;
+    if (shouldBeCompact !== isCompact) {
+      isCompact = shouldBeCompact;
+      header.classList.toggle('header-compact', isCompact);
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderState);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateHeaderState();
+}
+
+function handleHeaderBrandClick() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleHeaderSearch() {
+  const searchBar = document.getElementById('header-search-bar');
+  const searchInput = document.getElementById('header-search-input');
+  const searchBtn = document.getElementById('header-search-btn');
+  if (!searchBar) return;
+
+  const isVisible = searchBar.style.display !== 'none';
+  if (isVisible) {
+    searchBar.style.display = 'none';
+    if (searchBtn) searchBtn.classList.remove('active');
+  } else {
+    // If not in recipes tab, switch to recipes first
+    if (state.activeTab !== 'recipes') {
+      switchTab('recipes');
+    }
+    searchBar.style.display = 'flex';
+    if (searchBtn) searchBtn.classList.add('active');
+    if (searchInput) {
+      searchInput.value = state.searchQuery || '';
+      searchInput.focus();
+    }
+  }
+}
+
+function handleHeaderSearchInput(val) {
+  state.searchQuery = val || '';
+  const mainInput = document.getElementById('recipe-search-input');
+  if (mainInput && mainInput.value !== state.searchQuery) {
+    mainInput.value = state.searchQuery;
+  }
+  const mainClear = document.getElementById('recipe-search-clear');
+  if (mainClear) {
+    mainClear.style.display = state.searchQuery.length > 0 ? 'block' : 'none';
+  }
+  renderRecipes();
+}
+
+function clearHeaderSearch() {
+  const headerInput = document.getElementById('header-search-input');
+  if (headerInput && headerInput.value) {
+    headerInput.value = '';
+    handleHeaderSearchInput('');
+  } else {
+    toggleHeaderSearch();
+  }
 }
 
 // Navigation between views
@@ -3667,6 +3750,10 @@ function resetRecipeFilter() {
 
 function handleRecipeSearch(val) {
   state.searchQuery = val || '';
+  const headerInput = document.getElementById('header-search-input');
+  if (headerInput && headerInput.value !== state.searchQuery) {
+    headerInput.value = state.searchQuery;
+  }
   const clearBtn = document.getElementById('recipe-search-clear');
   if (clearBtn) {
     clearBtn.style.display = state.searchQuery.length > 0 ? 'block' : 'none';
@@ -3678,6 +3765,8 @@ function clearRecipeSearch() {
   state.searchQuery = '';
   const input = document.getElementById('recipe-search-input');
   if (input) input.value = '';
+  const headerInput = document.getElementById('header-search-input');
+  if (headerInput) headerInput.value = '';
   const clearBtn = document.getElementById('recipe-search-clear');
   if (clearBtn) clearBtn.style.display = 'none';
   renderRecipes();
@@ -6436,10 +6525,14 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeImageModal();
     closeButcheryModal();
+    const searchBar = document.getElementById('header-search-bar');
+    if (searchBar && searchBar.style.display !== 'none') {
+      clearHeaderSearch();
+    }
   }
 });
 
-const APP_VERSION = 'v3.13';
+const APP_VERSION = 'v3.14';
 
 // Show tactile version details toast
 function showAppVersionInfo() {

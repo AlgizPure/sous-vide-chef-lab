@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.13 - Hlebopechka Recipes & Photo Gallery Edition)
-const CACHE_NAME = 'sous-vide-v3.13';
+// Service Worker: Sous-Vide Chef Lab (v3.14 - Sticky Compact Header & Quick Navigation)
+const CACHE_NAME = 'sous-vide-v3.14';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.13',
-  './app.js?v=3.13',
+  './style.css?v=3.14',
+  './app.js?v=3.14',
   './manifest.json'
 ];
 
