@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Sous-Vide Chef Lab</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#7fd0ff",
+            "sky": "#38bdf8",
+            "emerald-glow": "rgba(16, 185, 129, 0.18)",
+            "text-muted": "#64748b",
+            "on-tertiary": "#00344a",
+            "text-primary": "#f8fafc",
+            "on-tertiary-fixed": "#001e2d",
+            "on-primary": "#472a00",
+            "on-surface": "#f0e0d1",
+            "secondary": "#c3c6d3",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#004966",
+            "primary-fixed": "#ffddb8",
+            "on-error": "#690005",
+            "error": "#ffb4ab",
+            "tertiary-container": "#1abdff",
+            "outline": "#a08e7a",
+            "on-primary-fixed-variant": "#653e00",
+            "inverse-on-surface": "#382f25",
+            "primary-fixed-dim": "#ffb95f",
+            "outline-variant": "#534434",
+            "emerald": "#10b981",
+            "surface-container": "#261e15",
+            "surface": "#12161f",
+            "on-secondary": "#2c303a",
+            "on-background": "#f0e0d1",
+            "border-subtle": "rgba(255, 255, 255, 0.08)",
+            "surface-container-high": "#31281f",
+            "text-secondary": "#94a3b8",
+            "primary-container": "#f59e0b",
+            "surface-variant": "#3c3329",
+            "on-primary-fixed": "#2a1700",
+            "ruby": "#ef4444",
+            "tertiary": "#8fd5ff",
+            "on-tertiary-fixed-variant": "#004c6a",
+            "surface-highlight": "#242d3d",
+            "ruby-glow": "rgba(239, 68, 68, 0.18)",
+            "surface-dim": "#19120a",
+            "amber-glow": "rgba(245, 158, 11, 0.18)",
+            "surface-container-highest": "#3c3329",
+            "on-secondary-fixed-variant": "#434751",
+            "primary": "#ffc174",
+            "surface-container-low": "#221a12",
+            "surface-bright": "#41382e",
+            "tertiary-fixed": "#c5e7ff",
+            "background": "#19120a",
+            "secondary-fixed-dim": "#c3c6d3",
+            "secondary-container": "#454953",
+            "on-secondary-container": "#b5b8c4",
+            "secondary-fixed": "#dfe2ef",
+            "surface-hover": "#1a202c",
+            "on-surface-variant": "#d8c3ad",
+            "on-secondary-fixed": "#181c25",
+            "canvas": "#0a0c10",
+            "border": "#1e293b",
+            "on-primary-container": "#613b00",
+            "inverse-primary": "#855300",
+            "inverse-surface": "#f0e0d1",
+            "surface-tint": "#ffb95f",
+            "sky-glow": "rgba(56, 189, 248, 0.18)",
+            "amber": "#f59e0b",
+            "surface-container-lowest": "#140d06"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "gutter": "16px",
+            "space-xl": "24px",
+            "space-sm": "8px",
+            "space-md": "12px",
+            "space-lg": "16px",
+            "margin": "16px"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "heading-1": ["Inter"],
+            "temperature": ["JetBrains Mono"],
+            "body": ["Inter"],
+            "heading-2": ["Inter"]
+          },
+          "fontSize": {
+            "caption": ["0.75rem", { "lineHeight": "1.4", "fontWeight": "600" }],
+            "heading-1": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "temperature": ["1.05rem", { "lineHeight": "1.2", "fontWeight": "800" }],
+            "body": ["0.9rem", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "heading-2": ["1.1rem", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-canvas text-text-primary min-h-screen font-body antialiased pb-24 selection:bg-amber selection:text-canvas">
+<!-- Mobile Outer Frame Wrapper -->
+<div class="max-w-[420px] mx-auto min-h-screen bg-canvas flex flex-col relative shadow-2xl">
+<!-- 1. Top Sticky Compact Header -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-[18px] border-b border-border px-3.5 py-2.5 flex items-center justify-between transition-colors">
+<!-- Left side: Hamburger Button + Title & Micro-Badges -->
+<div class="flex items-center gap-2.5">
+<button aria-label="Меню" class="relative w-9 h-9 rounded-xl bg-surface-highlight/70 border border-border flex items-center justify-center text-text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+<span class="absolute -top-1 -right-1 bg-amber text-canvas text-[10px] font-temperature font-bold px-1.5 py-0.2 rounded-full ring-2 ring-surface shadow-sm">104</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-heading-2 text-heading-2 text-text-primary tracking-tight font-bold">Sous-Vide Lab</span>
+<span class="text-[10px] font-caption bg-surface-highlight border border-border px-1.5 py-0.5 rounded text-text-muted">v3.14</span>
+</div>
+<span class="text-[9px] font-caption tracking-wider text-amber uppercase font-semibold">CHEF GUIDE &amp; TIMER</span>
+</div>
+</div>
+<!-- Right side: Quick Action Buttons -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Поиск" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+<button aria-label="Переключить тему" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-amber active:scale-95 transition">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<button aria-label="Создать рецепт" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button aria-label="Уведомления" class="relative w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-amber ring-2 ring-surface"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-3.5 pt-3.5 space-y-4">
+<!-- 2. Search Bar -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-muted">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</div>
+<input class="w-full bg-surface text-text-primary text-caption font-caption placeholder:text-text-muted/70 pl-9 pr-3.5 py-2.5 rounded-xl border border-border focus:border-amber focus:ring-1 focus:ring-amber focus:outline-none transition-colors shadow-inner" placeholder="🔍 Поиск: стейк, утка, лопатка, ветчина, соус..." type="text"/>
+</div>
+<!-- 3. Horizontal Category Hub Chips -->
+<nav aria-label="Категории блюд" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber text-canvas font-caption text-caption shadow-[0_0_12px_rgba(245,158,11,0.35)] transition-all">
+<span>🍽</span>
+<span>Все блюда</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>❤️</span>
+<span>Избранное</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>🍳</span>
+<span>Завтраки</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>🥩</span>
+<span>Мясо и Птица</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>🐟</span>
+<span>Рыба и Море</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>🥦</span>
+<span>Гарниры и Супы</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>🍰</span>
+<span>Десерты</span>
+</button>
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface border border-border text-text-secondary hover:text-text-primary font-caption text-caption transition-colors">
+<span>📸</span>
+<span>С фото</span>
+</button>
+</nav>
+<!-- 4. Recipe Cards Feed -->
+<section aria-label="Список рецептов" class="space-y-4">
+<!-- Card 1: Salmon Hero -->
+<article class="bg-surface rounded-xl border border-border overflow-hidden shadow-lg shadow-canvas/40 transition-all hover:border-border-subtle">
+<!-- Image Banner Container -->
+<div class="relative w-full h-44 overflow-hidden bg-surface-highlight">
+<img alt="Лосось со сливочным маслом и тимьяном" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvsGpKYMR9YPnjpMsSdtBGxwUE5anfHld0Kb_51LdTCStMEEcfUyGcfBPcZ49ug4b3Nmcvd7iK4Y0ARcXbnezuh-2J1iwETBYqS4WjMt98UOS8PyNbGVLuGddZS-R18c6lJY8AznRgfGwkkM3rtHDgeHbzIHexqsREmuhYVXF_XezvRyS1Zuaz0i8w2BfQZxOWVJUKAX24rw9tEwehmxVM23yIuClaH9_Oz6A-blKuI4jprX-jAqJ-g-_j_HDku_-O4CV9F-vqkuo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"></div>
+<!-- Top Left Emerald Pill -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-surface/90 border border-emerald/40 backdrop-blur-md px-2.5 py-1 rounded-full text-emerald text-[11px] font-caption shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+<span class="material-symbols-outlined text-[13px]">photo_camera</span>
+<span>Реальное фото</span>
+</div>
+<!-- Top Right Glowing Monospace Amber Pill -->
+<div class="absolute top-2.5 right-2.5 bg-canvas/90 border border-amber/50 backdrop-blur-md px-2.5 py-1 rounded-full text-amber font-temperature text-[12px] font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber animate-pulse"></span>
+<span>55°C • 80 мин</span>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-3.5 space-y-3">
+<div>
+<h2 class="font-heading-2 text-heading-2 text-text-primary leading-tight hover:text-primary transition-colors">
+                Лосось со сливочным маслом и тимьяном (Хлебопечка #442074)
+              </h2>
+</div>
+<!-- Spec Tags Row -->
+<div class="flex flex-wrap items-center gap-1.5 text-[11px] font-caption text-text-secondary">
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>🧂</span> Посол: 2% морская соль
+              </span>
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>📦</span> Пакет: Вакуум / zip-lock
+              </span>
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>🔪</span> Срез: 40 мм
+              </span>
+</div>
+<!-- Chef Tips Pill -->
+<div class="flex items-center gap-1.5 bg-amber/10 border border-amber/20 px-2.5 py-1 rounded-lg text-primary text-[11px] font-caption">
+<span class="material-symbols-outlined text-[14px] text-amber">auto_awesome</span>
+<span>Anti-Albumin режим • Нежнейшая текстура</span>
+</div>
+<!-- Action Buttons Row -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-ruby hover:bg-ruby/10 flex items-center justify-center active:scale-95 transition" title="В избранное">
+<span class="text-sm">❤️</span>
+</button>
+<button class="h-9 rounded-xl bg-amber/15 border border-amber/30 text-amber font-caption text-[11px] font-semibold flex items-center justify-center gap-1 active:scale-95 transition" title="В план">
+<span>⚡️</span>
+<span>В план</span>
+</button>
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-text-secondary hover:text-text-primary font-caption text-[11px] flex items-center justify-center gap-1 active:scale-95 transition" title="В список покупок">
+<span>🛒</span>
+<span>В список</span>
+</button>
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-text-secondary hover:text-text-primary font-caption text-[11px] flex items-center justify-center gap-0.5 active:scale-95 transition" title="Техкарта">
+<span>📖</span>
+<span>Техкарта ▾</span>
+</button>
+</div>
+<!-- Expanded Preview Snippet of Tech Card -->
+<div class="p-2.5 rounded-xl bg-canvas/70 border border-border/80 text-[11px] font-body text-text-secondary leading-relaxed flex items-start gap-2">
+<span class="material-symbols-outlined text-amber text-[16px] shrink-0 mt-0.5">terminal</span>
+<span>
+<strong class="text-text-primary">Протокол:</strong> Рассол 30 мин → Ополаскивание → Сливочное масло 20г + ветка тимьяна → 55°C водяная баня
+              </span>
+</div>
+</div>
+</article>
+<!-- Card 2: Striploin Steak -->
+<article class="bg-surface rounded-xl border border-border overflow-hidden shadow-lg shadow-canvas/40 transition-all hover:border-border-subtle">
+<!-- Image Banner Container -->
+<div class="relative w-full h-44 overflow-hidden bg-surface-highlight">
+<img alt="Pepper Стейк стриплойн от Шефа" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbCa2DIx4joTGrUGiajmxMuZWmisleqC9_1mfQ2B9XtAj0bEjSvF0pibGzP-2GO7mU1wzlgTjse6X0NqqkWwWrXfZ9wIU63V7dkYJZEgE40Ddpfy__Ar5vOHNJsJqWll8psAljhaVxWYDWo2KI_XBWaBL93GSCB7IrRNNQUNxV0kEelI5efQn4w3Mw1zU1AfEKZ_DQGtGYtT-eEy6K8UoDYHfBWIoLlKtwcW9IWc-1UvXQxk425LwrdC46SOxttMD2EY0Flnt93iw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"></div>
+<!-- Top Left Emerald Pill -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-surface/90 border border-emerald/40 backdrop-blur-md px-2.5 py-1 rounded-full text-emerald text-[11px] font-caption shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+<span class="material-symbols-outlined text-[13px]">photo_camera</span>
+<span>Реальное фото</span>
+</div>
+<!-- Top Right Glowing Monospace Amber Pill -->
+<div class="absolute top-2.5 right-2.5 bg-canvas/90 border border-amber/50 backdrop-blur-md px-2.5 py-1 rounded-full text-amber font-temperature text-[12px] font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber animate-pulse"></span>
+<span>56°C • 2.5ч</span>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-3.5 space-y-3">
+<div>
+<h2 class="font-heading-2 text-heading-2 text-text-primary leading-tight hover:text-primary transition-colors">
+                Pepper Стейк стриплойн от Шефа
+              </h2>
+</div>
+<!-- Spec Tags Row -->
+<div class="flex flex-wrap items-center gap-1.5 text-[11px] font-caption text-text-secondary">
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>♨️</span> Steba SV-1
+              </span>
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>🧂</span> Сухой посол 1.5%
+              </span>
+<span class="bg-surface-highlight/80 border border-border px-2 py-0.5 rounded-lg flex items-center gap-1">
+<span>🔥</span> Финишный колер 45 сек
+              </span>
+</div>
+<!-- Action Buttons Row -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-ruby hover:bg-ruby/10 flex items-center justify-center active:scale-95 transition" title="В избранное">
+<span class="text-sm">❤️</span>
+</button>
+<button class="h-9 rounded-xl bg-amber/15 border border-amber/30 text-amber font-caption text-[11px] font-semibold flex items-center justify-center gap-1 active:scale-95 transition" title="В план">
+<span>⚡️</span>
+<span>В план</span>
+</button>
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-text-secondary hover:text-text-primary font-caption text-[11px] flex items-center justify-center gap-1 active:scale-95 transition" title="В список покупок">
+<span>🛒</span>
+<span>В список</span>
+</button>
+<button class="h-9 rounded-xl bg-surface-highlight border border-border text-text-secondary hover:text-text-primary font-caption text-[11px] flex items-center justify-center gap-0.5 active:scale-95 transition" title="Техкарта">
+<span>📖</span>
+<span>Техкарта ▾</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- 5. Fixed Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-lg border-t border-border shadow-lg shadow-canvas/50">
+<div class="max-w-[420px] mx-auto flex items-center justify-around px-2 py-2">
+<!-- Tab 1: Рецепты (Active) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary font-caption p-1.5 rounded-lg bg-surface-highlight relative active:scale-95 transition-transform" href="#recipes">
+<span class="text-[17px] mb-0.5">🍽</span>
+<span class="text-[10px] tracking-tight">Рецепты</span>
+<span class="absolute -top-1 w-5 h-0.5 bg-amber rounded-full shadow-[0_0_8px_#f59e0b]"></span>
+</a>
+<!-- Tab 2: Планировщик -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-text-primary font-caption p-1.5 active:scale-95 transition-transform" href="#planner">
+<span class="text-[17px] mb-0.5">⚡️</span>
+<span class="text-[10px] tracking-tight">Планировщик</span>
+</a>
+<!-- Tab 3: Калькулятор -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-text-primary font-caption p-1.5 active:scale-95 transition-transform" href="#calc">
+<span class="text-[17px] mb-0.5">🧂</span>
+<span class="text-[10px] tracking-tight">Калькулятор</span>
+</a>
+<!-- Tab 4: Покупки -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-text-primary font-caption p-1.5 active:scale-95 transition-transform" href="#cart">
+<span class="text-[17px] mb-0.5">🛒</span>
+<span class="text-[10px] tracking-tight">Покупки</span>
+</a>
+<!-- Tab 5: База знаний -->
+<a class="flex flex-col items-center justify-center text-text-muted hover:text-text-primary font-caption p-1.5 active:scale-95 transition-transform" href="#kb">
+<span class="text-[17px] mb-0.5">📖</span>
+<span class="text-[10px] tracking-tight">База знаний</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

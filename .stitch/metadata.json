@@ -1,0 +1,42 @@
+{
+  "name": "projects/6615989513165346535",
+  "projectId": "6615989513165346535",
+  "title": "Sous-Vide Chef Lab",
+  "url": "https://stitch.withgoogle.com/",
+  "visibility": "PRIVATE",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "designSystem": {
+    "assetId": "1321c04a9037437393b8db76ac8173f1",
+    "designSystemRef": "assets/1321c04a9037437393b8db76ac8173f1",
+    "designMdScreenInstance": {
+      "id": "4419882319258208178",
+      "sourceScreen": "projects/6615989513165346535/screens/4419882319258208178"
+    },
+    "source": ".stitch/DESIGN.md"
+  },
+  "screens": {
+    "anchor-cookbook-sticky-header": {
+      "id": "7c7a89453db04bc48698314d01f1c11b",
+      "sourceScreen": "projects/6615989513165346535/screens/7c7a89453db04bc48698314d01f1c11b",
+      "title": "Sous-Vide Chef Lab — Cookbook & Sticky Compact Header",
+      "deviceType": "MOBILE",
+      "width": 780,
+      "height": 2250,
+      "screenshotUrl": "https://lh3.googleusercontent.com/aida/AEtjO1XtBiBzE8017p-9UCOXQc6Ivx69SarPqF7tqWZmnDU63MTwqP6rFhw_I-hF8gLOoPdErcc2EH2mpbVmFOPmrvV1H_u7YAF4239l6QT_3zynkMHHJiC16AzBb5coN4zrIoDcx1ytWEF6TdiLFT1zQPG21wL2J__-OISkTlh4WL18tThKL7Mfb7bPuEI9h-ZwokXgph_WzmAxQbDdAgvOt5mzYmgjJtMSg4lzViOBLd-FQaATxBXCjalZy7k",
+      "htmlBackup": ".stitch/anchor_screen.html"
+    },
+    "cascade-planner": {
+      "title": "Single Sous-Vide Cascade Planner (Каскадный планировщик одного аппарата)",
+      "deviceType": "MOBILE"
+    },
+    "salt-calculator-butchery": {
+      "title": "Salt Cure Calculator & Beef Butchery Guide (Калькулятор сухого посола и Атлас говядины)",
+      "deviceType": "MOBILE"
+    },
+    "shopping-list-spices": {
+      "title": "Categorized Shopping List & Chef Demian Spices (Список покупок со специями)",
+      "deviceType": "MOBILE"
+    }
+  }
+}
