@@ -124,33 +124,33 @@
 <!-- Mobile Outer Frame Wrapper -->
 <div class="max-w-[420px] mx-auto min-h-screen bg-canvas flex flex-col relative shadow-2xl">
 <!-- 1. Top Sticky Compact Header -->
-<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-[18px] border-b border-border px-3.5 py-2.5 flex items-center justify-between transition-colors">
-<!-- Left side: Hamburger Button + Title & Micro-Badges -->
-<div class="flex items-center gap-2.5">
-<button aria-label="Меню" class="relative w-9 h-9 rounded-xl bg-surface-highlight/70 border border-border flex items-center justify-center text-text-secondary active:scale-95 transition-transform">
-<span class="material-symbols-outlined text-[20px]">menu</span>
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-[18px] border-b border-border px-3 py-2 flex items-center justify-between transition-colors">
+<!-- Left side: Hamburger Button + Title & Subtitle with Version Badge -->
+<div class="flex items-center gap-2">
+<button aria-label="Меню" class="relative w-9 h-9 rounded-xl bg-surface-highlight/70 border border-border flex items-center justify-center text-text-secondary active:scale-95 transition-transform shrink-0">
+<span class="material-symbols-outlined text-[19px]">menu</span>
 <span class="absolute -top-1 -right-1 bg-amber text-canvas text-[10px] font-temperature font-bold px-1.5 py-0.2 rounded-full ring-2 ring-surface shadow-sm">104</span>
 </button>
-<div class="flex flex-col">
-<div class="flex items-center gap-1.5">
-<span class="font-heading-2 text-heading-2 text-text-primary tracking-tight font-bold">Sous-Vide Lab</span>
-<span class="text-[10px] font-caption bg-surface-highlight border border-border px-1.5 py-0.5 rounded text-text-muted">v3.14</span>
+<div class="flex flex-col min-w-0">
+<span class="font-heading-2 text-heading-2 text-text-primary tracking-tight font-bold text-[15px] leading-tight whitespace-nowrap">Sous-Vide Lab</span>
+<div class="flex items-center gap-1.5 mt-0.5 whitespace-nowrap">
+<span class="text-[9px] font-mono bg-amber/15 border border-amber/35 px-1 py-0.2 rounded text-amber font-bold leading-none shrink-0">v3.14</span>
+<span class="text-[9px] font-caption tracking-wider text-amber uppercase font-semibold leading-none">CHEF GUIDE</span>
 </div>
-<span class="text-[9px] font-caption tracking-wider text-amber uppercase font-semibold">CHEF GUIDE &amp; TIMER</span>
 </div>
 </div>
-<!-- Right side: Quick Action Buttons -->
-<div class="flex items-center gap-1.5">
-<button aria-label="Поиск" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<!-- Right side: Quick Action Buttons (Uniform 36x36) -->
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Поиск" class="w-9 h-9 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition shrink-0">
 <span class="material-symbols-outlined text-[18px]">search</span>
 </button>
-<button aria-label="Переключить тему" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-amber active:scale-95 transition">
+<button aria-label="Переключить тему" class="w-9 h-9 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-amber active:scale-95 transition shrink-0">
 <span class="material-symbols-outlined text-[18px]">dark_mode</span>
 </button>
-<button aria-label="Создать рецепт" class="w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<button aria-label="Создать рецепт" class="w-9 h-9 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition shrink-0">
 <span class="material-symbols-outlined text-[18px]">add</span>
 </button>
-<button aria-label="Уведомления" class="relative w-8 h-8 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition">
+<button aria-label="Уведомления" class="relative w-9 h-9 rounded-xl bg-surface-highlight/60 border border-border flex items-center justify-center text-text-secondary hover:text-text-primary active:scale-95 transition shrink-0">
 <span class="material-symbols-outlined text-[18px]">notifications</span>
 <span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-amber ring-2 ring-surface"></span>
 </button>
