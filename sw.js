@@ -1,10 +1,10 @@
-// Service Worker: Sous-Vide Chef Lab (v3.14 - Sticky Compact Header & Quick Navigation)
-const CACHE_NAME = 'sous-vide-v3.14';
+// Service Worker: Sous-Vide Chef Lab (v3.14.1 - Consistent Header Icons & Version Badge Fix)
+const CACHE_NAME = 'sous-vide-v3.14.1';
 const ASSETS = [
   './',
   './index.html',
-  './style.css?v=3.14',
-  './app.js?v=3.14',
+  './style.css?v=3.14.1',
+  './app.js?v=3.14.1',
   './manifest.json'
 ];
 

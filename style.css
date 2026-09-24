@@ -158,8 +158,9 @@ option {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .brand-text-wrap {
@@ -168,48 +169,36 @@ option {
   flex-direction: column;
   justify-content: center;
   user-select: none;
+  cursor: pointer;
 }
 
 .brand-title {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   white-space: nowrap;
-  transition: font-size 0.2s ease;
-}
-
-.header-compact .brand-title {
-  font-size: 0.98rem;
+  line-height: 1.2;
 }
 
 .brand-subtitle {
-  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
   color: var(--accent-amber);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   white-space: nowrap;
-  max-height: 18px;
-  opacity: 1;
-  transition: max-height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.2s ease,
-              transform 0.2s ease;
-}
-
-.header-compact .brand-subtitle {
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-4px);
-  pointer-events: none;
-  margin: 0;
-  overflow: hidden;
+  line-height: 1.2;
+  margin-top: 1px;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
@@ -225,7 +214,7 @@ option {
   justify-content: center;
   cursor: pointer;
   box-shadow: var(--shadow-card);
-  transition: width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
   flex-shrink: 0;
 }
 .btn-icon:hover, .btn-icon:active {
@@ -237,12 +226,6 @@ option {
   color: var(--accent-amber);
   border-color: var(--accent-amber);
   background: rgba(245, 158, 11, 0.12);
-}
-
-.header-compact .btn-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
 }
 
 /* Expandable Header Search Bar */
@@ -302,22 +285,31 @@ option {
 }
 
 @media (max-width: 420px) {
+  .app-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .app-header.header-compact {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   .header-actions {
-    gap: 5px;
+    gap: 4px;
   }
-  .btn-icon {
-    width: 35px;
-    height: 35px;
+  .brand {
+    gap: 7px;
   }
-  .header-compact .btn-icon {
-    width: 32px;
-    height: 32px;
+  .btn-icon,
+  .btn-menu-trigger {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
   }
   .brand-title {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
-  .header-compact .brand-title {
-    font-size: 0.94rem;
+  .brand-subtitle-extra {
+    display: none;
   }
 }
 
@@ -547,18 +539,20 @@ option {
 .app-version-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 10px;
+  padding: 1px 5px;
+  border-radius: 6px;
   background: rgba(245, 158, 11, 0.16);
   color: var(--accent-amber);
   border: 1px solid rgba(245, 158, 11, 0.35);
   cursor: pointer;
   user-select: none;
-  transition: all 0.18s ease;
   line-height: 1.2;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
 }
 .app-version-badge:hover {
   background: var(--accent-amber);
@@ -1867,9 +1861,9 @@ textarea.input-field {
 ========================================= */
 
 .btn-menu-trigger {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
@@ -1880,16 +1874,7 @@ textarea.input-field {
   box-shadow: var(--shadow-card);
   position: relative;
   flex-shrink: 0;
-  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              border-radius 0.2s ease,
-              background 0.2s ease,
-              border-color 0.2s ease;
-}
-.header-compact .btn-menu-trigger {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
 }
 .btn-menu-trigger:hover, .btn-menu-trigger:active {
   background: var(--bg-card-hover);

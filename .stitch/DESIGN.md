@@ -63,9 +63,10 @@ A professional culinary workstation for precision low-temperature cooking (Sous-
 ## 3. Core Component Architecture
 
 ### A. Sticky Compact Header (`.app-header`)
-- **Initial Normal State:** Height ~68px, Brand Title "Sous-Vide Lab", version badge "v3.14", subtitle "Chef Guide & Timer". Left menu drawer trigger button with recipe count badge `104`. Right action buttons (Search, Theme, Add recipe, Notifications).
-- **Scrolled Compact State (`.header-compact`):** Pinned to viewport top (`position: sticky; top: 0; z-index: 95;`), height shrinks to 49px, frosted glass background (`rgba(18, 22, 31, 0.94)` with `backdrop-filter: blur(18px)`), subtitle collapses smoothly, brand title drops to 0.98rem.
-- **Expandable Compact Search:** Clicking search reveals inline input with instant live recipe filtering.
+- **Consistent Icon Sizing:** All action buttons (`.btn-icon`) and the navigator drawer trigger (`.btn-menu-trigger`) share identical, uniform dimensions (38px × 38px on desktop, 36px × 36px on mobile) and identical border-radius (10px / 9px). Button sizes do NOT shrink or jump when scrolling down, ensuring tactile muscle memory.
+- **Unobstructed Version Badge (`v3.14`):** Version pill badge is cleanly nested inside the brand subtitle row (`.brand-subtitle`), preventing horizontal collisions with the search icon button (`#header-search-btn`) across all screen widths (360px–640px).
+- **Scrolled Compact State (`.header-compact`):** Pinned to viewport top (`position: sticky; top: 0; z-index: 95;`), height docks gracefully to ~50px via reduced vertical padding, frosted glass background (`rgba(18, 22, 31, 0.94)` with `backdrop-filter: blur(18px)`), subtle border and elevation shadow.
+- **Expandable Compact Search:** Clicking the search icon expands an inline input with instant live recipe filtering.
 
 ### B. Recipe Cookbook Cards (`.card-recipe`)
 - **Hero Media Banner:** Full-width appetizing food photograph with gradient fade, top-left pill badge `📸 Реальное фото`, and top-right cooking temp & time pill (`55°C • 80 мин`).
